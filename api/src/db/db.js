@@ -1,4 +1,4 @@
- octa
+
 import Sequelize, { HasMany } from "sequelize";
 
 export const sequelize = new Sequelize(
@@ -11,6 +11,6 @@ export const sequelize = new Sequelize(
     }
 )
 
-// RELATIONS
+
 
 
