@@ -1,69 +1,72 @@
-const { Products, Type } =  require( "../db");
+const { Products, Type } = require("../db");
 const { Op } = require("sequelize");
 
-const getProducts = async() => {
+const getProducts = async () => {
     try {
         const products = await Products.findAll({
-            include:{
-                model:Type,
-                attributes:["name"],
-                through : {attributes:[]}
+            include: {
+                model: Type,
+                attributes: ["name"],
+                through: {
+                    attributes: []
+                }
             }
         })
-        const result = await products.map(e=>{
-            return{
-                id:e.id,
+        console.log(products)
+        const result = await products.map(e => {
+            return {
+                id: e.id,
                 name: e.name,
-                amount:e.amount,
-                price:e.price,
-                description:e.description,
-                img:e.img,
-                comments:e.comments,
-                type: e.type
+                amount: e.amount,
+                price: e.price,
+                description: e.description,
+                img: e.img,
+                comments: e.comments,
+                type: e.types
             }
         })
         return result;
-       
+
     } catch (error) {
         console.log(error)
     }
 }
 
 
- const getProduct = async (name) => {
+const getProduct = async (name) => {
     try {
-      
+
         const productname = await Products.findAll({
             where: {
-                name:{[Op.iLike]: `%${name}%`}
+                name: { [Op.iLike]: `%${name}%` }
             },
-            include:{
-                model:Type,
+            include: {
+                model: Type,
                 attributes: ["name"],
                 through: {
-                  attributes: [],
-                }   
+                    attributes: [],
+                }
             }
         })
 
-        const res = await productname.map(e=>{
-            return{
-                id:e.id,
+        const res = await productname.map(e => {
+            return {
+                id: e.id,
                 name: e.name,
-                amount:e.amount,
-                price:e.price,
-                description:e.description,
-                img:e.img,
-                comments:e.comments,
+                amount: e.amount,
+                price: e.price,
+                description: e.description,
+                img: e.img,
+                comments: e.comments,
                 type: e.type
             }
         })
-        return(res)
-        
+        return (res)
+
     } catch (error) {
         return res.status(400).json({ msg: error.msg })
     }
-} 
+}
 
 
 
@@ -98,4 +101,4 @@ const getProducts = async() => {
         return res.status(400).json({ msg: error.msg })
     }
 } */
-module.exports = {getProduct, getProducts}
+module.exports = { getProduct, getProducts }
