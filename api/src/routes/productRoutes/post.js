@@ -16,11 +16,11 @@ router.post("/", async(req,res)=>{
             img,
         })
 
-        let types = await Type.findAll({
-            where: {name: type},
-          });
+        let typedb = await Type.findAll({
+            where: { name: type }
+        })
 
-         newProduct.addType(types);
+         newProduct.addType(typedb);
          res.send(newProduct)
 
     } catch (error) {

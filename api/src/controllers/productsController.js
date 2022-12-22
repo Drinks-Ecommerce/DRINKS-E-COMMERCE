@@ -6,11 +6,9 @@ const getProducts = async() => {
         const products = await Products.findAll({
             include:{
                 model:Type,
-                attributes: ["name"],
-                through: {
-                  attributes: [],
-                }   
-            }   
+                attributes:["name"],
+                through : {attributes:[]}
+            }
         })
         const result = await products.map(e=>{
             return{
@@ -21,7 +19,7 @@ const getProducts = async() => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type.map(e=> e.name)
+                type: e.type
             }
         })
         return result;
@@ -57,7 +55,7 @@ const getProducts = async() => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type.map(e=> e.name)
+                type: e.type
             }
         })
         return(res)
