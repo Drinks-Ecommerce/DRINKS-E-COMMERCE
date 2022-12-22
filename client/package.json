@@ -9,8 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "thunk": "^0.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
