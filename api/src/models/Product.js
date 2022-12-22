@@ -1,35 +1,37 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from '../db/db.js';
+const { DataTypes} = require('sequelize');
 
-export const Product = sequelize.define('products', {
+
+module.exports = (sequelize)=>{ 
+    sequelize.define('products', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     amount: {
         type: DataTypes.STRING
     },
-    worth: {
-        type: DataTypes.INTEGER
+    price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    description:{
+        type:DataTypes.STRING
+    },
+    img:{
+        type:DataTypes.STRING
+    },
+    comments:{
+        type:DataTypes.STRING
     }
 },
     {
         timestamps: false
     })
 
-// RELATIONS
-import { TypeDrink } from "./TypeDrink.js";
+}
 
-TypeDrink.hasMany(Product, {
-    foreignKey: 'productId',
-    sourceKey: 'id'
-})
-
-Product.belongsTo(TypeDrink, {
-    foreignKey: 'productId',
-    targetId: 'id'
-})
