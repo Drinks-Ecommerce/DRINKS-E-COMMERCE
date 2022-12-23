@@ -7,7 +7,7 @@ const router = Router();
 router.post("/", async (req, res) => {
 
     try {
-        const { name, amount, price, description, img, type } = req.body
+        const { name, amount, price, description, img, types } = req.body
         const newProduct = await Products.create({
             name,
             amount,
@@ -16,9 +16,9 @@ router.post("/", async (req, res) => {
             img,
         })
 
-        let types = await Type.findAll({
-            where: { name: type },
-        });
+        let typedb = await Type.findAll({
+            where: { name: type }
+        })
 
         newProduct.addType(types);
         res.send(newProduct)

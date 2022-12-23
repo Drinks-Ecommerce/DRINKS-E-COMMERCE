@@ -17,12 +17,12 @@ const getProducts = async () => {
             return {
                 id: e.id,
                 name: e.name,
-                amount: e.amount,
-                price: e.price,
-                description: e.description,
-                img: e.img,
-                comments: e.comments,
-                type: e.types
+                amount:e.amount,
+                price:e.price,
+                description:e.description,
+                img:e.img,
+                comments:e.comments,
+                type: e.type
             }
         })
         return result;
@@ -53,11 +53,11 @@ const getProduct = async (name) => {
             return {
                 id: e.id,
                 name: e.name,
-                amount: e.amount,
-                price: e.price,
-                description: e.description,
-                img: e.img,
-                comments: e.comments,
+                amount:e.amount,
+                price:e.price,
+                description:e.description,
+                img:e.img,
+                comments:e.comments,
                 type: e.type
             }
         })
@@ -103,4 +103,3 @@ const getProduct = async (name) => {
 } */
 
 module.exports = {getProduct, getProducts}
-
