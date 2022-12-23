@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
             where: { name: types }
         })
 
+
         newProduct.addType(typedb);
         res.send(newProduct)
 

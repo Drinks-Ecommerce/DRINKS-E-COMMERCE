@@ -1,10 +1,12 @@
 const { Type } = require("../db");
 
 
+
 const allTypes = () =>{
     try{
         const typesDB = Type.findAll();
         if(!typesDB.length){
+
 
             const types = ["tinto", "blanco"];
 
@@ -25,4 +27,4 @@ const allTypes = () =>{
 
 allTypes();
 
-module.exports = { allTypes } 
+module.exports = { allTypes }  
