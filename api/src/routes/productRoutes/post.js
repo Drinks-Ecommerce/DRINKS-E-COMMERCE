@@ -17,10 +17,10 @@ router.post("/", async (req, res) => {
         })
 
         let typedb = await Type.findAll({
-            where: { name: type }
+            where: { name: types }
         })
 
-        newProduct.addType(types);
+        newProduct.addType(typedb);
         res.send(newProduct)
 
     } catch (error) {

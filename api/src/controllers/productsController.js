@@ -22,7 +22,7 @@ const getProducts = async () => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+                type: e.types
             }
         })
         return result;
@@ -58,7 +58,7 @@ const getProduct = async (name) => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+                type: e.types
             }
         })
         return (res)
