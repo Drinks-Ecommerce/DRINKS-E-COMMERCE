@@ -1,9 +1,11 @@
 const { Type } = require("../db");
 
-const allTypes = () => {
-    try {
-        const typeDB = Type.findAll();
-        if (!typeDB.length) {
+
+const allTypes = () =>{
+    try{
+        const typesDB = Type.findAll();
+        if(!typesDB.length){
+
             const types = ["vino"];
 
             const dbTypes = types.map(async e => {
@@ -14,8 +16,10 @@ const allTypes = () => {
 
             return dbTypes
         }
-        else {
-            return typeDB;
+
+        else{
+            return typesDB;
+
         }
     } catch (err) {
         console.log(err)
