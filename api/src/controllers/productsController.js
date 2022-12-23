@@ -23,6 +23,11 @@ const getProducts = async () => {
                 img:e.img,
                 comments:e.comments,
                 type: e.types.map((e)=> e.name)
+
+
+            
+
+
             }
         })
         return result;

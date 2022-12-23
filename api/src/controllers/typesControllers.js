@@ -1,7 +1,5 @@
 const { Type } = require("../db");
 
-
-
 const allTypes = () =>{
     try{
         const typesDB = Type.findAll();
