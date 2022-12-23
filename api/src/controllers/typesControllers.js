@@ -2,8 +2,8 @@
 
 const allTypes = () =>{
     try{
-        const typeDB = Type.findAll();
-        if(!typeDB.length){
+        const typesDB = Type.findAll();
+        if(!typesDB.length){
             const types = ["vino"];
 
             types.map( async e=>{
@@ -15,7 +15,7 @@ const allTypes = () =>{
             return types
         }
         else{
-            return typeDB;
+            return typesDB;
         }
     }catch(err){
         console.log(err)
