@@ -1,4 +1,4 @@
- const router = require("express").Router();
+  const router = require("express").Router();
 const {allTypes} = require("../../controllers/typesControllers")
 
 router.get("/", async(req,res)=>{
@@ -14,4 +14,4 @@ router.get("/", async(req,res)=>{
     }
 
 })
-module.exports = router; 
+module.exports = router;  

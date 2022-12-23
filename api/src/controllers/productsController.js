@@ -12,7 +12,7 @@ const getProducts = async () => {
                 }
             }
         })
-        console.log(products)
+    
         const result = await products.map(e => {
             return {
                 id: e.id,
@@ -22,7 +22,10 @@ const getProducts = async () => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+
+                type: e.types.map((e)=> e.name)
+
+
             }
         })
         return result;
@@ -58,7 +61,9 @@ const getProduct = async (name) => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+
+                type: e.types.map((e)=> e.name)
+
             }
         })
         return (res)
