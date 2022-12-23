@@ -1,27 +1,31 @@
- const {Type} =  require( "../db");
+const { Type } = require("../db");
+
 
 const allTypes = () =>{
     try{
         const typesDB = Type.findAll();
         if(!typesDB.length){
+
             const types = ["vino"];
 
-            types.map( async e=>{
+            const dbTypes = types.map(async e => {
                 await Type.findOrCreate({
-                    where: {name: e}
+                    where: { name: e }
                 })
             })
 
-            return types
+            return dbTypes
         }
+
         else{
             return typesDB;
+
         }
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
 
 allTypes();
 
-module.exports = {allTypes} 
+module.exports = { allTypes } 
