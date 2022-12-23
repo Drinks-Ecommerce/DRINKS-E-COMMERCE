@@ -19,7 +19,7 @@ const getProducts = async() => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+                type: e.types.map(e=> e.name)
             }
         })
         return result;
@@ -55,7 +55,7 @@ const getProducts = async() => {
                 description:e.description,
                 img:e.img,
                 comments:e.comments,
-                type: e.type
+                type: e.types.map(e=> e.name)
             }
         })
         return(res)
