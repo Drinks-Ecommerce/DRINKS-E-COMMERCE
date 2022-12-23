@@ -17,7 +17,9 @@ router.post("/", async (req, res) => {
         })
 
         let typedb = await Type.findAll({
+        
             where: { name: types }
+
         })
 
         newProduct.addType(typedb);

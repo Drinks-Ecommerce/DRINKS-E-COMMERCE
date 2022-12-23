@@ -1,6 +1,5 @@
 const { Type } = require("../db");
 
-
 const allTypes = () =>{
     try{
         const typesDB = Type.findAll();
@@ -15,8 +14,10 @@ const allTypes = () =>{
             })
             return types
         }
+
         else{
             return typesDB;
+
         }
     } catch (err) {
         console.log(err)
@@ -25,4 +26,4 @@ const allTypes = () =>{
 
 allTypes();
 
-module.exports = { allTypes } 
+module.exports = { allTypes }  
