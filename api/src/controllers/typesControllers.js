@@ -6,20 +6,17 @@ const allTypes = () =>{
         const typesDB = Type.findAll();
         if(!typesDB.length){
 
-            const types = ["vino"];
+            const types = ["tinto", "blanco"];
 
-            const dbTypes = types.map(async e => {
+            types.map(async (e) => {
                 await Type.findOrCreate({
                     where: { name: e }
                 })
             })
-
-            return dbTypes
+            return types
         }
-
         else{
             return typesDB;
-
         }
     } catch (err) {
         console.log(err)
