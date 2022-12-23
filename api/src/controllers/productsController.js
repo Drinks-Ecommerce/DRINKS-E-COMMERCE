@@ -100,4 +100,3 @@ const getProducts = async() => {
 } */
 module.exports = {getProduct, getProducts}
 
-//borra
