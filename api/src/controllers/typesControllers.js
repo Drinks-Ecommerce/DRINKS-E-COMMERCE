@@ -6,7 +6,7 @@ const allTypes = () =>{
         if(!typesDB.length){
 
 
-            const types = ["tinto", "blanco"];
+            const types = ["tinto", "blanco","espumantes", "whiskys","gins", "rones","vermouth","cristaleria","delicatessen"];
 
             types.map(async (e) => {
                 await Type.findOrCreate({
