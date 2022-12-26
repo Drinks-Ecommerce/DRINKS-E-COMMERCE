@@ -13,7 +13,6 @@ export default function NavBar(){
 
              <div>
                 <select className="filter_vinos" >
-                
                     <option value='tinto'>TINTO</option>
                     <option value='blanco'>BLANCO</option>
                     <option value='rosado'>ROSADO</option>
