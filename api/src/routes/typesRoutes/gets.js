@@ -1,4 +1,4 @@
-  const router = require("express").Router();
+const router = require("express").Router();
 const {allTypes} = require("../../controllers/typesControllers")
 
 router.get("/", async(req,res)=>{
