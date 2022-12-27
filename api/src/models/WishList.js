@@ -1,23 +1,19 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../db/db.js";
+const { DataTypes} = require('sequelize');
 
-export const WishList = sequelize.define('wishList', {
 
-    id: {
-        type:DataTypes.STRING,
-        allowNull: false,
-        autoIncrement: true,
+
+module.exports = (sequelize) => {
+    
+    sequelize.define('wishlist', {
+        userId: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }, 
     },
-    userId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }, 
-    productId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-},
-{
-    timestamps: false
-}
-);
+    {
+        timestamps: false
+    }
+    );
+};
+
+
