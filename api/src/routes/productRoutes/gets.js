@@ -1,4 +1,4 @@
-const { Router } = require ("express");
+ const { Router } = require ("express");
 const { getProduct, getProducts } = require("../../controllers/productsController");
 const { Products, Type } =  require( "../../db");
 
@@ -42,4 +42,4 @@ router.get("/:id", async(req,res)=>{
 
 
 
-module.exports = router;
+module.exports = router; 

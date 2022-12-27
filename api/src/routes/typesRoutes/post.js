@@ -1,4 +1,4 @@
-const router = require("express").Router();
+ const router = require("express").Router();
 const { Type } = require("../../db")
 
 router.post("/", async (req, res) => {
@@ -16,4 +16,4 @@ router.post("/", async (req, res) => {
     }
 })
 
-module.exports = router; 
+module.exports = router;  

@@ -1,4 +1,4 @@
-const { Type } = require("../db");
+ const { Type } = require("../db");
 
 const allTypes = () =>{
     try{
@@ -26,4 +26,4 @@ const allTypes = () =>{
 
 allTypes();
 
-module.exports = { allTypes }  
+module.exports = { allTypes }   
