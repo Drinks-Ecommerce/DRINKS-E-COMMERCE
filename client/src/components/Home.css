@@ -1,10 +1,16 @@
-
+.contenedor_general {
+  display: flex;
+  flex-direction: column;
+}
 
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.container-footer{
+  margin-top: 335px;
+}
