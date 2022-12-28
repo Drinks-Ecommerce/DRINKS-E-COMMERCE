@@ -16,23 +16,35 @@
     border-radius: 35px;
     border-style: none;
     width: 100px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
 .filter_cerveza{
     border-radius: 35px;
     border-style: none;
     width: 100px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
 .filter_WHISKYS{
     border-radius: 35px;
     border-style: none;
     width: 100px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
 .filter_rones{
     border-radius: 35px;
     border-style: none;
     width: 100px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
