@@ -1,10 +1,55 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: content-box; 
+  font-family: "Times New Roman", Times, serif;
 
+}
+
+
+.conte_encabezado{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  justify-self: center; 
+  align-self: end; 
+  margin-bottom: 1px;
+  position: fixed; 
+  top: 0px;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+ 
+ 
+
+ 
+}
 
 .nav {
-    position: fixed;
-    top: 0;
+     position: fixed; 
+    top: 0px;
     left: 0;
     right: 0;
     z-index: 999;
+    text-align: center;
+    margin-top:0px ;
   }
+
+  .vinos{
+    margin-top: 150px;
+    text-align: center;
+    
+  }
+
+  .footer{
+    margin-top: 200px;
+    text-align: center;
+  }
+
+  
+ 
   

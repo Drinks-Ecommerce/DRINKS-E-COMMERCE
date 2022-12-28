@@ -21,3 +21,10 @@ export default function getTypes(){
         })
     }
 }
+
+export default function filtertypes(payload){
+    return{
+        type: 'FILTER_TYPES',
+        payload
+    }
+}

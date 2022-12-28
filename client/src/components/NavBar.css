@@ -7,10 +7,12 @@
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
-    background-color: rgba(128, 128, 128, 0.237);
+    /* background-color: rgba(128, 128, 128, 0.237); */
+    background-color: black;
     padding-bottom: 10px;
     padding-top: 8px;
     box-shadow: rgba(19, 19, 19, 0.495) 0px 8px 24px;
+    color: white;
     
 }
 
@@ -21,6 +23,7 @@
     text-align: center;
     font-family: Arial, sans-serif;
     font-weight: bold;
+   
 }
 
 .filter_cerveza{
