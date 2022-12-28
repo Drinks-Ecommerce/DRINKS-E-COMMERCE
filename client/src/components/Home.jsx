@@ -6,7 +6,6 @@ import Footer from "./Footer";
 import './NavBar.css';
 import './Home.css'
 
-
 export default function Home(){
 
     return(
@@ -18,7 +17,9 @@ export default function Home(){
             <h1>Vinos</h1>
             </Link>
 
-            <Footer />
+            <div className="container-footer">
+                <Footer />
+            </div>
         </div>
     )
 }
