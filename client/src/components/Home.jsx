@@ -6,17 +6,27 @@ import Footer from "./Footer";
 import './NavBar.css';
 import './Home.css'
 
-
 export default function Home(){
 
     return(
         <div className="contenedor_general">
-            <NavBar/>
+
+            {/* CONTENIDO PARA EL NAVBAR */}
+
+            <div className="nav">
+                <NavBar/>
+            </div>
+
             <Link to={"/cards"}>
-            <h1>Vinos</h1>
+                <h1>Vinos</h1>
             </Link>
 
-            <Footer />
+            {/* CONTENIDO PARA EL FOOTER */}
+
+            <div className="container-footer">
+                <Footer />
+            </div>
+            
         </div>
     )
 }
