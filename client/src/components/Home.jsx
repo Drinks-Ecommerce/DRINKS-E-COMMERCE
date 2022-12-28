@@ -11,12 +11,17 @@ export default function Home(){
 
     return(
         <div className="contenedor_general">
-            <NavBar/>
+
+            <div className="container-navbar">
+                <NavBar/>
             <Link to={"/cards"}>
             <h1>Vinos</h1>
             </Link>
+            </div>
 
-            <Footer />
+            <div className="container-footer">
+                <Footer />
+            </div>
         </div>
     )
 }

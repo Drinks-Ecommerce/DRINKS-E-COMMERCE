@@ -1,2 +1,16 @@
+.contenedor_general{
+    width: 100%;
+    min-height: 100vh;
 
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
 
+.container-footer{
+    margin-top: auto;
+}
+
+.footer-down{
+    margin: auto;
+}
