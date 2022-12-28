@@ -6,15 +6,12 @@ export default function CarouselFooter() {
   return (
     <div>
       <div className='container'>
+
+        <h4 className='text'>Empresas de todos los tamaños que confían en nuestros productos</h4>
         <div className='row'>
           <div className="col-md-12">
 
-            <div id="carouselExampleDark" class="carousel carousel-dark slide">
-
-              <div className="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              </div>
+            <div id="carouselExample" class="carousel slide">
 
               <div className="carousel-inner">
 
@@ -103,6 +100,15 @@ export default function CarouselFooter() {
                 </div>
 
               </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+              </button>
 
             </div>
           </div>

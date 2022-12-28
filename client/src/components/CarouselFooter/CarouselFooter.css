@@ -1,13 +1,8 @@
-.carousel-indicators{
-  left: 0;
-  top: auto;
-  bottom: -40px;
-}
-
 .carousel{
   height: 70px;
   width: 70%;
   margin: auto;
+
 }
 
 .single-bow{
@@ -16,4 +11,22 @@
 
 img{
   height: 70px;
+}
+
+.carousel-control-prev{
+  filter: invert(100%);
+  background-color: black;
+  left: -135px;
+}
+
+.carousel-control-next{
+  filter: invert(100%);
+  background-color: black;
+  right: -135px;
+}
+
+.text{
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
 }
