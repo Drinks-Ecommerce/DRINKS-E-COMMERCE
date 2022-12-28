@@ -1,25 +1,35 @@
 const { Router } = require ("express");
+const { where } = require("sequelize");
 const { getProduct, getProducts } = require("../../controllers/productsController");
 const { Products, Type } = require("../../db");
 const { get } = require("./delete");
 
 const router = Router();
 
-get.put("/id", async(req,res)=>{
+router.put("/:id", async(req,res)=>{
     try {
         const { id } = req.params;
-        const { name, amount, price, description,img,comments } = req.body
+        const { name, amount, price,description,img,comments,types } = req.body
        
 
-        const product = await Product.findByPk(id);
-        product.name = name;
-        product.amount = amount;
-        product.price = price;
+        const updateproduct = await Products.update(
+            {name,amount,price,description,img,comments },
+            { where:{ id } }
+        )
+        
+        let updatetype = await Type.findAll({
+            where:{name:types}
+        })
 
-        await product.save();
-        return(product)
+        const product = await Products.findOne({
+            where:{id}
+        })
 
+        product.setTypes(updatetype.map(t=> t.id))
+        res.send("producto actualizado")
     } catch (error) {
         return res.status(400).json({ msg: error.msg })
     }
 })
+
+module.exports = router;
