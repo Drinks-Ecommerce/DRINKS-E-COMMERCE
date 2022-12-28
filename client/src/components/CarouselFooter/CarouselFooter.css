@@ -15,14 +15,12 @@ img{
 
 .carousel-control-prev{
   filter: invert(100%);
-  background-color: black;
-  left: -135px;
+  left: -100px;
 }
 
 .carousel-control-next{
   filter: invert(100%);
-  background-color: black;
-  right: -135px;
+  right: -100px;
 }
 
 .text{
