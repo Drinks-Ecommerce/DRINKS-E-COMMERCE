@@ -1,0 +1,30 @@
+.carousel{
+  height: 70px;
+  width: 70%;
+  margin: auto;
+
+}
+
+.single-bow{
+  height: 70px;
+}
+
+img{
+  height: 70px;
+}
+
+.carousel-control-prev{
+  filter: invert(100%);
+  left: -100px;
+}
+
+.carousel-control-next{
+  filter: invert(100%);
+  right: -100px;
+}
+
+.text{
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+}

@@ -1,4 +1,7 @@
-
+.contenedor_general {
+  display: flex;
+  flex-direction: column;
+}
 
 
 
@@ -58,27 +61,13 @@
 }
 
 .nav {
-     position: fixed; 
-    top: 0px;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    text-align: center;
-    margin-top:0px ;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
 
-  .vinos{
-    margin-top: 150px;
-    text-align: center;
-    
-  }
-
-  .footer{
-    
-    margin-top: 200px;
-    text-align: center;
-  }
-
-  
- 
-  
+.container-footer{
+  margin-top: 335px;
+}

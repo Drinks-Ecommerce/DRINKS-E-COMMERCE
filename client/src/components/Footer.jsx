@@ -1,4 +1,4 @@
-import React from 'react'
+import CarouselFooter from './CarouselFooter/CarouselFooter.jsx';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         </div>
 
         <div className='footer-down'>
-            <h4>PARTE INFERIOR</h4>
+            <CarouselFooter />
         </div>
     </div>
   )
