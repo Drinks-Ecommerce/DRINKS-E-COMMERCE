@@ -1,4 +1,4 @@
-let initialState = {
+const initialState = {
     allproducts: [],
     copyallproducts:[],
     typesproducto:[]
