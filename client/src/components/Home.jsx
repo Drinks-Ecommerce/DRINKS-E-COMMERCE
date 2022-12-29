@@ -40,7 +40,7 @@ export default function Home(){
                 <NavBar/>
             </div>
 
-        
+        {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
             <div className="vinos">
                 <Link to={"/cards"}>
                     <h1>Vinos</h1>
