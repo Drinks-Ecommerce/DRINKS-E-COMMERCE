@@ -7,24 +7,27 @@ const { use } = require('../routes/authRoutes/postSignUp');
 
 const signUp = async (req, res) => {
     try {
-        const { email, password, age } = req.body;
+        const { email, password, adult } = req.body;
 
         const passwordHash = await encrypt(password)
-        const newUser = new User({
+
+        const newUser = await User.create({
             email,
             password: passwordHash,
-
+            adult
         })
-        console.log(newUser)
+
         const token = jwt.sign({ id: newUser._id }, config.SECRET, {
             expiresIn: 86400
         })
+        
         res.json({ token })
 
     } catch (error) {
+        console.log(error)
         return res.status(400).json({ msg: error.msg })
     }
-
+    // 
 
 }
 

@@ -26,4 +26,4 @@ const allTypes = () => {
 
 allTypes();
 
-module.exports = { allTypes }   
+module.exports = { allTypes }    
