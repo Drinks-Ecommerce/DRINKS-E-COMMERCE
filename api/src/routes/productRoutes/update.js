@@ -14,7 +14,7 @@ router.put("/:id", async(req,res)=>{
 
         const updateproduct = await Products.update(
             {name,stock, price,description,img,brand,discount, origin,alcohol},
-            { where:{ id } }
+         { where:{ id } }
         )
         
         let updatetype = await Type.findAll({
