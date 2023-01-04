@@ -20,7 +20,7 @@ const signUp = async (req, res) => {
         const token = jwt.sign({ id: newUser._id }, config.SECRET, {
             expiresIn: 86400
         })
-        
+
         res.json({ token })
 
     } catch (error) {
@@ -38,6 +38,6 @@ const signIn = async (req, res) => {
     if (!userFound) return res.status(400).json({ message: "User not found" })
 
     console.log(userFound)
-    res.json({ token: '' })
+    res.json({ userFound })
 }
 module.exports = { signUp, signIn };
