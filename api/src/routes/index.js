@@ -14,5 +14,4 @@ router.use("/products", updateproduct);
 router.use("/types", getTypes)
 router.use("/types", postTypes) 
 
-
 module.exports = router;
