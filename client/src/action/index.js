@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export default function getProducts(){
+export function getProducts(){
     return async function(dispatch){
-        let json = await axios.get("http:localhost:3000/products")
+        let json = await axios.get("http://localhost:3000/products")
 
         return dispatch({
             type:"GET_PRODUCTS",
@@ -11,13 +11,20 @@ export default function getProducts(){
     }
 }
 
-export default function getTypes(){
+export function getTypes(){
     return async function(dispatch){
-        let json = await axios.get("http:localhost:3000/types")
+        let json = await axios.get("http://localhost:3000/types")
 
         return dispatch({
             type:"GET_TYPES",
             payload: json.data
         })
+    }
+}
+
+export function filtertypes(payload){
+    return{
+        type: 'FILTER_TYPES',
+        payload
     }
 }
