@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding: 0;
+     box-sizing: border-box; 
+   }
+
+
+   .contenedorgeneral{
+
+    max-width: 100vw; 
+    
+   }
+
+   
+
+.form_container{
+
+    display: grid;
+    grid-template-rows: auto;
+    margin-left: 150px;
+    margin-right: 150px;
+    row-gap: 2em;
+    justify-content: center;
+    margin-top: 40px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bolder;
+    color:black;/* cambio color al texto  */
+    text-decoration: none;
+    font-size: 1.5em;
+   
+}
+
+.form_group{
+    position: relative;
+    color: brown;
+   
+}
+
+.form_input{
+    width: 100%;
+    background: none;
+    color: brown;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid brown;
+    font-family: sans-serif;
+    
+   
+}
+
+.form_input:focus + .form_label,
+.form_input:not(:placeholder-shown) + .form_label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: brown;
+ 
+}
+
+.form_label{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: .5s, color .3s;
+    font-size: 1em;
+}
+
+.button_home{
+    background: blue;
+    color: antiquewhite;
+    width: 10%;
+    font-size: 1rem;
+    padding: .4em 0;
+    border: none;
+    font-family:  sans-serif;
+    border-radius: 5em;
+    justify-content: center;
+}
+
+.button_home:hover,
+.button_home:focus{
+    background-color: blueviolet;
+    color: aqua;
+}
+
+.input_activo{
+    background: blue;
+    width: 30%;
+    color: antiquewhite;
+    font-family:  sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: 5em;
+    margin-bottom: 12px;
+    
+}
+
+.input_activo:hover,
+.input_activo:focus{
+    background-color: blueviolet;
+    color: aqua;
+}
+
+.input_disabled{
+    background: antiquewhite;
+    width: 30%;
+    color:blue;
+    font-family:  sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: 5em;
+    margin-bottom: 12px;
+    
+}
+
+.label_select{
+    color: brown;
+    font-size: 2rem;
+}
+
+.form_title{
+    color:#ff6e00;
+}
+
