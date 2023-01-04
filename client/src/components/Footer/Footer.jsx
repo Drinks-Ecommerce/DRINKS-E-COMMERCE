@@ -1,4 +1,4 @@
-import CarouselFooter from './CarouselFooter/CarouselFooter.jsx';
+import CarouselFooter from '../CarouselFooter/CarouselFooter.jsx';
 
 export default function Footer() {
   return (

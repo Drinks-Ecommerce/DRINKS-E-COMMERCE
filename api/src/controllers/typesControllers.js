@@ -1,11 +1,10 @@
-const { Type } = require("../db");
+ const { Type } = require("../db");
 
-const allTypes = () =>{
+const allTypes = async () =>{
     try{
-        const typesDB = Type.findAll();
+        const typesDB = await Type.findAll();
         if(!typesDB.length){
-
-            const types = ["tinto", "blanco"];
+            const types = ["tinto", "blanco","rosado","espumantes", "whiskys","gins", "rones","vermouth","cristaleria","delicatessen"];
 
             types.map(async (e) => {
                 await Type.findOrCreate({
@@ -14,10 +13,8 @@ const allTypes = () =>{
             })
             return types
         }
-
         else{
-            return typesDB;
-
+           return typesDB.map(e=> e.name)
         }
     } catch (err) {
         console.log(err)
@@ -26,4 +23,4 @@ const allTypes = () =>{
 
 allTypes();
 
-module.exports = { allTypes }  
+module.exports = { allTypes }   

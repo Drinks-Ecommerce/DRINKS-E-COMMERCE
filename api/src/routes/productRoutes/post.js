@@ -5,21 +5,26 @@ const { Products, Type } = require("../../db");
 const router = Router();
 
 router.post("/", async (req, res) => {
-
     try {
-        const { name, amount, price, description, img, types } = req.body
+
+        const { name, stock, price, description, img,brand,discount,origin,alcohol,comments,calification, types } = req.body
+
         const newProduct = await Products.create({
             name,
-            amount,
+            stock,
             price,
             description,
+            brand,
+            discount,
+            origin,
+            alcohol,
+            comments,
+            calification,
             img,
         })
 
         let typedb = await Type.findAll({
-        
             where: { name: types }
-
         })
 
         newProduct.addType(typedb);
