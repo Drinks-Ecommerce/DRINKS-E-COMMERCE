@@ -12,8 +12,9 @@ module.exports = (sequelize)=>{
         type: DataTypes.STRING,
         allowNull: false,
     },
-    amount: {
-        type: DataTypes.STRING
+    stock: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     price: {
         type: DataTypes.INTEGER,
@@ -23,11 +24,27 @@ module.exports = (sequelize)=>{
         type:DataTypes.STRING
     },
     img:{
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
+        allowNull: false,
     },
     comments:{
         type:DataTypes.STRING
-    }
+    },
+    calification:{
+        type:DataTypes.STRING
+    },
+    brand:{
+        type:DataTypes.STRING
+    },
+    discount:{
+        type:DataTypes.INTEGER
+    },
+    origin:{
+        type:DataTypes.STRING
+    },
+    alcohol:{
+        type:DataTypes.INTEGER
+    },
 },
     {
         timestamps: false
