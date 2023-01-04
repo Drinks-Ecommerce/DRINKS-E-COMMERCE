@@ -11,15 +11,7 @@ module.exports = (sequelize) => {
             primaryKey: true,
             autoIncrement: true,
         },
-/*         userId: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        productId: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }, */
-        amount: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -27,6 +19,10 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        total: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     },
     {
         timestamps: false
