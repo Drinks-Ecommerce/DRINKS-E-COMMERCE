@@ -9,12 +9,12 @@ const router = Router();
 router.put("/:id", async(req,res)=>{
     try {
         const { id } = req.params;
-        const { name, amount, price,description,img,comments,types } = req.body
+        const { name,stock, price,description,img,brand,discount, origin,alcohol,types } = req.body
        
 
         const updateproduct = await Products.update(
-            {name,amount,price,description,img,comments },
-            { where:{ id } }
+            {name,stock, price,description,img,brand,discount, origin,alcohol},
+         { where:{ id } }
         )
         
         let updatetype = await Type.findAll({
