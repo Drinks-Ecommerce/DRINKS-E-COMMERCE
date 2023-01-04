@@ -15,6 +15,7 @@ module.exports = (sequelize)=>{
     stock: {
         type: DataTypes.INTEGER,
         allowNull: false,
+
     },
     price: {
         type: DataTypes.INTEGER,
@@ -47,7 +48,7 @@ module.exports = (sequelize)=>{
         type:DataTypes.STRING
     },
     alcohol:{
-        type:DataTypes.INTEGER
+        type:DataTypes.DECIMAL
     },
 },
     {
