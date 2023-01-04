@@ -1,9 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
 
-export default function NavBar(){
+
+
+export default function NavBar({
+    handlefilterbyvinos,
+    handelfilterbycerveza,
+    handlewhiskys,
+    handlerones
+}
+
+){
 
     
 
@@ -12,7 +20,7 @@ export default function NavBar(){
            
 
              <div>
-                <select className="filter_vinos" >
+                <select className="filter_vinos" onChange={(e)=>handlefilterbyvinos(e)}>
                     <option disabled selected>VINOS</option>
                     <option value='tinto'>TINTO</option>
                     <option value='blanco'>BLANCO</option>
@@ -23,7 +31,7 @@ export default function NavBar(){
             </div>
 
             <div>
-                <select className="filter_cerveza" >
+                <select className="filter_cerveza" onChange={(e)=>handelfilterbycerveza(e)} >
                     <option disabled selected>CERVEZA</option>
                     <option value='comercial'>COMERCIAL</option>
                     <option value='artesanal'>ARTESANAL</option>
@@ -31,7 +39,7 @@ export default function NavBar(){
             </div>
 
             <div>
-                <select className="filter_WHISKYS" >
+                <select className="filter_WHISKYS" onChange={(e)=>handlewhiskys(e)}>
                     <option disabled selected>WHISKYS</option>
                     <option value='escoces'>ESCOCES</option>
                     <option value='irlandes'>IRLANDES</option>
@@ -41,7 +49,7 @@ export default function NavBar(){
             </div>
 
             <div>
-                <select className="filter_rones" >
+                <select className="filter_rones" onChange={(e)=>handlerones(e)}>
                     <option disabled selected>RONES</option>
                     <option value='rubio'>RUBIO</option>
                     <option value='blanco'>BLANCO</option>
