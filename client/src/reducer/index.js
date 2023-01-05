@@ -1,7 +1,8 @@
 const initialState = {
     allproducts: [],
     copyallproducts:[],
-    typesproducto:[]
+    typesproducto:[],
+    // details: []
 }
 
 function rootReducer(state = initialState, action){
@@ -20,6 +21,13 @@ function rootReducer(state = initialState, action){
                 ...state,
                 typesproducto: action.payload
             }
+
+        // case 'GET_DETAIL':
+        //     return {
+        //         ...state,
+        //         details: action.payload
+        //     }
+
 
         default:
                 return state;
