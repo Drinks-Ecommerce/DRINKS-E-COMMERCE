@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../action/index";
-import Cards from "./Cards";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import { getProducts } from "../../action/index";
+import Cards from "../Cards/Cards";
+import NavBar from "../NavBar/NavBar.jsx";
+import Footer from "../Footer/Footer.jsx";
 
-import './NavBar.css';
+import '../NavBar/NavBar.css';
 import './Home.css'
 
 export default function Home(){
@@ -17,8 +17,6 @@ export default function Home(){
     useEffect(() =>{
         dispatch(getProducts())
       },[dispatch])
-  
-
 
     return(
         <div className="contenedor_general">
