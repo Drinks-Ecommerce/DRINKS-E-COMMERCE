@@ -13,8 +13,9 @@ module.exports = (sequelize)=>{
         allowNull: false,
     },
     stock: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
+
     },
     price: {
         type: DataTypes.FLOAT,
