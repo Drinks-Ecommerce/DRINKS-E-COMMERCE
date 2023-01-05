@@ -17,7 +17,7 @@ module.exports = (sequelize)=>{
         allowNull: false,
     },
     price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false,
     },
     description:{
@@ -43,7 +43,7 @@ module.exports = (sequelize)=>{
         type:DataTypes.STRING
     },
     alcohol:{
-        type:DataTypes.INTEGER
+        type:DataTypes.FLOAT
     },
 },
     {
