@@ -1,5 +1,3 @@
-
-
 export default function Cards({name, amount, price, description, img, type}){
 
 

@@ -17,15 +17,17 @@ const getProducts = async () => {
             return {
                 id: e.id,
                 name: e.name,
-                amount:e.amount,
+                stock:e.stock,
                 price:e.price,
                 description:e.description,
+                brand:e.brand,
+                discount:e.discount,
+                origin:e.origin,
+                alcohol:e.alcohol,
                 img:e.img,
                 comments:e.comments,
-
+                calification:e.calification,
                 type: e.types.map((e)=> e.name)
-
-
             }
         })
         return result;
@@ -56,12 +58,16 @@ const getProduct = async (name) => {
             return {
                 id: e.id,
                 name: e.name,
-                amount:e.amount,
+                stock:e.stock,
                 price:e.price,
                 description:e.description,
+                brand:e.brand,
+                discount:e.discount,
+                origin:e.origin,
+                alcohol:e.alcohol,
                 img:e.img,
                 comments:e.comments,
-
+                calification:e.calification,
                 type: e.types.map((e)=> e.name)
 
             }
