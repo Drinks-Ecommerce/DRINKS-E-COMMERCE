@@ -18,4 +18,5 @@ router.use("/types", postTypes);
 router.use("/products", filterbytypes);
 router.use("/products", filterbyprice)
 
+
 module.exports = router;
