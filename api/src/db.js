@@ -54,8 +54,8 @@ Products.belongsToMany(Wishlist, { through: "wishlist_product" });
 Cart.belongsToMany(Products, { through: "cart_product" });
 Products.belongsToMany(Cart, { through: "cart_product" });
 
-Role.belongsToMany(Products, { through: "role_product" });
-Products.belongsToMany(Role, { through: "role_product" });
+Role.belongsToMany(User, { through: "role_user" });
+User.belongsToMany(Role, { through: "role_user" });
 
 
 module.exports = {

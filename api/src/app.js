@@ -7,8 +7,6 @@ const routes = require('./routes/index.js');
 
 require("./db.js");
 
-
-
 const app = express()
 app.name = "API"
 
