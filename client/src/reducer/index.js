@@ -14,7 +14,7 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload,
                 copyallproducts : action.payload
 
-            }
+            }          
 
         case 'GET_TYPES' :
             return{
