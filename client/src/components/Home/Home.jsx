@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer.jsx";
 import '../NavBar/NavBar.css';
 import './Home.css'
 
+
 export default function Home(){
    
     const dispatch = useDispatch()
