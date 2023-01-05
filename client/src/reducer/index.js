@@ -14,8 +14,11 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload,
                 copyallproducts : action.payload
 
-            }
-
+            }          
+        case 'CREATE_PRODUCTS':
+            return{
+                ...state
+            }                
         case 'GET_TYPES' :
             return{
                 ...state,
