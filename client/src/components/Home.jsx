@@ -74,7 +74,7 @@ export default function Home(){
             <div className="container-footer">
                 <Footer />
             </div>
-            
+        
         </div>
     )
 }
