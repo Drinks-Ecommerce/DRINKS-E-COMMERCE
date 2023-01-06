@@ -33,8 +33,8 @@ export default function Home(){
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
             <div className="vinos">
-                <Link to={"/cards"}>
-                    <h1>Vinos</h1>
+                <Link to={"/createProducts"}>
+                    <h1>CREAR PRODUCTO</h1>
                 </Link>
 
                 {
