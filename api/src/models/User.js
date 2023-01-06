@@ -13,11 +13,13 @@ module.exports = (sequelize) => {
         },
         adult: {
             type: DataTypes.BOOLEAN,
+
             allowNull: true
         },
 
     });
 };
+
 
 
 
