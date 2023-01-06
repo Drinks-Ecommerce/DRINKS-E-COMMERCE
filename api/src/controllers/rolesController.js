@@ -13,8 +13,8 @@ const allRoles = () => {
                     where: { name: e }
                 })
             })
-            const role = Role.findAll();
-            return role
+
+            return roles;
 
         }
         else {
