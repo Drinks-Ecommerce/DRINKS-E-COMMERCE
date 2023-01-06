@@ -7,39 +7,39 @@ import { Link } from "react-router-dom"
 import './ProductCreate.css'
 
 
-const validate = (input) => {
-    let errors = {};
-      if(!input.name) {
-        errors.name = 'El nombre es requerido'; //valido con expresiones regulares
-      } else if(!/^[a-zA-Z0-9-() .]+$/.test(input.name)){
-        errors.name = 'Solo se aceptan letras, numeros, guiones medios y parentesis';
-      }
-      else if(input.name.length > 50){
-        errors.name = "El nombre es demasiado largo";
-      };
+// const validate = (input) => {
+//     let errors = {};
+//       if(!input.name) {
+//         errors.name = 'El nombre es requerido'; //valido con expresiones regulares
+//       } else if(!/^[a-zA-Z0-9-() .]+$/.test(input.name)){
+//         errors.name = 'Solo se aceptan letras, numeros, guiones medios y parentesis';
+//       }
+//       else if(input.name.length > 50){
+//         errors.name = "El nombre es demasiado largo";
+//       };
 
-// || !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.background_image)
-      if(!input.img.length || !/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(input.background_img)
-      ){
-        errors.img='invalid URL, debe ser una imagen(png, jpg, gif)';
-      };
+// // || !/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/.test(input.background_image)
+//       if(!input.img.length || !/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(input.background_img)
+//       ){
+//         errors.img='invalid URL, debe ser una imagen(png, jpg, gif)';
+//       };
       
-      if(input.stock !== Number){
-        errors.stock ='Stock tiene que ser un valor númerico'
-      }
-      if(input.brand !== String){
-        errors.stock ='Solo se permite letras'
-      }
+//       if(input.stock !== Number){
+//         errors.stock ='Stock tiene que ser un valor númerico'
+//       }
+//       if(input.brand !== String){
+//         errors.stock ='Solo se permite letras'
+//       }
           
-      if(!input.description) {
-        errors.description = 'La descripcion es requerida';
-      } else if (input.description.length > 800) {
-        errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
-      };
+//       if(!input.description) {
+//         errors.description = 'La descripcion es requerida';
+//       } else if (input.description.length > 800) {
+//         errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
+//       };
 
-      return errors
+//       return errors
       
- }
+//  }
 
 
 

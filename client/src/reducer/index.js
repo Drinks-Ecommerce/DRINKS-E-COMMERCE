@@ -30,7 +30,11 @@ function rootReducer(state = initialState, action){
                 ...state,
                 details: action.payload
             }
-
+        case 'GET_BY_NAME':
+            return {
+                ...state,
+                allproducts: action.payload
+            }
 
         default:
                 return state;
