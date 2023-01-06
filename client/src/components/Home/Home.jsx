@@ -29,6 +29,12 @@ export default function Home(){
                 <Encabezado />
             </div>
 
+              {/* CONTENIDO PARA EL NAVBAR */}
+
+              <div className="nav">
+                <NavBar/>
+            </div>
+
        
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
