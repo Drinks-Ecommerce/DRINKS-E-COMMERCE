@@ -5,6 +5,7 @@ import { getProducts } from "../../action/index";
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
+import Encabezado from "../Encabezado/Encabezado";
 
 import '../NavBar/NavBar.css';
 import './Home.css'
@@ -25,31 +26,10 @@ export default function Home(){
             {/* CONTENIDO PARA EL ENCABEZADO */}
 
             <div className="conte_encabezado">
-
-                <div>
-                    LOGO
-                </div>
-
-                <div className="logo">
-                    SEARCHBAR
-                </div>
-
-                <div>
-                    LOGIN
-                </div>
-
-                <div>
-                    LOGOCARRITO
-                </div>
-
-
+                <Encabezado />
             </div>
 
-        {/* CONTENIDO PARA EL NAVBAR */}
-
-            <div className="nav">
-                <NavBar/>
-            </div>
+       
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
             <div className="vinos">
