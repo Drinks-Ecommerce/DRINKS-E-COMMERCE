@@ -18,8 +18,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        age: {
-            type: DataTypes.INTEGER,
+        adult: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        banned: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         }
     });
