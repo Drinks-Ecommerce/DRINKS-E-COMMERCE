@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../action/index";
+import { getProducts, getTypes, filtertypes } from "../../action/index";
 import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -17,6 +17,21 @@ export default function Home(){
     useEffect(() =>{
         dispatch(getProducts())
       },[dispatch])
+
+
+      useEffect(() =>{
+        dispatch(getTypes())
+      },[dispatch])
+
+
+      function  handlefilterbyvinos(e){
+        e.preventDefault();
+        dispatch(filtertypes(e.target.value))
+        setcurrenPage(1)
+        setorder(e.target.value); 
+
+    }
+
 
     return(
         <div className="contenedor_general">
@@ -47,7 +62,12 @@ export default function Home(){
         {/* CONTENIDO PARA EL NAVBAR */}
 
             <div className="nav">
-                <NavBar/>
+                <NavBar
+                    handlefilterbyvinos={handlefilterbyvinos}
+                    handelfilterbycerveza
+                    handlewhiskys
+                    handlerones
+                />
             </div>
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
