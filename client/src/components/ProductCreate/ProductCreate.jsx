@@ -108,7 +108,7 @@ export default function ProductCreate(){
 
       <h1>CREAR UN PRODUCTO</h1>
               
-              <Link to="/home">
+              <Link to="/">
                 <button className="button_home">
                   Home
                 </button>
