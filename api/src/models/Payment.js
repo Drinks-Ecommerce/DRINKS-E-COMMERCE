@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
             autoIncrement: true,
             primaryKey: true
         },
-/*         userId: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }, */
         paymentMethod: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,6 +27,10 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         numberAddress: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        city: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -41,6 +41,13 @@ module.exports = (sequelize) => {
         postalCode: {
             type: DataTypes.INTEGER,
             allowNull: false,
+        },
+        phone: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        state: {
+        type: DataTypes.STRING,
         },
     },
     {
