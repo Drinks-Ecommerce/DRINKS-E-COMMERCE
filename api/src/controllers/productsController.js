@@ -40,7 +40,6 @@ const getProducts = async () => {
 
 const getProduct = async (name) => {
     try {
-
         const productname = await Products.findAll({
             where: {
                 name: { [Op.iLike]: `%${name}%` }
@@ -79,38 +78,45 @@ const getProduct = async (name) => {
     }
 }
 
-
-
-/* const updateProduct = async (req, res) => {
+/* const getBybrand = async(brand) => {
     try {
-        const { id } = req.params;
-        const { name, amount, price } = req.body
+        const productbrand = await Products.findAll({
+            where: {
+                brand: brand,
+            },
+            include: {
+                model: Type,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                }
+            }
+        })
 
-        const product = await Product.findByPk(id);
-        product.name = name;
-        product.amount = amount;
-        product.price = price;
+        const resbybrand = await productbrand.map(e => {
+            return {
+                id: e.id,
+                name: e.name,
+                stock:e.stock,
+                price:e.price,
+                description:e.description,
+                brand:e.brand,
+                discount:e.discount,
+                origin:e.origin,
+                alcohol:e.alcohol,
+                img:e.img,
+                comments:e.comments,
+                calification:e.calification,
+                type: e.types.map((e)=> e.name)
 
-        await product.save();
-        return(product)
+            }
+        })
+        return (resbybrand)
 
     } catch (error) {
         return res.status(400).json({ msg: error.msg })
     }
 }
-
- const deleteProduct = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await Products.destroy({
-            where: {
-                id,
-            }
-        })
-        res.json({ msg: "Deleted product" })
-    } catch (error) {
-        return res.status(400).json({ msg: error.msg })
-    }
-} */
+ */
 
 module.exports = {getProduct, getProducts}
