@@ -26,21 +26,21 @@ export default function NavBar(){
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handelfilterbycerveza(e)} >
                     <option disabled selected>CERVEZA</option>
-                    <option value='cervezas'>TODAS LAS CERVEZAS</option>
+                    <option value='cerveza'>TODAS LAS CERVEZAS</option>
                 </select>
             </div>
 
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handleFilterByType(e)}>
                     <option disabled selected>WHISKYS</option>
-                    <option value='whiskys'>TODOS LOS WHISKYS</option>
+                    <option value='whisky'>TODOS LOS WHISKYS</option>
                 </select>
             </div>
 
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handlerones(e)}>
                     <option disabled selected>RONES</option>
-                    <option value='rones'>TODOS LOS RONES</option>
+                    <option value='ron'>TODOS LOS RONES</option>
                 </select>
             </div>
 
