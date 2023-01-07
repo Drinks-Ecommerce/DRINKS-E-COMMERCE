@@ -37,12 +37,6 @@ function rootReducer(state = initialState, action){
         //         allproducts: action.payload
         //     }
 
-        // case 'FILTER_TYPE':
-        //     return {
-        //         ...state,
-                
-        //     }
-
             case 'FILTER_TYPES':
 
             const alltypes= state.copyallproducts;
