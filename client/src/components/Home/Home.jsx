@@ -16,6 +16,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
 
+    console.log(allProducts)
     useEffect(() =>{
         dispatch(getProducts())
       },[dispatch])
