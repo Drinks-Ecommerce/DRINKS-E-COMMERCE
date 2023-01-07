@@ -10,7 +10,6 @@ export default function Encabezado() {
             <img src={images.img4} className="w-25 h-25" alt="" />
         </div>
 
-
 		<div className="flex items-center md:space-x-4">
 			<div className="relative">
 				<span className="absolute inset-y-0 left-0 flex items-center pl-2">
