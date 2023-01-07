@@ -12,10 +12,10 @@ export function getProducts(){
 }
 
 //⬇️(gaston) action para el buscador por nombre
-export default function getByName(name){
+export function getByName(name){
     return async function(dispatch){
         try {
-            let json = await axios.get("http://localhost:3000/products=" + name);
+            let json = await axios.get("http://localhost:3000/products?name=" + name);
             return dispatch({
                 type: 'GET_BY_NAME',
                 payload: json.data
@@ -39,12 +39,12 @@ export function getTypes(){
 
 export function creatProducts(payload){
     return async function(dispatch){
-      let json = await axios.post("http://localhost:3000/products", payload)
+    let json = await axios.post("http://localhost:3000/products", payload)
 
-      return dispatch({
+    return dispatch({
         type:"CREATE_PRODUCTS",
         payload: json
-      })
+    })
 
     }
 }

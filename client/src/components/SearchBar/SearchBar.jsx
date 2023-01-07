@@ -1,4 +1,4 @@
-import { React  } from "react";
+import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getByName } from "../../action/index.js"
 
@@ -16,10 +16,12 @@ export default function SearchBar(){
         dispatch(getByName(name));
         setName('')
     };
+    return (
     <form onSubmit={(event) => handleClick(event)}>
     <div >
         <input type="text" placeholder="BUSCAR PRODUCTO" onChange={(e) => handleInputChange(e)}/>
         <button type="submit" >BUSCAR 🔎</button>
     </div>
     </form>
+    );
 }

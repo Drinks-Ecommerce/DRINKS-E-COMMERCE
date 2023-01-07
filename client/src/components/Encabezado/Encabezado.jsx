@@ -1,4 +1,5 @@
 import images from "../icons/images"
+import SearchBar from "../SearchBar/SearchBar"
 
 export default function Encabezado() {
   return (
@@ -20,7 +21,8 @@ export default function Encabezado() {
 						</svg>
 					</button>
 				</span>
-				<input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-700 text-gray-100 focus:bg-gray-900" />
+				<SearchBar/>
+				{/* <input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-700 text-gray-100 focus:bg-gray-900" /> */}
 			</div>
 		</div>
 
