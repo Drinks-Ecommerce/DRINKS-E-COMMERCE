@@ -44,9 +44,22 @@ export function getDetail(id) {
     };
 };
 
-export function filtertypes(payload){
-    return{
-        type: 'FILTER_TYPES',
-        payload
-    }
-}
+// export function filterByPriceOrder(payload) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/products/byprice/${payload}`);
+//         return dispatch({
+//             type: 'FILTER_ORDER_PRICE',
+//             payload: json.data
+//         });
+//     };
+// };
+
+export function filterByTypes(payload) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/products/bytypes/${payload}`);
+        return dispatch({
+            type: 'FILTER_TYPE',
+            payload: json.data
+        });
+    };
+};

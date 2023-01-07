@@ -31,6 +31,18 @@ function rootReducer(state = initialState, action){
                 details: action.payload
             }
 
+        // case 'FILTER_ORDER_PRICE':
+        //     return {
+        //         ...state,
+        //         allproducts: action.payload
+        //     }
+
+        case 'FILTER_TYPE':
+        return {
+            ...state,
+            allproducts: action.payload
+        }
+
 
         default:
                 return state;
