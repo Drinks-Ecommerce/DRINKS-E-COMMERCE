@@ -29,11 +29,12 @@ export default function Home(){
                 <Encabezado />
             </div>
 
-              {/* CONTENIDO PARA EL NAVBAR */}
+             {/* CONTENIDO PARA EL NAVBAR */}
 
-              <div className="nav">
+             <div className="nav">
                 <NavBar/>
             </div>
+
 
        
 
