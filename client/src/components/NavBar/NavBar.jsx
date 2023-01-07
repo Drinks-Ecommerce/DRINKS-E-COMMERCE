@@ -24,7 +24,7 @@ export default function NavBar(){
             </div>
 
             <div>
-                <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handelfilterbycerveza(e)} >
+                <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handleFilterByType(e)} >
                     <option disabled selected>CERVEZA</option>
                     <option value='cerveza'>TODAS LAS CERVEZAS</option>
                 </select>
@@ -38,7 +38,7 @@ export default function NavBar(){
             </div>
 
             <div>
-                <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handlerones(e)}>
+                <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handleFilterByType(e)}>
                     <option disabled selected>RONES</option>
                     <option value='ron'>TODOS LOS RONES</option>
                 </select>
