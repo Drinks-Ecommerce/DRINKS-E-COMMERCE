@@ -10,7 +10,7 @@ router.get("/byprice/:order", async(req,res)=>{
     const {order} = req.params
     try{
         const all = await getProducts()
-        if(order ===  "min"){
+        if(order === "min"){
             const min = all.sort((a,b)=> a.price - b.price)
             res.send(min)
         }
