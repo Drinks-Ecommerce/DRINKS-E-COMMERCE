@@ -8,6 +8,8 @@ const deleteproduct = require("./productRoutes/delete")
 const updateproduct = require("./productRoutes/update")
 const filterbytypes = require("./filters/bytype")
 const filterbyprice = require("./filters/byprice")
+const filterbybrand = require("./filters/byBrand")
+
 
 router.use("/products", getProducts);
 router.use("/products", postProducts);
@@ -16,7 +18,8 @@ router.use("/products", updateproduct);
 router.use("/types", getTypes);
 router.use("/types", postTypes);  
 router.use("/products", filterbytypes);
-router.use("/products", filterbyprice)
+router.use("/products", filterbyprice);
+router.use("/bybrand", filterbybrand);
 
 
 module.exports = router;
