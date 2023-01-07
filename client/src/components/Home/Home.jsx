@@ -20,6 +20,12 @@ export default function Home(){
         dispatch(getProducts())
       },[dispatch])
 
+
+      
+
+
+     
+
     return(
         <div className="contenedor_general">
 

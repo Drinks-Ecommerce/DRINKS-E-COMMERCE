@@ -22,14 +22,14 @@ module.exports = (sequelize)=>{
         allowNull: false,
     },
     description:{
-        type:DataTypes.STRING
+        type:DataTypes.TEXT
     },
     img:{
         type:DataTypes.STRING,
         allowNull: false,
     },
     comments:{
-        type:DataTypes.STRING
+        type:DataTypes.TEXT
     },
     calification:{
         type:DataTypes.STRING

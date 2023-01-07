@@ -17,37 +17,28 @@ export default function NavBar({
              <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 cursor-pointer text-center "  onChange={(e)=>handlefilterbyvinos(e)}>
                     <option disabled selected>VINOS</option>
-                    <option value='tinto'>TINTO</option>
-                    <option value='blanco'>BLANCO</option>
-                    <option value='rosado'>ROSADO</option>
-                    <option value='espumoso'>ESPUMOSO</option>
-                    <option value='dulce'>DULCE</option>
+                    <option value='vinos'>TODOS LOS VINOS</option>
                 </select>
             </div>
 
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handelfilterbycerveza(e)} >
                     <option disabled selected>CERVEZA</option>
-                    <option value='comercial'>COMERCIAL</option>
-                    <option value='artesanal'>ARTESANAL</option>
+                    <option value='cervezas'>TODAS LAS CERVEZAS</option>
                 </select>
             </div>
 
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handlewhiskys(e)}>
                     <option disabled selected>WHISKYS</option>
-                    <option value='escoces'>ESCOCES</option>
-                    <option value='irlandes'>IRLANDES</option>
-                    <option value='americano'>AMERICANO</option>
-                    <option value='japones'>JAPONES</option>
+                    <option value='wiskys'>TODOS LOS WHISKYS</option>
                 </select>
             </div>
 
             <div>
                 <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 text-center cursor-pointer" onChange={(e)=>handlerones(e)}>
                     <option disabled selected>RONES</option>
-                    <option value='rubio'>RUBIO</option>
-                    <option value='blanco'>BLANCO</option>
+                    <option value='rones'>TODOS LOS RONES</option>
                 </select>
             </div>
 
