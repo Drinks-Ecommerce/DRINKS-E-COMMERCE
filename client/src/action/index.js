@@ -54,19 +54,12 @@ export function getDetail(id) {
 //     };
 // };
 
-// export function filterByTypes(payload) {
-//     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/products/bytypes/${payload}`);
-//         return dispatch({
-//             type: 'FILTER_TYPE',
-//             payload: json.data
-//         });
-//     };
-// };
-
-export function filtertypes(payload){
-    return{
-        type: 'FILTER_TYPES',
-        payload
-    }
-}
+export function filterByTypes(payload) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/products/bytypes/${payload}`);
+        return dispatch({
+            type: 'FILTER_TYPE',
+            payload: json.data
+        });
+    };
+};
