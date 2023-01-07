@@ -36,7 +36,7 @@ useEffect(() => {
 							<h2>Descripción</h2>
 							<p>{details[0].description}</p>
 						</div>
-						<button>Comprar</button>
+						<button>Agregar al carrito</button>
 
 					</div> : <p>Loading...</p>
 				}

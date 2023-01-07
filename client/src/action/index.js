@@ -63,10 +63,3 @@ export function filterByTypes(payload) {
         });
     };
 };
-
-export function filtertypes(payload){
-    return{
-        type: 'FILTER_TYPES',
-        payload
-    }
-}
