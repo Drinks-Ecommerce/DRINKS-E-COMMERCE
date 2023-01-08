@@ -1,6 +1,6 @@
 const jsonProducts = [
     {
-        "name": "Vino",
+        "name": "Rutini Malbec",
         "stock": "30",
         "img": "https://www.espaciovino.com.ar/media/default/0001/62/thumb_61998_default_big.jpeg",
         "price": "3.142",
@@ -301,7 +301,7 @@ const jsonProducts = [
     {
         "name": "Vaso Denver 343ml - Set X6",
         "stock": "100",
-        "img": "https://volfar.vtexassets.com/arquivos/ids/407193-1600-auto?v=638085222637800000&width=1600&height=auto&aspect=true",
+        "img": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/179/454/products/denver-bajo1-34d9c92b6a7170e6c716233358648860-1024-1024.jpg",
         "price": "21.558",
         "decription": "Whiskey glass, water, soda and drinks Measurements Height: 10 cm Diameter: 8cm Capacity: 343 ml 100% Crystalline Glass",
         "types": "cristaleria",
