@@ -6,13 +6,15 @@ import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
+import { useState } from "react";
 
 import '../NavBar/NavBar.css';
 import './Home.css'
+import Caroucel from "../Caroucel/Caroucel.jsx";
 
 
-export default function Home(){
-   
+export default function Home(){   
+
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
 
@@ -21,45 +23,29 @@ export default function Home(){
         dispatch(getProducts())
       },[dispatch])
 
-
-      
-
-
-     
-
     return(
-        <div className="contenedor_general">
 
-            {/* CONTENIDO PARA EL ENCABEZADO */}
+        <div className="contenedor_general bg-gray-200">
+
+            {/* CONTENIDO DEL ENCABEZADO */}
 
             <div className="conte_encabezado">
                 <Encabezado />
             </div>
 
-             {/* CONTENIDO PARA EL NAVBAR */}
-
-             <div className="nav">
-                <NavBar/>
-            </div>
+            <div className="flex justify-center h-full w-full">
+                <Caroucel />
+            </div>            
 
 
-       
+            {/* CONTENIDO PARA LAS CARDS */}
 
-        {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
-            <div className="vinos">
-                <Link to={"/createProducts"}>
-                    <h1>CREAR PRODUCTO</h1>
-                </Link>
+            <div className="container pb-10 bg-gray-200 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
 
-                {
                 allProducts?.map(e => {
                    return (
-                    <div>
-                        <Cards name={e.name} amount={e.amount} price={e.price} description={e.description} type={e.type} img={e.img} />
-                    </div>
-                   )
-                })
-            }
+                            <Cards name={e.name} amount={e.amount} price={e.price} description={e.description} type={e.type} img={e.img} />
+                    )})}
             </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
