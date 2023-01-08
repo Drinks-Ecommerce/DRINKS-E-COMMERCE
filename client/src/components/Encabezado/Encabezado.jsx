@@ -3,8 +3,9 @@ import images from "../icons/images"
 export default function Encabezado() {
   return (
 
-    <header className="p-1 bg-gray-800 text-gray-100">
-	<div className="container flex justify-between h-16 mx-auto">
+    <header className=" bg-gray-800 text-gray-100">
+
+		<div className="flex justify-between h-16 mx-5">
 
         <div className="flex">
             <img src={images.img4} className="w-25 h-25" alt="" />
@@ -23,13 +24,13 @@ export default function Encabezado() {
 			</div>
 		</div>
 
-        <div className="flex items-center md:space-x-4">
+        <div className="flex items-center md:space-x-2 mx-0">
 
-		<button type="button" className="hidden px-6 py-2 font-semibold rounded lg:block bg-teal-400 text-gray-600">Registrar</button>
-        <button type="button" className="hidden px-6 py-2 font-semibold rounded lg:block bg-teal-400 text-gray-600">Ingresar</button>
-        <img src={images.img6} className="hidden lg:block w-10 h-10" alt="img" />
+		<button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Registrar</button>
+        <button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Ingresar</button>
+        <img src={images.img6} className="hidden md:block w-10 h-10" alt="img" />
 
-		    <button title="Open menu" type="button" className="p-4 lg:hidden">
+		    <button title="Open menu" type="button" className="p-4 md:hidden">
 			    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-gray-100">
 				    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
 			    </svg>
@@ -37,6 +38,30 @@ export default function Encabezado() {
 
         </div>
 	</div>
+
+	<div class="flex justify-center bg-gray-600 pb-3 pt-3 mt-2">
+           
+	<ul class="flex">
+  		<li class="mr-6">
+    <a class="text-blue-300 text-lg hover:text-blue-500" href="#">Vinos</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-300 text-lg hover:text-blue-500" href="#">Whiskys</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-300 text-lg hover:text-blue-800" href="#">Rones</a>
+  </li>
+  <li class="mr-6">
+    <a class="text-blue-300 text-lg hover:text-blue-800" href="#">Cervezas</a>
+  </li>
+  <li class="">
+    <a class="text-blue-300 text-lg hover:text-blue-800" href="#">Espumantes</a>
+  </li>
+</ul>   
+
+        </div>
+
+
     </header>
    
     

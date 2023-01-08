@@ -33,10 +33,6 @@ export default function Home(){
                 <Encabezado />
             </div>                        
 
-            <div className="nav">
-                <NavBar/>
-            </div>
-
             <div className="flex justify-center h-full w-full">
                 <Caroucel />
             </div>            
