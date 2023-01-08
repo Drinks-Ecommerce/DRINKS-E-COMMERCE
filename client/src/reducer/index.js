@@ -36,16 +36,17 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload
             }
 
-            case 'FILTER_TYPES':
+        // case 'FILTER_ORDER_PRICE':
+        //     return {
+        //         ...state,
+        //         allproducts: action.payload
+        //     }
 
-            const alltypes= state.copyallproducts;
-            const filtradostypes= action.payload === 'TINTO' ? alltypes.filter(e => e.type) : alert('NO HAY TYPES');
-
-            return{
-                ...state,
-                allproducts: filtradostypes
-
-            }
+        case 'FILTER_TYPE':
+        return {
+            ...state,
+            allproducts: action.payload
+        }
 
 
         default:
