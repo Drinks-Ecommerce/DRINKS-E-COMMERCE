@@ -183,7 +183,7 @@ const jsonProducts = [
     },
     {
         "name": "Patagonia 24.7",
-        "stock": "'150'",
+        "stock": "100",
         "img": "https://cepadevinos.com/wp-content/uploads/2022/04/patagonia.jpg",
         "price": "520",
         "decription": "Bottle 355 cc,Session IPA style beer, very drinkable and refreshing, with marked bitterness provided by a combination of Patagonian hops. It has an intense aroma of citrus and fruit thanks to the technique of adding cold hops called Dry Hopping. The addition of elderberry and cold honey balance the bitterness of the hops, providing some acidity and a dry finish. Perfect combination with fruit dishes, sweet and sour salads and Thai food. Meals with not much intensity of flavor or fat, but aromatic and spicy. Scented risottos, cheesecake.",
@@ -196,7 +196,7 @@ const jsonProducts = [
     },
     {
         "name": "Corona Botella",
-        "stock": "'150'",
+        "stock": "150",
         "img": "https://cepadevinos.com/wp-content/uploads/2021/02/corona-330cc.png",
         "price": "420",
         "decription": "Bottle 330 cc, Corona is a premium, classic and authentic beer, recognized worldwide for its high quality, distinctive flavor and image. It is a beer that transmits tranquility and relaxation, inviting consumers to disconnect from everyday life through pleasant experiences.",
@@ -209,7 +209,7 @@ const jsonProducts = [
     },
     {
         "name": "Patagonia Amber Lager",
-        "stock": "'150'",
+        "stock": "150",
         "img": "https://cepadevinos.com/wp-content/uploads/2022/04/patagonia.jpg",
         "price": "500",
         "decription": "Bottle 410 cc, In Patagonia Amber Lager you will find a beer with a soft caramel flavor, made with a combination of 4 malts, which give it its characteristic amber color and malty flavor, leaving a subtle sweetness in the mouth. The flavor of caramelization of malts can remind us of flavors of caramelized onions, sweet and sour sauces, caramel sauces in creamy desserts. Other infallible dishes are grilled red meat, hamburgers, and roasted sweet potatoes. Its subtle sweet flavor makes it perfect to accompany sweet and sour dishes.",
@@ -222,7 +222,7 @@ const jsonProducts = [
     },
     {
         "name": " Andes Origen Rubia ",
-        "stock": "'150'",
+        "stock": "150",
         "img": "https://http2.mlstatic.com/D_NQ_NP_2X_758130-MLA44839765132_022021-F.webp",
         "price": "438",
         "decription": "Bottle 473 cc, Andes Origen rescues the pleasure of the moment. A beer designed for those people who value their free time, for those who enjoy the little moments in life. The ideal option for those who want to pamper themselves. The Andes Origen Rubia is an American pilsner style beer, a Blonde with body and malt character. Slight aroma of hops, cereal and hint of yeast. It should be served in a glass to better appreciate its aromas and thus highlight its bright golden color. The Andes Origen Rubia is a delightful beer, but refreshing at the same time. It goes very well with pork or red meat made with flavored sauces, spicy dressings such as mustard, mild honey and herbs such as thyme or rosemary.",
