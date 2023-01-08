@@ -141,7 +141,7 @@ export default function ProductCreate(){
         <div>
             <label for="stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">STOCK</label>
             <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required
-            type="text"
+            type="text" 
             value={input.stock}
             name="stock"
             onChange={(event) => handleChange(event)}

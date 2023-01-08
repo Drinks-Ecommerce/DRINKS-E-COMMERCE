@@ -36,6 +36,18 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload
             }
 
+            case 'FILTER_TYPES':
+
+            const alltypes= state.copyallproducts;
+            const filtradostypes= action.payload === 'TINTO' ? alltypes.filter(e => e.type) : alert('NO HAY TYPES');
+
+            return{
+                ...state,
+                allproducts: filtradostypes
+
+            }
+
+
         default:
                 return state;
     }
