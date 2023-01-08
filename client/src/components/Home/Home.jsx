@@ -52,6 +52,10 @@ export default function Home(){
                     )})}
             </div>
 
+            {
+                console.log(allProducts)
+            }
+
             {/* CONTENIDO PARA EL FOOTER */}
 
             <div className="container-footer">
