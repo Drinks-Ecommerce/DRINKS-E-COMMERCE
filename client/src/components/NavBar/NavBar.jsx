@@ -4,7 +4,7 @@ import { filterByTypes, getProducts } from "../../action";
 
 export default function NavBar(){
 
-   const dispatch = useDispatch()
+    const dispatch = useDispatch()
   
    function handleFilterByType(e){
     e.preventDefault()
@@ -24,7 +24,7 @@ function handleclick(e){
         <div class="grid grid-cols-5 gap-4 bg-black py-3 pb-3 mt-20 fixed top-0 left-0 right-0 drop-shadow-lg flex">
            
              <div>
-                <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 cursor-pointer text-center "  onChange={(e)=>handleFilterByType(e)}>
+             <select class="bg-wh-100 rounded-[12px] text-lg text-red-700 cursor-pointer text-center "  onChange={(e)=>handleFilterByType(e)}>
                     <option disabled selected>VINOS</option>
                     <option value='vino'>TODOS LOS VINOS</option>
                 </select>
