@@ -24,6 +24,7 @@ export default function Caroucel() {
   </div>
 
   <div class="carousel-inner relative w-full overflow-hidden">
+
     <div class="carousel-item active relative float-left w-full">
       <img
         src="https://fronterawines.com/wp-content/uploads/2021/11/Nuevaiamegn_espanol-scaled.jpg"
@@ -35,8 +36,8 @@ export default function Caroucel() {
 
     <div class="carousel-item relative float-left w-full">
       <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
-        class="block w-full h-96"
+        src="https://fronterawines.com/wp-content/uploads/2021/11/GRAMMYs-scaled.jpg"
+        class="block w-full h-96 bg-cover"
         alt="Woman Reading a Book"
       />
     </div>
