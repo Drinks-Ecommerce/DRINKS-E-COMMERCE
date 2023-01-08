@@ -20,7 +20,7 @@ export default function Home(){
 
     console.log(allProducts)
     useEffect(() =>{
-        dispatch(getProducts())
+        dispatch(getProducts());
       },[dispatch])
 
     return(
