@@ -118,7 +118,6 @@ const getProduct = async (name) => {
                 }
             }
         })
-
         const resbybrand = await productbrand.map(e => {
             return {
                 id: e.id,
@@ -134,11 +133,9 @@ const getProduct = async (name) => {
                 comments:e.comments,
                 calification:e.calification,
                 type: e.types.map((e)=> e.name)
-
             }
         })
         return (resbybrand)
-
     } catch (error) {
         return res.status(400).json({ msg: error.msg })
     }
