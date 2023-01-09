@@ -48,8 +48,10 @@ export default function Home(){
                 allProducts?.map(e => {
                    return (
                        <div>
-                       <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                        </div>
+                            <Link className="link" to={'/cards/' + e.id}>{/*agregue */}
+                                <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                            </Link>
+                       </div>
                     )})}
             </div>
 
