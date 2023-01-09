@@ -26,6 +26,20 @@ export function getByName(name){
     }
 }
 
+export function getByBrand(brand){
+    return async function(dispatch){
+        try {
+            let json = await axios.get("http://localhost:3000/bybrand?name=" + brand);
+            return dispatch({
+                type: 'GET_BY_BRAND',
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export function getTypes(){
     return async function(dispatch){
         let json = await axios.get("http://localhost:3000/types")

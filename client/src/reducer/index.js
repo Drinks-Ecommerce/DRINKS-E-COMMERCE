@@ -35,7 +35,11 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload
             }
-
+        case 'GET_BY_BRAND':
+            return{
+                ...state,
+                allproducts: action.payload
+            }
         // case 'FILTER_ORDER_PRICE':
         //     return {
         //         ...state,
