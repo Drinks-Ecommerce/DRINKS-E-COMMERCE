@@ -7,14 +7,16 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
+import { useState } from "react";
 
 
 import '../NavBar/NavBar.css';
 import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
 
-
 export default function Home(){   
+
+
 
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
@@ -24,19 +26,26 @@ export default function Home(){
 
 
     useEffect(() =>{
-        dispatch(getProducts())
+        dispatch(getProducts());
       },[dispatch])
 
     return(
 
         <div className="contenedor_general bg-gray-300">
 
+        <div className="contenedor_general bg-gray-300">
+
+            {/* CONTENIDO DEL ENCABEZADO */}
             {/* CONTENIDO DEL ENCABEZADO */}
 
             <div className="conte_encabezado">
                 <Encabezado />
             </div>                        
+            </div>                        
 
+            <div className="flex justify-center h-full w-full">
+                <Caroucel />
+            </div>            
             <div className="flex justify-center h-full w-full">
                 <Caroucel />
             </div>            
