@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts } from "../../action";
+import SearchBar from "../SearchBar/SearchBar";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 
 import images from "../icons/images"
