@@ -19,7 +19,7 @@ export default function Home(){
     const allProducts = useSelector((state) => state.allproducts)
     
 
-    console.log(allProducts.filter(e => e.name === "Vino prueba 3"))
+    console.log(allProducts);
     useEffect(() =>{
         dispatch(getProducts());
       },[dispatch])
@@ -42,6 +42,7 @@ export default function Home(){
 
             <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
 
+
                 allProducts?.map(e => {
                    return (
                        <div>
@@ -51,19 +52,13 @@ export default function Home(){
                        </div>
                     )})}
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
-            <div className="vinos">
-                <Link to={"/createProducts"}>
-                    <h1>CREAR PRODUCTO</h1>
-                </Link>
-                {
+        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
                 allProducts?.map(e => {
-                   return (
-                       <div>
-                       <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                        </div>
-                    )
-                    })
-                }
+                return (
+                    <div>
+                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                    </div>
+                    )})}
             </div>
 
             {/* CONTENIDO PARA EL FOOTER */}

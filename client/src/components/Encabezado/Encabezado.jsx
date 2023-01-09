@@ -5,7 +5,6 @@ import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
 
-
 export default function Encabezado(){
 
 	const dispatch = useDispatch()
