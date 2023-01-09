@@ -8,7 +8,6 @@ import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
 
-
 import '../NavBar/NavBar.css';
 import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
