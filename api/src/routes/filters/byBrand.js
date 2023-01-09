@@ -1,6 +1,7 @@
 const { Router } = require ("express");
 const { getProduct, getProducts } = require("../../controllers/productsController");
 const { Products, Type } =  require( "../../db");
+const { Op } = require("sequelize");
 
 const router = Router();
 
@@ -9,8 +10,8 @@ router.get('/', async(req,res)=>{
     try{
         const { brand } = req.query;
         const productByBrand = await Products.findAll({
-             where: {
-                brand: brand,
+            where: {
+                brand: { [Op.iLike]: `%${brand}%` }
             },
             include: {
                 model: Type,
@@ -21,7 +22,7 @@ router.get('/', async(req,res)=>{
             }
         })
         if(!productByBrand.length){
-            res.send("categoria invalida")
+            res.send("marca invalida")
         }else{
         const response = await productByBrand.map(e => {
             return {
@@ -43,7 +44,7 @@ router.get('/', async(req,res)=>{
         })
         res.send(response)
     }
-      
+    
     }catch(err){
         console.log(err)
     }
