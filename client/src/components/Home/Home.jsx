@@ -37,12 +37,24 @@ export default function Home(){
                 <Caroucel />
             </div>            
 
+<<<<<<< HEAD
             <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
                 allProducts?.map(e => {
                    return (
                        <div>
                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
                         </div>
+=======
+
+
+        {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
+        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
+                allProducts?.map(e => {
+                return (
+                    <div>
+                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                    </div>
+>>>>>>> 275c2538b9800b38008e0fb48be61c51455db294
                     )})}
             </div>
 
