@@ -20,14 +20,15 @@ export default function Detail() {
 		<div className='bg-gray'>
 
 			<Encabezado />
+
+			{details?.length &&
 				
-					<div>
-						
+					<div className='bg-gray-500'>
+						<img src={details[0].img} />
 						<h3>{details[0].comments}</h3>
 						<p>{details[0].price}</p>
 						<p>{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
 						<p>Cantidad: <select><option>{details[0].stock}</option></select></p>
-						<img src={details[0].img} />
 
 						<div>
 							<h2>Descripción</h2>
@@ -36,6 +37,7 @@ export default function Detail() {
 						<button>Agregar al carrito</button>
 				
 						</div>
+}
 			<Footer />
 		</div>
 	)
