@@ -7,7 +7,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
-import { useState } from "react";
+
 
 import '../NavBar/NavBar.css';
 import './Home.css'
