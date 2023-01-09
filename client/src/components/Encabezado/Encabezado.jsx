@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts } from "../../action";
+import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
 import SearchBar from "../SearchBar/SearchBar"
@@ -39,7 +40,6 @@ export default function Encabezado(){
 					</button>
 				</span>
 				<SearchBar/>
-				{/* <input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-700 text-gray-100 focus:bg-gray-900" /> */}
 			</div>
 		</div>
 

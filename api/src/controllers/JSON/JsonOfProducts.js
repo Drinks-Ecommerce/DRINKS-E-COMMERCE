@@ -10,7 +10,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "5",
         "origin": "Torre San Patrizio, Italia",
-        "alcohol": "13,5",
+        "alcohol": "13.5",
     },
     {
         "name": "Vino",
@@ -23,7 +23,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "5",
         "origin": "Luján de Cuyo, Mendoza.",
-        "alcohol": "14",
+        "alcohol": "14.00",
     },
     {
         "name": "Vino",
@@ -36,7 +36,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "8",
         "origin": "Valle de Casablanca. Chile",
-        "alcohol": "12,5",
+        "alcohol": "12.5",
     },
     {
         "name": "Vino",
@@ -49,7 +49,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "5",
         "origin": "Valle de Uco, Tunuyán. Provincia de Mendoza, Argentina.",
-        "alcohol": "12 ",
+        "alcohol": "5.00",
     },
     {
         "name": "Vino",
@@ -62,7 +62,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "9",
         "origin": "San Rafael. Provincia de Mendoza, Argentina.",
-        "alcohol": "12,5 ",
+        "alcohol": "12.5 ",
     },
     {
         "name": "Vino",
@@ -75,7 +75,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "5",
         "origin": "Luján de Cuyo y Tupungato. Provincia de Mendoza, Argentina.",
-        "alcohol": "13,2  ",
+        "alcohol": "13.2  ",
     },
     {
         "name": "Rosell Boher",
@@ -83,12 +83,12 @@ const jsonProducts = [
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Rosell_Boher_Ros%C3%A9_o6etmd.jpg",
         "price": "6.369",
         "description": "Bottle 750cc, Service temperature for this wine is between 6º and 8º C, Aging potential 3 years. Store in a cool, dark and vibration-free place. Ideal to accompany a black olive Focaccia.",
-        "types": "espumante",
+        "types": "cerveza",
         "brand": " Rosell Boher",
         "calification": "0",
         "discount": "10",
         "origin": "Valle de Uco, Provincia de Mendoza, Argentina.",
-        "alcohol": "13",
+        "alcohol": "1.3",
     },
     {
         "name": "Cruzat Cuvée Reserve Extra Brut",
@@ -96,12 +96,12 @@ const jsonProducts = [
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Cruzat_Cuv%C3%A9e_Reserve_Extra_Brut_krrmgn.jpg",
         "price": "3.710",
         "description": "Bottle 750cc, Service temperature of this sparkling wine is between 6º and 8º C, Aging potential 3 years. Ideal to enjoy with shellfish and fish with consistent sauces, white meats with light sauces, pasta and roasted or grilled meats.",
-        "types": "espumante",
+        "types": "cerveza", 
         "brand": "Cruzat Larrain ",
         "calification": "0",
         "discount": "5",
         "origin": "Tupungato, Valle de Uco. Provincia de Mendoza, Argentina.",
-        "alcohol": "13",
+        "alcohol": "1.3",
     },
     {
         "name": "Johnnie Walker Black Label",
@@ -114,7 +114,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "20",
         "origin": "Kilmarnock, Escocia.",
-        "alcohol": "30",
+        "alcohol": "3.0",
     },
     {
         "name": "Johnnie Walker Red Label",
@@ -127,7 +127,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "20",
         "origin": "Kilmarnock, Escocia.",
-        "alcohol": "30",
+        "alcohol": "3.0",
     },
     {
         "name": "Jameson Irish Whiskey",
@@ -140,7 +140,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "4",
         "origin": "Irlanda",
-        "alcohol": "40 ",
+        "alcohol": "4.0",
     },
     {
         "name": "Gordon's",
@@ -153,7 +153,7 @@ const jsonProducts = [
         "calification": "8.5",
         "discount": "10",
         "origin": "	Reino Unido",
-        "alcohol": "38 ",
+        "alcohol": "3.8",
     },
     {
         "name": "Bulldog",
@@ -166,7 +166,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "18",
         "origin": "	Reino Unido",
-        "alcohol": "40 ",
+        "alcohol": "4.0",
     },
     {
         "name": "Hendricks",
@@ -179,7 +179,7 @@ const jsonProducts = [
         "calification": "0",
         "discount": "20",
         "origin": "	 Girvan, Escocia",
-        "alcohol": "35 ",
+        "alcohol": "3.5 ",
     },
     {
         "name": "Patagonia 24.7",
