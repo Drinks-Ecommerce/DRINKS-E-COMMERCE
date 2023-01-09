@@ -2,30 +2,27 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../../action/index.js';
-import Nav from '../NavBar/NavBar.jsx';
-import Foot from '../Footer/Footer.jsx';
+
+import Encabezado from '../Encabezado/Encabezado.jsx';
+import Footer from '../Footer/Footer.jsx';
 
 export default function Detail() {
 
-const { id } = useParams();
-const dispatch = useDispatch();
+	const { id } = useParams();
+	const dispatch = useDispatch();
+	const details = useSelector(state => state.details);
 
-const details = useSelector(state => state.details);
-
-
-useEffect(() => {
-	dispatch(getDetail(id));
-},[dispatch]);
-
+	useEffect(() => {
+		dispatch(getDetail(id));
+	},[dispatch]);
 
 	return(
-		<div>
-{/*			<Nav />*/}
-			<div>
-				{
-					details.length ? 
+		<div className='bg-gray'>
+
+			<Encabezado />
+				
 					<div>
-						<h1>{details[0].name}</h1>
+						
 						<h3>{details[0].comments}</h3>
 						<p>{details[0].price}</p>
 						<p>{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
@@ -37,12 +34,9 @@ useEffect(() => {
 							<p>{details[0].description}</p>
 						</div>
 						<button>Agregar al carrito</button>
-
-					</div> : <p>Loading...</p>
-				}
-
-			</div>
-			<Foot />
+				
+						</div>
+			<Footer />
 		</div>
-		)
-};
+	)
+}

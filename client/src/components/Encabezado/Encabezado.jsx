@@ -28,11 +28,7 @@ export default function Encabezado(){
 
   	return(
 
-    <header className={classNames(
-        scrollPosition > 2 ? "fixed w-full z-10 bg-gray-800 text-gay-100" :
-		"bg-gray-800 text-gray-100"
-		
-		)}>
+    <header className= "bg-gray-800 text-gray-100">
 
 		<div className="flex justify-between h-16 mx-5">
 
