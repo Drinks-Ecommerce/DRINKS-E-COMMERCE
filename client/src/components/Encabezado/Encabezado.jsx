@@ -4,7 +4,6 @@ import { filterByTypes, getProducts } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
-import SearchBar from "../SearchBar/SearchBar"
 
 export default function Encabezado(){
 
