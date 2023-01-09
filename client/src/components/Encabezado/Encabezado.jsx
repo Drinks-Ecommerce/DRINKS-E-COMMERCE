@@ -4,6 +4,7 @@ import { filterByTypes, getProducts } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
+import SearchBar from "../SearchBar/SearchBar"
 
 export default function Encabezado(){
 
@@ -77,23 +78,23 @@ export default function Encabezado(){
   		</li>
 
   		<li class="mr-4">
-    		<option class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
+    		<option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
   		</li>
 
   		<li class="mr-4">
-    		<option class="text-white text-lg font-bold hover:text-blue-800" href="#">GINS</option>
+    		<option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
   		</li>
 
   		<li class="mr-4">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">VERMÚS</a>
+    		<option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
   		</li>
 
   		<li class="mr-4">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">CRISTALERÍA</a>
+    		<option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
  		</li>
 
   		<li class="mr-8">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">DELICATESSEN</a>
+    		<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
   		</li>
 
   		<li class="">

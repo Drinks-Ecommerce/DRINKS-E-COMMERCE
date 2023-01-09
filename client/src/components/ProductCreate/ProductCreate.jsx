@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import './ProductCreate.css'
 
 
+
  const validate = (input) => {
 
   
@@ -60,6 +61,7 @@ import './ProductCreate.css'
 
       return errors
       
+
  }
  
 

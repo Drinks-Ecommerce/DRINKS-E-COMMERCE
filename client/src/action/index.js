@@ -11,6 +11,10 @@ export function getProducts(){
     }
 }
 
+
+
+//⬇️(gaston) action para el buscador por nombre
+
 export function getByName(name){
     return async function(dispatch){
         try {
@@ -52,12 +56,12 @@ export function getTypes(){
 
 export function creatProducts(payload){
     return async function(dispatch){
-      let json = await axios.post("http://localhost:3000/products", payload)
+    let json = await axios.post("http://localhost:3000/products", payload)
 
-      return dispatch({
+    return dispatch({
         type:"CREATE_PRODUCTS",
         payload: json
-      })
+    })
 
     }
 }

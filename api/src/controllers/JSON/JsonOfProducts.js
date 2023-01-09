@@ -96,7 +96,7 @@ const jsonProducts = [
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Cruzat_Cuv%C3%A9e_Reserve_Extra_Brut_krrmgn.jpg",
         "price": "3.710",
         "description": "Bottle 750cc, Service temperature of this sparkling wine is between 6º and 8º C, Aging potential 3 years. Ideal to enjoy with shellfish and fish with consistent sauces, white meats with light sauces, pasta and roasted or grilled meats.",
-        "types": "cerveza",
+        "types": "cerveza", 
         "brand": "Cruzat Larrain ",
         "calification": "0",
         "discount": "5",

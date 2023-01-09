@@ -40,6 +40,7 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload
             } 
+
         // case 'FILTER_ORDER_PRICE':
         //     return {
         //         ...state,
@@ -56,7 +57,6 @@ function rootReducer(state = initialState, action){
         default:
                 return state;
     }
-
 }
 
 export default rootReducer
