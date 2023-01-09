@@ -11,7 +11,10 @@ export function getProducts(){
     }
 }
 
+
+
 //⬇️(gaston) action para el buscador por nombre
+
 export function getByName(name){
     return async function(dispatch){
         try {

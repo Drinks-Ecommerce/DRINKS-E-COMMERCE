@@ -1,23 +1,23 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
-import { /*getByName,*/ getByBrand } from "../../action/index.js"
+import { getByName/*, getByBrand*/ } from "../../action/index.js"
 
 export default function SearchBar(){
     const dispatch = useDispatch();
-    // const [ name, setName ] = useState("");
-    const [ brand, setBrand ] = useState("");
+    const [ name, setName ] = useState("");
+    // const [ brand, setBrand ] = useState("");
 
     function handleInputChange(e){
         e.preventDefault();
-        // setName(e.target.value);
-        setBrand(e.target.value);
+        setName(e.target.value);
+        // setBrand(e.target.value);
     }
     const handleClick = (event) => {
         event.preventDefault();
-        // dispatch(getByName(name));
-        dispatch(getByBrand(brand))
-        // setName('')
-        setBrand('')
+        dispatch(getByName(name));
+        // dispatch(getByBrand(brand))
+        setName('')
+        // setBrand('')
     };
     return (
     <form onSubmit={(event) => handleClick(event)}>
@@ -27,4 +27,6 @@ export default function SearchBar(){
     </div>
     </form>
     );
+
 }
+
