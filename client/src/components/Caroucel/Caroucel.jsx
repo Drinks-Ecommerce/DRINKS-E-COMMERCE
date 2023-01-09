@@ -4,8 +4,8 @@ import images from '../icons/images';
 
 export default function Caroucel() {
   return (
-    <div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark relative w-full h-96" data-bs-ride="carousel"
->
+
+    <div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark relative w-full h-96" data-bs-ride="carousel">
 
   <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
 

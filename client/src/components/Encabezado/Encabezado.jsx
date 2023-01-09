@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts } from "../../action";
+import { useScrollPosition } from "../hooks/useScrollPosition";
 
 import images from "../icons/images"
 
 export default function Encabezado(){
 
+	function classNames(...classes) {
+		return classes.filter(Boolean).join(' ')
+	}
+
+	const scrollPosition = useScrollPosition()
 	const dispatch = useDispatch()
   
     function handleFilterByType(e){
@@ -20,7 +26,13 @@ export default function Encabezado(){
 
   	return(
 
-    <header className=" bg-gray-800 text-gray-100">
+    <header className={classNames(
+        scrollPosition > 2 ? "fixed w-full z-10 bg-gray-800 text-gay-100" :
+		"bg-gray-800 text-gray-100"
+		
+		)}>
+
+
 
 		<div className="flex justify-between h-16 mx-5">
 

@@ -28,6 +28,7 @@ export default function Home(){
         <div className="contenedor_general bg-gray-300">
 
             {/* CONTENIDO DEL ENCABEZADO */}
+            
 
             <div className="conte_encabezado">
                 <Encabezado />
