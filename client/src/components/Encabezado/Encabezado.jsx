@@ -4,6 +4,7 @@ import { filterByTypes, getProducts } from "../../action";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 
 import images from "../icons/images"
+import '../SearchBar/SearchBar.jsx'
 
 export default function Encabezado(){
 
