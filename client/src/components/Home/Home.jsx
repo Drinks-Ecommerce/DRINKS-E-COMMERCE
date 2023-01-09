@@ -7,7 +7,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
-
+import { Link } from 'react-router-dom'
 import '../NavBar/NavBar.css';
 import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
@@ -44,7 +44,9 @@ export default function Home(){
                 allProducts?.map(e => {
                 return (
                     <div>
+                        <Link to={'/cards/' + e.id}>
                         <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                        </Link>
                     </div>
                     )})}
             </div>

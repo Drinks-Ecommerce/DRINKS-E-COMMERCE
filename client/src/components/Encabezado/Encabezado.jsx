@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { filterByTypes, getProducts } from "../../action";
+import { filterByTypes, getProducts, filterByPriceOrder } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
@@ -13,6 +13,11 @@ export default function Encabezado(){
         e.preventDefault()
         dispatch(filterByTypes(e.target.value))   
     }
+    
+	function handleFilterByPrice(e){
+		e.preventDefault()
+		dispatch(filterByPriceOrder(e.target.value))
+	}
 
     function handleclick(e){
         e.preventDefault();
@@ -60,6 +65,12 @@ export default function Encabezado(){
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
            
 	<ul class="flex">
+	    <li class="mr-4">
+		<option  className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">PRECIOS</option>
+		<option value="max" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Max</option>
+    	<option value="min" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Min</option>
+  		</li>
+
   		<li class="mr-4">
     		<option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
   		</li>
