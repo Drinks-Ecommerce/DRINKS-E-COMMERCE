@@ -4,6 +4,7 @@ import hyundai from './hyundai.png';
 import microsoft from './microsoft.png';
 import atlantica from './atlantica.png'
 import Vinario from './2.png'
+import Carrito from './Carrito.png'
 
 import WS from './WS.png';
 import IG from './IG.png';
@@ -19,4 +20,5 @@ export default {
     "img6": IG,
     "img7": FB,
     "img8": MAIL,
+    "img9": Carrito
 }

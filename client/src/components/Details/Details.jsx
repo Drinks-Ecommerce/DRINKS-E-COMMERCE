@@ -20,7 +20,7 @@ useEffect(() => {
 
 	return(
 		<div>
-			<Nav />
+{/*			<Nav />*/}
 			<div>
 				{
 					details.length ? 
@@ -36,10 +36,10 @@ useEffect(() => {
 							<h2>Descripción</h2>
 							<p>{details[0].description}</p>
 						</div>
+						<button>Agregar al carrito</button>
 
 					</div> : <p>Loading...</p>
 				}
-			
 
 			</div>
 			<Foot />

@@ -6,34 +6,36 @@ import Cards from "../Cards/Cards";
 import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
+import { useState } from "react";
 
 import '../NavBar/NavBar.css';
 import './Home.css'
+import Caroucel from "../Caroucel/Caroucel.jsx";
 
 
-export default function Home(){
-   
+export default function Home(){   
+
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
 
+    console.log(allProducts.filter(e => e.name === "Vino prueba 3"))
     useEffect(() =>{
-        dispatch(getProducts())
+        dispatch(getProducts());
       },[dispatch])
 
     return(
-        <div className="contenedor_general">
 
-            {/* CONTENIDO PARA EL ENCABEZADO */}
+        <div className="contenedor_general bg-gray-300">
+
+            {/* CONTENIDO DEL ENCABEZADO */}
 
             <div className="conte_encabezado">
                 <Encabezado />
-            </div>
+            </div>                        
 
-              {/* CONTENIDO PARA EL NAVBAR */}
-
-              <div className="nav">
-                <NavBar/>
-            </div>
+            <div className="flex justify-center h-full w-full">
+                <Caroucel />
+            </div>            
 
        
 
@@ -42,16 +44,15 @@ export default function Home(){
                 <Link to={"/createProducts"}>
                     <h1>CREAR PRODUCTO</h1>
                 </Link>
-
                 {
                 allProducts?.map(e => {
                    return (
-                    <div>
-                        <Cards name={e.name} amount={e.amount} price={e.price} description={e.description} type={e.type} img={e.img} />
-                    </div>
-                   )
-                })
-            }
+                       <div>
+                       <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                        </div>
+                    )
+                    })
+                }
             </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
