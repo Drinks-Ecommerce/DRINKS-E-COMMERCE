@@ -18,6 +18,7 @@ export function getProducts(){
 export function getByName(name){
     return async function(dispatch){
         try {
+            
             let json = await axios.get("http://localhost:3000/products?name=" + name);
             return dispatch({
                 type: 'GET_BY_NAME',
@@ -25,6 +26,7 @@ export function getByName(name){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
 }
@@ -39,6 +41,7 @@ export function getByBrand(brand){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
 }

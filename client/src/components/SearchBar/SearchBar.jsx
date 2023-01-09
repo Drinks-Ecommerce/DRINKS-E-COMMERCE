@@ -23,7 +23,7 @@ export default function SearchBar(){
     <form onSubmit={(event) => handleClick(event)}>
     <div >
         <input type="text" placeholder="BUSCAR PRODUCTO" onChange={(e) => handleInputChange(e)}/>
-        <button type="submit" >BUSCAR 🔎</button>
+        <button type="submit" >   🔎</button>
     </div>
     </form>
     );
