@@ -7,10 +7,12 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
+import { useState } from "react";
 
 import '../NavBar/NavBar.css';
 import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
+
 
 
 export default function Home(){   
@@ -37,24 +39,25 @@ export default function Home(){
                 <Caroucel />
             </div>            
 
-            <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
-                allProducts?.map(e => {
-                   return (
-                       <div>
-                       <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                        </div>
-                   )})}
-            </div>
-                        
 
-        
+
+        {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
+        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
+                allProducts?.map(e => {
+                return (
+                    <div>
+                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                    </div>
+                    )})}
+            </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
 
             <div className="container-footer">
                 <Footer />
             </div>
-            
+        
+        </div>
         </div>
     )
 }

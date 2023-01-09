@@ -17,6 +17,7 @@ export default function Detail() {
 	},[dispatch]);
 
 	return(
+<<<<<<< HEAD
 		<div className='bg-gray'>
 
 			<Encabezado />
@@ -28,17 +29,47 @@ export default function Detail() {
 						<h3>{details[0].comments}</h3>
 						<p>{details[0].price}</p>
 						<p>{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
+=======
+		<div>
+{/*			<Nav />*/}
+			<div>
+				{
+					details.length ? 
+					<div>
+						
+						<h1>Name:{details[0].name}</h1>
+						<h3>Comentarios:{details[0].comments}</h3>
+						<p>Precio:{details[0].price}</p>
+						<p>Marca:{details[0].brand}</p>
+						<p>Descuento:{details[0].discount}</p>
+						<p>Origen:{details[0].origin}</p>
+						<p>Grado de Alcohol:{details[0].alcohol}</p>
+						<p>Calificacion:{details[0].calification}</p>
+						<p>Stock:{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
+>>>>>>> 633654bd21cc7f2c30af31ee8238c1398c3da8ea
 						<p>Cantidad: <select><option>{details[0].stock}</option></select></p>
 
 						<div>
-							<h2>Descripción</h2>
-							<p>{details[0].description}</p>
+							<h2>Descripción: </h2>
+							 <p>{details[0].description}</p> 
 						</div>
+						<div>
 						<button>Agregar al carrito</button>
+<<<<<<< HEAD
 				
 						</div>
 }
 			<Footer />
+=======
+						 </div>
+						 
+						 
+					</div> : <p>Loading...</p>
+				}
+
+			</div>
+			<Foot />
+>>>>>>> 633654bd21cc7f2c30af31ee8238c1398c3da8ea
 		</div>
 	)
 }
