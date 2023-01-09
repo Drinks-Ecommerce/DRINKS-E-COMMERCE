@@ -14,6 +14,7 @@ export default function SearchBar(){
     }
     const handleClick = (event) => {
         event.preventDefault();
+
         dispatch(getByName(name));
         // dispatch(getByBrand(brand))
         setName('')

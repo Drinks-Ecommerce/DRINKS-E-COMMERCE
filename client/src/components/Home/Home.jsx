@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../action/index";
 import Cards from "../Cards/Cards";
@@ -42,23 +41,16 @@ export default function Home(){
 
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
-            <div className="vinos">
-                <Link to={"/createProducts"}>
-                    <h1>CREAR PRODUCTO</h1>
-                </Link>
-
-                {
+        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
                 allProducts?.map(e => {
-                   return (
-                       <div>
-                            <Link className="link" to={'/cards/' + e.id}>{/*agregue */}
-                                <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                            </Link>
-                       </div>
+                return (
+                    <div>
+                        <Link to={'/cards/' + e.id}>
+                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                        </Link>
+                    </div>
                     )})}
-       
-
-        
+            </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
 
@@ -66,7 +58,6 @@ export default function Home(){
                 <Footer />
             </div>
         
-        </div>
         </div>
     )
 }
