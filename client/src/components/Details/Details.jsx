@@ -39,7 +39,7 @@ useEffect(() => {
 						<img src={details[0].img} />
 
 						<div>
-							<h2>Descripción:</h2>
+							<h2>Descripción: </h2>
 							 <p>{details[0].description}</p> 
 						</div>
 						<div>
