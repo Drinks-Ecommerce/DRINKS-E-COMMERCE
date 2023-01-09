@@ -1,23 +1,22 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getByName, getByBrand } from "../../action/index.js"
+import { /*getByName,*/ getByBrand } from "../../action/index.js"
 
 export default function SearchBar(){
     const dispatch = useDispatch();
-    const [ name, setName ] = useState("");
+    // const [ name, setName ] = useState("");
     const [ brand, setBrand ] = useState("");
 
     function handleInputChange(e){
         e.preventDefault();
-        setName(e.target.value);
+        // setName(e.target.value);
         setBrand(e.target.value);
     }
     const handleClick = (event) => {
         event.preventDefault();
-        //name seria el estado local
-        dispatch(getByName(name));
+        // dispatch(getByName(name));
         dispatch(getByBrand(brand))
-        setName('')
+        // setName('')
         setBrand('')
     };
     return (
