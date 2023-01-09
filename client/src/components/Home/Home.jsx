@@ -13,6 +13,7 @@ import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
 
 
+
 export default function Home(){   
 
     const dispatch = useDispatch()
@@ -56,7 +57,7 @@ export default function Home(){
             <div className="container-footer">
                 <Footer />
             </div>
-            
+        
         </div>
     )
 }

@@ -59,7 +59,7 @@ import './ProductCreate.css'
         errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
       };
 
-      return errors
+//       return errors
       
 
  }
