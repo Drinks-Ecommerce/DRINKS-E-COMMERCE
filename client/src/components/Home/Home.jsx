@@ -18,7 +18,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
 
-    console.log(allProducts.filter(e => e.name === "Vino prueba 3"))
+    console.log(allProducts);
     useEffect(() =>{
         dispatch(getProducts());
       },[dispatch])
