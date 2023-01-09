@@ -25,19 +25,28 @@ useEffect(() => {
 				{
 					details.length ? 
 					<div>
-						<h1>{details[0].name}</h1>
-						<h3>{details[0].comments}</h3>
-						<p>{details[0].price}</p>
-						<p>{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
+						
+						<h1>Name:{details[0].name}</h1>
+						<h3>Comentarios:{details[0].comments}</h3>
+						<p>Precio:{details[0].price}</p>
+						<p>Marca:{details[0].brand}</p>
+						<p>Descuento:{details[0].discount}</p>
+						<p>Origen:{details[0].origin}</p>
+						<p>Grado de Alcohol:{details[0].alcohol}</p>
+						<p>Calificacion:{details[0].calification}</p>
+						<p>Stock:{details[0].stock > 0 ? 'Stock Disponible' : 'Sin stock'}</p>
 						<p>Cantidad: <select><option>{details[0].stock}</option></select></p>
 						<img src={details[0].img} />
 
 						<div>
-							<h2>Descripción</h2>
-							<p>{details[0].description}</p>
+							<h2>Descripción: </h2>
+							 <p>{details[0].description}</p> 
 						</div>
+						<div>
 						<button>Agregar al carrito</button>
-
+						 </div>
+						 
+						 
 					</div> : <p>Loading...</p>
 				}
 
