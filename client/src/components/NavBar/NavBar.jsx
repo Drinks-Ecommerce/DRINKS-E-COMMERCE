@@ -6,18 +6,18 @@ export default function NavBar(){
 
     const dispatch = useDispatch()
   
+   function handleFilterByType(e){
+    e.preventDefault()
+    dispatch(filterByTypes(e.target.value))
+   
+   
+  }
 
-    function handleFilterByType(e){
-        e.preventDefault()
-        dispatch(filterByTypes(e.target.value))
-       
-      }
-
-    function handleclick(e){
-        e.preventDefault();
-        dispatch(getProducts())
-    }
-
+function handleclick(e){
+    e.preventDefault();
+    dispatch(getProducts())
+}
+   
     //className="filter_vinos"
 
     return(
@@ -60,7 +60,7 @@ export default function NavBar(){
         </div>
     )
 
-}
+} 
 
 
 

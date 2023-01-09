@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../action/index";
 import Cards from "../Cards/Cards";
@@ -7,10 +6,11 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
-
+import { Link } from 'react-router-dom'
 import '../NavBar/NavBar.css';
 import './Home.css'
 import Caroucel from "../Caroucel/Caroucel.jsx";
+
 
 
 export default function Home(){   
@@ -18,7 +18,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
 
-    console.log(allProducts.filter(e => e.name === "Vino prueba 3"))
+    console.log(allProducts);
     useEffect(() =>{
         dispatch(getProducts());
       },[dispatch])
@@ -37,22 +37,18 @@ export default function Home(){
                 <Caroucel />
             </div>            
 
-       
+
 
         {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
-            <div className="vinos">
-                <Link to={"/createProducts"}>
-                    <h1>CREAR PRODUCTO</h1>
-                </Link>
-                {
+        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
                 allProducts?.map(e => {
-                   return (
-                       <div>
-                       <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                        </div>
-                    )
-                    })
-                }
+                return (
+                    <div>
+                        <Link to={'/cards/' + e.id}>
+                        <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                        </Link>
+                    </div>
+                    )})}
             </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
@@ -60,7 +56,7 @@ export default function Home(){
             <div className="container-footer">
                 <Footer />
             </div>
-            
+        
         </div>
     )
 }
