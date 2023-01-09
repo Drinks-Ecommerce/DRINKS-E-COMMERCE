@@ -1,32 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts } from "../../action";
-
-
+import SearchBar from "../SearchBar/SearchBar";
 
 import images from "../icons/images"
-import SearchBar from "../SearchBar/SearchBar"
+
 
 export default function Encabezado(){
 
 	const dispatch = useDispatch()
-  
-    function handleFilterByType(e){
-        e.preventDefault()
-        dispatch(filterByTypes(e.target.value))   
-    }
-
-    function handleclick(e){
-        e.preventDefault();
-        dispatch(getProducts())
-    }
-	
-
-  	
-
-
-
-	
   
     function handleFilterByType(e){
         e.preventDefault()
@@ -58,7 +40,6 @@ export default function Encabezado(){
 					</button>
 				</span>
 				<SearchBar/>
-				{/* <input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-700 text-gray-100 focus:bg-gray-900" /> */}
 			</div>
 		</div>
 
@@ -97,23 +78,23 @@ export default function Encabezado(){
   		</li>
 
   		<li class="mr-4">
-    		<option class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
+    		<option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
   		</li>
 
   		<li class="mr-4">
-    		<option class="text-white text-lg font-bold hover:text-blue-800" href="#">GINS</option>
+    		<option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
   		</li>
 
   		<li class="mr-4">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">VERMÚS</a>
+    		<option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
   		</li>
 
   		<li class="mr-4">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">CRISTALERÍA</a>
+    		<option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
  		</li>
 
   		<li class="mr-8">
-    		<a class="text-white text-lg font-bold hover:text-blue-800" href="#">DELICATESSEN</a>
+    		<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
   		</li>
 
   		<li class="">

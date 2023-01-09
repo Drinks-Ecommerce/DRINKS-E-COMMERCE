@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getByName, getByBrand } from "../../action/index.js"
 
@@ -28,4 +28,6 @@ export default function SearchBar(){
     </div>
     </form>
     );
+
 }
+
