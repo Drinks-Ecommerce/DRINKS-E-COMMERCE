@@ -30,12 +30,33 @@ function rootReducer(state = initialState, action){
                 ...state,
                 details: action.payload
             }
+        case 'GET_BY_NAME':
+            return {
+                ...state,
+                allproducts: action.payload
+            }
+        case 'GET_BY_BRAND':
+            return{
+                ...state,
+                allproducts: action.payload
+            } 
+
+        case 'FILTER_ORDER_PRICE':
+            return {
+                ...state,
+                allproducts: action.payload
+            }
+
+        case 'FILTER_TYPE':
+        return {
+            ...state,
+            allproducts: action.payload
+        }
 
 
         default:
                 return state;
     }
-
 }
 
 export default rootReducer

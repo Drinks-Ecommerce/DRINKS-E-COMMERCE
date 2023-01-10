@@ -15,6 +15,8 @@ const deleteproduct = require("./productRoutes/delete")
 const updateproduct = require("./productRoutes/update")
 const filterbytypes = require("./filters/bytype")
 const filterbyprice = require("./filters/byprice")
+const filterbybrand = require("./filters/byBrand")
+
 
 router.use("/products", getProducts);
 router.use("/products", postProducts);
@@ -28,7 +30,8 @@ router.use("/signIn", postSingIn)
 router.use("/products", deleteproduct);
 router.use("/products", updateproduct); 
 router.use("/products", filterbytypes);
-router.use("/products", filterbyprice)
+router.use("/products", filterbyprice);
+router.use("/bybrand", filterbybrand);
 
 
 

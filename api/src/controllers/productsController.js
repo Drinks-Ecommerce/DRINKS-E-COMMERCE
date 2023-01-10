@@ -1,46 +1,71 @@
 const { Products, Type } = require("../db");
 const { Op } = require("sequelize");
+const jsonProducts = require("./JSON/JsonOfProducts");
 
 const getProducts = async () => {
-    try {
-        const products = await Products.findAll({
-            include: {
-                model: Type,
-                attributes: ["name"],
-                through: {
-                    attributes: []
-                }
-            }
-        })
-    
-        const result = await products.map(e => {
-            return {
-                id: e.id,
-                name: e.name,
-                stock:e.stock,
-                price:e.price,
-                description:e.description,
-                brand:e.brand,
-                discount:e.discount,
-                origin:e.origin,
-                alcohol:e.alcohol,
-                img:e.img,
-                comments:e.comments,
-                calification:e.calification,
-                type: e.types.map((e)=> e.name)
-            }
-        })
-        return result;
 
-    } catch (error) {
-        console.log(error)
+    const products = await Products.findAll({
+        include: {
+            model: Type,
+            attributes: ["name"],
+            through: {
+                attributes: []
+            }
+        }
+    })
+
+    if (products.length === 0) {
+        try {
+            jsonProducts.map(async (e) => {
+                let newProduct = await Products.create({
+                    name: e.name,
+                    stock: e.stock,
+                    img: e.img,
+                    price: e.price,
+                    description: e.description,
+                    brand: e.brand,
+                    comments: e.comments,
+                    calification: e.calification,
+                    discount: e.discount,
+                    origin: e.origin,
+                    alcohol: e.alcohol,
+                });
+                let newProductType = await Type.findAll({
+                    where: { name: e.types },
+                });
+
+                newProduct.addType(newProductType);
+
+                console.log("Base de datos de Productos completa")
+            })
+        } catch (error) {
+            console.log("Error en Products", error)
+        }
     }
+
+    const result = await products.map(e => {
+        return {
+            id: e.id,
+            name: e.name,
+            stock: e.stock,
+            price: e.price,
+            description: e.description,
+            brand: e.brand,
+            discount: e.discount,
+            origin: e.origin,
+            alcohol: e.alcohol,
+            img: e.img,
+            comments: e.comments,
+            calification: e.calification,
+            type: e.types.map((e) => e.name)
+        }
+    })
+    return result;
 }
 
 
 const getProduct = async (name) => {
     try {
-
         const productname = await Products.findAll({
             where: {
                 name: { [Op.iLike]: `%${name}%` }
@@ -58,6 +83,46 @@ const getProduct = async (name) => {
             return {
                 id: e.id,
                 name: e.name,
+                stock: e.stock,
+                price: e.price,
+                description: e.description,
+                brand: e.brand,
+                discount: e.discount,
+                origin: e.origin,
+                alcohol: e.alcohol,
+                img: e.img,
+                comments: e.comments,
+                calification: e.calification,
+                type: e.types.map((e) => e.name)
+
+            }
+        })
+        return (res)
+
+    } catch (error) {
+        return res.status(400).json({ msg: error.msg })
+    }
+}
+
+/* const getBybrand = async(brand) => {
+    try {
+        const productbrand = await Products.findAll({
+            where: {
+                brand: brand,
+            },
+            include: {
+                model: Type,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                }
+            }
+        })
+
+        const resbybrand = await productbrand.map(e => {
+            return {
+                id: e.id,
+                name: e.name,
                 stock:e.stock,
                 price:e.price,
                 description:e.description,
@@ -72,45 +137,12 @@ const getProduct = async (name) => {
 
             }
         })
-        return (res)
+        return (resbybrand)
 
     } catch (error) {
         return res.status(400).json({ msg: error.msg })
     }
 }
+ */
 
-
-
-/* const updateProduct = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { name, amount, price } = req.body
-
-        const product = await Product.findByPk(id);
-        product.name = name;
-        product.amount = amount;
-        product.price = price;
-
-        await product.save();
-        return(product)
-
-    } catch (error) {
-        return res.status(400).json({ msg: error.msg })
-    }
-}
-
- const deleteProduct = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await Products.destroy({
-            where: {
-                id,
-            }
-        })
-        res.json({ msg: "Deleted product" })
-    } catch (error) {
-        return res.status(400).json({ msg: error.msg })
-    }
-} */
-
-module.exports = {getProduct, getProducts}
+module.exports = { getProduct, getProducts }
