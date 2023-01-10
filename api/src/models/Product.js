@@ -18,18 +18,18 @@ module.exports = (sequelize)=>{
 
     },
     price: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DECIMAL,
         allowNull: false,
     },
     description:{
-        type:DataTypes.STRING
+        type:DataTypes.TEXT
     },
     img:{
         type:DataTypes.STRING,
         allowNull: false,
     },
     comments:{
-        type:DataTypes.STRING
+        type:DataTypes.TEXT
     },
     calification:{
         type:DataTypes.STRING
