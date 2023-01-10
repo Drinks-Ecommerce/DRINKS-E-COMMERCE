@@ -25,22 +25,23 @@ export default function Home(){
 
     return(
 
-        <div className="contenedor_general bg-gray-300">
 
+            <div className="contenedor_general bg-gray-300">
+            
             {/* CONTENIDO DEL ENCABEZADO */}
-
+            
             <div className="conte_encabezado">
-                <Encabezado />
+            <Encabezado />
             </div>                        
-
+            
             <div className="flex justify-center h-full w-full">
-                <Caroucel />
+            <Caroucel />
             </div>            
-
-
-
-        {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
-        <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
+            
+            
+            
+            {/* CONTENIDO PARA EL CUALQUIER COMPONENTE */}
+            <div className="container pb-10 bg-gray-300 mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5"> {
                 allProducts?.map(e => {
                 return (
                     <div>
@@ -49,7 +50,7 @@ export default function Home(){
                         </Link>
                     </div>
                     )})}
-            </div>
+                    </div>
 
             {/* CONTENIDO PARA EL FOOTER */}
 
