@@ -10,11 +10,12 @@ const router = Router();
 router.post("/", async (req, res) => {
 
     try {
-        const { email, password, adult, roles } = req.body;
+        const { username, email, password, adult, roles } = req.body;
 
         const passwordHash = await encrypt(password)
 
         const newUser = await User.create({
+            username,
             email,
             password: passwordHash,
             adult,
@@ -32,14 +33,17 @@ router.post("/", async (req, res) => {
 
         if (adult === true) {
             newUser.addRole(roleDb);
-            res.send({token})
+            res.send({ token })
         } else {
             res.status(404).send("Edad insuficiente")
         }
 
 
     } catch (error) {
-        console.log(error)
+        /*         res.status(404).send(error) */
+        res.status(404).send(error)
+
+
     }
 })
 

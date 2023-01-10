@@ -6,9 +6,9 @@ const encrypt = async (password) => { // textoPlano
     return await bcrypt.hash(password, salt)
 }
 
-// Comparamos
+// Comparamos --> retorna un true y false
 const comparePassword = async (password, receivedPassword) => {
-    
+    return await bcrypt.compare(password, receivedPassword)
 }
 
-module.exports = { encrypt}
+module.exports = { encrypt, comparePassword }

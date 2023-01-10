@@ -1,11 +1,11 @@
- const { Type } = require("../db");
+const { Type } = require("../db");
 
 
-const allTypes = async () =>{
-    try{
+const allTypes = async () => {
+    try {
         const typesDB = await Type.findAll();
-        if(!typesDB.length){
-            const types = ["tinto", "blanco","rosado","espumantes", "whiskys","gins", "rones","vermouth","cristaleria","delicatessen"];
+        if (!typesDB.length) {
+            const types = ["tinto", "blanco", "rosado", "espumantes", "whiskys", "gins", "rones", "vermouth", "cristaleria", "delicatessen"];
 
 
             types.map(async (e) => {
@@ -16,8 +16,8 @@ const allTypes = async () =>{
             return types
         }
 
-        else{
-           return typesDB.map(e=> e.name)
+        else {
+            return typesDB.map(e => e.name)
         }
     } catch (err) {
         console.log(err)
@@ -27,5 +27,5 @@ const allTypes = async () =>{
 allTypes();
 
 
-module.exports = { allTypes }   
+module.exports = { allTypes }
 

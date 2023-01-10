@@ -16,6 +16,7 @@ const getUsers = async () => {
         const result = await users.map(e => {
             return {
                 id: e.id,
+                username: e.username,
                 email: e.email,
                 password: e.password,
                 adult: e.adult,
@@ -29,12 +30,12 @@ const getUsers = async () => {
     }
 }
 
-const getUser = async (email) => {
+const getUser = async (username) => {
     try {
 
-        const userEmail = await Products.findAll({
+        const userEmail = await User.findAll({
             where: {
-                email: { [Op.iLike]: `%${email}%` }
+                username: { [Op.iLike]: `%${username}%` }
             },
             include: {
                 model: Role,
