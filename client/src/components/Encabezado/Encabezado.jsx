@@ -62,54 +62,57 @@ export default function Encabezado(){
 	</div>
 
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
-           
 	<ul class="flex">
-	    <li class="mr-4">
-		<option  className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">PRECIOS</option>
-		<option value="max" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Max</option>
-    	<option value="min" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Min</option>
-  		</li>
 
-  		<li class="mr-4">
-    		<option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
-  		</li>
+<li class="mr-4">
+  <option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='whisky' class="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>WHISKYS</option>
-  		</li>
+<li class="mr-4">
+  <option value='whisky' class="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>WHISKYS</option>
+</li>
 
-  		<li class="mr-4">
-   			 <option value='ron' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>RONES</option>
-  		</li>
+<li class="mr-4">
+	  <option value='ron' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>RONES</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>CERVEZAS</option>
-  		</li>
+<li class="mr-4">
+  <option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>CERVEZAS</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
-  		</li>
+<li class="mr-4">
+  <option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
-  		</li>
+<li class="mr-4">
+  <option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
-  		</li>
+<li class="mr-4">
+  <option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
+</li>
 
-  		<li class="mr-4">
-    		<option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
- 		</li>
+<li class="mr-4">
+  <option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
+</li>
 
-  		<li class="mr-8">
-    		<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
-  		</li>
+<li class="mr-4">
+  <option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
+</li>
 
-  		<li class="">
-    		<section class="text-white text-lg font-bold hover:text-blue-800 cursor-pp" onClick={(e)=>{handleclick(e)}}>TODOS</section>
-  		</li>
-	</ul>   
+<li class="mr-4">
+  <option value="max" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MAX</option>
+</li>
+
+<li class="mr-4">
+  <option value="min" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MIN</option>
+</li>
+
+<li class="">
+  <section class="text-white text-lg font-bold hover:text-blue-800 cursor-pp" onClick={(e)=>{handleclick(e)}}>TODOS</section>
+</li>
+</ul>     
+	   
 	</div>
 	</header>
   	)

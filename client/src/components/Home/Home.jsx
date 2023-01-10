@@ -6,7 +6,7 @@ import NavBar from "../NavBar/NavBar.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 import '../NavBar/NavBar.css';
 import './Home.css'
