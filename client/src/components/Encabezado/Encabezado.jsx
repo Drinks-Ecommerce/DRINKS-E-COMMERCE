@@ -64,11 +64,6 @@ export default function Encabezado(){
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
            
 	<ul class="flex">
-	    <li class="mr-4">
-		<option  className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">PRECIOS</option>
-		<option value="max" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Max</option>
-    	<option value="min" className=" hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>Min</option>
-  		</li>
 
   		<li class="mr-4">
     		<option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
@@ -102,9 +97,17 @@ export default function Encabezado(){
     		<option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
  		</li>
 
-  		<li class="mr-8">
+  		<li class="mr-4">
     		<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
   		</li>
+
+		<li class="mr-4">
+			<option value="min" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MAX</option>
+		</li>
+
+		<li class="mr-4">
+    		<option value="max" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MIN</option>
+		</li>
 
   		<li class="">
     		<section class="text-white text-lg font-bold hover:text-blue-800 cursor-pp" onClick={(e)=>{handleclick(e)}}>TODOS</section>
