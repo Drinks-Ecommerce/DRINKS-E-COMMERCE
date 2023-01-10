@@ -3,6 +3,8 @@ const router = Router();
 const getProducts = require("./productRoutes/gets")
 const postProducts = require("./productRoutes/post")
 const getTypes = require("./typesRoutes/gets")
+
+
 const postRole = require("./rolesRoutes/post")
 const getRole = require("./rolesRoutes/get")
 const getUsers = require("./authRouter/get")
