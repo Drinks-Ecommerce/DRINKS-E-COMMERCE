@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import '../NavBar/NavBar.css';
-import './Home.css'
+import './Home.css' 
 import Caroucel from "../Caroucel/Caroucel.jsx";
 
 
@@ -27,7 +27,7 @@ export default function Home(){
     return(
 
         <div className="contenedor_general bg-gray-300">
-
+            
             {/* CONTENIDO DEL ENCABEZADO */}
 
             <div className="conte_encabezado">
