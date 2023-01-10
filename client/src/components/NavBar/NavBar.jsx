@@ -18,7 +18,7 @@ function handleclick(e){
     dispatch(getProducts())
 }
    
-    //className="filter_vinos"
+    
 
     return(
         <div class="grid grid-cols-5 gap-4 bg-black py-3 pb-3 mt-20 fixed top-0 left-0 right-0 drop-shadow-lg flex">
