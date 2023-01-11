@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts, filterByPriceOrder } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 import { useScrollPosition } from "../hooks/useScrollPosition";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import images from "../icons/images"
 import '../SearchBar/SearchBar.jsx'
@@ -64,55 +66,60 @@ export default function Encabezado(){
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
 	<ul class="flex">
 
-<li class="mr-4">
-  <option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
-</li>
+  		<li class="mr-6">
+		  	<Link to={'/vino'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">VINOS</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='whisky' class="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>WHISKYS</option>
-</li>
+  		<li class="mr-6">
+		  	<Link to={'/whisky'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">WHISKYS</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-	  <option value='ron' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>RONES</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/ron'}>
+   				<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">RONES</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>CERVEZAS</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/cerveza'}>
+    			<option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">CERVEZAS</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/espumante'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">ESPUMANTES</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/gin'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">GINS</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/vermouth'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">VERMÚS</option>
+			</Link>
+  		</li>
 
-<li class="mr-4">
-  <option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
-</li>
+  		<li class="mr-6">
+			<Link to={'/cristaleria'}>
+    			<option value='cristaleria' className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">CRISTALERÍA</option>
+			</Link>
+ 		</li>
 
-<li class="mr-4">
-  <option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
-</li>
-
-<li class="mr-4">
-  <option value="max" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MAX</option>
-</li>
-
-<li class="mr-4">
-  <option value="min" className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByPrice(e)}>MIN</option>
-</li>
-
-<li class="">
-  <section class="text-white text-lg font-bold hover:text-blue-800 cursor-pp" onClick={(e)=>{handleclick(e)}}>TODOS</section>
-</li>
-</ul>     
-	   
+  		<li class="">
+			<Link to={'/delicatessen'}>
+    			<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">DELICATESSEN</option>
+			</Link>
+  		</li>
+	</ul>   
 	</div>
 	</header>
   	)

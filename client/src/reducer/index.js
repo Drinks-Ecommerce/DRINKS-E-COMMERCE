@@ -2,7 +2,10 @@ const initialState = {
     allproducts: [],
     copyallproducts:[],
     typesproducto:[],
-    details: []
+    details: [],
+
+    // SE FILTRARÁN LAS MARCAS DE ESE TIPO DE BEBIDA QUE SE ESTÉ RENDERIZANDO EN LA RUTA.
+    all_brand_by_type: []
 }
 
 function rootReducer(state = initialState, action){
@@ -48,10 +51,19 @@ function rootReducer(state = initialState, action){
             }
 
         case 'FILTER_TYPE':
-        return {
-            ...state,
-            allproducts: action.payload
-        }
+
+           
+
+            return {
+                ...state,
+                allproducts: action.payload,
+            }
+
+        case 'ALL_BRANDS_TYPE':
+            return {
+                ...state,
+
+            }
 
 
         default:
