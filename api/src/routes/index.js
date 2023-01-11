@@ -5,7 +5,7 @@ const postProducts = require("./productRoutes/post")
 const getTypes = require("./typesRoutes/gets")
 const postRole = require("./rolesRoutes/post")
 const getRole = require("./rolesRoutes/get")
-/* const getUsers = require("./usersMio/get") */
+//const getUsers = require("./usersMio/get")
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
 const postTypes = require("./typesRoutes/post") 
@@ -38,7 +38,7 @@ router.use("/bybrand", filterbybrand);
 /*********************************   router USERS & AUTH   ***************************************/
 router.use("/roles", postRole)
 router.use("/roles", getRole);
-/* router.use("/users", getUsers); */
+//router.use("/users", getUsers);
 router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 
