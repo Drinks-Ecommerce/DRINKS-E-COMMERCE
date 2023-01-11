@@ -3,7 +3,7 @@ const initialState = {
     copyallproducts:[],
     typesproducto:[],
     details: [],
-    product: []
+    product: [] //ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 }
 
 function rootReducer(state = initialState, action){
@@ -48,11 +48,17 @@ function rootReducer(state = initialState, action){
                 product: action.payload
             }
 
-         case 'UPDATE_PRODUCT':
+        case 'UPDATE_PRODUCT':
             return {
                 ...state,
                 product: action.payload
             }
+
+        // case 'DELETE_TYPE':
+        //     return {
+        //         ...state,
+                
+        //     }
 
         case 'FILTER_ORDER_PRICE':
             return {
