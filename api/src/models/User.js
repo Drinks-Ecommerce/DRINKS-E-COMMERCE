@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
                     msg: "The email must be a valid email"
                 },
                 len: {
-                    args: [3, 50],
+                    args: [3, 255],
                     msg: "The email must have a range of 3 to 50 characters"
                 }
             }
