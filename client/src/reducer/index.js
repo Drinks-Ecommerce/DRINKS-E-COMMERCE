@@ -53,7 +53,6 @@ function rootReducer(state = initialState, action){
             allproducts: action.payload
         }
 
-
         default:
                 return state;
     }
