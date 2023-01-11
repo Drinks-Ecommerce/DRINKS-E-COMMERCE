@@ -72,8 +72,8 @@ Cart.hasMany(ProductCart);
 ProductCart.belongsTo(Cart);
 ProductCart.belongsTo(Product);
 
-Order.belongsToMany(Product, { through: OrderDetail });
-Product.belongsToMany(Order, { through: OrderDetail });
+Order.belongsToMany(Products, { through: OrderDetail });
+Products.belongsToMany(Order, { through: OrderDetail });
 
 Role.belongsToMany(User, { through: "role_user" });
 User.belongsToMany(Role, { through: "role_user" });
