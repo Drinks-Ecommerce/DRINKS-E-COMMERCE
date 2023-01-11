@@ -17,10 +17,13 @@ const getUsers = async () => {
             return {
                 id: e.id,
                 username: e.username,
+                name:e.name,
+                last_name:e.last_name,
                 email: e.email,
                 password: e.password,
                 adult: e.adult,
-
+                img:e.img,
+                is_banned:e.is_banned,
                 role: e.roles.map((e) => e.name)
             }
         })
@@ -30,7 +33,7 @@ const getUsers = async () => {
     }
 }
 
-const getUser = async (username) => {
+const getbyUsername = async (username) => {
     try {
 
         const userEmail = await User.findAll({
@@ -49,12 +52,15 @@ const getUser = async (username) => {
         const res = await userEmail.map(e => {
             return {
                 id: e.id,
+                username: e.username,
+                name:e.name,
+                last_name:e.last_name,
                 email: e.email,
                 password: e.password,
                 adult: e.adult,
-
-                role: e.roles.map((e) => e.email)
-
+                img:e.img,
+                is_banned:e.is_banned,
+                role: e.roles.map((e) => e.name)
             }
         })
         return (res)
@@ -64,4 +70,80 @@ const getUser = async (username) => {
     }
 }
 
-module.exports = { getUser, getUsers }
+
+
+const getbyIdUser= async (id) => {
+    try {
+
+        const userEmail = await User.findAll({
+            where: {id:id},
+            include: {
+                model: Role,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                }
+            }
+        })
+
+        const res = await userEmail.map(e => {
+            return {
+                id: e.id,
+                username: e.username,
+                name:e.name,
+                last_name:e.last_name,
+                email: e.email,
+                password: e.password,
+                adult: e.adult,
+                img:e.img,
+                is_banned:e.is_banned,
+                role: e.roles.map((e) => e.name)
+            }
+        })
+        return (res)
+
+    } catch (error) {
+        return res.status(400).json({ msg: error.msg })
+    }
+}
+
+
+const getbyEmail= async (email) => {
+    try {
+
+        const userEmail = await User.findAll({
+            where: {
+                email:  email 
+            },
+            include: {
+                model: Role,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                }
+            }
+        })
+
+        const res = await userEmail.map(e => {
+            return {
+                id: e.id,
+                username: e.username,
+                name:e.name,
+                last_name:e.last_name,
+                email: e.email,
+                password: e.password,
+                adult: e.adult,
+                img:e.img,
+                is_banned:e.is_banned,
+                role: e.roles.map((e) => e.name)
+            }
+        })
+        return (res)
+
+    } catch (error) {
+        return res.status(400).json({ msg: error.msg })
+    }
+}
+
+
+module.exports = { getbyUsername, getUsers,getbyIdUser, getbyEmail}

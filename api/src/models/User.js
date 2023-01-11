@@ -13,6 +13,14 @@ module.exports = (sequelize) => {
                 }
             }
         },
+        name:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        last_name:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,12 +39,16 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        img:{
+            type:DataTypes.TEXT,
+        },
         adult: {
             type: DataTypes.BOOLEAN,
-
             allowNull: true
         },
-
+        is_banned:{
+            type:DataTypes.BOOLEAN,
+        }
     });
 };
 
