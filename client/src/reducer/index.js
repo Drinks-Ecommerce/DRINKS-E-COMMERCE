@@ -2,7 +2,8 @@ const initialState = {
     allproducts: [],
     copyallproducts:[],
     typesproducto:[],
-    details: []
+    details: [],
+    product: []
 }
 
 function rootReducer(state = initialState, action){
@@ -40,6 +41,18 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload
             } 
+
+        case 'DELETE_PRODUCT':
+            return {
+                ...state,
+                product: action.payload
+            }
+
+         case 'UPDATE_PRODUCT':
+            return {
+                ...state,
+                product: action.payload
+            }
 
         case 'FILTER_ORDER_PRICE':
             return {
