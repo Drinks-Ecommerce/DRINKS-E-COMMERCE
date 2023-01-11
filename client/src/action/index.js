@@ -55,7 +55,6 @@ export function getTypes(){
 export function creatProducts(payload){
     return async function(dispatch){
     let json = await axios.post("http://localhost:3000/products", payload)
-
     return dispatch({
         type:"CREATE_PRODUCTS",
         payload: json
@@ -102,6 +101,26 @@ export function getDetail(id) {
 //             payload: json.data
 //         })
 //     }
+// };
+
+// export function getRol() {
+//     return async function(dispatch) {
+//         const json = await axios("http://localhost:3000/roles");
+//         return dispatch({
+//             type: 'GET_ROL',
+//             payload: json.data
+//         })
+//     };
+// };
+
+// export function postRol(payload) {
+//     return async function(dispatch) {
+//         const json = await axios.post("http://localhost:3000/roles", payload);
+//         return dispatch({
+//             type: 'CREATE_USER',
+//             payload: json
+//         });
+//     };
 // };
 
 export function filterByPriceOrder(payload) {
