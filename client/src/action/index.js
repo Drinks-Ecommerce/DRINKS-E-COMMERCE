@@ -11,8 +11,6 @@ export function getProducts(){
     }
 }
 
-
-
 //⬇️(gaston) action para el buscador por nombre
 
 export function getByName(name){
@@ -76,35 +74,35 @@ export function getDetail(id) {
     };
 };
 
-export function deleteProduct(id) {
-    return async function(dispacth) {
-        const json = await axios.delete(`http://localhost:3000/products/${id}`);
-        return dispatch({
-            type: 'DELETE_PRODUCT',
-            payload: json.data
-        });
-    };
-};
+// export function deleteProduct(id) {
+//     return async function(dispacth) {
+//         const json = await axios.delete(`http://localhost:3000/products/${id}`);
+//         return dispatch({
+//             type: 'DELETE_PRODUCT',
+//             payload: json.data
+//         });
+//     };
+// };
 
-export function updateProduct(id) {
-    return async function(dispatch) {
-        const json = await axios.update(`http://localhost:3000/products/${id}`);
-        return dispatch({
-            type: 'UPDATE_PRODUCT',
-            payload: json.data
-        });
-    };
-};
+// export function updateProduct(id) {
+//     return async function(dispatch) {
+//         const json = await axios.update(`http://localhost:3000/products/${id}`);
+//         return dispatch({
+//             type: 'UPDATE_PRODUCT',
+//             payload: json.data
+//         });
+//     };
+// };
 
-export function deleteType(id) {
-    return async function(dispatch) {
-        const json = await axios.delete(`http://localhost:3000/types/delete/${id}`);
-        return dispatch({
-            type: 'DELETE_TYPE',
-            payload: json.data
-        })
-    }
-};
+// export function deleteType(id) {
+//     return async function(dispatch) {
+//         const json = await axios.delete(`http://localhost:3000/types/delete/${id}`);
+//         return dispatch({
+//             type: 'DELETE_TYPE',
+//             payload: json.data
+//         })
+//     }
+// };
 
 export function filterByPriceOrder(payload) {
     return async function(dispatch) {

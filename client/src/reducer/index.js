@@ -3,7 +3,7 @@ const initialState = {
     copyallproducts:[],
     typesproducto:[],
     details: [],
-    product: [] //ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 }
 
 function rootReducer(state = initialState, action){
@@ -42,22 +42,16 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload
             } 
 
-        case 'DELETE_PRODUCT':
-            return {
-                ...state,
-                product: action.payload
-            }
-
-        case 'UPDATE_PRODUCT':
-            return {
-                ...state,
-                product: action.payload
-            }
-
-        // case 'DELETE_TYPE':
+        // case 'DELETE_PRODUCT':
         //     return {
         //         ...state,
-                
+        //         product: action.payload
+        //     }
+
+        // case 'UPDATE_PRODUCT':
+        //     return {
+        //         ...state,
+        //         product: action.payload
         //     }
 
         case 'FILTER_ORDER_PRICE':
@@ -67,11 +61,10 @@ function rootReducer(state = initialState, action){
             }
 
         case 'FILTER_TYPE':
-        return {
-            ...state,
-            allproducts: action.payload
-        }
-
+            return {
+                ...state,
+                allproducts: action.payload,
+            }
 
         default:
                 return state;
