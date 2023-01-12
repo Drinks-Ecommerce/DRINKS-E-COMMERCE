@@ -3,8 +3,9 @@ const initialState = {
     copyallproducts:[],
     typesproducto:[],
     details: [],
-    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
-    // user: [] ruta echa para el get y post del usuario
+    // product: [], estado creado para que se lo use en el componente del admin para que pueda borrar y modificar el producto.
+    // user: [], estado creado para el get y post del rol del usuario.
+    // type: [] estado creado para el delete de type.
 }
 
 function rootReducer(state = initialState, action){
@@ -26,6 +27,16 @@ function rootReducer(state = initialState, action){
                 ...state,
                 typesproducto: action.payload
             }
+        // case 'POST_TYPE':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'DELETE_TYPE':
+        //     return {
+        //         ...state,
+        //         type: action.payload
+        //     }
 
         case 'GET_DETAIL':
             return {
@@ -61,7 +72,17 @@ function rootReducer(state = initialState, action){
         //         user: action.payload
         //     }
 
-        // case 'CREATE_USER':
+        // case 'CREATE_ROLE':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_IN':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_UP':
         //     return {
         //         ...state
         //     }
