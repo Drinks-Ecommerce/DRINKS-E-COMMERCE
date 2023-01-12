@@ -35,30 +35,48 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
+<<<<<<< HEAD
 const {Products, Type ,Payment, Orderdetail, User, Wishlist, Cart, Productcart, Role } = sequelize.models;
+=======
+const { Products, Type, Payment, User, Wishlist, Cart, Role } = sequelize.models;
+>>>>>>> dbd9d538ac3aeb9a032c585d82c2ad73f69fc785
 
 
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+<<<<<<< HEAD
 
 Products.belongsToMany(Type, {through: "product_types" });
 Type.belongsToMany(Products,{through: "product_types"});
 
 /* User.hasMany(Payment); */
 /* Payment.belongsTo(User); */
+=======
+Products.belongsToMany(Type, { through: "product_types" });
+Type.belongsToMany(Products, { through: "product_types" });
+
+User.hasMany(Payment);
+Payment.belongsTo(User);
+>>>>>>> dbd9d538ac3aeb9a032c585d82c2ad73f69fc785
 
 Cart.belongsTo(User);
 User.belongsTo(Cart);
 
+<<<<<<< HEAD
 /* Payment.belongsToMany(Products, { through: "payment_products" });
 Products.belongsToMany(Payment, { through: "payment_products" }); */
+=======
+Payment.belongsToMany(Products, { through: "payment_products" });
+Products.belongsToMany(Payment, { through: "payment_products" });
+>>>>>>> dbd9d538ac3aeb9a032c585d82c2ad73f69fc785
 
 Wishlist.belongsToMany(Products, { through: "wishlist_product" });
 Products.belongsToMany(Wishlist, { through: "wishlist_product" });
 
 Cart.belongsToMany(Products, { through: "cart_product" });
 Products.belongsToMany(Cart, { through: "cart_product" });
+<<<<<<< HEAD
 
 Cart.hasMany(Productcart);
 Productcart.belongsTo(Cart);
@@ -66,6 +84,8 @@ Productcart.belongsTo(Cart);
 
 /* Payment.belongsToMany(Products, { through: Orderdetail });
 Products.belongsToMany(Payment, { through: Orderdetail }); */
+=======
+>>>>>>> dbd9d538ac3aeb9a032c585d82c2ad73f69fc785
 
 Role.belongsToMany(User, { through: "role_user" });
 User.belongsToMany(Role, { through: "role_user" });
@@ -74,6 +94,12 @@ User.belongsToMany(Role, { through: "role_user" });
 
 
 module.exports = {
+<<<<<<< HEAD
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
     conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
   };
+=======
+  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+  conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+};
+>>>>>>> dbd9d538ac3aeb9a032c585d82c2ad73f69fc785

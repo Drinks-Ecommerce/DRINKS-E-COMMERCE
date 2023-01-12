@@ -13,6 +13,14 @@ module.exports = (sequelize) => {
                 }
             }
         },
+        name:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        last_name:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,12 +39,17 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        img:{
+            type:DataTypes.TEXT,
+            defaultValue:"https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png"
+        },
         adult: {
             type: DataTypes.BOOLEAN,
-
             allowNull: true
         },
-
+        is_banned:{
+            type:DataTypes.BOOLEAN,
+        }
     });
 };
 
