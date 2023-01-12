@@ -17,9 +17,12 @@ const filterbytypes = require("./filters/bytype")
 const filterbyprice = require("./filters/byprice")
 const filterbybrand = require("./filters/byBrand")
 const deleteTypes = require("./typesRoutes/delete")
+
 const deleteUser = require("./userRoutes/delete")
 const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
+const filterbyorigin = require("./filters/byorigin")
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -38,6 +41,9 @@ router.use("/types/delete", deleteTypes)
 router.use("/products", filterbytypes);
 router.use("/products", filterbyprice);
 router.use("/bybrand", filterbybrand);
+router.use("/products", filterbyorigin);
+
+
 
 
 /*********************************   router USERS & AUTH   ***************************************/

@@ -17,18 +17,16 @@ export default function Products(){
     const[brands, setbrands] = useState([]);
 
     const pepe = [];
-
     for(let i=0; i<allProducts.length; i++){
         if(!pepe.includes(allProducts[i].brand)){
             pepe.push(allProducts[i].brand)
         }
     }
-   
+
 
     useEffect(() =>{
         dispatch(filterByTypes(id));
       },[id])
-
 
     return (
 
