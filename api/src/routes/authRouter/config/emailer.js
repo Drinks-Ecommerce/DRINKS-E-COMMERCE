@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+
 const {
     PASSEMAILER,MAIL
   } = process.env;
@@ -24,9 +25,5 @@ const {
 
         console.log(info)
         
-    }
-
-
-module.exports = {enviarMail};
-/* exports.sendMail = () => sendMail(); */
-
+  
+module.exports = {createTrans};

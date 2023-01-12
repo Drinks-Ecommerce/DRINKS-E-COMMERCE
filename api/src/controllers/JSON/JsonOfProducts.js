@@ -22,7 +22,7 @@ const jsonProducts = [
         "brand": "Doña Paula",
         "calification": "0",
         "discount": "40",
-        "origin": " Argentina",
+        "origin": "Argentina",
         "alcohol": "14 ",
     },
     {
@@ -148,7 +148,7 @@ const jsonProducts = [
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Rosell_Boher_Ros%C3%A9_o6etmd.jpg",
         "price": "6369",
         "description": "Bottle 750cc, Service temperature for this wine is between 6º and 8º C, Aging potential 3 years. Store in a cool, dark and vibration-free place. Ideal to accompany a black olive Focaccia.",
-        "types": "cerveza",
+        "types": "espumante",
         "brand": " Rosell Boher",
         "calification": "0",
         "discount": "10",
@@ -174,7 +174,7 @@ const jsonProducts = [
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Cruzat_Cuv%C3%A9e_Reserve_Extra_Brut_krrmgn.jpg",
         "price": "3710",
         "description": "Bottle 750cc, Service temperature of this sparkling wine is between 6º and 8º C, Aging potential 3 years. Ideal to enjoy with shellfish and fish with consistent sauces, white meats with light sauces, pasta and roasted or grilled meats.",
-        "types": "cerveza", 
+        "types": "espumante", 
         "brand": "Cruzat Larrain ",
         "calification": "0",
         "discount": "5",
@@ -191,7 +191,6 @@ const jsonProducts = [
         "brand": "Bressia",
         "calification": "0",
         "discount": "29",
-        "origin": "Argentina  ",
         "alcohol": "11.6",
     },
     {
@@ -321,7 +320,7 @@ const jsonProducts = [
         "brand": "Malibu",
         "calification": "0",
         "discount": "10",
-        "origin": "	 Brasil",
+        "origin": "Brasil",
         "alcohol": "15",
     },
     {
@@ -334,7 +333,7 @@ const jsonProducts = [
         "brand": "Flor de Caña",
         "calification": "0",
         "discount": "10",
-        "origin": "	 Nicaragua",
+        "origin": "Nicaragua",
         "alcohol": "40",
     },
     {
@@ -347,7 +346,7 @@ const jsonProducts = [
         "brand": "Appleton Estate",
         "calification": "0",
         "discount": "10",
-        "origin": "	Jamaica",
+        "origin": "Jamaica",
         "alcohol": "40",
     },
     {
@@ -360,7 +359,7 @@ const jsonProducts = [
         "brand": "Flor de Caña",
         "calification": "0",
         "discount": "10",
-        "origin": "	 Nicaragua",
+        "origin": "Nicaragua",
         "alcohol": "40",
     },
     {
@@ -373,7 +372,7 @@ const jsonProducts = [
         "brand": "Bacardi",
         "calification": "0",
         "discount": "10",
-        "origin": "	 Puerto Rico",
+        "origin": "Puerto Rico",
         "alcohol": "37.5",
     },
     {
@@ -386,7 +385,7 @@ const jsonProducts = [
         "brand": "	Bacardi",
         "calification": "0",
         "discount": "10",
-        "origin": "	 Puerto Rico",
+        "origin": "Puerto Rico",
         "alcohol": "37.5",
     },
     {
@@ -399,7 +398,7 @@ const jsonProducts = [
         "brand": "	Havana",
         "calification": "0",
         "discount": "10",
-        "origin": "	Cuba",
+        "origin": "Cuba",
         "alcohol": "40",
     },
     {
@@ -412,7 +411,7 @@ const jsonProducts = [
         "brand": "	Gordon's",
         "calification": "0",
         "discount": "10",
-        "origin": "	Reino Unido",
+        "origin": "Reino Unido",
         "alcohol": "3.8",
     },
     {
@@ -425,7 +424,7 @@ const jsonProducts = [
         "brand": "Campari",
         "calification": "0",
         "discount": "18",
-        "origin": "	Reino Unido",
+        "origin": "Reino Unido",
         "alcohol": "4.0",
     },
     {
@@ -516,7 +515,7 @@ const jsonProducts = [
         "brand": "Andes ",
         "calification": "0",
         "discount": "24",
-        "origin": "Mendoza",
+        "origin": "Argentina",
         "alcohol": "4.9",
     },
     {
@@ -529,7 +528,7 @@ const jsonProducts = [
         "brand": "Andes ",
         "calification": "0",
         "discount": "30",
-        "origin": "Mendoza",
+        "origin": "Argentina",
         "alcohol": "4.5",
     },
     {
@@ -620,7 +619,7 @@ const jsonProducts = [
         "brand": "Branca",
         "calification": "0",
         "discount": "26",
-        "origin": "Italy",
+        "origin": "Italia",
         "alcohol": "11",
     },
     {
