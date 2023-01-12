@@ -4,7 +4,7 @@ const initialState = {
     typesproducto:[],
     details: [],
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
-    // user: [] ruta echa para el get y post del usuario
+    // user: [] ruta echa para el get y post del rol del usuario
 }
 
 function rootReducer(state = initialState, action){
