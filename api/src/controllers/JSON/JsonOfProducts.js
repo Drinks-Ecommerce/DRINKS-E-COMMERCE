@@ -87,7 +87,7 @@ const jsonProducts = [
         "brand": "Luigi Bosca",
         "calification": "0",
         "discount": "5",
-        "origin": "Mendoza",
+        "origin": "Argentina",
         "alcohol": "14.00",
     },
     {
@@ -191,7 +191,7 @@ const jsonProducts = [
         "brand": "Bressia",
         "calification": "0",
         "discount": "29",
-        "origin": "Agrelo, Lujan de Cuyo. Provincia de Mendoza, Argentina.  ",
+        "origin": "Argentina",
         "alcohol": "11.6",
     },
     {
@@ -217,7 +217,7 @@ const jsonProducts = [
         "brand": "Chivas",
         "calification": "0",
         "discount": "27",
-        "origin": "Escocia.",
+        "origin": "Escocia",
         "alcohol": "40 ",
     },
     {
@@ -438,7 +438,7 @@ const jsonProducts = [
         "brand": "hendriks",
         "calification": "0",
         "discount": "20",
-        "origin": "Girvan, Escocia",
+        "origin": "Escocia",
         "alcohol": "3.5 ",
     },
     {
@@ -620,7 +620,7 @@ const jsonProducts = [
         "brand": "Branca",
         "calification": "0",
         "discount": "26",
-        "origin": "Italy",
+        "origin": "Italia",
         "alcohol": "11",
     },
     {
