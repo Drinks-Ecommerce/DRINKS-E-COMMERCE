@@ -78,6 +78,12 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload,
             }
 
+        case 'GET_ORIGIN':
+                return {
+                    ...state,
+                    allproducts: action.payload,
+                }
+
         default:
                 return state;
     }

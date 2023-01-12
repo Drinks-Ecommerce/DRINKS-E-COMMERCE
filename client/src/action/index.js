@@ -143,3 +143,17 @@ export function filterByTypes(payload) {
     };
 };
 
+
+
+
+
+export function filterbyorigin(payload) {
+        return async function(dispacth) {
+            const json = await axios(`http://localhost:3000/products/byorigin/${payload}`);
+            return dispatch({
+                type: 'GET_ORIGIN',
+                payload: json.data
+            });
+        };
+    };
+
