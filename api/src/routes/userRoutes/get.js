@@ -37,4 +37,18 @@ router.get("/:email", async(req,res)=>{
     }
 })
 
+router.get("/username/:username", async(req,res)=>{
+    try{
+        const {username} = req.params;
+        if(username){
+            const userbyE = await getbyUsername(username);
+            res.send(userbyE)
+        }else{
+            res.send({msg:"username not found"})
+        }
+    }catch(err){
+        console.log(err)
+    }
+})
+
 module.exports = router;

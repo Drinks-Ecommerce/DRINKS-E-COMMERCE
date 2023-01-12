@@ -36,10 +36,8 @@ const getUsers = async () => {
 const getbyUsername = async (username) => {
     try {
 
-        const userEmail = await User.findAll({
-            where: {
-                username: { [Op.iLike]: `%${username}%` }
-            },
+        const user = await User.findAll({
+            where: {username},
             include: {
                 model: Role,
                 attributes: ["name"],
@@ -49,7 +47,7 @@ const getbyUsername = async (username) => {
             }
         })
 
-        const res = await userEmail.map(e => {
+        const res = await user.map(e => {
             return {
                 id: e.id,
                 username: e.username,

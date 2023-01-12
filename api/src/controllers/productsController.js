@@ -60,7 +60,7 @@ const getProducts = async () => {
             type: e.types.map((e) => e.name)
         }
     })
-    return result;
+    return (result);
 }
 
 
