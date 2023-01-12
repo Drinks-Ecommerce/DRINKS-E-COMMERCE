@@ -13,9 +13,7 @@ const allRoles = () => {
                     where: { name: e }
                 })
             })
-
             return roles;
-
         }
         else {
             return rolesDb;
