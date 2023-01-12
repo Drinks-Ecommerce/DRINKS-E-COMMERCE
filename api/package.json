@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "nodemailer": "^6.8.0",
+    "nodemailer-ntlm-auth": "^1.0.3",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.27.0"
