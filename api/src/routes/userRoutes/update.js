@@ -1,8 +1,10 @@
-const { Router } = require ("express");
 const { Router } = require("express");
-const { User } = require("../../db");
-
+const { getbyUsername, getUsers,getbyIdUser, getbyEmail} = require("../../controllers/userController");
+const { User, Role } = require("../../db");
+const { Op } = require("sequelize");
 const router = Router();
+
+
 
 router.put("/:id", async(req,res)=>{
     try {

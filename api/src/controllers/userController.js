@@ -75,7 +75,7 @@ const getbyUsername = async (username) => {
 const getbyIdUser= async (id) => {
     try {
 
-        const userEmail = await User.findAll({
+        const userEmail = await User.findOne({
             where: {id:id},
             include: {
                 model: Role,
@@ -103,7 +103,7 @@ const getbyIdUser= async (id) => {
         return (res)
 
     } catch (error) {
-        return res.status(400).json({ msg: error.msg })
+        console.log(error)
     }
 }
 
@@ -111,10 +111,7 @@ const getbyIdUser= async (id) => {
 const getbyEmail= async (email) => {
     try {
 
-        const userEmail = await User.findAll({
-            where: {
-                email:  email 
-            },
+        const userEmail = await User.findAll({ where: {email},
             include: {
                 model: Role,
                 attributes: ["name"],
@@ -124,7 +121,7 @@ const getbyEmail= async (email) => {
             }
         })
 
-        const res = await userEmail.map(e => {
+        const result = await userEmail.map(e => {
             return {
                 id: e.id,
                 username: e.username,
@@ -138,10 +135,11 @@ const getbyEmail= async (email) => {
                 role: e.roles.map((e) => e.name)
             }
         })
-        return (res)
+
+        return result;
 
     } catch (error) {
-        return res.status(400).json({ msg: error.msg })
+        console.log(error)
     }
 }
 

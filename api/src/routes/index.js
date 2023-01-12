@@ -7,11 +7,7 @@ const getTypes = require("./typesRoutes/gets")
 
 const postRole = require("./rolesRoutes/post")
 const getRole = require("./rolesRoutes/get")
-<<<<<<< HEAD
 const getUsers = require("./userRoutes/get")
-=======
-//const getUsers = require("./usersMio/get")
->>>>>>> mirrow
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
 const postTypes = require("./typesRoutes/post") 
@@ -23,6 +19,7 @@ const filterbybrand = require("./filters/byBrand")
 const deleteTypes = require("./typesRoutes/delete")
 const deleteUser = require("./userRoutes/delete")
 const updateUser = require("./userRoutes/update")
+const userByID= require("./userRoutes/getbyId")
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -46,13 +43,10 @@ router.use("/bybrand", filterbybrand);
 /*********************************   router USERS & AUTH   ***************************************/
 router.use("/roles", postRole)
 router.use("/roles", getRole);
-<<<<<<< HEAD
 router.use("/users", getUsers);
 router.use("/users", deleteUser);
 router.use("/users", updateUser);
-=======
-//router.use("/users", getUsers);
->>>>>>> mirrow
+router.use("/users", userByID);
 router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 

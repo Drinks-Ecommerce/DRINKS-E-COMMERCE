@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { getbyUsername, getUsers,getbyIdUser, getbyEmail} = require("../../controllers/userController");
-const { User, Role } = require("../db");
+const { User, Role } = require("../../db");
 const { Op } = require("sequelize");
 const router = Router();
 

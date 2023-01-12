@@ -4,10 +4,10 @@ const { getbyUsername, getUsers,getbyIdUser, getbyEmail} = require("../../contro
 const router = Router();
 
 router.get("/", async (req, res) => {
-    const { user_name, email} = req.query;
+    const { username, email} = req.query;
     try {
-        if (user_name) {
-            const user = await getbyUsername(user_name);
+        if (username) {
+            const user = await getbyUsername(username);
             res.send(user)
         }else if(email){
             const userbyE = await getbyEmail(email);
@@ -23,14 +23,14 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.get("/", async(req,res)=>{
+router.get("/:email", async(req,res)=>{
     try{
-        const {email} = req.query;
+        const {email} = req.params;
         if(email){
             const userbyE = await getbyEmail(email);
             res.send(userbyE)
         }else{
-
+            res.send({msg:"email not found"})
         }
     }catch(err){
         console.log(err)

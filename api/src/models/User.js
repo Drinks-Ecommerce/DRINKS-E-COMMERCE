@@ -41,6 +41,7 @@ module.exports = (sequelize) => {
         },
         img:{
             type:DataTypes.TEXT,
+            defaultValue:"https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png"
         },
         adult: {
             type: DataTypes.BOOLEAN,
