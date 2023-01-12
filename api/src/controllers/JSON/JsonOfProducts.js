@@ -9,7 +9,7 @@ const jsonProducts = [
         "brand": "Dominio del Plata",
         "calification": "0",
         "discount": "18",
-        "origin": "Agrelo; Alto Agrelo-Anchoris (Luján de Cuyo); Altamira - Gualtayari (Valle de Uco). Ugarteche (Luján de Cuyo). Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "14",
     },
     {
@@ -22,7 +22,7 @@ const jsonProducts = [
         "brand": "Doña Paula",
         "calification": "0",
         "discount": "40",
-        "origin": "Alto Ugarteche, Luján de Cuyo. Provincia de Mendoza, Argentina.",
+        "origin": " Argentina",
         "alcohol": "14 ",
     },
     {
@@ -35,7 +35,7 @@ const jsonProducts = [
         "brand": "Escorihuela Gascon",
         "calification": "0",
         "discount": "40",
-        "origin": "Agrelo, La Consulta, Vistalba. Provincia de Mendoza, Argentina. WC",
+        "origin": "Argentina",
         "alcohol": "14 ",
     },
     {
@@ -48,7 +48,7 @@ const jsonProducts = [
         "brand": "La Rural",
         "calification": "0",
         "discount": "40",
-        "origin": "Maipú. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "13",
     },
     {
@@ -61,7 +61,7 @@ const jsonProducts = [
         "brand": "Salentein",
         "calification": "0",
         "discount": "40",
-        "origin": "Finca La Pampa. Valle de Uco, Tunuyán. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "14",
     },
     {
@@ -74,7 +74,7 @@ const jsonProducts = [
         "brand": "Rutini",
         "calification": "0",
         "discount": "5",
-        "origin": "Torre San Patrizio, Italia",
+        "origin": "Italia",
         "alcohol": "13.5",
     },
     {
@@ -87,7 +87,7 @@ const jsonProducts = [
         "brand": "Luigi Bosca",
         "calification": "0",
         "discount": "5",
-        "origin": "Luján de Cuyo, Mendoza.",
+        "origin": "Argentina",
         "alcohol": "14.00",
     },
     {
@@ -100,7 +100,7 @@ const jsonProducts = [
         "brand": "Sauvignon",
         "calification": "0",
         "discount": "8",
-        "origin": "Valle de Casablanca. Chile",
+        "origin": "Chile",
         "alcohol": "12.5",
     },
     {
@@ -113,7 +113,7 @@ const jsonProducts = [
         "brand": "Salentein",
         "calification": "0",
         "discount": "5",
-        "origin": "Valle de Uco, Tunuyán. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "5.00",
     },
     {
@@ -126,7 +126,7 @@ const jsonProducts = [
         "brand": "Alfredo Roca ",
         "calification": "0",
         "discount": "9",
-        "origin": "San Rafael. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "12.5 ",
     },
     {
@@ -139,7 +139,7 @@ const jsonProducts = [
         "brand": "Lagarde",
         "calification": "0",
         "discount": "5",
-        "origin": "Luján de Cuyo y Tupungato. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "13.2  ",
     },
     {
@@ -152,7 +152,7 @@ const jsonProducts = [
         "brand": " Rosell Boher",
         "calification": "0",
         "discount": "10",
-        "origin": "Valle de Uco, Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "1.3",
     },
     {
@@ -165,7 +165,7 @@ const jsonProducts = [
         "brand": "Cruzat Larrain",
         "calification": "0",
         "discount": "30",
-        "origin": "Perdriel, Luján de Cuyo. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "11.8 ",
     },
     {
@@ -178,7 +178,7 @@ const jsonProducts = [
         "brand": "Cruzat Larrain ",
         "calification": "0",
         "discount": "5",
-        "origin": "Tupungato, Valle de Uco. Provincia de Mendoza, Argentina.",
+        "origin": "Argentina",
         "alcohol": "1.3",
     },
     {
@@ -191,7 +191,7 @@ const jsonProducts = [
         "brand": "Bressia",
         "calification": "0",
         "discount": "29",
-        "origin": "Agrelo, Lujan de Cuyo. Provincia de Mendoza, Argentina.  ",
+        "origin": "Argentina  ",
         "alcohol": "11.6",
     },
     {
@@ -204,7 +204,7 @@ const jsonProducts = [
         "brand": "J & B",
         "calification": "0",
         "discount": "27",
-        "origin": "Escocia.",
+        "origin": "Escocia",
         "alcohol": "40 ",
     },
     {
@@ -217,7 +217,7 @@ const jsonProducts = [
         "brand": "Chivas",
         "calification": "0",
         "discount": "27",
-        "origin": "Escocia.",
+        "origin": "Escocia",
         "alcohol": "40 ",
     },
     {
@@ -230,7 +230,7 @@ const jsonProducts = [
         "brand": "White Horse",
         "calification": "0",
         "discount": "27",
-        "origin": "Escocia.",
+        "origin": "Escocia",
         "alcohol": "40",
     },
     {
@@ -243,7 +243,7 @@ const jsonProducts = [
         "brand": "Chivas",
         "calification": "0",
         "discount": "31",
-        "origin": "Escocia.",
+        "origin": "Escocia",
         "alcohol": "40",
     },
     {
@@ -256,7 +256,7 @@ const jsonProducts = [
         "brand": "Johnnie Walker",
         "calification": "0",
         "discount": "20",
-        "origin": "Kilmarnock, Escocia.",
+        "origin": "Escocia",
         "alcohol": "3.0",
     },
     {
@@ -269,7 +269,7 @@ const jsonProducts = [
         "brand": "Johnnie Walker",
         "calification": "0",
         "discount": "20",
-        "origin": "Kilmarnock, Escocia.",
+        "origin": "Escocia",
         "alcohol": "3.0",
     },
     {
@@ -438,7 +438,7 @@ const jsonProducts = [
         "brand": "hendriks",
         "calification": "0",
         "discount": "20",
-        "origin": "	 Girvan, Escocia",
+        "origin": "Escocia",
         "alcohol": "3.5 ",
     },
     {
@@ -451,7 +451,7 @@ const jsonProducts = [
         "brand": "Patagonia",
         "calification": "0",
         "discount": "20",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina",
+        "origin": "Argentina",
         "alcohol": "4.8",
     },
     {
@@ -477,7 +477,7 @@ const jsonProducts = [
         "brand": "Patagonia",
         "calification": "0",
         "discount": "24",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina",
+        "origin": "Argentina",
         "alcohol": "4.5",
     },
     {
@@ -490,7 +490,7 @@ const jsonProducts = [
         "brand": "Andes ",
         "calification": "0",
         "discount": "24",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina",
+        "origin": "Argentina",
         "alcohol": "4.8",
     },
     {
@@ -503,7 +503,7 @@ const jsonProducts = [
         "brand": "Michelob",
         "calification": "0",
         "discount": "24",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina",
+        "origin": "Argentina",
         "alcohol": "3.5",
     },
     {
@@ -542,7 +542,7 @@ const jsonProducts = [
         "brand": "Patagonia",
         "calification": "0",
         "discount": "30",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina.",
+        "origin": "Argentina",
         "alcohol": "4.5",
     },
     {
@@ -555,7 +555,7 @@ const jsonProducts = [
         "brand": "Andes ",
         "calification": "0",
         "discount": "35",
-        "origin": "San Carlos de Bariloche, Rio Negro, Argentina.",
+        "origin": "Argentina",
         "alcohol": "5.3",
     },
     {
@@ -568,7 +568,7 @@ const jsonProducts = [
         "brand": "Temple",
         "calification": "0",
         "discount": "38",
-        "origin": "Argentina.",
+        "origin": "Argentina",
         "alcohol": "5.5",
     },
     {
@@ -581,7 +581,7 @@ const jsonProducts = [
         "brand": "Martini",
         "calification": "0",
         "discount": "10",
-        "origin": "Turín, Italia.",
+        "origin": "Italia",
         "alcohol": "14",
     },
     {
@@ -594,7 +594,7 @@ const jsonProducts = [
         "brand": "Campari",
         "calification": "0",
         "discount": "30",
-        "origin": "Italia.",
+        "origin": "Italia",
         "alcohol": "11",
     },
     {
@@ -607,7 +607,7 @@ const jsonProducts = [
         "brand": "Aperol",
         "calification": "0",
         "discount": "30",
-        "origin": "Buenos Aires, Argentina.",
+        "origin": "Argentina",
         "alcohol": "11",
     },
     {
