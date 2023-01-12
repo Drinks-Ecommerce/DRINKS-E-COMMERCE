@@ -9,10 +9,12 @@ const config = require("./config/auth");
 const router = Router();
 
 router.post("/", async (req, res) => {
-    const password = req.body.password;
-    const userFound = await User.findOne({ email: req.body });
+    const { email, password } = req.body;
 
-    if (!userFound) return res.status(400).json({ msg: "User not found" })
+    const userFound = await User.findOne({
+        where: { email }
+    })
+    if (!userFound) return res.status(404).json({ msg: "User not found" })
 
     const matchPassword = await bcrypt.compare(password, userFound.password)
 

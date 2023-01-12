@@ -3,9 +3,9 @@ const initialState = {
     copyallproducts:[],
     typesproducto:[],
     details: [],
-
-    // SE FILTRARÁN LAS MARCAS DE ESE TIPO DE BEBIDA QUE SE ESTÉ RENDERIZANDO EN LA RUTA.
-    all_brand_by_type: []
+    // product: [], estado creado para que se lo use en el componente del admin para que pueda borrar y modificar el producto.
+    // user: [], estado creado para el get y post del rol del usuario.
+    // type: [] estado creado para el delete de type.
 }
 
 function rootReducer(state = initialState, action){
@@ -27,6 +27,16 @@ function rootReducer(state = initialState, action){
                 ...state,
                 typesproducto: action.payload
             }
+        // case 'POST_TYPE':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'DELETE_TYPE':
+        //     return {
+        //         ...state,
+        //         type: action.payload
+        //     }
 
         case 'GET_DETAIL':
             return {
@@ -44,6 +54,39 @@ function rootReducer(state = initialState, action){
                 allproducts: action.payload
             } 
 
+        // case 'DELETE_PRODUCT':
+        //     return {
+        //         ...state,
+        //         product: action.payload
+        //     }
+
+        // case 'UPDATE_PRODUCT':
+        //     return {
+        //         ...state,
+        //         product: action.payload
+        //     }
+
+        // case 'GET_ROL':
+        //     return {
+        //         ...state,
+        //         user: action.payload
+        //     }
+
+        // case 'CREATE_ROLE':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_IN':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_UP':
+        //     return {
+        //         ...state
+        //     }
+
         case 'FILTER_ORDER_PRICE':
             return {
                 ...state,
@@ -51,20 +94,16 @@ function rootReducer(state = initialState, action){
             }
 
         case 'FILTER_TYPE':
-
-           
-
             return {
                 ...state,
                 allproducts: action.payload,
             }
 
-        case 'ALL_BRANDS_TYPE':
-            return {
-                ...state,
-
-            }
-
+        case 'GET_ORIGIN':
+                return {
+                    ...state,
+                    allproducts: action.payload,
+                }
 
         default:
                 return state;
