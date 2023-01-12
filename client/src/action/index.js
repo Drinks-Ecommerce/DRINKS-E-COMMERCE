@@ -98,7 +98,7 @@ export function getTypes(){
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/types", payload);
 //         return dispatch({
-//             type: 'POST_TYPES',
+//             type: 'POST_TYPE',
 //             payload: json
 //         });
 //     };
