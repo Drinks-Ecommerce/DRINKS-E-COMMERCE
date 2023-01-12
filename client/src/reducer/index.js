@@ -61,7 +61,17 @@ function rootReducer(state = initialState, action){
         //         user: action.payload
         //     }
 
-        // case 'CREATE_USER':
+        // case 'CREATE_ROLE':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_IN':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_UP':
         //     return {
         //         ...state
         //     }
