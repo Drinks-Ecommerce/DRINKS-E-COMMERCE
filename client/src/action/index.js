@@ -83,15 +83,15 @@ export function getDetail(id) {
 //     };
 // };
 
-// export function updateProduct(id) {
-//     return async function(dispatch) {
-//         const json = await axios.update(`http://localhost:3000/products/${id}`);
-//         return dispatch({
-//             type: 'UPDATE_PRODUCT',
-//             payload: json.data
-//         });
-//     };
-// };
+ /* export function updateProduct(id) { 
+    return async function(dispatch) {
+        const json = await axios.update(`http://localhost:3000/products/${id}`);
+        return dispatch({
+            type: 'UPDATE_PRODUCT',
+            payload: json.data
+        });
+    };
+}; */
 
 // export function deleteType(id) {
 //     return async function(dispatch) {

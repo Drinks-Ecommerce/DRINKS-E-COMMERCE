@@ -49,12 +49,12 @@ function rootReducer(state = initialState, action){
         //         product: action.payload
         //     }
 
-        // case 'UPDATE_PRODUCT':
-        //     return {
-        //         ...state,
-        //         product: action.payload
-        //     }
-
+        /* case 'UPDATE_PRODUCT':
+            return {
+                ...state,
+                product: action.payload
+            }
+ */
         // case 'GET_ROL':
         //     return {
         //         ...state,
