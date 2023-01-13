@@ -1,0 +1,60 @@
+const { DataTypes} = require('sequelize');
+
+
+module.exports = (sequelize) => {
+    
+    sequelize.define('order', {
+        id: {
+            type:DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        paymentMethod: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        shippingMethod: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        total: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        numberAddress: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        province: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        postalCode: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        phone: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        state: {
+            type: DataTypes.ENUM('Pending' | 'In Progress' | 'Cancelled' | 'Completed'),
+            defaultValue:'Pending',
+        },
+    },
+    {
+        timestamps: false
+    }
+    );
+};
+
+
