@@ -13,6 +13,9 @@ const enviarMail = async (mail, token) => {
             user: MAIL,
             pass: PASSEMAILER,
         },
+        tls: {
+            rejectUnauthorized: false
+        }
     }
 
     const mensaje = {

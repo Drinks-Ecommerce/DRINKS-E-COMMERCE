@@ -4,13 +4,14 @@ const { User, Role } = require('../../db');
 const { encrypt } = require("./helpers/handleBcrypt")
 const jwt = require("jsonwebtoken");
 const config = require("./config/auth");
-const {enviarMail} = require("./config/emailer")
+const { enviarMail } = require("./config/emailer")
+
 const router = Router();
 
 router.post("/", async (req, res) => {
 
     try {
-        const { username, name, last_name,email, password, img,adult, roles} = req.body;
+        const { username, name, last_name, email, password, img, adult, roles } = req.body;
 
         const passwordHash = await encrypt(password)
 
@@ -36,7 +37,7 @@ router.post("/", async (req, res) => {
 
         if (adult === true) {
             newUser.addRole(roleDb);
-             await enviarMail(email, token)
+            await enviarMail(email, token)
             res.send({ token })
         } else {
             res.status(404).send("Edad insuficiente")
