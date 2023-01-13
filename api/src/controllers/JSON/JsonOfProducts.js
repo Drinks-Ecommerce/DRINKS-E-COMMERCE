@@ -191,7 +191,6 @@ const jsonProducts = [
         "brand": "Bressia",
         "calification": "0",
         "discount": "29",
-        "origin": "Argentina",
         "alcohol": "11.6",
     },
     {
