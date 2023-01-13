@@ -24,6 +24,6 @@ const {
         const info = await transport.sendMail(mensaje)
 
         console.log(info)
-        
+    }
   
-module.exports = {createTrans};
+module.exports = {enviarMail}
