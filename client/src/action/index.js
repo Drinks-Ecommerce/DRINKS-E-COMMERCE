@@ -73,6 +73,8 @@ export function getDetail(id) {
     };
 };
 
+
+
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
 //         const json = await axios.delete(`http://localhost:3000/products/${id}`);
@@ -135,7 +137,7 @@ export function filterByPriceOrder(payload) {
 
 export function filterByTypes(payload) {
     return async function(dispatch) {
-        const json = await axios(`http://localhost:3000/products/bytypes/${payload}`);
+        const json =  await axios(`http://localhost:3000/products/bytypes/${payload}`);
         return dispatch({
             type: 'FILTER_TYPE',
             payload: json.data
@@ -143,16 +145,19 @@ export function filterByTypes(payload) {
     };
 };
 
-
-
-
-
 export function filterbyorigin(payload) {
-        return async function(dispacth) {
-            const json = await axios(`http://localhost:3000/products/byorigin/${payload}`);
+        return async function(dispatch) {
             return dispatch({
                 type: 'GET_ORIGIN',
                 payload: json.data
+            });
+        };
+    };
+
+    export function getAllBrands(){
+        return async function(dispatch){
+            return dispatch({
+                type: 'GET_ALL_BRAND',
             });
         };
     };

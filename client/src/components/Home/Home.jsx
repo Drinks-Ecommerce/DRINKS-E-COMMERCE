@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../action/index";
+import { getProducts, filterByTypes } from "../../action/index";
 import Cards from "../Cards/Cards";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
@@ -39,23 +39,23 @@ export default function Home(){
         }
         
         dispatch(getProducts());
-      },[])
+    },[])
 
-      const handleOK = (e) => {
+    const handleOK = (e) => {
         window.localStorage.setItem("permisos", false);
         setPermisos(true);
-      }
+    }
 
     return(
 
-        <div className="contenedor_general bg-gray-300">
+        <div className="flex flex-col contenedor_general h-screen w-screem bg-gray-300">
 
             {
                 permisos == false &&
 
                 
-                <div className="bg-gray-800 opacity-90 fixed inset-0 z-10">
-                <div className="flex h-screen justify-center items-center">
+                <div className="bg-gray-800 opacity-90 fixed inset-0 z-20">
+                <div className="flex justify-center mt-36">
                     <div className="flex-col justify-center bg-gray-100 border-2 border-black-400 rounded-xl w-1/3">
                         <div className="flex text-lg text-zinc-600 mb-5 px-20 justify-center">
                             <img src={images.img11} alt="img" className="h-40 w-40" />
@@ -82,14 +82,14 @@ export default function Home(){
                 <Encabezado />
             </div>               
               
-            <div className="flex justify-center h-full w-full">
+            <div className="flex justify-center w-full">
                 <Caroucel />
             </div>            
             
 
             {/* CONTENIDO PARA EL FOOTER */}
 
-            <div className="container-footer">
+            <div className="container-footer mt-auto">
                 <Footer />
             </div>
         

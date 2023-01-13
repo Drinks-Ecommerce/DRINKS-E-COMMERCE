@@ -3,7 +3,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className=" bg-gray-800 text-gray-100">
+    <footer className=" bg-gray-800 text-gray-100 mt-full">
 
 	    <div className="container grid mx-auto gap-x-3 gap-y-8 md:grid-cols-4 xl:grid-cols-4">
 

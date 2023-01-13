@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useParams } from "react-router"
+import { createRoutesFromElements, useParams } from "react-router"
 import { useDispatch } from "react-redux";
-import { filterByTypes, getProducts, filterByPriceOrder } from "../../action";
+import { filterByTypes, getProducts, filterByPriceOrder, getByBrand, getAllBrands } from "../../action";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Cards from "../Cards/Cards";
@@ -14,19 +14,21 @@ export default function Products(){
     let {id} = useParams();
     const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.allproducts)
-    const[brands, setbrands] = useState([]);
-
-    const pepe = [];
-    for(let i=0; i<allProducts.length; i++){
-        if(!pepe.includes(allProducts[i].brand)){
-            pepe.push(allProducts[i].brand)
-        }
-    }
-
+    const allBrands = useSelector((state) => state.allBrands)
 
     useEffect(() =>{
-        dispatch(filterByTypes(id));
-      },[id])
+            dispatch(filterByTypes(id))
+
+            setTimeout(() => {
+                dispatch(getAllBrands())
+            }, 300);
+    },[id])
+    
+      const handleBrands = (e) => {
+
+        console.log(e.target.checked)
+        dispatch(getByBrand(e.target.value));
+      }
 
     return (
 
@@ -60,11 +62,13 @@ export default function Products(){
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body py-4 px-5 text-zinc-500">
             {
-                pepe?.map(e => {
+                allBrands?.map(e => {
                     return (
-
-                        <div className="text-black">
-                            <input type="checkbox" id="cbox1" value="first_checkbox" className="mx-1.5" />{e}
+                        <div  className="text-black">
+                             <label>
+                                <input type="checkbox" value={e} className="mx-1.5" onClick={handleBrands} />
+                                {e}
+                            </label>
                         </div>
                     )
                 })
@@ -96,7 +100,6 @@ export default function Products(){
             {
 
                 allProducts?.map(e => {
-                    
                     return (
                         
                         <div className=''>

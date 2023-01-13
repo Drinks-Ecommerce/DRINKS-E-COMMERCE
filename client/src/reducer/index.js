@@ -3,8 +3,12 @@ const initialState = {
     copyallproducts:[],
     typesproducto:[],
     details: [],
+    allBrands: [],
+    allOrigins: [],
+
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     // user: [] ruta echa para el get y post del usuario
+
 }
 
 function rootReducer(state = initialState, action){
@@ -73,6 +77,18 @@ function rootReducer(state = initialState, action){
             }
 
         case 'FILTER_TYPE':
+
+            const Brands = [];
+            
+            for(let i=0; i<state.allproducts.length; i++){
+                if(!Brands.includes(state.allproducts[i].brand)){
+                    Brands.push(Brands.concat(state.allproducts[i].brand));
+                }
+            }
+
+            console.log(Brands)
+
+
             return {
                 ...state,
                 allproducts: action.payload,
@@ -82,7 +98,29 @@ function rootReducer(state = initialState, action){
                 return {
                     ...state,
                     allproducts: action.payload,
+        }
+
+        case 'GET_ALL_BRAND':
+
+            let brands = [];
+
+            for(let i=0; i<state.allproducts.length; i++){
+                if(!brands.includes(state.allproducts[i].brand)){
+                    brands.push(state.allproducts[i].brand);
                 }
+            }
+
+            return {
+                ...state,
+                allBrands: brands,
+            }
+
+
+
+
+        
+    
+
 
         default:
                 return state;
