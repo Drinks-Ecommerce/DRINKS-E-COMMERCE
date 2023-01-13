@@ -24,7 +24,8 @@ const enviarMail = async (mail, token) => {
     const transport = nodemailer.createTransport(config);
     const info = await transport.sendMail(mensaje)
 
-    console.log(info)
+    console.log("mail enviado")
 }
 
-module.exports = { enviarMail };
+module.exports = { enviarMail }
+
