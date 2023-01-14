@@ -9,6 +9,6 @@ module.exports = function(sequelize){
         totalValue: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
     })
 }
