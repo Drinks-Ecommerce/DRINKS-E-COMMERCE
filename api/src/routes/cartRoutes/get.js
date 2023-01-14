@@ -4,7 +4,7 @@ const router = Router();
 const { User, Cart, Productcart, Products } =  require( "../../db");
 
 router.get('/:id', async(req,res) => {
-    const { id } = req.params;
+    const { id } = req.params
     try {
             let cart = await Cart.findOne({
                 include: [

@@ -55,28 +55,9 @@ const addProductCart = async(req, res) => {
 } 
 
 
-/* const deleteProductCart = async(req,res) => {
-    
-    try {
-        const { productCartId } = req.query;
 
-        let productCart = await Productcart.findOne({
-            where: { id: productCartId }
-        });
-        
-        await productCart.destroy()
 
-        const cart = await Cart.findOne({
-            where: { id: productCart.id}
-        });
-        updateTotalValue(cart);
-        res.send('Product has been removed')
-    } catch (err) { 
-        console.log(err)
-    }
-} */
-
-const deleteProductCart = async (req, res, next) => {
+const deleteProductCart = async (req, res) => {
     try {
         const { productCardId } = req.query;
         let productCart = await Productcart.findOne({
@@ -84,12 +65,11 @@ const deleteProductCart = async (req, res, next) => {
     });
     await productCart.destroy();
 
-    const cart = await Cart.findOne({ where: { id: productCart.cartId } });
+    const cart = await Cart.findOne({ where: { id: productCart.id} });
     updateTotalValue(cart); 
-    res.send("ok");
+    res.send('Product has been removed');
     } catch (error) {
         console.log(error)
-       
     }
 };
 
