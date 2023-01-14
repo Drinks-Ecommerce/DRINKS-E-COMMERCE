@@ -6,12 +6,11 @@ export default function SearchBar(){
     const dispatch = useDispatch();
     const [ name, setName ] = useState("");
 /*     const [ brand, setBrand ] = useState(""); */
-    // const [ brand, setBrand ] = useState("");
 
     function handleInputChange(e){
         e.preventDefault();
         setName(e.target.value);
-/*         // setBrand(e.target.value); */
+/*          setBrand(e.target.value); */
     }
     const handleClick = (event) => {
         event.preventDefault();
@@ -19,7 +18,7 @@ export default function SearchBar(){
         dispatch(getByName(name));
         dispatch(getByBrand(brand))
         setName('')
-/*         // setBrand('') */
+/*          setBrand('') */
     };
     return (
     <form onSubmit={(event) => handleClick(event)}>
