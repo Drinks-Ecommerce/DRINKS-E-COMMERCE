@@ -17,6 +17,10 @@ const filterbytypes = require("./filters/bytype")
 const filterbyprice = require("./filters/byprice")
 const filterbybrand = require("./filters/byBrand")
 const deleteTypes = require("./typesRoutes/delete")
+const getCart = require('./cartRoutes/get')
+const deleteProductCart = require('./cartRoutes/delete')
+const addProductCart = require('./cartRoutes/post')
+const updateProductCart = require('./cartRoutes/put')
 
 const deleteUser = require("./userRoutes/delete")
 const updateUser = require("./userRoutes/update")
@@ -55,6 +59,12 @@ router.use("/users/update", updateUser);
 router.use("/users/id", userByID);
 router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
+
+/*******************************  routes CART  *********************************** */
+router.use('/cart',getCart)
+router.use('/cart',deleteProductCart)
+router.use('/cart',addProductCart)
+router.use('/cart',updateProductCart)
 
 
 
