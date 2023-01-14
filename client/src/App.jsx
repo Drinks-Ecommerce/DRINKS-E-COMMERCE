@@ -5,6 +5,7 @@ import ProductCreate from './components/ProductCreate/ProductCreate'
 import Detail from './components/Details/Details.jsx'
 import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
+import User from './components/User/User'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route exact path='cards/:id' element={<Detail/>}/>
       <Route exact path='/:id' element={<Products/>} />
       <Route exact path='/paneladmin' element={<PanelAdmin/>} />
+      <Route exact path='/user' element={<User/>} />
       </Routes>
     </div>
   )
