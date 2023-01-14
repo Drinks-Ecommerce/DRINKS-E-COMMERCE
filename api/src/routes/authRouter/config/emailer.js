@@ -25,5 +25,5 @@ const {
 
         console.log(info)
         
-  
-module.exports = {createTrans};
+    }
+module.exports = {enviarMail};
