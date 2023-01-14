@@ -84,7 +84,7 @@ const deleteProductCart = async (req, res, next) => {
     });
     await productCart.destroy();
 
-    const cart = await Cart.findOne({ where: { id: productCart.cartId } });
+    const cart = await Cart.findOne({ where: { id: productCart.id} });
     updateTotalValue(cart); 
     res.send("ok");
     } catch (error) {
