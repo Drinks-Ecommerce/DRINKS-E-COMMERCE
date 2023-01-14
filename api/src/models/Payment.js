@@ -47,7 +47,8 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         state: {
-        type: DataTypes.STRING,
+            type: DataTypes.STRING,
+            defaultValue:'Pending',
         },
     },
     {
