@@ -26,7 +26,7 @@ router.get("/:id", async(req,res)=>{
     try{
         const {id}= req.params;
         const all = await getProducts();
-
+        
         const product = await all.filter(e=> e.id == id)
         if(product.length){
             res.status(200).send(product)

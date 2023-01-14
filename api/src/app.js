@@ -7,10 +7,8 @@ const routes = require('./routes/index.js');
 
 require("./db.js");
 
-
-
 const app = express()
-app.name="API"
+app.name = "API"
 
 
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -34,12 +32,15 @@ app.use("/", routes)
 
 ///para capturar el error si se cae 
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-    const status = err.status || 500;
-    const message = err.message || err;
-    console.error(err);
-    res.status(status).send(message);
-  });
-  
+  const status = err.status || 500;
+  const message = err.message || err;
+  console.error(err);
+  res.status(status).send(message);
+});
 
 
-  module.exports = app;
+
+
+module.exports = app;
+
+

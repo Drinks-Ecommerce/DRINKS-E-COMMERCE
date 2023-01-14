@@ -1,18 +1,32 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { filterByTypes, getProducts } from "../../action";
+import { filterByTypes, getProducts, filterByPriceOrder } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
+import { useScrollPosition } from "../hooks/useScrollPosition";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import images from "../icons/images"
+import '../SearchBar/SearchBar.jsx'
 
 export default function Encabezado(){
 
+	function classNames(...classes) {
+		return classes.filter(Boolean).join(' ')
+	}
+
+	const scrollPosition = useScrollPosition()
 	const dispatch = useDispatch()
   
     function handleFilterByType(e){
         e.preventDefault()
         dispatch(filterByTypes(e.target.value))   
     }
+    
+	function handleFilterByPrice(e){
+		e.preventDefault()
+		dispatch(filterByPriceOrder(e.target.value))
+	}
 
     function handleclick(e){
         e.preventDefault();
@@ -21,7 +35,7 @@ export default function Encabezado(){
 
   	return(
 
-    <header className=" bg-gray-800 text-gray-100">
+    <header className= "bg-gray-800 text-gray-100">
 
 		<div className="flex justify-between h-16 mx-5">
 
@@ -30,16 +44,8 @@ export default function Encabezado(){
         </div>
 
 		<div className="flex items-center md:space-x-4">
-			<div className="relative">
-				<span className="absolute inset-y-0 left-0 flex items-center pl-2">
-					<button type="submit" title="Search" className="p-1 focus:outline-none focus:ring">
-						<svg fill="currentColor" viewBox="0 0 512 512" className="w-4 h-4 text-gray-100">
-							<path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
-						</svg>
-					</button>
-				</span>
 				<SearchBar/>
-			</div>
+				{/* <input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-700 text-gray-100 focus:bg-gray-900" /> */}
 		</div>
 
         <div className="flex items-center md:space-x-2 mx-0">
@@ -60,44 +66,59 @@ export default function Encabezado(){
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
            
 	<ul class="flex">
-  		<li class="mr-4">
-    		<option value='vino' className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>VINOS</option>
+
+  		<li class="mr-6">
+		  	<Link to={'/vino'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">VINOS</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='whisky' class="text-white text-lg font-bold hover:text-blue-500 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>WHISKYS</option>
+  		<li class="mr-6">
+		  	<Link to={'/whisky'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-500 cursor-pointer">WHISKYS</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-   			 <option value='ron' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>RONES</option>
+  		<li class="mr-6">
+			<Link to={'/ron'}>
+   				<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">RONES</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer" onClick={(e)=>handleFilterByType(e)}>CERVEZAS</option>
+  		<li class="mr-6">
+			<Link to={'/cerveza'}>
+    			<option value='cerveza' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">CERVEZAS</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='espumante' class="text-white text-lg font-bold hover:text-blue-800" onClick={(e)=>handleFilterByType(e)}>ESPUMANTES</option>
+  		<li class="mr-6">
+			<Link to={'/espumante'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">ESPUMANTES</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='gin' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>GINS</option>
+  		<li class="mr-6">
+			<Link to={'/gin'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">GINS</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='vermouth' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>VERMÚS</option>
+  		<li class="mr-6">
+			<Link to={'/vermouth'}>
+    			<option className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">VERMÚS</option>
+			</Link>
   		</li>
 
-  		<li class="mr-4">
-    		<option value='cristaleria' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>CRISTALERÍA</option>
+  		<li class="mr-6">
+			<Link to={'/cristaleria'}>
+    			<option value='cristaleria' className="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">CRISTALERÍA</option>
+			</Link>
  		</li>
 
-  		<li class="mr-8">
-    		<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800" href="#" onClick={(e) => handleFilterByType(e)}>DELICATESSEN</option>
-  		</li>
-
   		<li class="">
-    		<section class="text-white text-lg font-bold hover:text-blue-800 cursor-pp" onClick={(e)=>{handleclick(e)}}>TODOS</section>
+			<Link to={'/delicatessen'}>
+    			<option value='delicatessen' class="text-white text-lg font-bold hover:text-blue-800 cursor-pointer">DELICATESSEN</option>
+			</Link>
   		</li>
 	</ul>   
 	</div>

@@ -1,19 +1,56 @@
 import axios from 'axios';
 
+// --------------------------- ACTIONS PRODUCTS ------------------------------------
+
 export function getProducts(){
     return async function(dispatch){
-        let json = await axios.get("http://localhost:3000/products")
-
+        let json = await axios.get("http://localhost:3000/products");
         return dispatch({
             type: 'GET_PRODUCTS',
             payload: json.data
-        })
-    }
-}
+        });
+    };
+};
 
+export function creatProducts(payload){
+    return async function(dispatch){
+    let json = await axios.post("http://localhost:3000/products", payload);
+    return dispatch({
+        type:"CREATE_PRODUCTS",
+        payload: json
+        });
+    };
+};
 
+// export function deleteProduct(id) {
+//     return async function(dispacth) {
+//         const json = await axios.delete(`http://localhost:3000/products/${id}`);
+//         return dispatch({
+//             type: 'DELETE_PRODUCT',
+//             payload: json.data
+//         });
+//     };
+// };
 
-//⬇️(gaston) action para el buscador por nombre
+// export function updateProduct(id, payload) {
+//     return async function(dispatch) {
+//         const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
+//         return dispatch({
+//             type: 'UPDATE_PRODUCT',
+//             payload: json.data
+//         });
+//     };
+// };
+
+export function getDetail(id) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/products/${id}`);
+        return dispatch({
+            type: 'GET_DETAIL',
+            payload: json.data
+        });
+    };
+};
 
 export function getByName(name){
     return async function(dispatch){
@@ -32,7 +69,7 @@ export function getByName(name){
 export function getByBrand(brand){
     return async function(dispatch){
         try {
-            let json = await axios.get("http://localhost:3000/bybrand?name=" + brand);
+            let json = await axios.get("http://localhost:3000/bybrand/?brand=" + brand);
             return dispatch({
                 type: 'GET_BY_BRAND',
                 payload: json.data
@@ -43,48 +80,161 @@ export function getByBrand(brand){
     }
 }
 
+
+
+//--------------------------------- ACTIONS TYPES ---------------------------------
+
 export function getTypes(){
     return async function(dispatch){
-        let json = await axios.get("http://localhost:3000/types")
-
+        let json = await axios.get("http://localhost:3000/types");
         return dispatch({
             type: 'GET_TYPES',
-            payload: json.data
-        })
-    }
-}
-
-export function creatProducts(payload){
-    return async function(dispatch){
-    let json = await axios.post("http://localhost:3000/products", payload)
-
-    return dispatch({
-        type:"CREATE_PRODUCTS",
-        payload: json
-    })
-
-    }
-}
-
-export function getDetail(id) {
-    return async function(dispatch) {
-        const json = await axios(`http://localhost:3000/products/${id}`);
-        return dispatch({
-            type: 'GET_DETAIL',
             payload: json.data
         });
     };
 };
 
-// export function filterByPriceOrder(payload) {
+// export function postTypes(payload) {
 //     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/products/byprice/${payload}`);
+//         const json = await axios.post("http://localhost:3000/types", payload);
 //         return dispatch({
-//             type: 'FILTER_ORDER_PRICE',
+//             type: 'POST_TYPE',
+//             payload: json
+//         });
+//     };
+// };
+
+// export function deleteType(id) {
+//     return async function(dispatch) {
+//         const json = await axios.delete(`http://localhost:3000/types/delete/${id}`);
+//         return dispatch({
+//             type: 'DELETE_TYPE',
+//             payload: json.data
+//         })
+//     }
+// };
+
+
+
+//--------------------------------- ACTIONS USER ROL ----------------------------------
+
+// export function getRol() {
+//     return async function(dispatch) {
+//         const json = await axios("http://localhost:3000/roles");
+//         return dispatch({
+//             type: 'GET_ROL',
+//             payload: json.data
+//         })
+//     };
+// };
+
+// export function postRol(payload) {
+//     return async function(dispatch) {
+//         const json = await axios.post("http://localhost:3000/roles", payload);
+//         return dispatch({
+//             type: 'CREATE_ROLE',
+//             payload: json
+//         });
+//     };
+// };
+
+
+
+//---------------------------------- ACTIONS USER ---------------------------------
+
+// export function getUsers() {
+//     return async function(dispatch) {
+//         const json = await axios("http://localhost:3000/users");
+//         return dispatch({
+//             type: 'GET_USER',
 //             payload: json.data
 //         });
 //     };
 // };
+
+// export function getUsersByEmail(email) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/${email}`);
+//         return dispatch({
+//             type: 'GET_USER_EMAIL',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function getUsersByUserName(username) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/username/${username}`);
+//         return dispatch({
+//             type: 'GET_USER_NAME',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function getUsersById(id) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/id/${id}`);
+//         return dispatch({
+//             type: 'GET_USER_ID',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function deleteUser(id) {
+//     return async function(dispatch) {
+//         const json = await axios.delete(`http://localhost:3000/users/delete/${id}`);
+//         return dispatch({
+//             type: 'DELETE_USER',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function updateUser(id, payload) {
+//     return async function(dispatch) {
+//         const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
+//         return dispatch({
+//             type: 'UPDATE_USER',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function postSignIn(payload) {
+//     return async function(dispatch) {
+//         const json = await axios.post("http://localhost:3000/signIn", payload);
+//         return dispatch({
+//             type: 'SIGN_IN',
+//             payload: json
+//         });
+//     };
+// };
+
+// export function postSignUp(payload) {
+//     return async function(dispatch) {
+//         const json = await axios.post("http://localhost:3000/signUp", payload);
+//         return dispatch({
+//             type: 'SIGN_UP',
+//             payload: json
+//         });
+//     };
+// };
+
+
+
+//------------------------------ ACTIONS FILTERS ----------------------------------
+
+export function filterByPriceOrder(payload) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/products/byprice/${payload}`);
+        return dispatch({
+            type: 'FILTER_ORDER_PRICE',
+            payload: json.data
+        });
+    };
+};
 
 export function filterByTypes(payload) {
     return async function(dispatch) {
@@ -95,3 +245,14 @@ export function filterByTypes(payload) {
         });
     };
 };
+
+export function filterbyorigin(payload) {
+        return async function(dispacth) {
+            const json = await axios(`http://localhost:3000/products/byorigin/${payload}`);
+            return dispatch({
+                type: 'GET_ORIGIN',
+                payload: json.data
+            });
+        };
+    };
+
