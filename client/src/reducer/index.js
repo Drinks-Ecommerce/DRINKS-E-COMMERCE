@@ -14,61 +14,132 @@ const initialState = {
 function rootReducer(state = initialState, action){
 
     switch (action.type){
+
+//------------------------------- CASE PRODUCTS ------------------------------------
+
         case 'GET_PRODUCTS' :
             return{
                 ...state,
                 allproducts: action.payload,
                 copyallproducts : action.payload
+            }   
 
-            }          
         case 'CREATE_PRODUCTS':
             return{
                 ...state
-            }                
-        case 'GET_TYPES' :
-            return{
-                ...state,
-                typesproducto: action.payload
             }
+
+        // case 'DELETE_PRODUCT':
+        //  return {
+        //      ...state
+        //  }
+
+        // case 'UPDATE_PRODUCT':
+        //  return {
+        //      ...state
+        //  }
 
         case 'GET_DETAIL':
             return {
                 ...state,
                 details: action.payload
             }
+
         case 'GET_BY_NAME':
             return {
                 ...state,
                 allproducts: action.payload
             }
+
         case 'GET_BY_BRAND':
             return{
                 ...state,
                 allproducts: action.payload
-            } 
+            }
 
-        // case 'DELETE_PRODUCT':
+
+//----------------------------------- CASE TYPES -----------------------------------
+
+        case 'GET_TYPES' :
+            return{
+                ...state,
+                typesproducto: action.payload
+            }
+        // case 'POST_TYPE':
         //     return {
-        //         ...state,
-        //         product: action.payload
+        //         ...state
         //     }
 
-        // case 'UPDATE_PRODUCT':
+        // case 'DELETE_TYPE':
         //     return {
         //         ...state,
-        //         product: action.payload
+        //         type: action.payload
         //     }
 
-        // case 'GET_ROL':
+
+
+//---------------------------- CASE USER ROL -----------------------------------------
+
+         // case 'GET_ROL':
         //     return {
         //         ...state,
         //         user: action.payload
         //     }
 
-        // case 'CREATE_USER':
+        // case 'CREATE_ROLE':
         //     return {
         //         ...state
         //     }
+
+
+//------------------------------ CASE USER ------------------------------------------
+
+        // case 'GET_USER':
+        //     return {
+        //         ...state,
+        //         user:  action.payload
+        //     }
+
+        // case 'GET_USER_EMAIL':
+        //     return {
+        //         ...state,
+        //         user: action.payload
+        //     }
+
+        // case 'GET_USER_NAME':
+        //     return {
+        //         ...state,
+        //         user: action.payload 
+        //     }
+
+        // case 'GET_USER_ID':
+        // return {
+        //     ...state,
+        //     user: action.payload
+        // }
+
+        // case 'DELETE_USER':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'UPDATE_USER':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_IN':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'SIGN_UP':
+        //     return {
+        //         ...state
+        //     }
+
+
+//------------------------------ CASE FILTERS ------------------------------------
 
         case 'FILTER_ORDER_PRICE':
             return {
@@ -121,6 +192,9 @@ function rootReducer(state = initialState, action){
         
     
 
+
+
+//-------------------------------- CASE DEFAULT --------------------------------------
 
         default:
                 return state;
