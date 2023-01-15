@@ -2,14 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts, filterByPriceOrder, getAllBrands } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
-import { useScrollPosition } from "../hooks/useScrollPosition";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-
 import images from "../icons/images"
-
-import Carrito from "../Carrito/Carrito";
 import '../SearchBar/SearchBar.jsx'
 
 export default function Encabezado(){
@@ -24,21 +20,18 @@ export default function Encabezado(){
 
 		let suma = 0;
 
-		carrito.map(e => {
+		carrito?.map(e => {
 			suma = suma + Number(e.price);
 		})
 
 		setSuma(suma);
 	}
+
+	
 	useEffect(() => {
-	  SUMA();
+		SUMA();
 	},[])
 	
-  
-    
-   
-
-
 
   	return(
 
@@ -68,13 +61,12 @@ export default function Encabezado(){
 			</button>
 
         </div>
-		</div>
-
-		<div className={`${!open && "hidden"} bg-gray-500/50 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm z-20`}>
 
 		</div>
+			<div className={`${!open && "hidden"} bg-gray-500/50 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm z-10`}></div>
 
-		<div className={`${open ? "w-1/4" : "w-0"} fixed right-0  h-screen top-0 text-3xl bg-gray-100 z-50 shadow-md`}>
+		<div className={`${open ? "w-1/4" : "w-0"} fixed right-0  h-screen top-0 text-3xl bg-gray-100 shadow-md z-40`}>
+
 
 			<button className="ml-2 mt-3 bg-black" onClick={() => setOpen(!open)}>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -122,8 +114,6 @@ export default function Encabezado(){
 			</div>
 
 			<h1 className="ml-3 mt-10 text-black">TOTAL: $ {suma}</h1>
-
-			
 		</div>
 
 
