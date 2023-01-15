@@ -29,6 +29,7 @@ const filterbyorigin = require("./filters/byorigin")
 
 const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
+const deletePayment = require("./paymentRoutes/delete")
 
 
 /**************************** routes PRODUCTS ***************************/
@@ -72,6 +73,7 @@ router.use('/cart',updateProductCart)
 /*******************************  routes PAYMENT  *********************************** */
 router.use('/payment',addPayment)
 router.use('/payment',getallPayment)
+router.use("/payment",deletePayment)
 
 
 
