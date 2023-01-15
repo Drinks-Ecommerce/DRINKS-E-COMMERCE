@@ -43,6 +43,8 @@ const addProductCart = async(req, res) => {
                 totalValue,
                 cartId: cart.id,
                 productId: product.id,
+                img:product.img,
+                name:product.name
             });
             updateTotalValue(cart);
 
