@@ -4,6 +4,7 @@ import Cards from './components/Cards/Cards'
 import ProductCreate from './components/ProductCreate/ProductCreate'
 import Detail from './components/Details/Details.jsx'
 import Products from './components/Products/Products'
+import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import './App.css'
 import Register from './components/Register/Register'
 
@@ -18,7 +19,7 @@ function App() {
       <Route exact path="/createProducts" element={<ProductCreate/>}/>
       <Route exact path='cards/:id' element={<Detail/>}/>
       <Route exact path='/:id' element={<Products/>} />
-      <Route exact path='/register' element={<Register/>}/>
+      <Route exact path='/paneladmin' element={<PanelAdmin/>} />
       </Routes>
     </div>
   )

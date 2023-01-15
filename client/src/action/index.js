@@ -32,9 +32,9 @@ export function creatProducts(payload){
 //     };
 // };
 
-// export function updateProduct(id) {
+// export function updateProduct(id, payload) {
 //     return async function(dispatch) {
-//         const json = await axios.update(`http://localhost:3000/products/${id}`);
+//         const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
 //         return dispatch({
 //             type: 'UPDATE_PRODUCT',
 //             payload: json.data
@@ -144,6 +144,66 @@ export function getTypes(){
 
 
 //---------------------------------- ACTIONS USER ---------------------------------
+
+// export function getUsers() {
+//     return async function(dispatch) {
+//         const json = await axios("http://localhost:3000/users");
+//         return dispatch({
+//             type: 'GET_USER',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function getUsersByEmail(email) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/${email}`);
+//         return dispatch({
+//             type: 'GET_USER_EMAIL',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function getUsersByUserName(username) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/username/${username}`);
+//         return dispatch({
+//             type: 'GET_USER_NAME',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function getUsersById(id) {
+//     return async function(dispatch) {
+//         const json = await axios(`http://localhost:3000/users/id/${id}`);
+//         return dispatch({
+//             type: 'GET_USER_ID',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function deleteUser(id) {
+//     return async function(dispatch) {
+//         const json = await axios.delete(`http://localhost:3000/users/delete/${id}`);
+//         return dispatch({
+//             type: 'DELETE_USER',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function updateUser(id, payload) {
+//     return async function(dispatch) {
+//         const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
+//         return dispatch({
+//             type: 'UPDATE_USER',
+//             payload: json.data
+//         });
+//     };
+// };
 
 // export function postSignIn(payload) {
 //     return async function(dispatch) {
