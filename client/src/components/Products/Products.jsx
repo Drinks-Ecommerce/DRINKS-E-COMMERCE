@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useParams } from "react-router"
+import { createRoutesFromElements, useParams } from "react-router"
 import { useDispatch } from "react-redux";
-import { filterByTypes, getProducts, filterByPriceOrder } from "../../action";
+import { filterByTypes, getProducts, filterByPriceOrder, getByBrand, getByOrigin, getAllBrands, getAllOrigins} from "../../action";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Cards from "../Cards/Cards";
@@ -13,20 +13,30 @@ export default function Products(){
 
     let {id} = useParams();
     const dispatch = useDispatch()
-    const allProducts = useSelector((state) => state.allproducts)
-    const[brands, setbrands] = useState([]);
 
-    const pepe = [];
-    for(let i=0; i<allProducts.length; i++){
-        if(!pepe.includes(allProducts[i].brand)){
-            pepe.push(allProducts[i].brand)
-        }
-    }
+    const allProducts = useSelector((state) => state.allproducts);
 
+    const allOrigins = useSelector((state) => state.allOrigins);
+    const allBrands = useSelector((state) => state.allBrands);
+    const filters = useSelector((state) => state.filters);
 
     useEffect(() =>{
-        dispatch(filterByTypes(id));
-      },[id])
+            dispatch(filterByTypes(id))
+
+            setTimeout(() => {
+                dispatch(getAllBrands())
+                dispatch(getAllOrigins());                  
+            }, 300);
+    },[id])
+    
+      const handleBrands = (e) => {
+        dispatch(getByBrand(e.target.value));
+      }
+
+      const handleOrigins = (e) => {
+        dispatch(getByOrigin(e.target.value));
+      }
+     
 
     return (
 
@@ -60,11 +70,13 @@ export default function Products(){
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body py-4 px-5 text-zinc-500">
             {
-                pepe?.map(e => {
+                allBrands?.map(e => {
                     return (
-
-                        <div className="text-black">
-                            <input type="checkbox" id="cbox1" value="first_checkbox" className="mx-1.5" />{e}
+                        <div  className="text-black">
+                             <label>
+                                <input type="checkbox" value={e} className="mx-1.5" onClick={handleBrands}/>
+                                {e}
+                            </label>
                         </div>
                     )
                 })
@@ -83,6 +95,16 @@ export default function Products(){
 
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body py-4 px-5">
+                                    {
+                                    allOrigins?.map(e =>{
+                                        return (
+                                        <div className="text-black">
+                                            <label>
+                                                <input type="checkbox" value={e} className="mx-1.5" onClick={handleOrigins} /> {e}
+                                            </label>
+                                        </div>
+                                    )})
+                                    }
                                 </div>
                             </div>
         </div>
@@ -94,20 +116,27 @@ export default function Products(){
             <div className="container  pb-10 bg-gray-300  mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3 my-5  lg:grid-cols-4 xl:grid-cols-4"> 
 
             {
-
-                allProducts?.map(e => {
-                    
-                    return (
-                        
+                (filters?.length === 0) ?
+                    allProducts?.map(e => {
+                        return (
                         <div className=''>
                             <Link to={'/cards/' + e.id}>
                                 <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
                             </Link>
-                        </div>)})}
+                        </div>
+                        )})
+                        :
+                filters?.map(e => {
+                        return (
+                            <div className=''>
+                                <Link to={'/cards/' + e.id}>
+                                    <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                                </Link>
+                            </div>
+                            )})
+            }
+
             </div>
-                
-
-
 
         </div>
                 <Footer />
