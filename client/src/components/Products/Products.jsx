@@ -49,8 +49,6 @@ export default function Products(){
 
         <div className="flex flex-row mx-4">
 
-        <FadeLoader color="#36d7b7" />
-
             <div className="flex w-1/4 bg-gray-200 my-5  justify-center">
                 <div className="filtros flex flex-col bg-black text-white  h-8 w-3/4 mx-auto mt-8 px-3">
                     <div className="w-full  text-center text-xl ">
