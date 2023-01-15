@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { filterByTypes, getProducts, filterByPriceOrder, getAllBrands } from "../../action";
+import { useDispatch, useSelector } from "react-redux";
+import { DeleteUser } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -8,13 +8,22 @@ import { useEffect } from "react";
 import images from "../icons/images"
 import '../SearchBar/SearchBar.jsx'
 
-export default function Encabezado(){
+export default function Encabezado(props){
 
-	const [open, setOpen] = useState(false);
-	const [carrito, setCarrito] = useState(JSON.parse(window.localStorage.getItem("productos-carrito")));
+	const [open, setOpen] = useState(false); // Lógica para el carrito.
+	const [open2, setOpen2] = useState(false); // Lógica para el perfil.
+
+	const [Open, setOPEN] = useState(false);
 	const [suma, setSuma] = useState(0);
+	const [carrito, setCarrito] = useState(JSON.parse(window.localStorage.getItem("productos-carrito")))
+	
+	const User = useSelector((state) => state.user)
 
 	const dispatch = useDispatch()
+	
+	const DeleteUSER = (e) => {
+		dispatch(DeleteUser());
+	}
 
 	const SUMA = () => {
 
@@ -23,24 +32,23 @@ export default function Encabezado(){
 		carrito?.map(e => {
 			suma = suma + Number(e.price);
 		})
-
 		setSuma(suma);
 	}
 
-	
 	useEffect(() => {
 		SUMA();
 	},[])
+
 	
 
   	return(
 
-    <header className= "bg-gray-800 text-gray-100">
+    <header className= "bg-gray-900 text-gray-100">
 
 		<div className="flex justify-between h-16 mx-5">
 
         <div className="flex">
-            <img src={images.img4} className="w-25 h-25" alt="" />
+            <img src={images.img4} className="w-25  h-25" alt="" />
         </div>
 
 		<div className="flex items-center md:space-x-4">
@@ -50,15 +58,70 @@ export default function Encabezado(){
 
         <div className="flex items-center md:space-x-2 mx-0">
 
-		<button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Registrar</button>
-        <button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Ingresar</button>
+         <img src={images.img9} className="hidden md:block w-10 h-10 cursor-pointer mr-1" alt="img" onClick={() => setOpen(!Open)} />
 
-         <img src={images.img9} className="hidden md:block w-10 h-10 cursor-pointer" alt="img" onClick={() => setOpen(!open)} />
-		    <button title="Open menu" type="button" className="p-4 md:hidden">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-gray-100">
-				    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+		    <button title="Open menu" type="button" className="mr-4 md:hidden">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-10 h-10">
 			    </svg>
 			</button>
+
+
+			{
+				(Object.entries(User).length === 0) ?
+			 		
+					<Link to='/login'>
+							<div>
+		 						<img src={images.img20} className="w-10 h-10 cursor-pointer" />
+							</div>
+		 			</Link>
+							:
+
+							<div className='flex row gap-5'>
+								<div class="flex justify-center">
+  <div>
+    <div class="dropdown relative">
+      <button
+        class="dropdown-toggle  px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+        type="button"
+        id="dropdownMenuButton2"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {User.data.userFound.username}
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="caret-down"
+          class="w-2 ml-2"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            fill="currentColor"
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          ></path>
+        </svg>
+      </button>
+      <ul class="dropdown-menu min-w-max absolute hidden text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none bg-gray-800"
+          aria-labelledby="dropdownMenuButton2">
+        <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Perfil</h6>
+        <span
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300">(???)</span>
+        
+        <li><hr class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25" /></li>
+        <li>
+          <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+            onClick={(e) => DeleteUSER()}>Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>							
+
+							</div>
+			}
 
         </div>
 

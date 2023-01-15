@@ -8,7 +8,7 @@ const initialState = {
     allOrigins: [],
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
-    // user: [] ruta echa para el get y post del usuario
+    user: {},
 
 }
 
@@ -67,6 +67,8 @@ function rootReducer(state = initialState, action){
                 filters: state.filters.concat(marcas)       
 
         }
+
+
 
         case 'GET_BY_ORIGIN':
 
@@ -214,11 +216,39 @@ function rootReducer(state = initialState, action){
                     brands.push(state.allproducts[i].brand);
                 }
             }
-
+        
             return {
                 ...state,
                 allBrands: brands,
             }
+
+        case 'LOGIN_USER':
+
+            window.localStorage.setItem("cookie", JSON.stringify(action.payload))
+
+            console.log("state LOGIN_USER");
+
+            return {
+                ...state,
+                user: action.payload
+        }
+
+        case 'FILL_USER':
+
+            return {
+                ...state,
+                user: JSON.parse(window.localStorage.getItem("cookie"))
+        }
+
+        case 'DELETE_USER':
+
+            window.localStorage.removeItem('cookie');
+
+            return {
+                ...state,
+                user: {}
+        }
+
 
 
 

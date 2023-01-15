@@ -22,6 +22,17 @@ export function creatProducts(payload){
     };
 };
 
+export function LoginUser(payload){
+    return async function(dispatch){
+        let json = await axios.post("http://localhost:3000/signIn", payload);
+        return dispatch({
+            type: "LOGIN_USER",
+            payload: json
+        })
+    }
+}
+
+
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
 //         const json = await axios.delete(`http://localhost:3000/products/${id}`);
@@ -97,8 +108,6 @@ export function getByOrigin(payload){
         })
     }
 }
-
-
 
 //--------------------------------- ACTIONS TYPES ---------------------------------
 
@@ -291,4 +300,21 @@ export function getAllOrigins() {
             });
         };
     };
+
+    export function FillUser(){
+        return async function(dispatch){
+            return dispatch({
+                type: 'FILL_USER',
+            })
+        }
+    }
+
+    export function DeleteUser(){
+        return async function(dispacth){
+            return dispacth({
+                type: 'DELETE_USER',
+            })
+        }
+    }
+    
 
