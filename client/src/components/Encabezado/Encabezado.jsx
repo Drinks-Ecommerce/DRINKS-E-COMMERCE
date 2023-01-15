@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import images from "../icons/images"
 import '../SearchBar/SearchBar.jsx'
+import '../Register/Register.jsx'
 
 export default function Encabezado(){
 
@@ -49,8 +50,9 @@ export default function Encabezado(){
 		</div>
 
         <div className="flex items-center md:space-x-2 mx-0">
-
-		<button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Registrar</button>
+			<Link to ={'/register'}>
+				<button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Registrar</button>
+			</Link>
         <button type="button" className="hidden px-6 py-2 font-semibold rounded md:block bg-teal-400 text-gray-600">Ingresar</button>
         <img src={images.img9} className="hidden md:block w-10 h-10" alt="img" />
 
