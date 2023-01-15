@@ -27,6 +27,8 @@ const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
 const filterbyorigin = require("./filters/byorigin")
 
+const addPayment = require('./paymentRoutes/post')
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -65,6 +67,9 @@ router.use('/cart',getCart)
 router.use('/cart',deleteProductCart)
 router.use('/cart',addProductCart)
 router.use('/cart',updateProductCart)
+
+/*******************************  routes PAYMENT  *********************************** */
+router.use('/payment',addPayment)
 
 
 
