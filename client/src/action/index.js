@@ -66,7 +66,7 @@ export function getByName(name){
     }
 }
 
-export function getByBrand(brand){
+/*export function getByBrand(payload){
     return async function(dispatch){
         try {
             let json = await axios.get("http://localhost:3000/bybrand/?brand=" + brand);
@@ -77,6 +77,24 @@ export function getByBrand(brand){
         } catch (error) {
             console.log(error)
         }
+    }
+}*/
+
+export function getByBrand(payload){
+    return async function(dispatch){
+        return dispatch({
+            type: 'GET_BY_BRAND',
+            payload: payload
+        });
+    };
+};
+
+export function getByOrigin(payload){
+    return async function(dispacth){
+        return dispacth({
+            type: 'GET_BY_ORIGIN',
+            payload: payload
+        })
     }
 }
 
@@ -140,7 +158,7 @@ export function getTypes(){
 //     };
 // };
 
-// export function postRol(payload) {
+//export function postRol(payload) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/roles", payload);
 //         return dispatch({
@@ -148,7 +166,7 @@ export function getTypes(){
 //             payload: json
 //         });
 //     };
-// };
+//  };
 
 
 
@@ -258,11 +276,10 @@ export function filterByTypes(payload) {
     };
 };
 
-export function filterbyorigin(payload) {
+export function getAllOrigins() {
         return async function(dispatch) {
             return dispatch({
-                type: 'GET_ORIGIN',
-                payload: json.data
+                type: 'GET_ALL_ORIGIN',
             });
         };
     };

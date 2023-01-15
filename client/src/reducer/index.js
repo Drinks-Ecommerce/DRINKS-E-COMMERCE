@@ -1,6 +1,7 @@
 const initialState = {
     allproducts: [],
     copyallproducts:[],
+    filters: [],
     typesproducto:[],
     details: [],
     allBrands: [],
@@ -52,10 +53,38 @@ function rootReducer(state = initialState, action){
             }
 
         case 'GET_BY_BRAND':
+
+            const marcas = [];
+
+            for(let i=0; i<state.copyallproducts.length; i++){
+                if(state.copyallproducts[i].brand === action.payload){
+                    marcas.push(state.copyallproducts[i])
+                }
+            }
+
             return{
                 ...state,
-                allproducts: action.payload
+                filters: state.filters.concat(marcas)       
+
+        }
+
+        case 'GET_BY_ORIGIN':
+
+            const origenes = [];
+
+            for(let i=0; i<state.copyallproducts.length; i++){
+                if(state.copyallproducts[i].origin === action.payload){
+                    origenes.push(state.copyallproducts[i])
+                }
             }
+
+            return {
+                ...state,
+                filters: state.filters.concat(origenes)
+            }
+
+
+
 
 
 //----------------------------------- CASE TYPES -----------------------------------
@@ -149,20 +178,10 @@ function rootReducer(state = initialState, action){
 
         case 'FILTER_TYPE':
 
-            const Brands = [];
-            
-            for(let i=0; i<state.allproducts.length; i++){
-                if(!Brands.includes(state.allproducts[i].brand)){
-                    Brands.push(Brands.concat(state.allproducts[i].brand));
-                }
-            }
-
-            console.log(Brands)
-
-
             return {
                 ...state,
                 allproducts: action.payload,
+                copyallproducts: action.payload,
             }
 
         case 'GET_ORIGIN':
@@ -170,6 +189,21 @@ function rootReducer(state = initialState, action){
                     ...state,
                     allproducts: action.payload,
         }
+
+        case 'GET_ALL_ORIGIN':
+
+            let origin = [];
+
+            for(let i=0; i<state.allproducts.length; i++){
+                if(!origin.includes(state.allproducts[i].origin)){
+                    origin.push(state.allproducts[i].origin);
+                }
+            }
+
+            return {
+                ...state,
+                allOrigins: origin,
+            }
 
         case 'GET_ALL_BRAND':
 
@@ -185,12 +219,6 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allBrands: brands,
             }
-
-
-
-
-        
-    
 
 
 
