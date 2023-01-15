@@ -1,8 +1,8 @@
+const e = require("express");
 const { User, Cart, Productcart, Payment, Orderdetail} = require("../db");
 
 
 const addPayment = async(req, res) => {
-
     try {
         const {emailUser, paymentMethod, shippingMethod, address, numberAddress, city, province, postalCode, phone} = req.body;
         const user = await User.findOne({
@@ -27,7 +27,8 @@ const addPayment = async(req, res) => {
             postalCode: postalCode,
             phone: phone,
             paymentMethod: paymentMethod,
-            shippingMethod: shippingMethod
+            shippingMethod: shippingMethod,
+            userId:user.id
         })
 
         user.cart.productcarts.map(async function(el){
@@ -36,6 +37,8 @@ const addPayment = async(req, res) => {
                 price: el.totalValue,
                 paymentId: payment.id,
                 productId: el.productId,
+                img:el.img,
+                name:el.name
             })
         })
         res.send(payment)
@@ -45,6 +48,4 @@ const addPayment = async(req, res) => {
 }
 
 
-
-
-module.exports = { addPayment }
+module.exports = { addPayment}
