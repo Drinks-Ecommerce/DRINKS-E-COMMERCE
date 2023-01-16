@@ -10,7 +10,7 @@ const getRole = require("./rolesRoutes/get")
 const getUsers = require("./userRoutes/get")
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
-const postTypes = require("./typesRoutes/post") 
+const postTypes = require("./typesRoutes/post")
 const deleteproduct = require("./productRoutes/delete")
 const updateproduct = require("./productRoutes/update")
 const filterbytypes = require("./filters/bytype")
@@ -23,12 +23,13 @@ const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
 const filterbyorigin = require("./filters/byorigin")
 
-
+const { crearOrden } = require("../controllers/mercadoControllers")
+const { notificacionOrden } = require("../controllers/mercadoControllers")
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
 router.use("/products", postProducts);
 router.use("/products", deleteproduct);
-router.use("/products", updateproduct); 
+router.use("/products", updateproduct);
 
 
 /* *************************  routes TYPES   **************************************** */
@@ -57,7 +58,7 @@ router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 
 
-
-
+router.post("/payOrder", crearOrden);
+router.post("/notificationOrder", notificacionOrden);
 
 module.exports = router;
