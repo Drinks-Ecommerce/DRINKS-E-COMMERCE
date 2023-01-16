@@ -3,7 +3,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className=" bg-gray-800 text-gray-100">
+    <footer className=" bg-gray-200 text-gray-100 mt-full">
 
 	    <div className="container grid mx-auto gap-x-3 gap-y-8 md:grid-cols-4 xl:grid-cols-4">
 
@@ -16,8 +16,8 @@ export default function Footer() {
 			</div>
 
 		    <div className="pt-6 flex flex-col space-y-4">
-			    <h2 className="font-black">INSTITUCIONAL</h2>
-			    <div className="flex flex-col space-y-2 text-md text-gray-400">
+			    <h2 className="text-gray-900 font-bold">INSTITUCIONAL</h2>
+			    <div className="flex flex-col space-y-2 text-md text-gray-600">
 				  <a rel="noopener noreferrer" href="#">¿Quiénes somos?</a>
 				  <a rel="noopener noreferrer" href="#">Desarrolladores</a>
 				  <a rel="noopener noreferrer" href="#">Términos y Condiciones</a>
@@ -25,9 +25,8 @@ export default function Footer() {
 		  </div>
 
 			<div className="pt-6 flex flex-col space-y-4">
-			<h2 className="font-black">PRODUCTOS</h2>
-			<div className="flex flex-col space-y-2 text-md text-gray-400">
-				<a rel="noopener noreferrer" href="#">Los más vendidos</a>
+			<h2 className="text-gray-900 font-bold">PRODUCTOS</h2>
+			<div className="flex flex-col space-y-2 text-md text-gray-600">
 				<a rel="noopener noreferrer" href="#">Vinos</a>
 				<a rel="noopener noreferrer" href="#">Cervezas</a>
 				<a rel="noopener noreferrer" href="#">Whiskys</a>
@@ -37,8 +36,8 @@ export default function Footer() {
 		</div>
 
 		<div className="pt-6 flex flex-col space-y-4">
-			<h2 className="font-black">CONTACTO</h2>
-			<div className="flex flex-col space-y-2 text-md text-gray-400">
+			<h2 className="text-gray-900 font-bold">CONTACTO</h2>
+			<div className="flex flex-col space-y-2 text-md text-gray-600">
 				<div className="flex flex-row w-7 h-7 gap-2">
 					<img src={images.img5} alt="WhatsApp" />
 					<img src={images.img6} alt="Instagram" />

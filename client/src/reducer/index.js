@@ -1,27 +1,96 @@
 const initialState = {
     allproducts: [],
     copyallproducts:[],
+    filters: [],
     typesproducto:[],
     details: [],
-    // product: [], estado creado para que se lo use en el componente del admin para que pueda borrar y modificar el producto.
-    // user: [], estado creado para el get y post del rol del usuario.
-    // type: [] estado creado para el delete de type.
+    allBrands: [],
+    allOrigins: [],
+
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
+    user: {},
+
 }
 
 function rootReducer(state = initialState, action){
 
     switch (action.type){
+
+//------------------------------- CASE PRODUCTS ------------------------------------
+
         case 'GET_PRODUCTS' :
             return{
                 ...state,
                 allproducts: action.payload,
                 copyallproducts : action.payload
+            }   
 
-            }          
         case 'CREATE_PRODUCTS':
             return{
                 ...state
-            }                
+            }
+
+        // case 'DELETE_PRODUCT':
+        //  return {
+        //      ...state
+        //  }
+
+        // case 'UPDATE_PRODUCT':
+        //  return {
+        //      ...state
+        //  }
+
+        case 'GET_DETAIL':
+            return {
+                ...state,
+                details: action.payload
+            }
+
+        case 'GET_BY_NAME':
+            return {
+                ...state,
+                allproducts: action.payload
+            }
+
+        case 'GET_BY_BRAND':
+
+            const marcas = [];
+
+            for(let i=0; i<state.copyallproducts.length; i++){
+                if(state.copyallproducts[i].brand === action.payload){
+                    marcas.push(state.copyallproducts[i])
+                }
+            }
+
+            return{
+                ...state,
+                filters: state.filters.concat(marcas)       
+
+        }
+
+
+
+        case 'GET_BY_ORIGIN':
+
+            const origenes = [];
+
+            for(let i=0; i<state.filters.length; i++){
+                if(state.filters[i].origin === action.payload){
+                    origenes.push(state.filters[i])
+                }
+            }
+
+            return {
+                ...state,
+                filters: origenes,
+            }
+
+
+
+
+
+//----------------------------------- CASE TYPES -----------------------------------
+
         case 'GET_TYPES' :
             return{
                 ...state,
@@ -38,41 +107,54 @@ function rootReducer(state = initialState, action){
         //         type: action.payload
         //     }
 
-        case 'GET_DETAIL':
-            return {
-                ...state,
-                details: action.payload
-            }
-        case 'GET_BY_NAME':
-            return {
-                ...state,
-                allproducts: action.payload
-            }
-        case 'GET_BY_BRAND':
-            return{
-                ...state,
-                allproducts: action.payload
-            } 
 
-        // case 'DELETE_PRODUCT':
-        //     return {
-        //         ...state,
-        //         product: action.payload
-        //     }
 
-        // case 'UPDATE_PRODUCT':
-        //     return {
-        //         ...state,
-        //         product: action.payload
-        //     }
+//---------------------------- CASE USER ROL -----------------------------------------
 
-        // case 'GET_ROL':
+         // case 'GET_ROL':
         //     return {
         //         ...state,
         //         user: action.payload
         //     }
 
         // case 'CREATE_ROLE':
+        //     return {
+        //         ...state
+        //     }
+
+
+//------------------------------ CASE USER ------------------------------------------
+
+        // case 'GET_USER':
+        //     return {
+        //         ...state,
+        //         user:  action.payload
+        //     }
+
+        // case 'GET_USER_EMAIL':
+        //     return {
+        //         ...state,
+        //         user: action.payload
+        //     }
+
+        // case 'GET_USER_NAME':
+        //     return {
+        //         ...state,
+        //         user: action.payload 
+        //     }
+
+        // case 'GET_USER_ID':
+        // return {
+        //     ...state,
+        //     user: action.payload
+        // }
+
+        // case 'DELETE_USER':
+        //     return {
+        //         ...state
+        //     }
+
+        // case 'UPDATE_USER':
         //     return {
         //         ...state
         //     }
@@ -87,6 +169,9 @@ function rootReducer(state = initialState, action){
         //         ...state
         //     }
 
+
+//------------------------------ CASE FILTERS ------------------------------------
+
         case 'FILTER_ORDER_PRICE':
             return {
                 ...state,
@@ -94,16 +179,78 @@ function rootReducer(state = initialState, action){
             }
 
         case 'FILTER_TYPE':
+
             return {
                 ...state,
                 allproducts: action.payload,
+                copyallproducts: action.payload,
             }
 
         case 'GET_ORIGIN':
                 return {
                     ...state,
                     allproducts: action.payload,
+        }
+
+        case 'GET_ALL_ORIGIN':
+
+            let origin = [];
+
+            for(let i=0; i<state.allproducts.length; i++){
+                if(!origin.includes(state.allproducts[i].origin)){
+                    origin.push(state.allproducts[i].origin);
                 }
+            }
+
+            return {
+                ...state,
+                allOrigins: origin,
+            }
+
+        case 'GET_ALL_BRAND':
+
+            let brands = [];
+
+            for(let i=0; i<state.allproducts.length; i++){
+                if(!brands.includes(state.allproducts[i].brand)){
+                    brands.push(state.allproducts[i].brand);
+                }
+            }
+        
+            return {
+                ...state,
+                allBrands: brands,
+            }
+
+        case 'LOGIN_USER':
+
+                window.localStorage.setItem("cookie", JSON.stringify(action.payload))
+                console.log("state LOGIN_USER");
+                return {
+                    ...state,
+                    user: action.payload
+            }
+
+        case 'FILL_USER':
+
+            return {
+                ...state,
+                user: JSON.parse(window.localStorage.getItem("cookie"))
+        }
+
+        case 'DELETE_USER':
+
+            window.localStorage.removeItem('cookie');
+
+            return {
+                ...state,
+                user: {}
+        }
+
+
+
+
+//-------------------------------- CASE DEFAULT --------------------------------------
 
         default:
                 return state;
