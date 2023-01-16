@@ -27,12 +27,15 @@ const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
 const filterbyorigin = require("./filters/byorigin")
 
+
+const { crearOrden } = require("./mercadoPago/mercadoPago")
+const { notificacionOrden } = require("./mercadoPago/mercadoPago")
+
 const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
 
-const { crearOrden } = require("../controllers/mercadoControllers")
-const { notificacionOrden } = require("../controllers/mercadoControllers")
+
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
 router.use("/products", postProducts);
@@ -63,15 +66,15 @@ router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 
 /*******************************  routes CART  *********************************** */
-router.use('/cart',getCart)
-router.use('/cart',deleteProductCart)
-router.use('/cart',addProductCart)
-router.use('/cart',updateProductCart)
+router.use('/cart', getCart)
+router.use('/cart', deleteProductCart)
+router.use('/cart', addProductCart)
+router.use('/cart', updateProductCart)
 
 /*******************************  routes PAYMENT  *********************************** */
-router.use('/payment',addPayment)
-router.use('/payment',getallPayment)
-router.use("/payment",deletePayment)
+router.use('/payment', addPayment)
+router.use('/payment', getallPayment)
+router.use("/payment", deletePayment)
 
 
 

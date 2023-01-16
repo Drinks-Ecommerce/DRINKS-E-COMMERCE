@@ -17,12 +17,12 @@ crearOrden = async (req, res) => {
                 unit_price: 1.5
             }
         ],
-        notification_url: "https://35db-186-183-68-203.eu.ngrok.io/notificationOrder"
+        notification_url: "https://d763-186-183-64-128.eu.ngrok.io/notificationOrder"
     };
 
     mercadopago.preferences.create(preference)
         .then((r) => {
-            res.json(r)
+            res.json(r.response.init_point)
         })
         .catch((e) => {
             console.log(e)

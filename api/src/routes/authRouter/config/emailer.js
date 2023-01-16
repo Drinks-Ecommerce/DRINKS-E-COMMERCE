@@ -13,10 +13,6 @@ const enviarMail = async (mail, token) => {
             user: MAIL,
             pass: PASSEMAILER,
         },
-        tls: {
-            rejectUnauthorized: false
-        }
-<<<<<<< HEAD
     }
 
     const mensaje = {
@@ -27,20 +23,8 @@ const enviarMail = async (mail, token) => {
     }
     const transport = nodemailer.createTransport(config);
     const info = await transport.sendMail(mensaje)
-
+    console.log(info)
     console.log("mail enviado")
+
 }
-
-module.exports = { enviarMail }
-
-=======
-        const transport = nodemailer.createTransport(config);
-        const info = await transport.sendMail(mensaje)
-        console.log(info)
-         console.log("mail enviado")
-        
-    }
-  module.exports = {enviarMail};
-
-     
->>>>>>> 534cf682a030186073f8208ff65264d7123e926b
+module.exports = { enviarMail };
