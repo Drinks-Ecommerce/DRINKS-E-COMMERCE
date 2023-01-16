@@ -3,9 +3,8 @@ import {useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { LoginUser } from '../../action';
 import { useSelector } from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
-
 
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
@@ -67,11 +66,10 @@ export default function Login(){
                 <Encabezado />
             </div>
 
-             <div className="mx-auto mt-4 mb-4 flex flex-col max-w-lg w-96 p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
+             <div className="mx-auto mt-4 mb-4 flex flex-col max-w-lg w-96 p-6 rounded-md sm:p-6 bg-gray-900 text-gray-100">
 
-	        <div className="mb-8 text-center">
-		        <h1 className="my-3 text-4xl font-bold">Iniciar Sesión</h1>
-		        <p className="text-sm dark:text-gray-400">Inicia para acceder a tu cuenta</p>
+	        <div className="mb-4 text-center">
+		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
 	        </div>
 
 	        <form onClick={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
@@ -124,11 +122,16 @@ export default function Login(){
                             }
 		        </div>
 
-		        <div className="space-y-2">
+		        <div className="space-y-4">
 			        <div>
-				        <button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-teal-400 text-gray-900" 
+				        <button type="button" className="w-full px-2 py-2 font-semibold rounded-md bg-teal-400 text-gray-900" 
                         onClick={(e) => handleSubmit2(e)}>Iniciar</button>
 			        </div>
+                    <p className="px-2 mr-1 text-sm text-center text-gray-400">¿No tienes una cuenta todavía?
+                        <Link to='/register'>
+				            <a rel="noopener noreferrer" href="#" className="hover:underline text-indigo-400"> Registrarse</a>.
+                        </Link>
+			        </p>
 		        </div>
 	        </form>
 

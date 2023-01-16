@@ -6,11 +6,12 @@ import Detail from './components/Details/Details.jsx'
 import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
+import Register from './components/Register/Register'
+
 import './App.css'
 
-function App() {
-
-
+function App(){
+  
   return (
     <div className="App">
       <Routes>
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/:id' element={<Products/>} />
         <Route exact path='/paneladmin' element={<PanelAdmin/>} />
         <Route exact path='/login' element={<Login/>} />
+        <Route exact path='/register' element={<Register/>} />
       </Routes>
     </div>
   )

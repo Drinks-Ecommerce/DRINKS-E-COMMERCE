@@ -44,7 +44,7 @@ export default function Encabezado(props){
 
   	return(
 
-    <header className= "bg-gray-900 text-gray-100">
+    <header className= "bg-gray-200 text-gray-100">
 
 		<div className="flex justify-between h-16 mx-5">
 

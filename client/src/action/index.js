@@ -24,11 +24,15 @@ export function creatProducts(payload){
 
 export function LoginUser(payload){
     return async function(dispatch){
-        let json = await axios.post("http://localhost:3000/signIn", payload);
-        return dispatch({
-            type: "LOGIN_USER",
-            payload: json
-        })
+        try{
+            let json = await axios.post("http://localhost:3000/signIn", payload);
+            return dispatch({
+                type: "LOGIN_USER",
+                payload: json
+            })
+        } catch(error){
+            console.log(error)
+            }
     }
 }
 
