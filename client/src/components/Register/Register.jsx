@@ -14,6 +14,27 @@ export default function Register(){
         password: '',
     });
 
+    const handleName = (e) => {
+        input.name([e.input.name] =[e.target.value])
+    }
+
+    const handleLastName = (e) => {
+        console.log(input.last_name)
+    }
+
+    const handleUsername = (e) => {
+        console.log(input.username)
+    }
+
+    const handleEmail = (e) => {
+        console.log(input.email)
+    }
+
+    const handlePassword = (e) => {
+        console.log(input.password)
+    }
+
+
     return (
 
         <div className="flex flex-col bg-gray-400 h-screen">
@@ -36,21 +57,21 @@ export default function Register(){
                 <div className='flex flex-col'>
 
 				    <div className="space-y-1 mb-4">
-					        <label for="text" className="block mb-1 text-sm ml-1">Nombre</label>
+					        <label for="name" className="block mb-1 text-sm ml-1">Nombre</label>
 				            <input type="text" name="text" id="text" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                             text-gray-100" />
+                             text-gray-100" onChange={(e) => handleName(e)} />
 				    </div>
 
                     <div className="space-y-1 mb-4">
 					    <label for="text" className="block mb-1 text-sm ml-1">Apellido</label>
 				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100" />
+                         text-gray-100" onChange={(e) => handleLastName(e)} />
 				    </div>
 
                     <div className="space-y-1 mb-2">
 					    <label for="text" className="block mb-1 text-sm ml-1">Nombre de usuario</label>
 				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100" />
+                         text-gray-100" onChange={(e) => handleUsername(e)} />
 				    </div>
                 </div>
 
@@ -59,13 +80,13 @@ export default function Register(){
                     <div className="space-y-1 mb-4">
 				            <label for="email" className="block mb-1 text-sm ml-1">Correo electrónico</label>
 				            <input type="email" name="email" id="email" placeholder="pasarelpf@example.com" className="w-full px-3 py-2 border rounded-md border-gray-700
-                             bg-gray-900 text-gray-100" />
+                             bg-gray-900 text-gray-100" onChange={(e) => handleEmail(e)} />
 			        </div>
 
                     <div className="space-y-1">
 					    <label for="password" className="block mb-1 text-sm ml-1">Contraseña</label>
 				        <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100" />
+                         text-gray-100" onChange={(e) => handlePassword(e)} />
 				    </div>
 		
                 </div>
