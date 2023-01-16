@@ -5,6 +5,7 @@ import ProductCreate from './components/ProductCreate/ProductCreate'
 import Detail from './components/Details/Details.jsx'
 import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
+import Login from './components/Login/Login'
 import './App.css'
 
 function App() {
@@ -13,12 +14,13 @@ function App() {
   return (
     <div className="App">
       <Routes>
-      <Route exact path="/" element={<Home/>}/>
-      <Route exact path="/cards" element={<Cards/>}/>
-      <Route exact path="/createProducts" element={<ProductCreate/>}/>
-      <Route exact path='cards/:id' element={<Detail/>}/>
-      <Route exact path='/:id' element={<Products/>} />
-      <Route exact path='/paneladmin' element={<PanelAdmin/>} />
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/cards" element={<Cards/>}/>
+        <Route exact path="/createProducts" element={<ProductCreate/>}/>
+        <Route exact path='cards/:id' element={<Detail/>}/>
+        <Route exact path='/:id' element={<Products/>} />
+        <Route exact path='/paneladmin' element={<PanelAdmin/>} />
+        <Route exact path='/login' element={<Login/>} />
       </Routes>
     </div>
   )

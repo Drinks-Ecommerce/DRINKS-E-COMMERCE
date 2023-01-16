@@ -43,11 +43,12 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         state: {
-        type: DataTypes.STRING,
+            type: DataTypes.STRING,
+            defaultValue:'Pending',
         },
     },
     {

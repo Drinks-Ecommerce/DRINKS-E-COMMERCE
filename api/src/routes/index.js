@@ -17,11 +17,19 @@ const filterbytypes = require("./filters/bytype")
 const filterbyprice = require("./filters/byprice")
 const filterbybrand = require("./filters/byBrand")
 const deleteTypes = require("./typesRoutes/delete")
+const getCart = require('./cartRoutes/get')
+const deleteProductCart = require('./cartRoutes/delete')
+const addProductCart = require('./cartRoutes/post')
+const updateProductCart = require('./cartRoutes/put')
 
 const deleteUser = require("./userRoutes/delete")
 const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
 const filterbyorigin = require("./filters/byorigin")
+
+const addPayment = require('./paymentRoutes/post')
+const getallPayment = require('./paymentRoutes/getAll')
+const deletePayment = require("./paymentRoutes/delete")
 
 
 /**************************** routes PRODUCTS ***************************/
@@ -43,9 +51,6 @@ router.use("/products", filterbyprice);
 router.use("/bybrand", filterbybrand);
 router.use("/products", filterbyorigin);
 
-
-
-
 /*********************************   router USERS & AUTH   ***************************************/
 router.use("/roles", postRole)
 router.use("/roles", getRole);
@@ -55,6 +60,18 @@ router.use("/users/update", updateUser);
 router.use("/users/id", userByID);
 router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
+
+/*******************************  routes CART  *********************************** */
+router.use('/cart',getCart)
+router.use('/cart',deleteProductCart)
+router.use('/cart',addProductCart)
+router.use('/cart',updateProductCart)
+
+/*******************************  routes PAYMENT  *********************************** */
+router.use('/payment',addPayment)
+router.use('/payment',getallPayment)
+router.use("/payment",deletePayment)
+
 
 
 

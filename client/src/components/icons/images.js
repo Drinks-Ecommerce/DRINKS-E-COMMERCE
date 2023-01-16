@@ -13,6 +13,8 @@ import FB from './FB.png';
 import MAIL from './MAIL.png'
 import FAV from './favorito.png'
 
+import login from './login.png'
+
 export default {
     "img1": WD,
     "img2": atlantica,
@@ -25,4 +27,5 @@ export default {
     "img9": Carrito,
     "img10": FAV,
     "img11": wine,
+    "img20": login,
 }

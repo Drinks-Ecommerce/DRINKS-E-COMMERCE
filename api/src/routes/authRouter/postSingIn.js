@@ -14,6 +14,8 @@ router.post("/", async (req, res) => {
     const userFound = await User.findOne({
         where: { email }
     })
+
+    
     if (!userFound) return res.status(404).json({ msg: "User not found" })
 
     const matchPassword = await bcrypt.compare(password, userFound.password)
@@ -21,8 +23,9 @@ router.post("/", async (req, res) => {
     if (!matchPassword) return res.status(401).json({ msg: "Invalid password" })
 
     console.log(userFound)
+    console.log(userFound.roles)
 
-    res.json({ userFound })
+    res.json({ userFound})
 
 
 })
