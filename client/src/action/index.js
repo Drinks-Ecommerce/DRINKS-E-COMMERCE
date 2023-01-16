@@ -176,7 +176,7 @@ export function postRol(payload) {
     };
 };
 
-// export function postRol(payload) {
+//export function postRol(payload) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/roles", payload);
 //         return dispatch({
@@ -184,7 +184,7 @@ export function postRol(payload) {
 //             payload: json
 //         });
 //     };
-// };
+//  };
 
 
 

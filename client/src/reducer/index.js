@@ -4,10 +4,12 @@ const initialState = {
     filters: [],
     typesproducto:[],
     details: [],
-    // product: [], estado creado para que se lo use en el componente del admin para que pueda borrar y modificar el producto.
-    // userRol: [], estado creado para el get y post del rol del usuario.
-    // user: [], estado creado para el usuario.
-    // type: [] estado creado para el delete de type.
+    allBrands: [],
+    allOrigins: [],
+
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
+    user: {},
+
 }
 
 function rootReducer(state = initialState, action){
@@ -82,6 +84,9 @@ function rootReducer(state = initialState, action){
                 ...state,
                 filters: state.filters.concat(origenes)
             }
+
+
+
 
 
 
