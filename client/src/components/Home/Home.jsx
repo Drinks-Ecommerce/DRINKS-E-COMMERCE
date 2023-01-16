@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './Home.css' 
+
 import Caroucel from "../Caroucel/Caroucel.jsx";
 import images from "../icons/images";
 export default function Home(){

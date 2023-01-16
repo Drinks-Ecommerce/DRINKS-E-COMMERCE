@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import images from "../icons/images"
 import '../SearchBar/SearchBar.jsx'
-import '../Register/Register.jsx'
+
 
 export default function Encabezado(props){
 
@@ -58,8 +58,6 @@ export default function Encabezado(props){
 		</div>
 
         <div className="flex items-center md:space-x-2 mx-0">
-			<Link to ={'/register'}>
-					</Link>
          <img src={images.img9} className="hidden md:block w-10 h-10 cursor-pointer mr-1" alt="img" onClick={() => setOpen(!Open)} />
 
 		    <button title="Open menu" type="button" className="mr-4 md:hidden">

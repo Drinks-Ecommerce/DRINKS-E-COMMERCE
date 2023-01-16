@@ -7,7 +7,6 @@ import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
 import './App.css'
-import Register from './components/Register/Register'
 
 function App() {
 
