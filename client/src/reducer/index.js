@@ -224,14 +224,12 @@ function rootReducer(state = initialState, action){
 
         case 'LOGIN_USER':
 
-            window.localStorage.setItem("cookie", JSON.stringify(action.payload))
-
-            console.log("state LOGIN_USER");
-
-            return {
-                ...state,
-                user: action.payload
-        }
+                window.localStorage.setItem("cookie", JSON.stringify(action.payload))
+                console.log("state LOGIN_USER");
+                return {
+                    ...state,
+                    user: action.payload
+            }
 
         case 'FILL_USER':
 
