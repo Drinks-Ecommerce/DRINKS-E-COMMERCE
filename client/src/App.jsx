@@ -7,10 +7,16 @@ import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import User from './components/User/User'
 import './App.css'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
+
+import './App.css'
 
 function App() {
 
 
+/* function App(){ */
+  
   return (
     <div className="App">
       <Routes>
@@ -21,6 +27,14 @@ function App() {
       <Route exact path='/:id' element={<Products/>} />
       <Route exact path='/paneladmin' element={<PanelAdmin/>} />
       <Route exact path='/user' element={<User/>} />
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/cards" element={<Cards/>}/>
+        <Route exact path="/createProducts" element={<ProductCreate/>}/>
+        <Route exact path='cards/:id' element={<Detail/>}/>
+        <Route exact path='/:id' element={<Products/>} />
+        <Route exact path='/paneladmin' element={<PanelAdmin/>} />
+        <Route exact path='/login' element={<Login/>} />
+        <Route exact path='/register' element={<Register/>} />
       </Routes>
     </div>
   )

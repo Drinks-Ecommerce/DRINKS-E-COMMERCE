@@ -10,5 +10,11 @@ module.exports = function(sequelize){
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        img:{
+            type:DataTypes.TEXT
+        },
+        name:{
+            type:DataTypes.STRING
+        }
     })
 }

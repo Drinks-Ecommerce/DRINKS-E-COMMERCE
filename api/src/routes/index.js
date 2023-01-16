@@ -27,6 +27,10 @@ const updateUser = require("./userRoutes/update")
 const userByID = require("./userRoutes/getbyId")
 const filterbyorigin = require("./filters/byorigin")
 
+const addPayment = require('./paymentRoutes/post')
+const getallPayment = require('./paymentRoutes/getAll')
+const deletePayment = require("./paymentRoutes/delete")
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -47,9 +51,6 @@ router.use("/products", filterbyprice);
 router.use("/bybrand", filterbybrand);
 router.use("/products", filterbyorigin);
 
-
-
-
 /*********************************   router USERS & AUTH   ***************************************/
 router.use("/roles", postRole)
 router.use("/roles", getRole);
@@ -65,6 +66,12 @@ router.use('/cart',getCart)
 router.use('/cart',deleteProductCart)
 router.use('/cart',addProductCart)
 router.use('/cart',updateProductCart)
+
+/*******************************  routes PAYMENT  *********************************** */
+router.use('/payment',addPayment)
+router.use('/payment',getallPayment)
+router.use("/payment",deletePayment)
+
 
 
 
