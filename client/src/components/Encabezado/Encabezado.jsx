@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import images from "../icons/images"
 import '../SearchBar/SearchBar.jsx'
 
+
 export default function Encabezado(props){
 
 	const [open, setOpen] = useState(false); // Lógica para el carrito.
@@ -57,7 +58,6 @@ export default function Encabezado(props){
 		</div>
 
         <div className="flex items-center md:space-x-2 mx-0">
-
          <img src={images.img9} className="hidden md:block w-10 h-10 cursor-pointer mr-1" alt="img" onClick={() => setOpen(!Open)} />
 
 		    <button title="Open menu" type="button" className="mr-4 md:hidden">
@@ -181,7 +181,6 @@ export default function Encabezado(props){
 
 
 	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
-           
 	<ul class="flex">
 
   		<li class="mr-6">

@@ -24,7 +24,7 @@ export default function SearchBar(){
     <form onSubmit={(event) => handleClick(event)}>
 
         <div class='max-w-md mx-auto'>
-            
+
             <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
                 <div class="grid place-items-center h-full w-12 text-gray-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,4 +41,3 @@ export default function SearchBar(){
     );
 
 }
-
