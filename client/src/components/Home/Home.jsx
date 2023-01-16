@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, FillUser } from "../../action/index";
+import { getProducts, FillUser, getTypes } from "../../action/index";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import Caroucel from "../Caroucel/Caroucel.jsx";
 import images from "../icons/images";
 export default function Home(){
@@ -20,8 +22,8 @@ export default function Home(){
         }
     },[])
 
-    
     useEffect(() =>{
+        dispatch(getTypes());
         dispatch(getProducts());
     },[]);
 
@@ -54,7 +56,7 @@ export default function Home(){
 
     return(
 
-        <div className="flex flex-col contenedor_general h-screen w-screem bg-gray-500">
+        <div className="flex flex-col contenedor_general h-screen w-screem bg-gray-300">
 
 
             {/* CONDICIÓN PARA MOSTRAR EL MENSAJE DE CONSENTIMIENTO */}

@@ -24,11 +24,15 @@ export function creatProducts(payload){
 
 export function LoginUser(payload){
     return async function(dispatch){
-        let json = await axios.post("http://localhost:3000/signIn", payload);
-        return dispatch({
-            type: "LOGIN_USER",
-            payload: json
-        })
+        try{
+            let json = await axios.post("http://localhost:3000/signIn", payload);
+            return dispatch({
+                type: "LOGIN_USER",
+                payload: json
+            })
+        } catch(error){
+            console.log(error)
+            }
     }
 }
 
@@ -66,6 +70,7 @@ export function getDetail(id) {
 export function getByName(name){
     return async function(dispatch){
         try {
+            
             let json = await axios.get("http://localhost:3000/products?name=" + name);
             return dispatch({
                 type: 'GET_BY_NAME',
@@ -73,6 +78,7 @@ export function getByName(name){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
 }
@@ -87,6 +93,7 @@ export function getByName(name){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
 }*/

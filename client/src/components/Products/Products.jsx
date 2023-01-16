@@ -40,7 +40,7 @@ export default function Products(){
 
     return (
 
-        <div className='products'>
+        <div className='products bg-gray-200'>
 
 
         <div className="conte_encabezado">
@@ -121,7 +121,7 @@ export default function Products(){
                         return (
                         <div className=''>
                             <Link to={'/cards/' + e.id}>
-                                <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
+                                <Cards name={e.name} amount={e.amount} brand={e.brand} calification={e.calification} price={e.price} description={e.description} type={e.type} img={e.img} />
                             </Link>
                         </div>
                         )})
