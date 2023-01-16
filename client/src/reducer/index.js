@@ -4,8 +4,8 @@ const initialState = {
     typesproducto:[],
     details: [],
     // product: [], estado creado para que se lo use en el componente del admin para que pueda borrar y modificar el producto.
-    // userRol: [], estado creado para el get y post del rol del usuario.
-    // user: [], estado creado para el usuario.
+     userRol: [], /* estado creado para el get y post del rol del usuario. */
+     user: [],/*  estado creado para el usuario. */
     // type: [] estado creado para el delete de type.
 }
 
@@ -78,25 +78,25 @@ function rootReducer(state = initialState, action){
 
 //---------------------------- CASE USER ROL -----------------------------------------
 
-         // case 'GET_ROL':
-        //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+         case 'GET_ROL':
+            return {
+                ...state,
+                userRol: action.payload
+            }
 
-        // case 'CREATE_ROLE':
-        //     return {
-        //         ...state
-        //     }
+        case 'CREATE_ROLE':
+            return {
+                ...state
+            }
 
 
 //------------------------------ CASE USER ------------------------------------------
 
-        // case 'GET_USER':
-        //     return {
-        //         ...state,
-        //         user:  action.payload
-        //     }
+        case 'GET_USER':
+            return {
+                ...state,
+                user:  action.payload
+            }
 
         // case 'GET_USER_EMAIL':
         //     return {
@@ -104,11 +104,11 @@ function rootReducer(state = initialState, action){
         //         user: action.payload
         //     }
 
-        // case 'GET_USER_NAME':
-        //     return {
-        //         ...state,
-        //         user: action.payload 
-        //     }
+        case 'GET_USER_NAME':
+            return {
+                ...state,
+                user: action.payload 
+            }
 
         // case 'GET_USER_ID':
         // return {
@@ -116,10 +116,10 @@ function rootReducer(state = initialState, action){
         //     user: action.payload
         // }
 
-        // case 'DELETE_USER':
-        //     return {
-        //         ...state
-        //     }
+        case 'DELETE_USER':
+            return {
+                ...state
+            }
 
         // case 'UPDATE_USER':
         //     return {
@@ -131,10 +131,10 @@ function rootReducer(state = initialState, action){
         //         ...state
         //     }
 
-        // case 'SIGN_UP':
-        //     return {
-        //         ...state
-        //     }
+        case 'SIGN_UP':
+            return {
+                ...state
+            }
 
 
 //------------------------------ CASE FILTERS ------------------------------------
