@@ -74,15 +74,15 @@ function rootReducer(state = initialState, action){
 
             const origenes = [];
 
-            for(let i=0; i<state.copyallproducts.length; i++){
-                if(state.copyallproducts[i].origin === action.payload){
-                    origenes.push(state.copyallproducts[i])
+            for(let i=0; i<state.filters.length; i++){
+                if(state.filters[i].origin === action.payload){
+                    origenes.push(state.filters[i])
                 }
             }
 
             return {
                 ...state,
-                filters: state.filters.concat(origenes)
+                filters: origenes,
             }
 
 
