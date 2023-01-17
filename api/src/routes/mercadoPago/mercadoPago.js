@@ -7,7 +7,8 @@ crearOrden = async (req, res) => {
     mercadopago.configure({
         access_token: 'TEST-4012101398950150-011321-7d4eec3fae82c46fb761d5ddd109731a-1286736524'
     });
-
+    const prod = req.body;
+    
     var preference = {
         items: [
             {
@@ -17,7 +18,7 @@ crearOrden = async (req, res) => {
                 unit_price: 1.5
             }
         ],
-        notification_url: "https://d763-186-183-64-128.eu.ngrok.io/notificationOrder"
+        notification_url: "https://433d-186-183-64-128.sa.ngrok.io/notificationOrder"
     };
 
     mercadopago.preferences.create(preference)
