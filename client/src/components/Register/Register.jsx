@@ -23,6 +23,27 @@ export default function Register(){
         console.log(evento)
     }
 
+    const handleName = (e) => {
+        input.name([e.input.name] =[e.target.value])
+    }
+
+    const handleLastName = (e) => {
+        console.log(input.last_name)
+    }
+
+    const handleUsername = (e) => {
+        console.log(input.username)
+    }
+
+    const handleEmail = (e) => {
+        console.log(input.email)
+    }
+
+    const handlePassword = (e) => {
+        console.log(input.password)
+    }
+
+
     return (
 
         <div className="flex flex-col bg-gray-400 h-screen">
@@ -45,17 +66,9 @@ export default function Register(){
                 <div className='flex flex-col'>
 
 				    <div className="space-y-1 mb-4">
-					        <label for="text" className="block mb-1 text-sm ml-1">Nombre</label>
+					        <label for="name" className="block mb-1 text-sm ml-1">Nombre</label>
 				            <input type="text" name="text" id="text" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                             text-gray-100" 
-                             {
-                                ...register("name", {
-                                    required: {
-                                        value: true,
-                                        message: "Nombre obligatorio"
-                                    },
-                                })
-                            }/>
+                             text-gray-100" />
 				    </div>
                     {
                                 errors.name && <span>{errors.name.message}</span>
@@ -64,16 +77,7 @@ export default function Register(){
                     <div className="space-y-1 mb-4">
 					    <label for="text" className="block mb-1 text-sm ml-1">Apellido</label>
 				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100" 
-                         {
-                            ...register("lastname", {
-                                required: {
-                                    value: true,
-                                    message: "Apellido obligatorio"
-                                },
-                            })
-                        }
-                         />
+                         text-gray-100" />
 				    </div>
                     {
                                 errors.lastname && <span>{errors.lastname.message}</span>
@@ -82,22 +86,7 @@ export default function Register(){
                     <div className="space-y-1 mb-2">
 					    <label for="text" className="block mb-1 text-sm ml-1">Nombre de usuario</label>
 				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100" 
-                         {
-                            ...register("username", {
-                                required: {
-                                    value: true,
-                                    message: "Nombre de usuario obligatorio"
-                                },
-                                minLength: {
-                                    value: 3,
-                                    message: "La contraseña tiene que tener al menos 3 caracteres"
-                                },
-                                maxLength: {
-                                    value: 50,
-                                }
-                            })
-                        }/>
+                         text-gray-100" />
 				    </div>
                     {
                                 errors.username && <span>{errors.username.message}</span>
@@ -109,19 +98,7 @@ export default function Register(){
                     <div className="space-y-1 mb-4">
 				            <label for="email" className="block mb-1 text-sm ml-1">Correo electrónico</label>
 				            <input type="email" name="email" id="email" placeholder="pasarelpf@example.com" className="w-full px-3 py-2 border rounded-md border-gray-700
-                             bg-gray-900 text-gray-100"
-                             {
-                                ...register("email", {
-                                    required: {
-                                        value: true,
-                                        message: "Email obligatorio"
-                                    },
-                                    pattern: {
-                                            value: /^[A-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[A-Z]{2,4}$/i,
-                                            message: "El formato no es correcto"
-                                    }
-                                })
-                            }/>
+                             bg-gray-900 text-gray-100" />
 			        </div>
                     {
                                 errors.email && <span>{errors.email.message}</span>
@@ -130,20 +107,7 @@ export default function Register(){
                     <div className="space-y-1">
 					    <label for="password" className="block mb-1 text-sm ml-1">Contraseña</label>
 				        <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
-                         text-gray-100"
-                         {
-                            ...register("password", {
-                                required: {
-                                    value: true,
-                                    message: "Contraseña obligatoria"
-                                },
-                                minLength: {
-                                    value: 5,
-                                    message: "La contraseña tiene que tener al menos 5 caracteres"
-                                }
-                            })
-                        }
-                         />
+                         text-gray-100" />
 				    </div>
                     {
                                 errors.password && <span>{errors.password.message}</span>

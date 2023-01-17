@@ -16,7 +16,7 @@ export default function Footer() {
 			</div>
 
 		    <div className="pt-6 flex flex-col space-y-4">
-			    <h2 className="text-gray-900">INSTITUCIONAL</h2>
+			    <h2 className="text-gray-900 font-bold">INSTITUCIONAL</h2>
 			    <div className="flex flex-col space-y-2 text-md text-gray-600">
 				  <a rel="noopener noreferrer" href="#">¿Quiénes somos?</a>
 				  <a rel="noopener noreferrer" href="#">Desarrolladores</a>
@@ -25,7 +25,7 @@ export default function Footer() {
 		  </div>
 
 			<div className="pt-6 flex flex-col space-y-4">
-			<h2 className="text-gray-900">PRODUCTOS</h2>
+			<h2 className="text-gray-900 font-bold">PRODUCTOS</h2>
 			<div className="flex flex-col space-y-2 text-md text-gray-600">
 				<a rel="noopener noreferrer" href="#">Vinos</a>
 				<a rel="noopener noreferrer" href="#">Cervezas</a>
@@ -36,7 +36,7 @@ export default function Footer() {
 		</div>
 
 		<div className="pt-6 flex flex-col space-y-4">
-			<h2 className="text-gray-900">CONTACTO</h2>
+			<h2 className="text-gray-900 font-bold">CONTACTO</h2>
 			<div className="flex flex-col space-y-2 text-md text-gray-600">
 				<div className="flex flex-row w-7 h-7 gap-2">
 					<img src={images.img5} alt="WhatsApp" />
