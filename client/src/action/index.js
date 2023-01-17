@@ -36,6 +36,12 @@ export function LoginUser(payload){
     }
 }
 
+export function RegisterUser(payload){
+    return async function(dispacth){
+        await axios.post("http://localhost:3000/signUp", payload);
+    }
+}
+
 
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
