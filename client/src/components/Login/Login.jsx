@@ -72,7 +72,7 @@ export default function Login(){
 		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
 	        </div>
 
-	        <form onClick={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+	        <form onBlur={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
 
 		        <div className="space-y-4">
 
