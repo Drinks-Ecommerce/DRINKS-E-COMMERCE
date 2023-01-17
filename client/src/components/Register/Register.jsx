@@ -58,7 +58,7 @@ export default function Register(){
 		            <h1 className="my-3 text-4xl font-bold underline">Registrarse</h1>
 	            </div>
 
-	            <form  onClick={handleSubmit(onSubmit)}  action="" className="space-y-5 ng-untouched ng-pristine ng-valid">
+	            <form  onFocus={handleSubmit(onSubmit)}  action="" className="space-y-5 ng-untouched ng-pristine ng-valid">
 
                     <div className='flex flex-row justify-between mx-8'>
 
@@ -76,16 +76,16 @@ export default function Register(){
 
                     <div className="space-y-1 mb-4">
 					    <label for="text" className="block mb-1 text-sm ml-1">Apellido</label>
-				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+				        <input type="text" name="text" id="last_name" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
                          text-gray-100" />
 				    </div>
                     {
-                                errors.lastname && <span>{errors.lastname.message}</span>
+                                errors.lastname && <span>{errors.last_name.message}</span>
                     }
 
                     <div className="space-y-1 mb-2">
 					    <label for="text" className="block mb-1 text-sm ml-1">Nombre de usuario</label>
-				        <input type="text" name="text" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+				        <input type="text" name="text" id="username" placeholder="" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
                          text-gray-100" />
 				    </div>
                     {

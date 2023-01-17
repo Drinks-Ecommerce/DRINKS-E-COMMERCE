@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
+
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
 
@@ -72,7 +73,7 @@ export default function Login(){
 		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
 	        </div>
 
-	        <form onBlur={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+	        <form onFocus={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
 
 		        <div className="space-y-4">
 
@@ -81,19 +82,19 @@ export default function Login(){
 				        <input type="email" name="email" id="email" placeholder="quieropasarelpf@example.com" 
                         {
                             ...register("email", {
-                                required: {
-                                    value: true,
-                                    message: "Email obligatorio"
-                                },
                                 pattern: {
                                         value: /^[A-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[A-Z]{2,4}$/i,
                                         message: "El formato no es correcto"
+                                },
+                                required: {
+                                        value: true,
+                                        message: "Ingrese primero su Email"
                                 }
                             })
                         }
-                        className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" onChange={(e) => handleChange(e)}/>
+                        className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" onSelect={(e) => handleChange(e)} required/>
 			        </div>
-                            { errors.email && <p>{errors.email.message}</p> }
+                            { errors.email && <h3><br/>{errors.email.message}</h3> }
                     
 			        <div>
 				        <div className="flex justify-between mb-2">
@@ -105,17 +106,17 @@ export default function Login(){
                             bg-gray-900 text-gray-100" 
                             {
                                 ...register("password", {
-                                    required: {
-                                        value: true,
-                                        message: "Contraseña obligatoria"
-                                    },
                                     minLength: {
                                         value: 5,
                                         message: "La contraseña tiene que tener al menos 5 caracteres"
+                                    },
+                                    required: {
+                                            value: true
                                     }
                                 })
                             }
-                            onChange={(e) => handleChange2(e)}/>
+                            onSelect={(e) => handleChange2(e)}
+                            />
 			        </div>
                             {
                                 errors.password && <span>{errors.password.message}</span>
