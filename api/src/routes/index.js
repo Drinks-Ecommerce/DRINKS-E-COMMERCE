@@ -10,7 +10,7 @@ const getRole = require("./rolesRoutes/get")
 const getUsers = require("./userRoutes/get")
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
-const postTypes = require("./typesRoutes/post") 
+const postTypes = require("./typesRoutes/post")
 const deleteproduct = require("./productRoutes/delete")
 const updateproduct = require("./productRoutes/update")
 const filterbytypes = require("./filters/bytype")
@@ -31,12 +31,16 @@ const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
 
+/* const getWishList = require("./wishlistRoutes/get") */
+const postWishList = require("./wishlistRoutes/post")
+/* const updateWishList = require("./wishlistRoutes/update")
+const deleteWishList = require("./wishlistRoutes/delete") */
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
 router.use("/products", postProducts);
 router.use("/products", deleteproduct);
-router.use("/products", updateproduct); 
+router.use("/products", updateproduct);
 
 
 /* *************************  routes TYPES   **************************************** */
@@ -62,19 +66,18 @@ router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 
 /*******************************  routes CART  *********************************** */
-router.use('/cart',getCart)
-router.use('/cart',deleteProductCart)
-router.use('/cart',addProductCart)
-router.use('/cart',updateProductCart)
+router.use('/cart', getCart)
+router.use('/cart', deleteProductCart)
+router.use('/cart', addProductCart)
+router.use('/cart', updateProductCart)
 
 /*******************************  routes PAYMENT  *********************************** */
-router.use('/payment',addPayment)
-router.use('/payment',getallPayment)
-router.use("/payment",deletePayment)
+router.use('/payment', addPayment)
+router.use('/payment', getallPayment)
+router.use("/payment", deletePayment)
 
-
-
-
+/* *************************  routes WISHLIST   **************************************** */
+router.use("/wishlist", postWishList)
 
 
 module.exports = router;
