@@ -88,14 +88,13 @@ export default function Login(){
                                 },
                                 required: {
                                         value: true,
-                                        message: "Ingrese primero su Email"
+                                        message: "Complete primero su Email"
                                 }
                             })
                         }
                         className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" onSelect={(e) => handleChange(e)} required/>
 			        </div>
-                            { errors.email && <h3><br/>{errors.email.message}</h3> }
-                    
+                            { errors.email && <span><br/>{errors.email.message} </span>}
 			        <div>
 				        <div className="flex justify-between mb-2">
 					        <label for="password" className="text-sm">Contraseña</label>
