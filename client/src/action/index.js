@@ -248,16 +248,6 @@ export function getTypes(){
 //     };
 // };
 
-// export function postSignIn(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/signIn", payload);
-//         return dispatch({
-//             type: 'SIGN_IN',
-//             payload: json
-//         });
-//     };
-// };
-
 // export function postSignUp(payload) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/signUp", payload);
@@ -267,6 +257,20 @@ export function getTypes(){
 //         });
 //     };
 // };
+
+
+
+//------------------------------- ACTIONS PAYMENT ---------------------------------
+
+export function payment(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/payment/addPayment", payload);
+        return dispatch({
+            type: 'PAYMENT_POST',
+            payload: json
+        });
+    };
+};
 
 
 
