@@ -184,7 +184,7 @@ export function getRoles(){
             payload: json.data
         });
     };
-};/////////////////
+};
 
 //---------------------------------- ACTIONS USER ---------------------------------
 
@@ -196,7 +196,7 @@ export function getUsers() {
             payload: json.data
         });
     };
-};////////////////////////////////
+};
 
 // export function getUsersByEmail(email) {
 //     return async function(dispatch) {
@@ -248,21 +248,25 @@ export function updateUser(id, payload) {
     };
 };
 
-// export function postSignIn(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/signIn", payload);
-//         return dispatch({
-//             type: 'SIGN_IN',
-//             payload: json
-//         });
-//     };
-// };
-
 export function postSignUp(payload) {
     return async function(dispatch) {
         const json = await axios.post("http://localhost:3000/signUp", payload);
         return dispatch({
             type: 'SIGN_UP',
+            payload: json
+        });
+    };
+};
+
+
+
+//------------------------------- ACTIONS PAYMENT ---------------------------------
+
+export function payment(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/payment/addPayment", payload);
+        return dispatch({
+            type: 'PAYMENT_POST',
             payload: json
         });
     };
