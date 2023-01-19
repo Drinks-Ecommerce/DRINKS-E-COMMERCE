@@ -258,15 +258,15 @@ export function getTypes(){
 //     };
 // };
 
-// export function postSignUp(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/signUp", payload);
-//         return dispatch({
-//             type: 'SIGN_UP',
-//             payload: json
-//         });
-//     };
-// };
+export function postSignUp(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/signUp", payload);
+        return dispatch({
+            type: 'SIGN_UP',
+            payload: json
+        });
+    };
+};
 
 
 
