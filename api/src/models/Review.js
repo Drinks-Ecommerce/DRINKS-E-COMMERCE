@@ -11,10 +11,11 @@ module.exports = (sequelize) => {
         },
         calification: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: {args: [1, 5],}
+            }
         },
-        comment: {
-            type: DataTypes.TEXT,
-        }
+       
     })
 };
