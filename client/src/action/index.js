@@ -176,17 +176,15 @@ export function postRol(payload) {
     };
 };
 
-//export function postRol(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/roles", payload);
-//         return dispatch({
-//             type: 'CREATE_ROLE',
-//             payload: json
-//         });
-//     };
-//  };
-
-
+export function getRoles(){
+    return async function(dispatch){
+        let json = await axios.get("http://localhost:3000/roles");
+        return dispatch({
+            type: 'GET_ROL',
+            payload: json.data
+        });
+    };
+};/////////////////
 
 //---------------------------------- ACTIONS USER ---------------------------------
 
@@ -194,11 +192,11 @@ export function getUsers() {
     return async function(dispatch) {
         const json = await axios("http://localhost:3000/users");
         return dispatch({
-            type: 'GET_USER',
+            type: 'GET_USERR',
             payload: json.data
         });
     };
-};
+};////////////////////////////////
 
 // export function getUsersByEmail(email) {
 //     return async function(dispatch) {
@@ -210,25 +208,25 @@ export function getUsers() {
 //     };
 // };
 
-// export function getUsersByUserName(username) {
-//     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/users/username/${username}`);
-//         return dispatch({
-//             type: 'GET_USER_NAME',
-//             payload: json.data
-//         });
-//     };
-// };
+export function getUsersByUserName(username) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/users/username/${username}`);
+        return dispatch({
+            type: 'GET_USER_NAME',
+            payload: json.data
+        });
+    };
+};
 
-// export function getUsersById(id) {
-//     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/users/id/${id}`);
-//         return dispatch({
-//             type: 'GET_USER_ID',
-//             payload: json.data
-//         });
-//     };
-// };
+export function getUsersById(id) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/users/id/${id}`);
+        return dispatch({
+            type: 'GET_USER_ID',
+            payload: json.data
+        });
+    };
+};
 
 export function deleteUser(id) {
     return async function(dispatch) {
@@ -240,15 +238,15 @@ export function deleteUser(id) {
     };
 };
 
-// export function updateUser(id, payload) {
-//     return async function(dispatch) {
-//         const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
-//         return dispatch({
-//             type: 'UPDATE_USER',
-//             payload: json.data
-//         });
-//     };
-// };
+export function updateUser(id, payload) {
+    return async function(dispatch) {
+        const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
+        return dispatch({
+            type: 'UPDATE_USER',
+            payload: json.data
+        });
+    };
+};
 
 // export function postSignIn(payload) {
 //     return async function(dispatch) {
