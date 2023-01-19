@@ -31,6 +31,8 @@ const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
 
+const wishlist = require('./wishlistRoutes/post.js');
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -72,7 +74,7 @@ router.use('/payment',addPayment)
 router.use('/payment',getallPayment)
 router.use("/payment",deletePayment)
 
-
+router.use('/wishlist',wishlist)
 
 
 
