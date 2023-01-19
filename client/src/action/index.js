@@ -22,6 +22,21 @@ export function creatProducts(payload){
     };
 };
 
+export function LoginUser(payload){
+    return async function(dispatch){
+        try{
+            let json = await axios.post("http://localhost:3000/signIn", payload);
+            return dispatch({
+                type: "LOGIN_USER",
+                payload: json
+            })
+        } catch(error){
+            console.log(error)
+            }
+    }
+}
+
+
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
 //         const json = await axios.delete(`http://localhost:3000/products/${id}`);
@@ -55,6 +70,7 @@ export function getDetail(id) {
 export function getByName(name){
     return async function(dispatch){
         try {
+            
             let json = await axios.get("http://localhost:3000/products?name=" + name);
             return dispatch({
                 type: 'GET_BY_NAME',
@@ -62,11 +78,12 @@ export function getByName(name){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
 }
 
-export function getByBrand(brand){
+/*export function getByBrand(payload){
     return async function(dispatch){
         try {
             let json = await axios.get("http://localhost:3000/bybrand/?brand=" + brand);
@@ -76,11 +93,28 @@ export function getByBrand(brand){
             })
         } catch (error) {
             console.log(error)
+            
         }
     }
+}*/
+
+export function getByBrand(payload){
+    return async function(dispatch){
+        return dispatch({
+            type: 'GET_BY_BRAND',
+            payload: payload
+        });
+    };
+};
+
+export function getByOrigin(payload){
+    return async function(dispacth){
+        return dispacth({
+            type: 'GET_BY_ORIGIN',
+            payload: payload
+        })
+    }
 }
-
-
 
 //--------------------------------- ACTIONS TYPES ---------------------------------
 
@@ -94,7 +128,19 @@ export function getTypes(){
     };
 };
 
-// export function postTypes(payload) {
+
+
+// export function deleteProduct(id) {
+//     return async function(dispacth) {
+//         const json = await axios.delete(`http://localhost:3000/products/${id}`);
+//         return dispatch({
+//             type: 'DELETE_PRODUCT',
+//             payload: json.data
+//         });
+//     };
+// };
+
+// export function updateProduct(id) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/types", payload);
 //         return dispatch({
@@ -128,7 +174,7 @@ export function getTypes(){
 //     };
 // };
 
-// export function postRol(payload) {
+//export function postRol(payload) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/roles", payload);
 //         return dispatch({
@@ -136,7 +182,7 @@ export function getTypes(){
 //             payload: json
 //         });
 //     };
-// };
+//  };
 
 
 
@@ -238,7 +284,7 @@ export function filterByPriceOrder(payload) {
 
 export function filterByTypes(payload) {
     return async function(dispatch) {
-        const json = await axios(`http://localhost:3000/products/bytypes/${payload}`);
+        const json =  await axios(`http://localhost:3000/products/bytypes/${payload}`);
         return dispatch({
             type: 'FILTER_TYPE',
             payload: json.data
@@ -246,13 +292,36 @@ export function filterByTypes(payload) {
     };
 };
 
-export function filterbyorigin(payload) {
-        return async function(dispacth) {
-            const json = await axios(`http://localhost:3000/products/byorigin/${payload}`);
+export function getAllOrigins() {
+        return async function(dispatch) {
             return dispatch({
-                type: 'GET_ORIGIN',
-                payload: json.data
+                type: 'GET_ALL_ORIGIN',
             });
         };
     };
+
+    export function getAllBrands(){
+        return async function(dispatch){
+            return dispatch({
+                type: 'GET_ALL_BRAND',
+            });
+        };
+    };
+
+    export function FillUser(){
+        return async function(dispatch){
+            return dispatch({
+                type: 'FILL_USER',
+            })
+        }
+    }
+
+    export function DeleteUser(){
+        return async function(dispacth){
+            return dispacth({
+                type: 'DELETE_USER',
+            })
+        }
+    }
+    
 

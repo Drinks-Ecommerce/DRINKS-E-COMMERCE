@@ -4,8 +4,6 @@ const { User, Role } = require("../../db");
 const { Op } = require("sequelize");
 const router = Router();
 
-
-
 router.put("/:id", async(req,res)=>{
     try{
             const { id } = req.params;

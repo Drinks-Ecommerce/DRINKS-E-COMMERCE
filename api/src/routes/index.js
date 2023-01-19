@@ -51,9 +51,6 @@ router.use("/products", filterbyprice);
 router.use("/bybrand", filterbybrand);
 router.use("/products", filterbyorigin);
 
-
-
-
 /*********************************   router USERS & AUTH   ***************************************/
 router.use("/roles", postRole)
 router.use("/roles", getRole);

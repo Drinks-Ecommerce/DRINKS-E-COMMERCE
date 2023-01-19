@@ -39,7 +39,7 @@ const jsonProducts = [
         "alcohol": "14 ",
     },
     {
-        "name": "Trumpeter Cabernet Sauvignon",
+        "name": "Trumpeter Cabernet",
         "stock": "70",
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Trumpeter_Cabernet_Sauvignon_ns62ut.jpg",
         "price": "3407",
@@ -156,7 +156,7 @@ const jsonProducts = [
         "alcohol": "1.3",
     },
     {
-        "name": "Cruzat Premier Rosé Extra Brut",
+        "name": "Cruzat Premier Rosé Extra",
         "stock": "60",
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Cruzat_Cl%C3%A1sico_Ros%C3%A9_Extra_Brut_djgn6g.jpg",
         "price": "3600",
@@ -169,7 +169,7 @@ const jsonProducts = [
         "alcohol": "11.8 ",
     },
     {
-        "name": "Cruzat Cuvée Reserve Extra Brut",
+        "name": "Cruzat Cuvée Reserve",
         "stock": "60",
         "img": "https://cepadevinos.com/wp-content/uploads/2017/07/Cruzat_Cuv%C3%A9e_Reserve_Extra_Brut_krrmgn.jpg",
         "price": "3710",
@@ -337,7 +337,7 @@ const jsonProducts = [
         "alcohol": "40",
     },
     {
-        "name": "Appleton Estate Extra 12 Años ",
+        "name": "Appleton Estate Extra",
         "stock": "60",
         "img": "https://www.espaciovino.com.ar/media/default/0001/68/thumb_67693_default_big.jpeg",
         "price": "12534 ",
@@ -389,7 +389,7 @@ const jsonProducts = [
         "alcohol": "37.5",
     },
     {
-        "name": "Havana Club Añejo Especial",
+        "name": "Havana Club Añejo",
         "stock": "60",
         "img": "https://www.espaciovino.com.ar/media/default/0001/55/thumb_54777_default_big.jpeg",
         "price": "3920",
@@ -532,7 +532,7 @@ const jsonProducts = [
         "alcohol": "4.5",
     },
     {
-        "name": "Patagonia Bohemian Pilsener",
+        "name": "Patagonia Bohemian",
         "stock": "150",
         "img": "https://cepadevinos.com/wp-content/uploads/2021/01/1bohemian_pilsener-1000x1647_1024x102421-84eeae85b298cc386b15878702052033-1024-1024.png",
         "price": "455",
@@ -545,7 +545,7 @@ const jsonProducts = [
         "alcohol": "4.5",
     },
     {
-        "name": "Andes Origen Negra Schwarzbier",
+        "name": "Andes Origen Negra",
         "stock": "150",
         "img": "https://http2.mlstatic.com/D_NQ_NP_2X_673031-MLA44839749297_022021-F.webp",
         "price": "400",
@@ -635,7 +635,7 @@ const jsonProducts = [
         "origin": "Argentina",
     },
     {
-        "name": "Cyrus long drink glasses 423 ml - Set x 6",
+        "name": "Cyrus long drink glasses",
         "stock": "100",
         "img": "https://volfar.vtexassets.com/arquivos/ids/407667-600-auto?v=1759436758&width=600&height=auto&aspect=true",
         "price": "21558",
@@ -647,7 +647,7 @@ const jsonProducts = [
         "origin": "Argentina",
     },
     {
-        "name": "Cabernet glasses 550 ml Skyline Set x6",
+        "name": "Cabernet glasses 550 ml",
         "stock": "100",
         "img": "https://volfar.vtexassets.com/arquivos/ids/406013-800-auto?v=638085219178500000&width=800&height=auto&aspect=true",
         "price": "29940",
@@ -659,7 +659,7 @@ const jsonProducts = [
         "origin": "Argentina",
     },
     {
-        "name": "Extra Slim Glasses 530 ml - Set x 6",
+        "name": "Extra Slim Glasses 530 ml",
         "stock": "100",
         "img": "https://volfar.vtexassets.com/arquivos/ids/404189-800-auto?v=638076754698800000&width=800&height=auto&aspect=true",
         "price": "9773",
