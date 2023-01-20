@@ -25,8 +25,6 @@ export default function Registrar(){
         adult: '',
     });
     
-
-
     const onSubmit = e =>{
         console.log(e)
 

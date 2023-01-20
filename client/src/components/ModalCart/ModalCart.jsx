@@ -8,10 +8,10 @@ import { useState } from 'react';
 
 const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img, type, brand}) => {
 
+  if (!open) return null;
+
     let [number, setNumber] = useState(3);
     const User = useSelector((state) => state.user);
-
-    if (!open) return null;
 
     const dispatch = useDispatch();
     
