@@ -30,6 +30,8 @@ const filterbyorigin = require("./filters/byorigin")
 const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
+const checkout = require("./mercadopago/checkout");
+const { route } = require('./mercadopago/checkout');
 
 const wishlist = require('./wishlistRoutes/post.js');
 
@@ -73,6 +75,7 @@ router.use('/cart',updateProductCart)
 router.use('/payment',addPayment)
 router.use('/payment',getallPayment)
 router.use("/payment",deletePayment)
+router.use("/checkout", checkout)
 
 router.use('/wishlist',wishlist)
 
