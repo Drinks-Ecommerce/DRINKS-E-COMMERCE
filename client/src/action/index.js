@@ -164,39 +164,39 @@ export function getTypes(){
 
 //--------------------------------- ACTIONS USER ROL ----------------------------------
 
-// export function getRol() {
-//     return async function(dispatch) {
-//         const json = await axios("http://localhost:3000/roles");
-//         return dispatch({
-//             type: 'GET_ROL',
-//             payload: json.data
-//         })
-//     };
-// };
-
-//export function postRol(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/roles", payload);
-//         return dispatch({
-//             type: 'CREATE_ROLE',
-//             payload: json
-//         });
-//     };
-//  };
 
 
+export function postRol(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/roles", payload);
+        return dispatch({
+            type: 'CREATE_ROLE',
+            payload: json
+        });
+    };
+};
+
+export function getRoles(){
+    return async function(dispatch){
+        let json = await axios.get("http://localhost:3000/roles");
+        return dispatch({
+            type: 'GET_ROL',
+            payload: json.data
+        });
+    };
+};
 
 //---------------------------------- ACTIONS USER ---------------------------------
 
-// export function getUsers() {
-//     return async function(dispatch) {
-//         const json = await axios("http://localhost:3000/users");
-//         return dispatch({
-//             type: 'GET_USER',
-//             payload: json.data
-//         });
-//     };
-// };
+export function getUsers() {
+    return async function(dispatch) {
+        const json = await axios("http://localhost:3000/users");
+        return dispatch({
+            type: 'GET_USERR',
+            payload: json.data
+        });
+    };
+};
 
 // export function getUsersByEmail(email) {
 //     return async function(dispatch) {
@@ -208,65 +208,69 @@ export function getTypes(){
 //     };
 // };
 
-// export function getUsersByUserName(username) {
-//     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/users/username/${username}`);
-//         return dispatch({
-//             type: 'GET_USER_NAME',
-//             payload: json.data
-//         });
-//     };
-// };
+export function getUsersByUserName(username) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/users/username/${username}`);
+        return dispatch({
+            type: 'GET_USER_NAME',
+            payload: json.data
+        });
+    };
+};
 
-// export function getUsersById(id) {
-//     return async function(dispatch) {
-//         const json = await axios(`http://localhost:3000/users/id/${id}`);
-//         return dispatch({
-//             type: 'GET_USER_ID',
-//             payload: json.data
-//         });
-//     };
-// };
+export function getUsersById(id) {
+    return async function(dispatch) {
+        const json = await axios(`http://localhost:3000/users/id/${id}`);
+        return dispatch({
+            type: 'GET_USER_ID',
+            payload: json.data
+        });
+    };
+};
 
-// export function deleteUser(id) {
-//     return async function(dispatch) {
-//         const json = await axios.delete(`http://localhost:3000/users/delete/${id}`);
-//         return dispatch({
-//             type: 'DELETE_USER',
-//             payload: json.data
-//         });
-//     };
-// };
+export function deleteUser(id) {
+    return async function(dispatch) {
+        const json = await axios.delete(`http://localhost:3000/users/delete/${id}`);
+        return dispatch({
+            type: 'DELETE_USER',
+            payload: json.data
+        });
+    };
+};
 
-// export function updateUser(id, payload) {
-//     return async function(dispatch) {
-//         const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
-//         return dispatch({
-//             type: 'UPDATE_USER',
-//             payload: json.data
-//         });
-//     };
-// };
+export function updateUser(id, payload) {
+    return async function(dispatch) {
+        const json = await axios.put(`http://localhost:3000/users/update/${id}`, payload);
+        return dispatch({
+            type: 'UPDATE_USER',
+            payload: json.data
+        });
+    };
+};
 
-// export function postSignIn(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/signIn", payload);
-//         return dispatch({
-//             type: 'SIGN_IN',
-//             payload: json
-//         });
-//     };
-// };
+export function postSignUp(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/signUp", payload);
+        return dispatch({
+            type: 'SIGN_UP',
+            payload: json
+        });
+    };
+};
 
-// export function postSignUp(payload) {
-//     return async function(dispatch) {
-//         const json = await axios.post("http://localhost:3000/signUp", payload);
-//         return dispatch({
-//             type: 'SIGN_UP',
-//             payload: json
-//         });
-//     };
-// };
+
+
+//------------------------------- ACTIONS PAYMENT ---------------------------------
+
+export function payment(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/payment/addPayment", payload);
+        return dispatch({
+            type: 'PAYMENT_POST',
+            payload: json
+        });
+    };
+};
 
 
 

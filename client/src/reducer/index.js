@@ -6,6 +6,8 @@ const initialState = {
     details: [],
     allBrands: [],
     allOrigins: [],
+    userRol: [],
+    userr:[],
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
@@ -89,6 +91,9 @@ function rootReducer(state = initialState, action){
 
 
 
+
+
+
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :
@@ -111,25 +116,27 @@ function rootReducer(state = initialState, action){
 
 //---------------------------- CASE USER ROL -----------------------------------------
 
-         // case 'GET_ROL':
-        //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+         case 'GET_ROL':
+            return {
+                ...state,
+                userRol: action.payload
+            }
 
-        // case 'CREATE_ROLE':
-        //     return {
-        //         ...state
-        //     }
+        case 'CREATE_ROLE':
+            return {
+                ...state
+            }
 
 
 //------------------------------ CASE USER ------------------------------------------
 
-        // case 'GET_USER':
-        //     return {
-        //         ...state,
-        //         user:  action.payload
-        //     }
+        case 'GET_USERR':
+            return {
+                ...state,
+                userr:  action.payload
+            }
+
+           
 
         // case 'GET_USER_EMAIL':
         //     return {
@@ -137,37 +144,32 @@ function rootReducer(state = initialState, action){
         //         user: action.payload
         //     }
 
-        // case 'GET_USER_NAME':
-        //     return {
-        //         ...state,
-        //         user: action.payload 
-        //     }
+        case 'GET_USER_NAME':
+            return {
+                ...state,
+                userr: action.payload 
+            }
 
-        // case 'GET_USER_ID':
-        // return {
-        //     ...state,
-        //     user: action.payload
-        // }
+        case 'GET_USER_ID':
+        return {
+            ...state,
+            userr: action.payload
+        }
 
-        // case 'DELETE_USER':
-        //     return {
-        //         ...state
-        //     }
+        case 'DELETE_USER':
+            return {
+                ...state
+            }
 
-        // case 'UPDATE_USER':
-        //     return {
-        //         ...state
-        //     }
+        case 'UPDATE_USER':
+            return {
+                ...state
+            }
 
-        // case 'SIGN_IN':
-        //     return {
-        //         ...state
-        //     }
-
-        // case 'SIGN_UP':
-        //     return {
-        //         ...state
-        //     }
+        case 'SIGN_UP':
+            return {
+                ...state
+            }
 
 
 //------------------------------ CASE FILTERS ------------------------------------
@@ -247,7 +249,10 @@ function rootReducer(state = initialState, action){
                 user: {}
         }
 
-
+        case 'PAYMENT_POST': 
+            return {
+                ...state
+            }
 
 
 //-------------------------------- CASE DEFAULT --------------------------------------

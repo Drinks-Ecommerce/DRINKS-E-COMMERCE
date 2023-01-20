@@ -3,13 +3,12 @@ const  { User, Cart, Productcart, Products }  = require("../db");
 const updateTotalValue = async(cart) => {
     //busco los productos cargados en el carrito y calculo el total
     let loadedProducts = await Productcart.findAll({where: { cartId: cart.id}});
-    let total = loadedProducts.map(e => e.totalValue).reduce((a,b)=> a+b,0);
+    let totalCart = await loadedProducts.map(e => e.totalValue).reduce((a,b)=> a+b,0);
 
-    return await cart.update({ totalValue: total });
+    return await cart.update({ total: totalCart});
 }
 
 const addProductCart = async(req, res) => {
-    
     try {
         const { productId, userId, quantity } = req.body;
         //busco el usuario dueño del carrito y el producto que quiero agregar
@@ -44,9 +43,10 @@ const addProductCart = async(req, res) => {
                 cartId: cart.id,
                 productId: product.id,
                 img:product.img,
-                name:product.name
+                name:product.name,
+                priceProduct:product.price
             });
-            updateTotalValue(cart);
+           await updateTotalValue(cart);
 
             res.send('Product uploaded successfully');
         }
@@ -67,7 +67,7 @@ const deleteProductCart = async (req, res) => {
     });
     await productCart.destroy();
 
-    const cart = await Cart.findOne({ where: { id: productCart.id} });
+    const cart = await Cart.findOne({ where: { id: productCart.cartId} });
     updateTotalValue(cart); 
     res.send('Product has been removed');
     } catch (error) {
@@ -77,8 +77,6 @@ const deleteProductCart = async (req, res) => {
 
 
 const updateProductCart = async(req,res) => {
-    
-
     try {
         const { productCartId, price, amount } = req.body;
         let productCart = await Productcart.findOne({
