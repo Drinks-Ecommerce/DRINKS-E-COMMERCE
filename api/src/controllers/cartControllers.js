@@ -43,7 +43,8 @@ const addProductCart = async(req, res) => {
                 cartId: cart.id,
                 productId: product.id,
                 img:product.img,
-                name:product.name
+                name:product.name,
+                priceProduct:product.price
             });
            await updateTotalValue(cart);
 
