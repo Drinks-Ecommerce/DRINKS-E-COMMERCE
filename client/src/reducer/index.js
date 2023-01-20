@@ -166,11 +166,6 @@ function rootReducer(state = initialState, action){
                 ...state
             }
 
-        // case 'SIGN_IN':
-        //     return {
-        //         ...state
-        //     }
-
         case 'SIGN_UP':
             return {
                 ...state
@@ -254,7 +249,10 @@ function rootReducer(state = initialState, action){
                 user: {}
         }
 
-
+        case 'PAYMENT_POST': 
+            return {
+                ...state
+            }
 
 
 //-------------------------------- CASE DEFAULT --------------------------------------

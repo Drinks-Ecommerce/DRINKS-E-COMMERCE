@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
     
     sequelize.define('wishlist', {
         userId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         }, 
     },
