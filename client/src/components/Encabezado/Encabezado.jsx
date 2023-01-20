@@ -19,7 +19,9 @@ export default function Encabezado(){
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const DeleteUSER = (e) => {
+  const DeleteUSER = () => {
+
+    console.log("sesion cerrada")
     dispatch(DeleteUser());
     navigate('/')
     

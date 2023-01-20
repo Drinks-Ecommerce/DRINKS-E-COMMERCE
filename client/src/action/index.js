@@ -353,9 +353,9 @@ export function getAllOrigins() {
         }
     }
 
-    export function DeleteUser(){
-        return async function(dispacth){
-            return dispacth({
+    export function DeleteUser(payload){
+        return async function(dispatch){
+            return dispatch({
                 type: 'DELETE_USER',
             })
         }

@@ -8,8 +8,8 @@ export default function ScrollCart({cart}){
     const dispatch = useDispatch();
     const User = useSelector((state) => state.user);
     
-    const handleClick = () => {
-       dispatch(DeleteProduct(2, User.id))
+    const handleClick = (id) => {
+       dispatch(DeleteProduct(id, User.id))
     }
     
     return(
@@ -48,7 +48,7 @@ export default function ScrollCart({cart}){
 								                <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
 							                </svg>
 
-							                <button onClick={handleClick}>
+							                <button onClick={() => handleClick(e.id)}>
                                                 <h1>Remove</h1>
                                             </button>
 						                </button>

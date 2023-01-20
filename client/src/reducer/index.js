@@ -6,12 +6,12 @@ const initialState = {
     details: [],
     allBrands: [],
     allOrigins: [],
-    allProductsCart: {},
     userRol: [],
     userr:[],
-
-    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
+    allProductsCart: {},
+    
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
 }
 
@@ -136,11 +136,20 @@ function rootReducer(state = initialState, action){
 
         // case 'GET_USER_EMAIL':
         //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+            //         ...state,
+            //         user: action.payload
+            //     }
+            
+            case 'DELETE_USER':
+            
+                window.localStorage.removeItem("cookie")
+            
+                return {
+                    ...state,
+                    user: {}
+            }
 
-        case 'GET_USER_NAME':
+            case 'GET_USER_NAME':
             return {
                 ...state,
                 userr: action.payload 
@@ -229,6 +238,7 @@ function rootReducer(state = initialState, action){
                     user: action.payload.data.userFound
         }
 
+
         case 'FILL_USER':
 
             return {
@@ -236,14 +246,6 @@ function rootReducer(state = initialState, action){
                 user: JSON.parse(window.localStorage.getItem("cookie"))
         }
 
-        case 'DELETE_USER':
-
-            window.localStorage.removeItem('cookie');
-
-            return {
-                ...state,
-                user: {}
-        }
 
         case 'PAYMENT_POST': 
             return {
