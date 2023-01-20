@@ -1,44 +1,27 @@
-export default function Cards({name, amount, price, description, img, type, brand, calification}){
+import { useDispatch, useSelector } from "react-redux";
+import { postInCart } from "../../action";
+import { useState } from "react";
+import ModalCart from "../ModalCart/ModalCart";
 
-    const handleClick = (e) => {
-        
-        const obj = {
-            name,
-            amount,
-            price,
-            description,
-            img,
-            type,
-            brand
-        }
+export default function Cards({id, name, stock, amount, price, description, img, type, brand, calification}){
 
-        if(!localStorage.getItem("productos-carrito")){
-            let carrito = [];
-            carrito.push(obj);
-            let transaccion = JSON.stringify(carrito);
-            localStorage.setItem("productos-carrito", transaccion);
-        }
+	const dispatch = useDispatch();
+	const User = useSelector((state) => state.user);
 
-        else{
-            const carrito = JSON.parse(localStorage.getItem("productos-carrito"));
-            carrito.push(obj);
-            let transaccion = JSON.stringify(carrito);
-            localStorage.setItem("productos-carrito", transaccion);        
-        }
-
-    }
+	const [openModal, setOpenModal] = useState(false);
     
     return(
-        <div class="max-w-2xl mx-auto mt-2">
+		<div class="max-w-2xl mx-auto mt-2">
 
 
 	<div class=" bg-white flex flex-col justify-between shadow-md rounded-lg max-w-sm h-[500px] border-gray-700">
 
+		<ModalCart open={openModal} onClose={() => setOpenModal(false)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
+		type={type} brand={brand} />
+
 		<a href="#">
 			<img class="rounded-t-lg p-8 h-[300px] bg-cover" src={img} alt="product image" />
         </a>
-
-        
 			<div class="px-5 pb-5">
 				<a href="#">
                     <h3 class="text-orange-300 font-semibold text-xl tracking-tight">{brand}</h3>
@@ -77,11 +60,13 @@ export default function Cards({name, amount, price, description, img, type, bran
 					</svg>
 					<span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
 				</div>
+
 				<div class="flex items-center justify-between ">
-					<span class="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-					<a onClick={handleClick}
-						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-						to cart</a>
+					<span class="text-3xl font-bold text-gray-900">${price}</span>
+					<button onClick={() => setOpenModal(true)} 
+						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+							Agregar</button>
+
 				</div>
 			</div>
 	</div>

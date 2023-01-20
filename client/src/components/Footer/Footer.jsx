@@ -9,7 +9,7 @@ export default function Footer() {
 
 			<div className="flex flex-col mr-7 space-y-4 sm:hidden md:flex">
 				<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 md:justify-start">
-					<div className="flex items-center justify-center w-23 h-23 rounded-full dark:bg-violet-400">
+					<div className="flex items-center justify-center w-23 h-23 rounded-full ">
 						<img src={images.img4} />
 					</div>
 				</a>
