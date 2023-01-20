@@ -171,7 +171,7 @@ function rootReducer(state = initialState, action){
             return {
                 ...state
             }
-            
+
 
 
 //------------------------------ CASE FILTERS ------------------------------------

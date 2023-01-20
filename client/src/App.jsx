@@ -11,7 +11,6 @@ import Payment from './components/Payment/Payment.jsx'
 import User from './components/User/User'
 import Wishlist from './components/Wishlist/Wishlist/Wishlist.jsx';
 
-
 import './App.css'
 
 
