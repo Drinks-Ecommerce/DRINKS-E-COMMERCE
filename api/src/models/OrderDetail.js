@@ -24,6 +24,9 @@ module.exports = (sequelize) => {
         },
         name:{
             type:DataTypes.STRING
+        },
+        priceProduct:{
+            type:DataTypes.DECIMAL
         }
         },
         { timestamps: false }
