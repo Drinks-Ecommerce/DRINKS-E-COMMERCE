@@ -31,10 +31,10 @@ const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
 
-/* const getWishList = require("./wishlistRoutes/get") */
+
 const postWishList = require("./wishlistRoutes/post")
-/* const updateWishList = require("./wishlistRoutes/update")
-const deleteWishList = require("./wishlistRoutes/delete") */
+const getWishList = require("./wishlistRoutes/get")
+const deleteWishList = require("./wishlistRoutes/delete")
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -77,7 +77,7 @@ router.use('/payment', getallPayment)
 router.use("/payment", deletePayment)
 
 /* *************************  routes WISHLIST   **************************************** */
-router.use("/wishlist", postWishList)
+router.use("/wishlist", postWishList, getWishList, deleteWishList)
 
 
 module.exports = router;

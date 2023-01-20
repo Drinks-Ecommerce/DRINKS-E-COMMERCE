@@ -1,53 +1,53 @@
-const { Product, Wishlist } = require("../db");
+const { Products, Wishlist } = require("../db");
 
-const Wishlist = async () => {
+const wishlist = async () => {
     const arrDB = await Wishlist.findAll({
         include: {
-            model: Product,
-            attributes: ["id", "name", "img", "price", "brand", "calification"]
+            model: Products,
+            attributes: ["name", "img", "price", "brand"],
+            through: {
+                attributes: []
+            }
         }
     })
-
-
+/*     console.log(arrDB) */
     const result = await arrDB.map(el => {
+        /* console.log(el.products) */
         return {
-            id: el.id,
-            user: el.userId,
-            productId: el.products.map((p) => p.id),
-            product: el.products.map((p) => p.name),
-            img: el.products.map((p) => p.img),
-            price: el.products.map((p) => p.price),
-            brand: el.products.map((p) => p.brand),
-            calification: el.products.map((p) => p.calification)
+            id: el.dataValues.id,
+            user: el.dataValues.userId,
+            name: el.products.map((e) => e.dataValues.name),
+            img: el.products.map((e) => e.dataValues.img),
+            price: el.products.map((e) => e.dataValues.price),
+            brand: el.products.map((e) => e.dataValues.brand)
         }
     })
     return result
 }
 
 const wishlistByUserId = async (userId) => {
-    const userDb = await Wishlist.findAll({
+    const userDB = await Wishlist.findAll({
         where: {
             userId
         },
         include: {
-            model: Product,
-            attributes: ["id", "name", "img", "price", "brand", "calification"]
+            model: Products,
+            attributes: ["id", "name", "img", "price", "brand"]
         }
     })
 
-    const result = await userDb.map(el => {
+    const result = await userDB.map(e => {
         return {
-            id: el.id,
-            user: el.userId,
-            productId: el.products.map((p) => p.id),
-            product: el.products.map((p) => p.name),
-            img: el.products.map((p) => p.img),
-            price: el.products.map((p) => p.price),
-            brand: el.products.map((p) => p.brand),
-            calification: el.products.map((p) => p.calification)
+            id: el.dataValues.id,
+            user: el.dataValues.userId,
+            name: el.products.map((e) => e.dataValues.name),
+            img: el.products.map((e) => e.dataValues.img),
+            price: el.products.map((e) => e.dataValues.price),
+            brand: el.products.map((e) => e.dataValues.brand)
         }
     })
+
     return result
 }
 
-module.exports = { Wishlist, wishlistByUserId }
+module.exports = { wishlist, wishlistByUserId };
