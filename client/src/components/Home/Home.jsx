@@ -16,12 +16,6 @@ export default function Home(){
 
     const User = useSelector((state) => state.user);
 
-    useEffect(() => {
-        if(window.localStorage.getItem("cookie")){
-          dispatch(FillUser())
-        }
-    },[])
-
     useEffect(() =>{
         dispatch(getTypes());
         dispatch(getProducts());
@@ -57,7 +51,7 @@ export default function Home(){
     return(
 
         <div className="flex flex-col contenedor_general h-screen w-screem bg-gray-300">
-
+            
 
             {/* CONDICIÓN PARA MOSTRAR EL MENSAJE DE CONSENTIMIENTO */}
 

@@ -4,10 +4,10 @@ import { DeleteUser } from "../../action";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
 import images from "../icons/images";
 import Carrito from "../Carrito/Carrito";
 import "../SearchBar/SearchBar.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Encabezado(){
 
@@ -17,9 +17,12 @@ export default function Encabezado(){
   const User = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const DeleteUSER = (e) => {
     dispatch(DeleteUser());
+    navigate('/')
+    
   };
 		
 
@@ -74,7 +77,7 @@ export default function Encabezado(){
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      {User.data.userFound.username}
+                      {User.username}
                       <svg
                         aria-hidden="true"
                         focusable="false"
@@ -95,9 +98,9 @@ export default function Encabezado(){
                       class="dropdown-menu min-w-max absolute hidden text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none bg-gray-800"
                       aria-labelledby="dropdownMenuButton2"
                     >
-                      <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">
-                        Perfil
-                      </h6>
+                      <Link to={`/profile`}>
+                        <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Perfil</h6>
+                      </Link>
                       <span class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300">
                         (???)
                       </span>
@@ -108,8 +111,7 @@ export default function Encabezado(){
                       <li>
                         <a
                           class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
-                          onClick={(e) => DeleteUSER()}
-                        >
+                          onClick={(e) => DeleteUSER()}>
                           Cerrar sesión
                         </a>
                       </li>
@@ -121,10 +123,6 @@ export default function Encabezado(){
           )}
         </div>
       </div>
-
-      
-
-		
 
       	<div class="flex justify-center bg-black pb-3 pt-3 mt-2">
         	<ul class="flex">
