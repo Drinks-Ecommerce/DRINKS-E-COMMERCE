@@ -35,6 +35,11 @@ const { route } = require('./mercadopago/checkout');
 
 const wishlist = require('./wishlistRoutes/post.js');
 
+const addReview = require('./reviewRoutes/post')
+const getReview = require('./reviewRoutes/get')
+const deleteReview = require('./reviewRoutes/delete')
+const updateReview = require('./reviewRoutes/put')
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -77,7 +82,16 @@ router.use('/payment',getallPayment)
 router.use("/payment",deletePayment)
 router.use("/checkout", checkout)
 
+
+/*******************************  routes REVIEWS  *********************************** */
+router.use("/review", addReview)
+router.use("/review", getReview)
+router.use("/review", deleteReview)
+router.use("/review", updateReview)
+
+
 router.use('/wishlist',wishlist)
+
 
 
 
