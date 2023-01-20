@@ -6,15 +6,14 @@ module.exports = (sequelize) => {
         userId: {
             type:DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
         },
         calification: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: {args: [1, 5],}
+            }
         },
-        comment: {
-            type: DataTypes.TEXT,
-        }
+       
     })
 };

@@ -7,6 +7,8 @@ import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+import Payment from './components/Payment/Payment.jsx'
+import User from './components/User/User'
 import Profile from './components/Profile/Profile'
 
 import { FillUser } from './action'
@@ -14,6 +16,7 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
 import './App.css'
+
 
 function App(){
 
@@ -42,7 +45,8 @@ function App(){
         <Route exact path='/paneladmin' element={<PanelAdmin/>} />
         <Route exact path='/login' element={<Login/>} />
         <Route exact path='/register' element={<Register/>} />
-        <Route exact path='/profile' element={<Profile/>} />
+        <Route exact path='/payment' element={<Payment />} />
+        <Route exact path='/user' element={<User/>} />
       </Routes>
     </div>
   )
