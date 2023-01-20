@@ -1,6 +1,7 @@
 const e = require("express");
-const { User, Cart, Productcart, Payment, Orderdetail } = require("../db");
-const mercadopago = require("mercadopago");
+const { User, Cart, Productcart, Payment, Orderdetail} = require("../db");
+var mercadopago = require('mercadopago');
+
 
 
 const addPayment = async (req, res) => {
@@ -32,7 +33,8 @@ const addPayment = async (req, res) => {
             userId: user.id
         })
 
-        const order = user.cart.productcarts.map(async function (el) {
+    
+        await user.cart.productcarts.map((el)=>{
             Orderdetail.create({
                 quantity: el.quantity,
                 price: el.totalValue,
@@ -43,31 +45,10 @@ const addPayment = async (req, res) => {
             })
         })
 
-        mercadopago.configure({
-            access_token: 'TEST-4012101398950150-011321-7d4eec3fae82c46fb761d5ddd109731a-1286736524'
-        });
-
-        var preference = {
-            items: [
-                {
-                    title: order.name,
-                    quantity: order.quantity,
-                    currency_id: 'ARS',
-                    unit_price: order.totalValue
-                }
-            ],
-            notification_url: "https://433d-186-183-64-128.sa.ngrok.io/notificationOrder"
-        };
-
-        mercadopago.preferences.create(preference)
-            .then((r) => {
-                res.json(r.response.init_point)
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-
-        res.send(payment)
+     
+      
+ 
+          res.send(payment)
     } catch (err) {
         console.log(err)
     }

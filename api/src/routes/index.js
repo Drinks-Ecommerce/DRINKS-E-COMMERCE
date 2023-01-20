@@ -30,6 +30,15 @@ const filterbyorigin = require("./filters/byorigin")
 const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
+const checkout = require("./mercadopago/checkout");
+const { route } = require('./mercadopago/checkout');
+
+const wishlist = require('./wishlistRoutes/post.js');
+
+const addReview = require('./reviewRoutes/post')
+const getReview = require('./reviewRoutes/get')
+const deleteReview = require('./reviewRoutes/delete')
+const updateReview = require('./reviewRoutes/put')
 
 
 const postWishList = require("./wishlistRoutes/post")
@@ -72,9 +81,22 @@ router.use('/cart', addProductCart)
 router.use('/cart', updateProductCart)
 
 /*******************************  routes PAYMENT  *********************************** */
-router.use('/payment', addPayment)
-router.use('/payment', getallPayment)
-router.use("/payment", deletePayment)
+router.use('/payment',addPayment)
+router.use('/payment',getallPayment)
+router.use("/payment",deletePayment)
+router.use("/checkout", checkout)
+
+
+/*******************************  routes REVIEWS  *********************************** */
+router.use("/review", addReview)
+router.use("/review", getReview)
+router.use("/review", deleteReview)
+router.use("/review", updateReview)
+
+
+router.use('/wishlist',wishlist)
+
+
 
 /* *************************  routes WISHLIST   **************************************** */
 router.use("/wishlist", postWishList, getWishList, deleteWishList)

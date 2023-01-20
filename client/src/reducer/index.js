@@ -6,9 +6,15 @@ const initialState = {
     details: [],
     allBrands: [],
     allOrigins: [],
+    userRol: [],
+    userr:[],
+    wishlist: [],
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
+    allProductsCart: {},
+    
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
 }
 
@@ -57,18 +63,14 @@ function rootReducer(state = initialState, action){
             const marcas = [];
 
             for(let i=0; i<state.copyallproducts.length; i++){
-                if(state.copyallproducts[i].brand === action.payload){
-                    marcas.push(state.copyallproducts[i])
-                }
+                var result = state.copyallproducts.filter(marca => marca.brand === action.payload);
             }
 
             return{
                 ...state,
-                filters: state.filters.concat(marcas)       
+                copyallproducts: result 
 
         }
-
-
 
         case 'GET_BY_ORIGIN':
 
@@ -83,12 +85,14 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 filters: origenes,
+        }
+
+        case 'GET_ALL_CART':
+
+                return {
+                    ...state,
+                    allProductsCart: action.payload
             }
-
-
-
-
-
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :
@@ -111,63 +115,70 @@ function rootReducer(state = initialState, action){
 
 //---------------------------- CASE USER ROL -----------------------------------------
 
-         // case 'GET_ROL':
-        //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+         case 'GET_ROL':
+            return {
+                ...state,
+                userRol: action.payload
+            }
 
-        // case 'CREATE_ROLE':
-        //     return {
-        //         ...state
-        //     }
+        case 'CREATE_ROLE':
+            return {
+                ...state
+            }
 
 
 //------------------------------ CASE USER ------------------------------------------
 
-        // case 'GET_USER':
-        //     return {
-        //         ...state,
-        //         user:  action.payload
-        //     }
+        case 'GET_USERR':
+            return {
+                ...state,
+                userr:  action.payload
+            }
+
+           
 
         // case 'GET_USER_EMAIL':
         //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+            //         ...state,
+            //         user: action.payload
+            //     }
+            
+            case 'DELETE_USER':
+            
+                window.localStorage.removeItem("cookie")
+            
+                return {
+                    ...state,
+                    user: {}
+            }
 
-        // case 'GET_USER_NAME':
-        //     return {
-        //         ...state,
-        //         user: action.payload 
-        //     }
+            case 'GET_USER_NAME':
+            return {
+                ...state,
+                userr: action.payload 
+            }
 
-        // case 'GET_USER_ID':
-        // return {
-        //     ...state,
-        //     user: action.payload
-        // }
+        case 'GET_USER_ID':
+        return {
+            ...state,
+            userr: action.payload
+        }
 
-        // case 'DELETE_USER':
-        //     return {
-        //         ...state
-        //     }
+        case 'DELETE_USER':
+            return {
+                ...state
+            }
 
-        // case 'UPDATE_USER':
-        //     return {
-        //         ...state
-        //     }
+        case 'UPDATE_USER':
+            return {
+                ...state
+            }
 
-        // case 'SIGN_IN':
-        //     return {
-        //         ...state
-        //     }
+        case 'SIGN_UP':
+            return {
+                ...state
+            }
 
-        // case 'SIGN_UP':
-        //     return {
-        //         ...state
-        //     }
 
 
 //------------------------------ CASE FILTERS ------------------------------------
@@ -224,12 +235,13 @@ function rootReducer(state = initialState, action){
 
         case 'LOGIN_USER':
 
-                window.localStorage.setItem("cookie", JSON.stringify(action.payload))
+                window.localStorage.setItem("cookie", JSON.stringify(action.payload.data.userFound))
                 console.log("state LOGIN_USER");
                 return {
                     ...state,
-                    user: action.payload
-            }
+                    user: action.payload.data.userFound
+        }
+
 
         case 'FILL_USER':
 
@@ -238,17 +250,17 @@ function rootReducer(state = initialState, action){
                 user: JSON.parse(window.localStorage.getItem("cookie"))
         }
 
-        case 'DELETE_USER':
 
-            window.localStorage.removeItem('cookie');
+        case 'PAYMENT_POST': 
+            return {
+                ...state
+            }
 
+        case 'GET_WISHLIST':
             return {
                 ...state,
-                user: {}
-        }
-
-
-
+                wishlist: action.payload
+            }
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

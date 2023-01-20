@@ -56,7 +56,7 @@ import { Link } from "react-router-dom";
         errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
       };
 
-//       return errors
+       return errors
       
 
  }
@@ -138,9 +138,9 @@ export default function ProductCreate(){
 
           <h1>CREAR UN PRODUCTO</h1>
               
-              <Link to="/">
+              <Link to="/paneladmin">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
-                  Home
+                  Panel Admin
                 </button>
               </Link>
 
@@ -329,12 +329,12 @@ export default function ProductCreate(){
 
         <div>
             <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">IMAGEN</label>
-            <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+            <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required
             type="text"
             value={input.img}
             name="img"
             onChange={(event) => handleChange(event)}
-            required
+            >
             </input>
             <span className="form_line"></span>
             {
