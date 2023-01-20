@@ -23,12 +23,11 @@ export default function Login(){
         gapi.load("client:auth2", start)
     },[])
     //validations
-    const { register, handleSubmit ,formState: { errors } } = useForm();
+    const { register, handleSubmit , formState: { errors } } = useForm();
     console.log("register",register)
     console.log("errors",errors)
     
-    const User = useSelector((state) => state.user)
-    console.log("USER",User)
+   
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -114,7 +113,9 @@ export default function Login(){
                                 }
                             })
                         }
-                        className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" onSelect={(e) => handleChange(e)} required/>
+                        className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100" onSelect={(e) => handleChange(e)} required
+                            onChange={(e) => handleChange2(e)}
+                        />
 			        </div>
                             { errors.email && <span><br/>{errors.email.message} </span>}
 			        <div>
@@ -136,7 +137,7 @@ export default function Login(){
                                     }
                                 })
                             }
-                            onSelect={(e) => handleChange2(e)}
+                            onChange={(e) => handleChange2(e)}
                             />
 			        </div>
                             {
