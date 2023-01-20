@@ -1,24 +1,34 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import { LoginUser } from '../../action';
 import { useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
-
-
+import { gapi } from "gapi-script";
+import  GoogleLogin from "react-google-login"
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
 
 export default function Login(){
 
+    const clientId = "838255599044-amk6qitfmq71m21oov5lnkla3ioclpr9.apps.googleusercontent.com"
+
+    useEffect(()=>{
+        const start = () =>{
+            gapi.auth2.init({
+                clientId: clientId,
+            })
+        }
+        gapi.load("client:auth2", start)
+    },[])
     //validations
     const { register, handleSubmit ,formState: { errors } } = useForm();
     console.log("register",register)
     console.log("errors",errors)
     
     const User = useSelector((state) => state.user)
-    console.log(User)
+    console.log("USER",User)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -27,6 +37,8 @@ export default function Login(){
         email: '',
         password: ''
     });
+
+    const [user, setUser] = useState({});
 
     const onSubmit = evento =>{
         console.log(evento)
@@ -59,6 +71,14 @@ export default function Login(){
         }
     }
 
+    const onSuccess = (response) =>{
+        console.log(response)
+        setUser(response.profileObj);
+    }
+    const onFailure = () =>{
+        console.log("Algo salio mal")
+    }
+
     return(
 
         <div className="flex flex-col bg-gray-400 h-screen">
@@ -72,6 +92,8 @@ export default function Login(){
 	        <div className="mb-4 text-center">
 		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
 	        </div>
+            
+
 
 	        <form onFocus={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
 
@@ -122,6 +144,20 @@ export default function Login(){
                             }
 		        </div>
 
+                <div >
+                    <GoogleLogin
+                        clientId={clientId}
+                        onSuccess= {onSuccess}
+                        onFailure= {onFailure}
+                        cookiePolicy={"single_host_policy"}
+                    />
+                </div>
+                <div>
+                    <div className={user? "profile": "hiden"}>
+                        <img src={user.imageUrl} alt=""/>
+                        <h3>{user.name}</h3>
+                    </div>
+                </div>
 		        <div className="space-y-4">
 			        <div>
 				        <button type="button" className="w-full px-2 py-2 font-semibold rounded-md bg-teal-400 text-gray-900" 
