@@ -15,6 +15,9 @@ module.exports = function(sequelize){
         },
         name:{
             type:DataTypes.STRING
+        }, 
+        priceProduct:{
+            type:DataTypes.DECIMAL
         }
     })
 }

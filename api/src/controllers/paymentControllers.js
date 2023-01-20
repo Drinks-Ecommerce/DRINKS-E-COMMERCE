@@ -38,7 +38,9 @@ const addPayment = async(req, res) => {
                 paymentId: payment.id,
                 productId: el.productId,
                 img:el.img,
-                name:el.name
+                name:el.name,
+                priceProduct:el.priceProduct
+                
             })
         })
        /*  let preference = {

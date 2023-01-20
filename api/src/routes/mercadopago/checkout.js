@@ -18,16 +18,17 @@ router.post("/", (req, res) => {
     for (let i = 0; i < orderdet.length; i++) {
       preference.items.push({
         title: orderdet[i].name,
-        picture_url: orderdet[i].picture_url,
-        unit_price:orderdet[i].price,
+        picture_url: orderdet[i].img,
+        unit_price:parseInt(orderdet[i].priceProduct),
         quantity:orderdet[i].quantity,
+        
       });
     }
   } else {
     preference.items.push({
       title: orderdet.name,
       picture_url: orderdet.picture_url,
-      unit_price: orderdet.price,
+      unit_price:parseInt(orderdet.price),
       quantity:orderdet.quantity,
     });
   }
