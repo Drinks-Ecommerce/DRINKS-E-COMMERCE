@@ -163,7 +163,7 @@ let handleSubmit = async (e) => {
                             <h2>{e.email}</h2> 
                             <button onClick={() => handledeleteUser(e.id)}>delete</button>
                              <button onClick={()=>handleOpenUpdateForm(e.id)}>editar</button>
-                             {/* aqui agregue al openupdate el e.id */}
+                             
                             <img class="my-8  items-center justify-center " src={e.img} alt=''width='30px' height='40px'/>
             
             
@@ -216,7 +216,7 @@ let handleSubmit = async (e) => {
 
       <div>
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">NAME</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required
+          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" 
           type="text"
           value={input.name}
           name="name"
@@ -232,7 +232,7 @@ let handleSubmit = async (e) => {
 
       <div>
           <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">USERNAME</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required
+          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" 
           type="text"
           value={input.username}
           name="username"
@@ -264,7 +264,7 @@ let handleSubmit = async (e) => {
 
       <div>
           <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">IMAGEN</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="img" required
+          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="img" 
             type="text"
            value={input.img}
           name="img"
