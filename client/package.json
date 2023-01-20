@@ -12,7 +12,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@hookform/resolvers": "^2.9.10",
     "axios": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,8 +22,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "tw-elements": "^1.0.0-alpha13",
-    "yup": "^0.32.11"
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

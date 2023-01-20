@@ -33,6 +33,8 @@ const deletePayment = require("./paymentRoutes/delete")
 const checkout = require("./mercadopago/checkout");
 const { route } = require('./mercadopago/checkout');
 
+const wishlist = require('./wishlistRoutes/post.js');
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -75,7 +77,7 @@ router.use('/payment',getallPayment)
 router.use("/payment",deletePayment)
 router.use("/checkout", checkout)
 
-
+router.use('/wishlist',wishlist)
 
 
 
