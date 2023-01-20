@@ -8,8 +8,6 @@ import { postSignUp } from '../../action/index.js'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
-
-
 export default function Registrar(){
     
     const dispatch = useDispatch();
