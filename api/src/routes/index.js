@@ -31,6 +31,11 @@ const addPayment = require('./paymentRoutes/post')
 const getallPayment = require('./paymentRoutes/getAll')
 const deletePayment = require("./paymentRoutes/delete")
 
+const addReview = require('./reviewRoutes/post')
+const getReview = require('./reviewRoutes/get')
+const deleteReview = require('./reviewRoutes/delete')
+const updateReview = require('./reviewRoutes/put')
+
 
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
@@ -72,6 +77,11 @@ router.use('/payment',addPayment)
 router.use('/payment',getallPayment)
 router.use("/payment",deletePayment)
 
+/*******************************  routes REVIEWS  *********************************** */
+router.use("/review", addReview)
+router.use("/review", getReview)
+router.use("/review", deleteReview)
+router.use("/review", updateReview)
 
 
 
