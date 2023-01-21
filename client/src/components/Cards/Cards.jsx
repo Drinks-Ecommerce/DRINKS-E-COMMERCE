@@ -16,7 +16,7 @@ export default function Cards({id, name, stock, amount, price, description, img,
 
 	<div class=" bg-white flex flex-col justify-between shadow-md rounded-lg max-w-sm h-[500px] border-gray-700">
 
-		<ModalCart open={openModal} onClose={() => setOpenModal(false)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
+		<ModalCart open={openModal} onClose={() => setOpenModal(!open)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
 		type={type} brand={brand} />
 
 		<a href="#">
