@@ -45,10 +45,52 @@ const addPayment = async (req, res) => {
             })
         })
 
-     
-      
- 
-          res.send(payment)
+        let order = await user.cart.productcarts.map((el)=>{
+            return{
+                quantity: el.quantity,
+                rice: el.totalValue,
+                paymentId: payment.id,
+                productId: el.productId,
+                img:el.img,
+                name:el.name,
+                priceProduct:el.priceProduct
+            }  
+        })
+
+        console.log(order)
+        let preference = {
+            items: [],
+            notification_url: "https://433d-186-183-64-128.sa.ngrok.io/notificationOrder"
+          };
+        mercadopago.configure({
+            access_token: 'TEST-4012101398950150-011321-7d4eec3fae82c46fb761d5ddd109731a-1286736524'
+        });
+        if(Array.isArray(order)){
+            for(let i =0; i<order.length;i++){
+                preference.items.push({
+                    title: order[i].name,
+                    picture_url: order[i].img,
+                    unit_price:parseInt(order[i].priceProduct),
+                    quantity:order[i].quantity,
+                })
+            } 
+        }else{
+            preference.items.push({
+                title: order.name,
+                picture_url: order.picture_url,
+                unit_price:parseInt(order.price),
+                quantity:order.quantity,
+              });  
+        }
+        mercadopago.preferences
+        .create(preference)
+        .then(function (response) {
+        res.send(response.response.init_point);
+        /*  res.redirect(response.response.init_point); */
+        })
+        .catch(function (error) {
+        console.log(error);
+    });
     } catch (err) {
         console.log(err)
     }
