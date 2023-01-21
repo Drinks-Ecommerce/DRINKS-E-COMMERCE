@@ -8,9 +8,13 @@ const initialState = {
     allOrigins: [],
     userRol: [],
     userr:[],
+    wishlist: [],
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
+    allProductsCart: {},
+    
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
 }
 
@@ -59,18 +63,14 @@ function rootReducer(state = initialState, action){
             const marcas = [];
 
             for(let i=0; i<state.copyallproducts.length; i++){
-                if(state.copyallproducts[i].brand === action.payload){
-                    marcas.push(state.copyallproducts[i])
-                }
+                var result = state.copyallproducts.filter(marca => marca.brand === action.payload);
             }
 
             return{
                 ...state,
-                filters: state.filters.concat(marcas)       
+                copyallproducts: result 
 
         }
-
-
 
         case 'GET_BY_ORIGIN':
 
@@ -85,15 +85,14 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 filters: origenes,
+        }
+
+        case 'GET_ALL_CART':
+
+                return {
+                    ...state,
+                    allProductsCart: action.payload
             }
-
-
-
-
-
-
-
-
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :
@@ -140,11 +139,20 @@ function rootReducer(state = initialState, action){
 
         // case 'GET_USER_EMAIL':
         //     return {
-        //         ...state,
-        //         user: action.payload
-        //     }
+            //         ...state,
+            //         user: action.payload
+            //     }
+            
+            case 'DELETE_USER':
+            
+                window.localStorage.removeItem("cookie")
+            
+                return {
+                    ...state,
+                    user: {}
+            }
 
-        case 'GET_USER_NAME':
+            case 'GET_USER_NAME':
             return {
                 ...state,
                 userr: action.payload 
@@ -170,6 +178,7 @@ function rootReducer(state = initialState, action){
             return {
                 ...state
             }
+
 
 
 //------------------------------ CASE FILTERS ------------------------------------
@@ -226,12 +235,13 @@ function rootReducer(state = initialState, action){
 
         case 'LOGIN_USER':
 
-                window.localStorage.setItem("cookie", JSON.stringify(action.payload))
+                window.localStorage.setItem("cookie", JSON.stringify(action.payload.data.userFound))
                 console.log("state LOGIN_USER");
                 return {
                     ...state,
-                    user: action.payload
-            }
+                    user: action.payload.data.userFound
+        }
+
 
         case 'FILL_USER':
 
@@ -240,20 +250,17 @@ function rootReducer(state = initialState, action){
                 user: JSON.parse(window.localStorage.getItem("cookie"))
         }
 
-        case 'DELETE_USER':
-
-            window.localStorage.removeItem('cookie');
-
-            return {
-                ...state,
-                user: {}
-        }
 
         case 'PAYMENT_POST': 
             return {
                 ...state
             }
 
+        case 'GET_WISHLIST':
+            return {
+                ...state,
+                wishlist: action.payload
+            }
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

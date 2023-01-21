@@ -8,8 +8,6 @@ import { postSignUp } from '../../action/index.js'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
-
-
 export default function Registrar(){
     
     const dispatch = useDispatch();
@@ -27,8 +25,6 @@ export default function Registrar(){
         adult: '',
     });
     
-
-
     const onSubmit = e =>{
         console.log(e)
 

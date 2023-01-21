@@ -1,15 +1,17 @@
+const e = require("express");
 const { User, Cart, Productcart, Payment, Orderdetail} = require("../db");
 var mercadopago = require('mercadopago');
 
 
-const addPayment = async(req, res) => {
+
+const addPayment = async (req, res) => {
     try {
-        const {emailUser, paymentMethod, shippingMethod, address, numberAddress, city, province, postalCode, phone} = req.body;
+        const { emailUser, paymentMethod, shippingMethod, address, numberAddress, city, province, postalCode, phone } = req.body;
         const user = await User.findOne({
             include: [
                 {
                     model: Cart,
-                    include:[{model: Productcart}]
+                    include: [{ model: Productcart }]
                 }
             ],
             where: {
@@ -28,19 +30,18 @@ const addPayment = async(req, res) => {
             phone: phone,
             paymentMethod: paymentMethod,
             shippingMethod: shippingMethod,
-            userId:user.id
+            userId: user.id
         })
-     
+
+    
         await user.cart.productcarts.map((el)=>{
             Orderdetail.create({
                 quantity: el.quantity,
                 price: el.totalValue,
                 paymentId: payment.id,
                 productId: el.productId,
-                img:el.img,
-                name:el.name,
-                priceProduct:el.priceProduct
-                
+                img: el.img,
+                name: el.name
             })
         })
 
@@ -96,4 +97,4 @@ const addPayment = async(req, res) => {
 }
 
 
-module.exports = { addPayment}
+module.exports = { addPayment }
