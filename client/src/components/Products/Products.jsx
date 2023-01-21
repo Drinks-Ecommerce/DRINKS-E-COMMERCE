@@ -15,18 +15,20 @@ export default function Products(){
     const dispatch = useDispatch()
 
     const allProducts = useSelector((state) => state.allproducts);
-
     const allOrigins = useSelector((state) => state.allOrigins);
     const allBrands = useSelector((state) => state.allBrands);
-    const filters = useSelector((state) => state.filters);
+    const copyall = useSelector((state) => state.copyallproducts);
 
     useEffect(() =>{
-            dispatch(filterByTypes(id))
+        dispatch(getProducts());
+        dispatch(filterByTypes(id))
 
             setTimeout(() => {
                 dispatch(getAllBrands())
                 dispatch(getAllOrigins());                  
             }, 300);
+        
+
     },[id])
     
       const handleBrands = (e) => {
@@ -40,8 +42,7 @@ export default function Products(){
 
     return (
 
-        <div className='products bg-gray-200'>
-
+        <div className='flex flex-col h-screen w-screem bg-gray-300'>
 
         <div className="conte_encabezado">
                 <Encabezado />
@@ -113,33 +114,26 @@ export default function Products(){
                 </div>
             </div>
                            
-            <div className="container  pb-10 bg-gray-300  mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3 my-5  lg:grid-cols-4 xl:grid-cols-4"> 
+            <div className="container pb-5 bg-gray-300  mx-auto grid grid-cols-1 gap-3 pr-4 pl-4 md:grid-cols-3 my-5  lg:grid-cols-4 xl:grid-cols-4"> 
 
             {
-                (filters?.length === 0) ?
-                    allProducts?.map(e => {
+                    copyall?.map(e => {
                         return (
-                        <div className=''>
-                            <Link to={'/cards/' + e.id}>
-                                <Cards name={e.name} amount={e.amount} brand={e.brand} calification={e.calification} price={e.price} description={e.description} type={e.type} img={e.img} />
-                            </Link>
-                        </div>
+                                <Cards id={e.id} name={e.name} stock={e.stock} amount={e.amount} brand={e.brand} calification={e.calification}
+                                price={e.price} description={e.description} type={e.type} img={e.img} />
                         )})
-                        :
-                filters?.map(e => {
-                        return (
-                            <div className=''>
-                                <Link to={'/cards/' + e.id}>
-                                    <Cards name={e.name} amount={e.amount} brand={e.brand} price={e.price} description={e.description} type={e.type} img={e.img} />
-                                </Link>
-                            </div>
-                            )})
             }
+             
 
             </div>
 
+
         </div>
+
+        <div className="container-footer mt-auto">
                 <Footer />
+        </div>
+
         </div>
     )
 }

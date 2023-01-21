@@ -55,8 +55,8 @@ export default function Login(){
         setInput({
             ...input,
             [e.target.name] : e.target.value
-        })
-    }
+        })
+    }
 
     const handleSubmit2 = (e) => {
         e.preventDefault();
@@ -175,6 +175,8 @@ export default function Login(){
             <div className='mt-auto'>
                 <Footer />
             </div>
-        </div>
-  )
+        </div>
+  )
 }
+
+    
