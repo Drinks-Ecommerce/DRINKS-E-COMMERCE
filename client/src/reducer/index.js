@@ -8,6 +8,9 @@ const initialState = {
     allOrigins: [],
     userRol: [],
     userr:[],
+    wishlist: [],
+
+    // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
     allProductsCart: {},
     
@@ -177,6 +180,7 @@ function rootReducer(state = initialState, action){
             }
 
 
+
 //------------------------------ CASE FILTERS ------------------------------------
 
         case 'FILTER_ORDER_PRICE':
@@ -252,6 +256,11 @@ function rootReducer(state = initialState, action){
                 ...state
             }
 
+        case 'GET_WISHLIST':
+            return {
+                ...state,
+                wishlist: action.payload
+            }
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

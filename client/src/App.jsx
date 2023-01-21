@@ -14,6 +14,7 @@ import Profile from './components/Profile/Profile'
 import { FillUser } from './action'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
+import Wishlist from './components/Wishlist/Wishlist/Wishlist.jsx';
 
 import './App.css'
 
@@ -47,6 +48,7 @@ function App(){
         <Route exact path='/register' element={<Register/>} />
         <Route exact path='/payment' element={<Payment />} />
         <Route exact path='/user' element={<User/>} />
+        <Route exact path='/wishlist' element={<Wishlist />} />
       </Routes>
     </div>
   )
