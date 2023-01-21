@@ -32,7 +32,7 @@ const addProductCart = async(req, res) => {
             });
         }
         //vemos si el producto ya esta agregado o no al carrito
-        let findProduct = await Productcart.findOne({ where: { productId: productId}})
+        let findProduct = cart.productcarts.filter(e => e.productId == productId)
         if(findProduct){
             return res.send('Product already exists in the cart')
         }else {
