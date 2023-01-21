@@ -10,7 +10,7 @@ const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img,
 
   if (!open) return null;
 
-    let [number, setNumber] = useState(3);
+    let [number, setNumber] = useState(null);
     const User = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
@@ -25,20 +25,24 @@ const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img,
         if(Object.entries(User).length === 0){
                 
             const obj = {
-                name: name,
-                amount: amount,
-                price: price,
-                img: img,
-                type: type,
-                brand: brand
+                name: name,                       // Nombre del Producto.
+                totalValue: price * number,           // Precio de todo/s dependiendo la cantidad.
+                quantity: number,                 // Cantidad de productos.
+                priceProduct: price,              // Precio del producto.
+                img: img,                         // Imagen del producto.
+                type: type,                       // Tipo del producto.
+                brand: brand,                     // Marca del producto.
             }
                 
+            // Si el 'Local Storage' del carrito está vacío, se crea la variable y se almacena el primer producto.
             if(!localStorage.getItem("productos-carrito")){
                 let carrito = [];
                 carrito.push(obj);
                 let transaccion = JSON.stringify(carrito);
                 localStorage.setItem("productos-carrito", transaccion);
             }
+
+            // Si el 'Local Storage' del carrito ya tiene al menos un producto, solo se agrega uno nuevo.
         
             else{
                 const carrito = JSON.parse(localStorage.getItem("productos-carrito"));
