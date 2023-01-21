@@ -19,7 +19,18 @@ export default function Carrito({set, open2}){
 
   useEffect(() => {
     dispatch(getInCart(User.id));
-  }, [])
+  }, []);
+
+  const SUMA = () => {
+
+    let suma = 0;
+
+    carrito?.map(e => {
+      suma = suma + e.totalValue;
+    })
+
+    return suma;
+  }
 
   const renderBannerStock = () => {
     return (
@@ -47,53 +58,38 @@ export default function Carrito({set, open2}){
        </svg>
      </button>
 
-      <div className="ml-3 mt-3 text-gray-100">
+      <div className="ml-3 mt-2 text-gray-100 text-center">
         <h1>Carrito</h1>
       </div>
 
        <div className="h-2/3 mt-2 bg-gray-900 overflow-scroll overflow-x-hidden shadow-xl px-1">
 
       {
-
-        // Si no hay un usuario registrado.
-        (Object.entries(User).length === 0) ? 
-
-          // Si el carrito del 'local Storage' está vacío.
-          (!window.localStorage.getItem("productos-carrito")) ? (
-
-            renderBannerStock()
-            ) : 
-
-            // El carrito del 'Local Storage' no está vacío, al menos tiene un producto.
-            (<ScrollCart cart={carrito} />)
-            
+        
+        (Object.entries(User).length === 0) ? (!window.localStorage.getItem("productos-carrito")) ? (renderBannerStock()) : (<ScrollCart cart={carrito} />)
+  
         : 
           
-        // El usuario inició sesión, pero el carrito está vacío.
-          (Object.entries(allProductsInCart).length === 0) ? (
-            renderBannerStock()
-          ) :
+       
+        (Object.entries(allProductsInCart).length === 0) ? (renderBannerStock()) :(Object.entries(allProductsInCart.productcarts).length === 0) ? (renderBannerStock()) :
+        (<ScrollCart cart={allProductsInCart.productcarts}/>)
+      }
 
-          (Object.entries(allProductsInCart.productcarts).length === 0) ? (
-            renderBannerStock()
-          ) :
-            //El usuario tiene al menos un producto en su carrito. 
-            (<ScrollCart cart={allProductsInCart.productcarts}/>)
-        }
+      </div>
 
-        </div>
+        <div className="space-y-1 mr-3 mt-10 mb-3 text-right text-3xl">
+		      <p>Total amount: <span className="text-3xl font-semibold">
+            {Object?.entries(User).length === 0 ? "$" + SUMA() : "$" + allProductsInCart.total}
+          </span></p>
+	      </div>
 
-        <div className="space-y-1 mr-3 mt-10 mb-3 text-right">
-		      <p>Total amount:<span className="font-semibold"> 357 €</span></p>
-
-	</div>
-	<div className="flex justify-end space-x-4">
+	    <div className="flex justify-end space-x-4">
 		
-		<button type="button" className="px-2 mr-3 py-2 border rounded-md dark:bg-indigo-400 dark:text-gray-900 dark:border-indigo-400">
-			<span className="sr-only sm:not-sr-only">Comprar</span>
-		</button>
-	</div>
-</div>
+		    <button type="button" className="px-2 mr-3 py-2 border rounded-md dark:bg-indigo-400 dark:text-gray-900 dark:border-indigo-400">
+			    <a className="sr-only sm:not-sr-only">Comprar</a>
+		    </button>
+	    </div>
+  </div>
   )
 }
     
