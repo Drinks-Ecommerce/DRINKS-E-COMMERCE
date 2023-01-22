@@ -21,8 +21,8 @@ import { useSelector } from 'react-redux'
 
 
 function App(){
-  const user = useSelector((state) => state.User)
-  console.log(user)
+   const user = useSelector((state) => state.User)
+  console.log(user) 
   return (
     <div className="App">
       <Routes>

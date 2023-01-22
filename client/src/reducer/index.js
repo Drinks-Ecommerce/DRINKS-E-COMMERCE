@@ -271,12 +271,18 @@ function rootReducer(state = initialState, action){
                   user: {}
                 };
 
-                case 'POST_REVIEWS':
+            case 'POST_REVIEWS':
                     return {
                         ...state,
                         reviews: action.payload
         
                     }
+
+            case 'GET_REVIEWS':
+                return{
+                    ...state,
+                    reviews:action.payload
+                }
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

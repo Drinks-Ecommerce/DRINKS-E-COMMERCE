@@ -22,7 +22,7 @@ export function creatProducts(payload){
     };
 };
 
-export function LoginUser(payload){
+/* export function LoginUser(payload){
     return async function(dispatch){
         try{
             let json = await axios.post("http://localhost:3000/signIn", payload);
@@ -34,7 +34,7 @@ export function LoginUser(payload){
             console.log(error)
             }
     }
-}
+} */
 
 export function RegisterUser(payload){
     return async function(dispacth){
