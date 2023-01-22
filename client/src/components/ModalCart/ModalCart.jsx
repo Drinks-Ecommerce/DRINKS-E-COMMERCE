@@ -5,6 +5,7 @@ import { postInCart } from '../../action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img, type, brand}) => {
 
@@ -12,6 +13,7 @@ const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img,
 
     let [number, setNumber] = useState(null);
     const User = useSelector((state) => state.user);
+    const MSG = useSelector((state) => state.msg);
 
     const dispatch = useDispatch();
     
@@ -19,6 +21,7 @@ const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img,
         const name = event.target.name
         setNumber((event.target.value))
     }
+
 
     const handleClick = () => {
         
@@ -53,20 +56,17 @@ const ModalCart = ({ open, onClose, idProduct, idUser, name, amount, price, img,
         }
     
         else{
-
-            
-            
             const obj = {
                 productId: idProduct,
                 userId: idUser,
                 quantity: Number(number)
             }
-
-            console.log(obj)
-
-                dispatch(postInCart(obj));
-        }
             
+            dispatch(postInCart(obj));
+        }
+
+        onClose(!open)
+
     }
 
   return(

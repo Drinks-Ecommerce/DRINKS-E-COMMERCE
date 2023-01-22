@@ -139,7 +139,7 @@ const onSubmit = (e) => {
 						{errors.shippingMethod?.type === 'required' && <p>This field is required</p>}
 					</div>
 
-					<button>Pay now</button>
+					<button className='bg-purple-300'>Pay now</button>
 				</form>	
 				{
 					url?.data?(<div>

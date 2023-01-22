@@ -125,8 +125,8 @@ export function getByOrigin(payload){
 // --------------------------- ACTIONS PRODUCTS ------------------------------------
 
 export function postInCart(payload){
-    return async function(){
-        await axios.post("http://localhost:3000/cart/addProduct", payload);
+    return async function(dispatch){
+         return axios.post("http://localhost:3000/cart/addProduct", payload).then( (rest) => alert(rest.data));
     }
 }
 

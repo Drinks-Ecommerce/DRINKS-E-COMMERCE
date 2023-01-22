@@ -31,6 +31,24 @@ export default function Carrito({set, open2}){
 
     return suma;
   }
+  
+  const handleClick = (e) => {
+
+    e.preventDefault();
+
+    if(Object.entries(User).length === 0){
+      alert("¡Entrada no permitida! Por favor, inicia sesión.");
+    }
+
+    if(Object.entries(User).length > 0 && Object.entries(allProductsInCart.productcarts).length === 0){
+      alert("¡El carrito está vacío!");
+    }
+
+    else{
+      alert("Loading... Payment");
+    }
+
+  }
 
   const renderBannerStock = () => {
     return (
@@ -78,15 +96,14 @@ export default function Carrito({set, open2}){
       </div>
 
         <div className="space-y-1 mr-3 mt-10 mb-3 text-right text-3xl">
-		      <p>Total amount: <span className="text-3xl font-semibold">
-            {Object?.entries(User).length === 0 ? "$" + SUMA() : "$" + allProductsInCart.total}
-          </span></p>
+		      Total: <span className="text-3xl font-semibold">
+            {Object?.entries(User).length === 0 ? "$" + SUMA() : !(allProductsInCart.total) ? "$0" : "$" + (allProductsInCart.total)}
+                 </span>
 	      </div>
 
 	    <div className="flex justify-end space-x-4">
-		
-		    <button type="button" className="px-2 mr-3 py-2 border rounded-md dark:bg-indigo-400 dark:text-gray-900 dark:border-indigo-400">
-			    <a className="sr-only sm:not-sr-only">Comprar</a>
+		    <button type="button" className="px-2 mr-3 py-2 border rounded-md bg-indigo-400 text-gray-900 border-indigo-400" onClick={handleClick}>
+			    <span className="sr-only sm:not-sr-only">Comprar</span>
 		    </button>
 	    </div>
   </div>
