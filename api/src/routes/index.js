@@ -99,7 +99,10 @@ router.use('/wishlist',wishlist)
 
 
 /* *************************  routes WISHLIST   **************************************** */
-router.use("/wishlist", postWishList, getWishList, deleteWishList)
+router.use("/wishlist",getWishList)
+router.use("/wishlist/delete",deleteWishList)
+router.use("/wishlist",postWishList)
+
 
 
 module.exports = router;
