@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { /*payment*/ } from '../../action/index.js';
+import { payment } from '../../action/index.js';
 import Encabezado from '../Encabezado/Encabezado.jsx';
 
 export default function Payment() {
@@ -11,6 +11,7 @@ const { register, handleSubmit, formState: { errors } } = useForm();
 
 const [input, setInput] = useState({
 	name: '',
+	email: '',
 	lastname: '',
 	dni: '',
 	phone: '',
@@ -30,22 +31,10 @@ function handleChange(e) {
 };
 
 const onSubmit = (e) => {
-	console.log(e);
-	// e.preventDefault();
-	// dispatch(payment(input));
+	console.log("PEPEPEP", input);
+	dispatch(payment(input));
 	alert('Payment made successfully');
-	setInput({
-		name: '',
-		lastname: '',
-		dni: '',
-		phone: '',
-		postalcode: '',
-		city: '',
-		address: '',
-		number: '',
-		flat: '',
-		method: ''
-	});
+	
 };
 
 	return(
@@ -62,6 +51,14 @@ const onSubmit = (e) => {
 							value: input.name 
 						})} maxlength='20' onChange={e => handleChange(e)} />
 						{errors.name?.type === 'required' && <p>This field is required</p>}
+					</div>
+
+					<div>
+						<label>Email</label>
+						<input type="text" {...register('email', {
+							required: true,
+							value: input.email
+						})} onChange={e => handleChange(e)} />
 					</div>
 
 					<div>
@@ -149,7 +146,7 @@ const onSubmit = (e) => {
 						{errors.method?.type === 'required' && <p>This field is required</p>}
 					</div>
 
-					<button>Pay now</button>
+					<button className='bg-purple-300'>Pay now</button>
 				</form>	
 			</div>
 		</div>

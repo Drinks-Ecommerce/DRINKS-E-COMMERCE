@@ -252,9 +252,12 @@ function rootReducer(state = initialState, action){
 
 
         case 'PAYMENT_POST': 
+
+            console.log("resultado", action.payload)
+
             return {
                 ...state
-            }
+        }
 
         case 'GET_WISHLIST':
             return {
