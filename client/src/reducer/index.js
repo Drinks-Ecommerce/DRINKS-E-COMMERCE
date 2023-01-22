@@ -9,6 +9,7 @@ const initialState = {
     userRol: [],
     userr:[],
     wishlist: [],
+    urlPayment:"",
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
@@ -252,12 +253,10 @@ function rootReducer(state = initialState, action){
 
 
         case 'PAYMENT_POST': 
-
-            console.log("resultado", action.payload)
-
             return {
-                ...state
-        }
+                ...state,
+                urlPayment:action.payload
+            }
 
         case 'GET_WISHLIST':
             return {
