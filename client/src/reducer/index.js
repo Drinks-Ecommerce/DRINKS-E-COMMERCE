@@ -11,6 +11,8 @@ const initialState = {
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
+    isAuthenticated: true,
+    reviews:[]
 
 }
 
@@ -230,8 +232,17 @@ function rootReducer(state = initialState, action){
                 console.log("state LOGIN_USER");
                 return {
                     ...state,
+                    isAuthenticated: true,
                     user: action.payload
             }
+
+
+            case "LOGOUT_USER":
+                return {
+                  ...state,
+                  isAuthenticated: false,
+                  user: {}
+                };
 
         case 'FILL_USER':
 
@@ -252,6 +263,14 @@ function rootReducer(state = initialState, action){
         case 'PAYMENT_POST': 
             return {
                 ...state
+            }
+
+        case 'POST_REVIEWS':
+            return {
+                ...state,
+                reviews: action.payload
+
+
             }
 
 

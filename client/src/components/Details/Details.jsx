@@ -1,11 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetail } from '../../action/index.js';
+import { getDetail, postReviews } from '../../action/index.js';
 
 import Encabezado from '../Encabezado/Encabezado.jsx';
 import Footer from '../Footer/Footer.jsx';
 import images from '../icons/images.js';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'//////hoy 12.26
+import { faStar } from '@fortawesome/free-solid-svg-icons'//////hoy 12.26
+
+
 
 export default function Detail() {
 
@@ -13,9 +19,44 @@ export default function Detail() {
 	const dispatch = useDispatch();
 	const details = useSelector(state => state.details);
 
+	const user = useSelector(state => state.user);///////////////////////hoy 12.26
+
+	const isAuthenticated = useSelector(state => state.isAuthenticated);
+
+
+	 const [rating, setRating] = useState(0);///hoy 12.26
+    const [comment, setComment] = useState('');///hoy 12.26
+	////////////////////////
+
 	useEffect(() => {
 		dispatch(getDetail(id));
 	},[dispatch]);
+
+		const handleClick = (selectedRating) => {//////hoy 12.26
+			setRating(selectedRating);
+	 	};
+
+
+	
+	  	const handleCommentChange = (event) => {//hoy 12.26
+			/* setComment(event.target.value); */
+			setComment({
+				...comment,
+				[event.target.name] : event.target.value
+			  })
+	  	};
+
+
+	
+	  	const handleSubmit = (event) => {//hoy 12.26
+			event.preventDefault();
+		
+    		/* const reviewData = { rating: rating, comment: comment }; */
+    		dispatch(postReviews(rating, comment));
+		
+	  };
+
+	
 
 	return(
 
@@ -156,11 +197,94 @@ export default function Detail() {
       			</div>
     		</div>
 
+			
+
+<div>
+      {isAuthenticated ? (
+        <div>
+           <form onSubmit={handleSubmit}>
+        <div>
+          {[1, 2, 3, 4, 5].map((star) => (
+           <FontAwesomeIcon icon={faStar} 
+              key={star}
+              color={star <= rating ? '#ffc107' : '#e4e5e9'} //#ffc107=>AMARILLO #e4e5e9=>GRIS
+              onClick={() => handleClick(star)}
+            />
+          ))}
+        </div>
+
+		<br></br>
+		<br></br>
+
+        <div>
+  				{ details.map(e => {
+    				return <input className="bg-gray-50 border border-gray-300"
+     						type="text"
+      						value={e.id}
+      						onChange={handleCommentChange}
+    						>
+    						</input>
+  							})}
+		</div>
+
+		<br></br>
+		<br></br>
+
+		<div>
+  				 { Object.values(user).map(e => { 
+					
+    			return <input className="bg-gray-50 border border-gray-300"
+      					type="text"
+      					value={e.id}
+      					onChange={handleCommentChange}
+    					>
+    					</input>
+ 						 })}
+		</div>
+
+		<br></br>
+		<br></br>
+
+        				<textarea
+          				placeholder="Escribe aquí tu comentario"
+          				value={comment}
+          				onChange={handleCommentChange}
+        				/>
+    
+
+  		<br></br>
+		<br></br>
+
+		<button  type="submit">
+       		 ENVIAR
+       	</button>
+
+
+      	</form>
+
+
+    </div>
+
+      ) : (
+        <div>Por favor inicia sesión para dejar una review</div>
+      )}
+    </div>
+
+
   		</div>
+		  
   
-	</div>				
+	</div>		
+
+		
 
 	<Footer />
 	</div>
 	)
 }
+
+
+		
+	
+	
+	

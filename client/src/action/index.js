@@ -22,21 +22,6 @@ export function creatProducts(payload){
     };
 };
 
-export function LoginUser(payload){
-    return async function(dispatch){
-        try{
-            let json = await axios.post("http://localhost:3000/signIn", payload);
-            return dispatch({
-                type: "LOGIN_USER",
-                payload: json
-            })
-        } catch(error){
-            console.log(error)
-            }
-    }
-}
-
-
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
 //         const json = await axios.delete(`http://localhost:3000/products/${id}`);
@@ -329,3 +314,52 @@ export function getAllOrigins() {
     }
     
 
+    /* -------------------------User Authentication-------------------------- */
+
+
+
+export function LoginUser(payload){
+    return async function(dispatch){
+        try{
+            let json = await axios.post("http://localhost:3000/signIn", payload);
+            return dispatch({
+                type: "LOGIN_USER",
+                payload: json
+            })
+        } catch(error){
+            console.log(error)
+            }
+    }
+}
+
+
+
+
+export default function LogoutUser() {
+  return {
+    type: "LOGOUT_USER"
+  };
+}
+
+
+/* -----------------Actions Reviews-------------------- */
+
+export function postReviews(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/review/addReview",payload);
+        return dispatch({
+            type: 'POST_REVIEWS',
+            payload: json.data
+        });
+    };
+};
+
+export function getReviews() {
+    return async function(dispatch) {
+        const json = await axios("http://localhost:3000/review");
+        return dispatch({
+            type: 'GET_REVIEWS',
+            payload: json.data
+        });
+    };
+};
