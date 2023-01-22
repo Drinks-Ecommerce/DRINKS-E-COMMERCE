@@ -237,6 +237,7 @@ function rootReducer(state = initialState, action){
 
                 window.localStorage.setItem("cookie", JSON.stringify(action.payload.data.userFound))
                 console.log("state LOGIN_USER");
+                console.log({...state})
                 return {
                     ...state,
                     user: action.payload.data.userFound

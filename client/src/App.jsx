@@ -11,25 +11,37 @@ import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
  import User from './components/User/User'
+ import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
  
  import Payment from './components/Payment/Payment.jsx'
 
 import './App.css'
-import { useSelector } from 'react-redux'
+
 
 
 function App(){
-  const user = useSelector((state) => state.User)
-  console.log(user)
+
   return (
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/cards" element={<Cards/>}/>
+        <Route exact path='/cards'
+        element={
+          <PrivateRoute>
+            <Cards/>
+          </PrivateRoute>
+        }/>
         <Route exact path="/createProducts" element={<ProductCreate/>}/>
         <Route exact path='cards/:id' element={<Detail/>}/>
         <Route exact path='/:id' element={<Products/>} />
-        <Route exact path='/paneladmin' element={<PanelAdmin/>} />
+        <Route 
+        exact path='/paneladmin'
+        element={
+          <PrivateRoute>
+            <PanelAdmin/>
+          </PrivateRoute>
+        }
+        />
         <Route exact path='/login' element={<Login/>} />
         <Route exact path='/register' element={<Register/>} />
         <Route exact path='/payment' element={<Payment />} />
