@@ -14,6 +14,8 @@ module.exports = (sequelize) => {
                 len: {args: [1, 5],}
             }
         },
-       
+        comment:{
+            type: DataTypes.TEXT,
+        }
     })
 };
