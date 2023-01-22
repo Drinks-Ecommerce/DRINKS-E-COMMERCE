@@ -10,7 +10,7 @@ const getRole = require("./rolesRoutes/get")
 const getUsers = require("./userRoutes/get")
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
-const postTypes = require("./typesRoutes/post") 
+const postTypes = require("./typesRoutes/post")
 const deleteproduct = require("./productRoutes/delete")
 const updateproduct = require("./productRoutes/update")
 const filterbytypes = require("./filters/bytype")
@@ -41,11 +41,15 @@ const deleteReview = require('./reviewRoutes/delete')
 const updateReview = require('./reviewRoutes/put')
 
 
+const postWishList = require("./wishlistRoutes/post")
+const getWishList = require("./wishlistRoutes/get")
+const deleteWishList = require("./wishlistRoutes/delete")
+
 /**************************** routes PRODUCTS ***************************/
 router.use("/products", getProducts);
 router.use("/products", postProducts);
 router.use("/products", deleteproduct);
-router.use("/products", updateproduct); 
+router.use("/products", updateproduct);
 
 
 /* *************************  routes TYPES   **************************************** */
@@ -71,10 +75,10 @@ router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
 
 /*******************************  routes CART  *********************************** */
-router.use('/cart',getCart)
-router.use('/cart',deleteProductCart)
-router.use('/cart',addProductCart)
-router.use('/cart',updateProductCart)
+router.use('/cart', getCart)
+router.use('/cart', deleteProductCart)
+router.use('/cart', addProductCart)
+router.use('/cart', updateProductCart)
 
 /*******************************  routes PAYMENT  *********************************** */
 router.use('/payment',addPayment)
@@ -94,6 +98,8 @@ router.use('/wishlist',wishlist)
 
 
 
+/* *************************  routes WISHLIST   **************************************** */
+router.use("/wishlist", postWishList, getWishList, deleteWishList)
 
 
 module.exports = router;

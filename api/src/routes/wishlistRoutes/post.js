@@ -4,7 +4,7 @@ const { Products, Wishlist } = require('../../db');
 router.post('/', async (req, res) => {
 	const {
 		userId,
-		products
+		productId
 	} = req.body;
 
 	try {
@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
 		});
 
 		const newListProduct = await Products.findAll({
-			where: { name : products },
+			where: { id: productId },
 		});
 
 		newList.addProducts(newListProduct);

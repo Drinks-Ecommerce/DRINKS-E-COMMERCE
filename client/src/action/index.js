@@ -22,6 +22,27 @@ export function creatProducts(payload){
     };
 };
 
+export function LoginUser(payload){
+    return async function(dispatch){
+        try{
+            let json = await axios.post("http://localhost:3000/signIn", payload);
+            return dispatch({
+                type: "LOGIN_USER",
+                payload: json
+            })
+        } catch(error){
+            console.log(error)
+            }
+    }
+}
+
+export function RegisterUser(payload){
+    return async function(dispacth){
+        await axios.post("http://localhost:3000/signUp", payload);
+    }
+}
+
+
 // export function deleteProduct(id) {
 //     return async function(dispacth) {
 //         const json = await axios.delete(`http://localhost:3000/products/${id}`);
@@ -93,11 +114,38 @@ export function getByBrand(payload){
 };
 
 export function getByOrigin(payload){
-    return async function(dispacth){
-        return dispacth({
+    return async function(dispatch){
+        return dispatch({
             type: 'GET_BY_ORIGIN',
             payload: payload
         })
+    }
+}
+
+// --------------------------- ACTIONS PRODUCTS ------------------------------------
+
+export function postInCart(payload){
+    return async function(){
+        await axios.post("http://localhost:3000/cart/addProduct", payload);
+    }
+}
+
+export function getInCart(id){
+    return async function(dispatch){
+        let json = await axios.get(`http://localhost:3000/cart/${id}`);
+        return dispatch({
+            type: 'GET_ALL_CART',
+            payload: json.data
+        })
+    }
+}
+
+export function DeleteProduct(idProduct, idUser){
+    return function(dispatch){
+        return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
+        .then((resp) => {
+            dispatch(getInCart(idUser));
+       })
     }
 }
 
@@ -305,9 +353,9 @@ export function getAllOrigins() {
         }
     }
 
-    export function DeleteUser(){
-        return async function(dispacth){
-            return dispacth({
+    export function DeleteUser(payload){
+        return async function(dispatch){
+            return dispatch({
                 type: 'DELETE_USER',
             })
         }
