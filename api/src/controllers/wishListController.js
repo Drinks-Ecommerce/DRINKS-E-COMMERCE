@@ -1,4 +1,4 @@
-const { Products, Wishlist } = require("../db");
+const { Products, Wishlist, User } = require("../db");
 
 const wishlist = async () => {
     const arrDB = await Wishlist.findAll({
@@ -15,7 +15,7 @@ const wishlist = async () => {
         /* console.log(el.products) */
         return {
             id: el.dataValues.id,
-            user: el.dataValues.userId,
+            user:el.dataValues.userId,
             name: el.products.map((e) => e.dataValues.name),
             img: el.products.map((e) => e.dataValues.img),
             price: el.products.map((e) => e.dataValues.price),
@@ -38,12 +38,12 @@ const wishlistByUserId = async (userId) => {
 
     const result = await userDB.map(e => {
         return {
-            id: el.dataValues.id,
-            user: el.dataValues.userId,
-            name: el.products.map((e) => e.dataValues.name),
-            img: el.products.map((e) => e.dataValues.img),
-            price: el.products.map((e) => e.dataValues.price),
-            brand: el.products.map((e) => e.dataValues.brand)
+            id: e.dataValues.id,
+            user: e.dataValues.userId,
+            name: e.products.map((e) => e.dataValues.name),
+            img: e.products.map((e) => e.dataValues.img),
+            price: e.products.map((e) => e.dataValues.price),
+            brand: e.products.map((e) => e.dataValues.brand)
         }
     })
 

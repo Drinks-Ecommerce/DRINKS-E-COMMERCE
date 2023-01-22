@@ -1,7 +1,7 @@
 const e = require("express");
 const { User, Cart, Productcart, Payment, Orderdetail} = require("../db");
 var mercadopago = require('mercadopago');
-
+const {transporter} = require("../routes/authRouter/config/emailer")
 
 
 const addPayment = async (req, res) => {
@@ -82,6 +82,16 @@ const addPayment = async (req, res) => {
                 quantity:order.quantity,
               });  
         }
+
+        await transporter.sendMail({
+            from: '"Vinario Drinks" <vinario.drinks@gmail.com>', // sender address
+            to: emailUser, // list of receivers
+            subject: "Compra realizada!", // Subject line
+            html: `<h4>Hola!</h4>
+                    <p>Queriamos agradecerte por confiar en nosotros al ralizar tu compra, esperamos que lo disfrutes <3  <br>
+                    <br>Vinario Drinks Team.<br>
+                    <p/>`, // html body
+          });
         mercadopago.preferences
         .create(preference)
         .then(function (response) {
@@ -90,6 +100,8 @@ const addPayment = async (req, res) => {
         })
         .catch(function (error) {
         console.log(error);
+
+        
     });
     } catch (err) {
         console.log(err)
