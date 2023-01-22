@@ -1,131 +1,177 @@
-import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './Register.css'
+import React from 'react'
+import Encabezado from '../Encabezado/Encabezado'
+import Footer from '../Footer/Footer'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form';
+import { postSignUp } from '../../action/index.js'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 
-import React from "react";
-
-const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,50}$/;
-//VALIDACION USUARIO
-//debe empezar con una letra minuscula o mayucula, y puede seguir con la cantidad de
-//caracteres que quiera entre 3 y 50,y estos pueden ser  letras en minusculas o mayus, digitos, guiones
-// o guiones bajos.
-
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-//VALIDACION PASSWORD
-//requiere como minimo 1 minuscula, 1 mayuscula, 1 digito y 1 caracter especial, y tiene un rango
-//entre 8 a 24
-const REGISTER_URL = '/register';
-
-function Register() {
-    const userRef = useRef();//user input nos permite establecer el foco en la entrada del usuario cuando se cargue el componente
-    const errRef = useRef();//es por si tenemos un error y necesitamos poner el foco ahi para que se pueda mostrar en pantalla.
-  
-    const [ user, setUser ] = useState('');
-    const [ validName, setValidName ] = useState(false);
-    const [ userFocus, setUserFocus ] = useState(false);//para saber si tenemos foco en ese input o no
+export default function Registrar(){
     
-      //matching password
-    const [ matchPwd, setMatchPwd ] = useState('');
-    const [ validMatch, setValidMatch ] = useState(false);
-    const [ matchFocus, setMatchFocus ] = useState(false);
-    //password
-    const [ pwd, setPwd ] = useState('');
-    const [ validPwd, setValidPwd ] = useState(false);
-    const [ PwdFocus, setPwdFocus ] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { register, handleSubmit ,formState: { errors } } = useForm();
     
 
-    const [ errMsg, setErrMsg ] = useState('');
-    const [ success, setSucces ] = useState(false)
+    const [input, setInput] = useState({
+        name: '',
+        last_name: '',
+        username: '',
+        email: '',
+        password: '',
+        img: '',
+        adult: '',
+    });
+    
+    const onSubmit = e =>{
+        console.log(e)
 
-    useEffect( () => {
-        userRef.current.focus();
-    }, [])
-
-    useEffect( () => {
-        setValidName(USER_REGEX.test(user));
-    }, [user])
-
-    // useEffect( () => { //validate username. cada vez que
-    //     //este useEffect sera aplicado al UserName y aca se valida el nombre
-    //     //ahora el state User esta en el arreglo de dependencia, entonces cada vez que cambie 
-    //     //chequeará la validacion
-    //     const result = USER_REGEX.test(user);
-    //     console.log(result);
-    //     console.log(user);
-    //     setValidName(result);
-    // }, [user])
-
-    // useEffect( () => {
-    //     const result = PWD_REGEX.test(pwd);
-    //     console.log(result);
-    //     console.log(pwd);
-    //     setValidPwd(result);
-    //     const match = pwd === matchPwd;
-    //     setValidMatch(match);
-    // }, [pwd, matchPwd])
-    useEffect( () => {
-        setValidPwd(PWD_REGEX.test(pwd));
-        setValidMatch(pwd === matchPwd);
-    }, [pwd, matchPwd])
-
-
-    useEffect( () => { //cuandio ambie la info, se borra el msj de error
-        setErrMsg('');
-    }, [user, pwd, matchPwd])
-
-    const handleSubmit = async (e) =>{
-        e.preventDefault();
-        const v1 = USER_REGEX.test(user);
-        const v2 = PWD_REGEX.test(pwd);
-        if(!v1 || !v2) {
-            setErrMsg("Invalid Entry");
-            return;
-        }
-        try {
-            
-        } catch (error) {
-            
-        }
+        dispatch(postSignUp(input));
+        alert("Usuario creado exitosamente")
+        setInput({
+            name: '',
+            last_name: '',
+            username: '',
+            email: '',
+            password: '',
+        })
+        navigate('/')
     }
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        setInput({...input, 
+            [e.target.name]: [e.target.value]
+        })
+    }
+
+   
+
     return (
-        <section>
-            <p ref={errRef} className={errMsg ? "errmsg" :
-        "offscreen"} aria-live="assertive">{errMsg}</p>
-        <h1>Register</h1>
-        <form>
-            <label htmlFor="username">
-                Usuario:
-                <span className={validName ? "valid" : "hide"}>
-                    <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validName || !user ? "hide" : "invalid"}>
-                    <FontAwesomeIcon icon={faTimes} />
-                </span>
-            </label>
-            <input 
-                type="text"
-                id="username"
-                ref={userRef}
-                autoComplete="off"
-                onChange={ (e) => setUser(e.target.value)}
-                required
-                aria-invalid={validName ? "false" : "true"}
-                aria-describedby="uidnote"
-                onFocus={() => setUserFocus(true)}
-                onBlur={() => setUserFocus(false)}
-            />
-            <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                De 3 a 50 caracteres. <br />
-                Debe empezar con una letra. <br />
-                Se permiten letras, numeros, guiones y guiones bajos.
-            </p>
 
-        </form>
-        </section>
-    )
-}
+        <div className="flex flex-col bg-gray-400 h-screen">
 
-export default Register;
+            <div>
+                <Encabezado />
+            </div>
+
+            <div className="mx-auto mt-4 mb-4 flex flex-col max-w-3xl w-4/5 p-6 rounded-md sm:p-6 bg-gray-900 text-gray-100 ">
+
+	            <div className="mb-4 text-center">
+		            <h1 className="my-3 text-4xl font-bold underline">Registrarse</h1>
+	            </div>
+
+	            <form  onSubmit={ handleSubmit(onSubmit) } className="space-y-5 ng-untouched ng-pristine ng-valid">
+
+                    <div className='flex flex-row justify-between mx-8'>
+
+
+                    <div className='flex flex-col'>
+
+				    <div className="space-y-1 mb-4">
+					        <label className="block mb-1 text-sm ml-1">Nombre</label>
+				            <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 
+                             text-gray-100" 
+                             {...register("name", {
+                                required: true,
+                                value: input.name ,
+                                minLength: 3})}
+                             onChange={ (e) => handleChange(e) }
+                             />
+				    </div>
+                    { errors.name?.type === 'required' && <p>Este campo es obligatorio</p> }
+                    { errors.name?.type === 'minLength' && <p>Debe tener al menos 3 caracteres</p> }
+                    <div className="space-y-1 mb-4">
+					    <label className="block mb-1 text-sm ml-1">Apellido</label>
+				        <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+                         text-gray-100" 
+                         
+                         {
+                            ...register("last_name", {
+                                required: true,
+                                value: input.last_name,
+                                minLength: 3
+                            })
+                         }
+                         onChange={ (e) => handleChange(e) }
+                         />
+				    </div>
+                    { errors.last_name?.type === 'required' && <p>Este campo es obligatorio</p> }
+                    { errors.last_name?.type === 'minLength' && <p>Debe tener al menos 3 caracteres</p> }
+
+                    <div className="space-y-1 mb-2">
+					    <label className="block mb-1 text-sm ml-1">Nombre de usuario</label>
+				        <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+                         text-gray-100" 
+                         {...register("username", {
+                             required: true,
+                            value: input.username,
+                            maxLength: 30                            
+                         })}
+                         onChange={ (e) => handleChange(e) }
+                         />
+				    </div>
+                    { errors.username?.type === 'required' && <p>Este campo es obligatorio</p> }
+                    { errors.username?.type === 'maxLength' && <p>Debe tener maximo 30 caracteres</p> }
+                </div>
+
+                <div className='flex flex-col'>
+
+                    <div className="space-y-1 mb-4">
+				            <label className="block mb-1 text-sm ml-1">Correo electrónico</label>
+				            <input type="email" placeholder="pasarelpf@example.com" className="w-full px-3 py-2 border rounded-md border-gray-700
+                             bg-gray-900 text-gray-100" 
+                             {
+                                 ...register("email", {
+                                     required: true,
+                                     value: input.email,
+                                     pattern: /^[A-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[A-Z]{2,4}$/i,
+                                    })
+                            }
+                                onChange={ (e) => handleChange(e) }
+                            />
+			        </div>
+                    { errors.email?.type === 'required' && <p>Este campo es obligatorio</p> }
+                    { errors.email?.type === 'pattern' && <p>Debe tener formato de Email.</p> }
+
+                    <div className="space-y-1">
+					    <label className="block mb-1 text-sm ml-1">Contraseña</label>
+				        <input type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+                         text-gray-100" 
+                         {
+                             ...register("password", {
+                                 required: true,
+                                 value: input.password,
+                                 minLength: 5,
+                                })
+                            }
+                            onChange={ (e) => handleChange(e) }
+                         />
+				    </div>
+                        { errors.password?.type === 'required' && <p>Este campo es obligatorio</p> }
+                        { errors.password?.type === 'minLength' && <p>Minimo se requieren 5 caracteres.</p> }		
+                    </div>
+                    </div>
+
+		            <div className="space-y-1">
+			            <div>
+				            <button className="flex px-8 py-3 mb-3 font-semibold rounded-md bg-teal-400 text-gray-900 mx-auto">Registrarse</button>
+			            </div>
+
+                        <p className="px-2 mr-1 text-sm text-center text-gray-400">¿Ya tienes una cuenta?
+                            <Link to='/login'>
+				                <a rel="noopener noreferrer" href="#" className="hover:underline text-indigo-400"> Inicia sesión</a>.
+                            </Link>
+			            </p>
+		            </div>
+	            </form>
+            </div>
+
+            <div className="container-footer mt-auto">
+                <Footer />
+            </div>
+    </div>
+  )
+ }

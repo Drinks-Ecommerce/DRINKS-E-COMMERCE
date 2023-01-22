@@ -4,8 +4,6 @@ const { User, Role } = require("../../db");
 const { Op } = require("sequelize");
 const router = Router();
 
-
-
 router.put("/:id", async(req,res)=>{
     try{
             const { id } = req.params;
@@ -25,7 +23,7 @@ router.put("/:id", async(req,res)=>{
                 where:{id}
             })
 
-            res.send({msg:"user update exit"})
+            res.send({msg:"user update exit"},user)
     } catch (error){
         console.log(error)
         return res.status(400).json({ msg: error.msg })

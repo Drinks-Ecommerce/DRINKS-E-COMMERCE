@@ -49,6 +49,7 @@ module.exports = (sequelize) => {
         },
         is_banned:{
             type:DataTypes.BOOLEAN,
+            defaultValue: false
         }
     });
 };
