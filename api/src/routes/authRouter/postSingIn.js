@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     console.log(userFound)
     console.log(userFound.roles)
 
-    res.json({ userFound})
+    res.json({userFound})
 
 
 })

@@ -14,7 +14,7 @@ import Profile from './components/Profile/Profile'
 import { FillUser } from './action'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import Wishlist from './components/Wishlist/Wishlist/Wishlist.jsx';
+import Wishlist from './components/Wishlist/Wishlist.jsx';
 
 import './App.css'
 

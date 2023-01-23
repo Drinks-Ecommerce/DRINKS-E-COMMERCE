@@ -93,6 +93,12 @@ function rootReducer(state = initialState, action){
                     ...state,
                     allProductsCart: action.payload
             }
+
+        case 'GET_WISHLIST':
+            return {
+                ...state,
+                wishlist: action.payload
+            }
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :
@@ -256,11 +262,7 @@ function rootReducer(state = initialState, action){
                 ...state
             }
 
-        case 'GET_WISHLIST':
-            return {
-                ...state,
-                wishlist: action.payload
-            }
+
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

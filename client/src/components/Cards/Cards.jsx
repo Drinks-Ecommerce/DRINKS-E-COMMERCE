@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postInCart } from "../../action";
+import { postInCart, postWishlist } from "../../action";
 import { useState } from "react";
 import ModalCart from "../ModalCart/ModalCart";
+import images from '../icons/images.js';
+
 
 export default function Cards({id, name, stock, amount, price, description, img, type, brand, calification}){
 
@@ -9,6 +11,20 @@ export default function Cards({id, name, stock, amount, price, description, img,
 	const User = useSelector((state) => state.user);
 
 	const [openModal, setOpenModal] = useState(false);
+
+	function handleClick(e) {
+		e.preventDefault();
+		if(Object.entries(User).length === 0) {
+		 	return alert("It's not registered");
+		} else {
+			const obj = {
+				userId: User.id,
+				productId: id
+			}
+			dispatch(postWishlist(obj));
+			alert('Product added successfully')
+		};
+	};
     
     return(
 		<div class="max-w-2xl mx-auto mt-2">
@@ -66,6 +82,9 @@ export default function Cards({id, name, stock, amount, price, description, img,
 					<button onClick={() => setOpenModal(true)} 
 						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 							Agregar</button>
+					<button onClick={e => handleClick(e)}>
+						<img src={images.img21} className='h-20 w-20' />
+					</button>
 
 				</div>
 			</div>
