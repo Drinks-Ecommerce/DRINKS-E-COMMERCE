@@ -6,6 +6,7 @@ import atlantica from './atlantica.png'
 import Vinario from './2.png'
 import Carrito from './Carrito.png'
 import wine from './wine.png'
+import Corazon from './corazon.png'
 
 import WS from './WS.png';
 import IG from './IG.png';
@@ -28,4 +29,5 @@ export default {
     "img10": FAV,
     "img11": wine,
     "img20": login,
+    "img21": Corazon,
 }

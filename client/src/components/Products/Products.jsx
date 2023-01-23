@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createRoutesFromElements, useParams } from "react-router"
+import { useParams } from "react-router"
 import { useDispatch } from "react-redux";
 import { filterByTypes, getProducts, filterByPriceOrder, getByBrand, getByOrigin, getAllBrands, getAllOrigins} from "../../action";
 import { useSelector } from "react-redux";

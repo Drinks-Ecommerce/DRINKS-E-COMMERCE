@@ -8,6 +8,7 @@ const getTypes = require("./typesRoutes/gets")
 const postRole = require("./rolesRoutes/post")
 const getRole = require("./rolesRoutes/get")
 const getUsers = require("./userRoutes/get")
+const postUser = require("./userRoutes/post")
 const postSingUp = require("./authRouter/postSingUp")
 const postSingIn = require("./authRouter/postSingIn")
 const postTypes = require("./typesRoutes/post")
@@ -33,7 +34,6 @@ const deletePayment = require("./paymentRoutes/delete")
 const checkout = require("./mercadopago/checkout");
 const { route } = require('./mercadopago/checkout');
 
-const wishlist = require('./wishlistRoutes/post.js');
 
 const addReview = require('./reviewRoutes/post')
 const getReview = require('./reviewRoutes/get')
@@ -70,6 +70,7 @@ router.use("/roles", getRole);
 router.use("/users", getUsers);
 router.use("/users/delete", deleteUser);
 router.use("/users/update", updateUser);
+router.use("/users/add", postUser);
 router.use("/users/id", userByID);
 router.use("/signUp", postSingUp);
 router.use("/signIn", postSingIn)
@@ -94,7 +95,6 @@ router.use("/review", deleteReview)
 router.use("/review", updateReview)
 
 
-router.use('/wishlist',wishlist)
 
 
 

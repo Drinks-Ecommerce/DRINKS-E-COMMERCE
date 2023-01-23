@@ -1,27 +1,51 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postInCart } from "../../action";
+import { postInCart, postWishlist } from "../../action";
 import { useState } from "react";
 import ModalCart from "../ModalCart/ModalCart";
+import images from '../icons/images.js';
+/* import { useNavigate } from "react-router-dom"; */
+import { Link } from 'react-router-dom';
 
 export default function Cards({id, name, stock, amount, price, description, img, type, brand, calification}){
 
 	const dispatch = useDispatch();
 	const User = useSelector((state) => state.user);
-
+/* 	const navigate = useNavigate();
+ */
 	const [openModal, setOpenModal] = useState(false);
+
+	function handleChange(e) {
+		e.preventDefault();
+		if(Object.entries(User).length === 0) {
+		 	return alert("It's not registered");
+		} else {
+			const obj = {
+				userId: User.id,
+				productId: id
+			}
+			dispatch(postWishlist(obj));
+			alert('Product added successfully')
+		};
+	};
     
+	
+/* 	const handleClick = (e) => {
+		e.preventDefault();
+		navigate(`/cards/${id}`);
+	} */
+
     return(
 		<div class="max-w-2xl mx-auto mt-2">
 
 
-	<div class=" bg-white flex flex-col justify-between shadow-md rounded-lg max-w-sm h-[500px] border-gray-700">
+	<div className=" bg-white flex flex-col justify-between shadow-md rounded-lg max-w-sm h-[500px] border-gray-700">
 
-		<ModalCart open={openModal} onClose={() => setOpenModal(false)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
+		<ModalCart open={openModal} onClose={() => setOpenModal(!open)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
 		type={type} brand={brand} />
 
-		<a href="#">
+		<Link to={`/cards/${id}`}>
 			<img class="rounded-t-lg p-8 h-[300px] bg-cover" src={img} alt="product image" />
-        </a>
+        </Link>
 			<div class="px-5 pb-5">
 				<a href="#">
                     <h3 class="text-orange-300 font-semibold text-xl tracking-tight">{brand}</h3>
@@ -66,7 +90,9 @@ export default function Cards({id, name, stock, amount, price, description, img,
 					<button onClick={() => setOpenModal(true)} 
 						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 							Agregar</button>
-
+					<button onClick={e => handleChange(e)}>
+						<img src={images.img21} className='h-20 w-20' />
+					</button>
 				</div>
 			</div>
 	</div>

@@ -10,7 +10,7 @@ const router = Router();
 router.post("/", async (req, res) => {
 
     try {
-        const { username, name, last_name, email, password, img, adult, roles } = req.body;
+        const { username, name, last_name, email, password, img, adult } = req.body;
         const passwordHash = await encrypt(password)
 
         const newUser = await User.create({
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
         })
 
         let roleDb = await Role.findAll({
-            where: { name: "user" }
+            where: { name: "user"}
         })
 
         if (adult === true) {

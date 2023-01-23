@@ -34,6 +34,11 @@ export default function Encabezado(){
         <div className="flex">
           <img src={images.img4} className="w-25  h-25" alt="" />
         </div>
+        <div>
+          <Link to={'/wishlist'}>
+            <img src={images.img21} className='h-10 w-10' />
+          </Link>
+        </div>
 
         <div className="flex items-center md:space-x-4">
           <SearchBar />

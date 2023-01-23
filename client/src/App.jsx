@@ -1,7 +1,4 @@
-import { 
-  Route,
-  Routes,
-} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home/Home'
 import Cards from './components/Cards/Cards'
 import ProductCreate from './components/ProductCreate/ProductCreate'
@@ -10,6 +7,13 @@ import Products from './components/Products/Products'
 import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+import Payment from './components/Payment/Payment.jsx'
+import User from './components/User/User'
+import Profile from './components/Profile/Profile'
+import { FillUser } from './action'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import Wishlist from './components/Wishlist/Wishlist.jsx';
  import User from './components/User/User'
  import { AuthContextProvider } from './components/AuthContext/AuthContext.jsx'
  import Payment from './components/Payment/Payment.jsx'
@@ -19,7 +23,19 @@ import './App.css'
 
 
 
+
+
 function App(){
+  const User = useSelector((state) => state.User)
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+  
+    if(window.localStorage.getItem("cookie")){
+      dispatch(FillUser())
+    }
+  },[])
+  
 
   return (
     <div className="App">
@@ -38,6 +54,8 @@ function App(){
               <Route exact path='/private/paneladmin' element={<PanelAdmin/>}/>
               <Route exact path='/private/payment' element={<Payment />} />
               <Route exact path='/private/user' element={<User/>} />
+        <Route exact path='/wishlist' element={<Wishlist />} />
+        <Route exact path='/profile' element={<Profile />} />
           </Route>
         </Routes>
       </AuthContextProvider>
