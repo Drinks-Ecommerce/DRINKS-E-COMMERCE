@@ -14,9 +14,9 @@ import { FillUser } from './action'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import Wishlist from './components/Wishlist/Wishlist.jsx';
- import User from './components/User/User'
- import { AuthContextProvider } from './components/AuthContext/AuthContext.jsx'
- import Payment from './components/Payment/Payment.jsx'
+import User from './components/User/User'
+import { AuthContextProvider } from './components/AuthContext/AuthContext.jsx'
+import Payment from './components/Payment/Payment.jsx'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import PublicRoute from './components/PublicRoute/PublicRoute'
 import './App.css'
@@ -48,14 +48,14 @@ function App(){
               <Route exact path='/:id' element={<Products/>} />
               <Route exact path='/login' element={<Login/>} />
               <Route exact path='/register' element={<Register/>} />
+              <Route exact path='/wishlist' element={<Wishlist />} />
+              <Route exact path='/profile' element={<Profile />} />
           </Route>
           <Route path='/private' element={<PrivateRoute />}>
               <Route exact path="/private/createProducts" element={<ProductCreate/>}/>
               <Route exact path='/private/paneladmin' element={<PanelAdmin/>}/>
               <Route exact path='/private/payment' element={<Payment />} />
               <Route exact path='/private/user' element={<User/>} />
-        <Route exact path='/wishlist' element={<Wishlist />} />
-        <Route exact path='/profile' element={<Profile />} />
           </Route>
         </Routes>
       </AuthContextProvider>
