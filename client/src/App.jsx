@@ -18,9 +18,19 @@ import './App.css'
 import { useSelector } from 'react-redux'
 
 
+
+
 function App(){
-  const user = useSelector((state) => state.User)
-  console.log(user)
+  const User = useSelector((state) => state.User)
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+  
+    if(window.localStorage.getItem("cookie")){
+      dispatch(FillUser())
+    }
+  },[])
+  
   return (
     <div className="App">
       <Routes>
@@ -35,6 +45,7 @@ function App(){
         <Route exact path='/payment' element={<Payment />} />
         <Route exact path='/user' element={<User/>} />
         <Route exact path='/wishlist' element={<Wishlist />} />
+        <Route exact path='/profile' element={<Profile />} />
       </Routes>
     </div>
   )

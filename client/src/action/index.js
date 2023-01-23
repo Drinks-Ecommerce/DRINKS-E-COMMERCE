@@ -125,8 +125,16 @@ export function getByOrigin(payload){
 // --------------------------- ACTIONS PRODUCTS ------------------------------------
 
 export function postInCart(payload){
+    return  function(dispatch){
+       return axios.post("http://localhost:3000/cart/addProduct", payload);
+}}
+
+export function postInCartStorage(payload){
     return async function(dispatch){
-         return axios.post("http://localhost:3000/cart/addProduct", payload).then( (rest) => alert(rest.data));
+        return dispatch({
+            type: 'POST_CART_LOCAL_STORAGE',
+            payload: payload
+        })
     }
 }
 

@@ -4,6 +4,8 @@ import { getInCart } from "../../action";
 import { useDispatch } from "react-redux";
 import ScrollCart from "../ScrollCart/ScrollCart";
 import { render } from "react-dom";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Carrito({set, open2}){
 
@@ -16,6 +18,7 @@ export default function Carrito({set, open2}){
   const [open, setOpen] = useState({open2});
   const User = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getInCart(User.id));
@@ -37,17 +40,19 @@ export default function Carrito({set, open2}){
     e.preventDefault();
 
     if(Object.entries(User).length === 0){
-      alert("¡Entrada no permitida! Por favor, inicia sesión.");
+      
+      return toast.error('Por favor, inicia sesión.');
+          
     }
-
+    
     if(Object.entries(User).length > 0 && Object.entries(allProductsInCart.productcarts).length === 0){
-      alert("¡El carrito está vacío!");
+      toast.error('El carrito está vacío.');
     }
-
+    
     else{
-      alert("Loading... Payment");
+      return navigate('/payment');
     }
-
+    
   }
 
   const renderBannerStock = () => {
@@ -87,7 +92,6 @@ export default function Carrito({set, open2}){
         (Object.entries(User).length === 0) ? (!window.localStorage.getItem("productos-carrito")) ? (renderBannerStock()) : (<ScrollCart cart={carrito} />)
   
         : 
-          
        
         (Object.entries(allProductsInCart).length === 0) ? (renderBannerStock()) :(Object.entries(allProductsInCart.productcarts).length === 0) ? (renderBannerStock()) :
         (<ScrollCart cart={allProductsInCart.productcarts}/>)
@@ -102,10 +106,12 @@ export default function Carrito({set, open2}){
 	      </div>
 
 	    <div className="flex justify-end space-x-4">
-		    <button type="button" className="px-2 mr-3 py-2 border rounded-md bg-indigo-400 text-gray-900 border-indigo-400" onClick={handleClick}>
-			    <span className="sr-only sm:not-sr-only">Comprar</span>
+		    <button type="button" className="px-2 mr-3 py-2 border rounded-md bg-indigo-400 text-gray-900 border-indigo-400" onClick={(e) => handleClick(e)}>
+			    <a className="sr-only sm:not-sr-only">Comprar</a>
 		    </button>
 	    </div>
+
+      <Toaster />
   </div>
   )
 }
