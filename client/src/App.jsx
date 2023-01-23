@@ -10,31 +10,17 @@ import Register from './components/Register/Register'
 import Payment from './components/Payment/Payment.jsx'
 import User from './components/User/User'
 import Profile from './components/Profile/Profile'
-
 import { FillUser } from './action'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import Wishlist from './components/Wishlist/Wishlist.jsx';
-
 import './App.css'
+import { useSelector } from 'react-redux'
 
 
 function App(){
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if(window.localStorage.getItem("cookie")){
-      dispatch(FillUser())
-    }
-
-    localStorage.setItem("Mathias", 300);
-
-    {
-      console.log(localStorage.getItem("Mathias"))
-    }
-  },[])
-
+  const user = useSelector((state) => state.User)
+  console.log(user)
   return (
     <div className="App">
       <Routes>

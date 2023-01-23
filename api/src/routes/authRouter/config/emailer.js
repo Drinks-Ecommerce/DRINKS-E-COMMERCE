@@ -5,7 +5,7 @@ const {
 } = process.env;
 
 
-const enviarMail = async (mail, token) => {
+/* const enviarMail = async (mail, token) => {
   const config = {
     host: "smtp.gmail.com",
     port: 587,
@@ -28,7 +28,23 @@ const enviarMail = async (mail, token) => {
   const info = await transport.sendMail(mensaje)
   console.log(info)
   console.log("mail enviado")
+} */
 
-}
-module.exports = { enviarMail };
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  auth: {
+    user: MAIL, // generated ethereal user
+    pass: PASSEMAILER, // generated ethereal password
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
+transporter.verify().then(() => {
+  console.log('Ready for send emails')
+})
+
+module.exports = { transporter };
 

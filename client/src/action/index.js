@@ -125,8 +125,8 @@ export function getByOrigin(payload){
 // --------------------------- ACTIONS PRODUCTS ------------------------------------
 
 export function postInCart(payload){
-    return async function(){
-        await axios.post("http://localhost:3000/cart/addProduct", payload);
+    return async function(dispatch){
+         return axios.post("http://localhost:3000/cart/addProduct", payload).then( (rest) => alert(rest.data));
     }
 }
 
@@ -373,6 +373,10 @@ export function getWishlist(id) {
 
 export function postWishlist(payload) {
     return async function(dispatch) {
-        await axios.post("http://localhost:3000/wishlist", payload);
+        const json = await axios.post("http://localhost:3000/wishlist", payload);
+        return dispatch({
+            type: 'POST_WISHLIST',
+            payload: json
+        })
     };
 };

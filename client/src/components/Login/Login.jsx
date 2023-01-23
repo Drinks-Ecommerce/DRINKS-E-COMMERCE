@@ -2,7 +2,6 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import { LoginUser } from '../../action';
-import { useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { gapi } from 'gapi-script';
