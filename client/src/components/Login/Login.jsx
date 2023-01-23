@@ -5,8 +5,6 @@ import { LoginUser } from '../../action';
 import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { gapi } from "gapi-script";
-//import  GoogleLogin from "react-google-login"
-import  GoogleLogin from "react-google-login";
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
 
