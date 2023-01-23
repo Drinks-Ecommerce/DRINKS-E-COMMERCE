@@ -17,6 +17,8 @@ const initialState = {
     
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
+    msg: '',
+
 }
 
 function rootReducer(state = initialState, action){
@@ -30,12 +32,63 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload,
                 copyallproducts : action.payload
-            }   
+        }   
 
         case 'CREATE_PRODUCTS':
             return{
                 ...state
+        }
+
+        case 'POST_CART_LOCAL_STORAGE':
+
+            // Si el 'Local Storage' del carrito está vacío, se crea la variable y se almacena el primer producto.
+            if(!localStorage.getItem("productos-carrito")){
+                let carrito = [];
+                carrito.push(obj);
+                let transaccion = JSON.stringify(carrito);
+                localStorage.setItem("productos-carrito", transaccion);
             }
+  
+            // Si el 'Local Storage' del carrito ya tiene al menos un producto, solo se agrega uno nuevo.
+        
+            else{
+                const carrito = JSON.parse(localStorage.getItem("productos-carrito"));
+  
+                for(let i=0; i<carrito.length; i++){
+                  if(carrito[i].name === name){
+                   toast.error('No se pueden meter repetidos.', {
+                    duration: 2000,
+                    icon: '🍷',
+                    position: 'top-left',
+                    style: {
+                      border: '1px solid #713200',
+                      padding: '16px',
+                      color: '#713200',
+                      fontSize: "20px"
+                    }
+                  })
+                }
+                }
+  
+                carrito.push(obj);
+                let transaccion = JSON.stringify(carrito);
+                localStorage.setItem("productos-carrito", transaccion);        
+            }
+      
+            return{
+                ...state,
+        }
+        
+        /*case 'GET_MSG':
+
+        console.log("redux")
+
+            return{
+                ...state,
+                msg: action.payload,
+        }*/
+
+
 
         // case 'DELETE_PRODUCT':
         //  return {
@@ -93,6 +146,17 @@ function rootReducer(state = initialState, action){
                 return {
                     ...state,
                     allProductsCart: action.payload
+            }
+
+        case 'GET_WISHLIST':
+            return {
+                ...state,
+                wishlist: action.payload
+            }
+
+        case 'POST_WISHLIST':
+            return {
+                ...state
             }
 //----------------------------------- CASE TYPES -----------------------------------
 
@@ -258,11 +322,7 @@ function rootReducer(state = initialState, action){
                 urlPayment:action.payload
             }
 
-        case 'GET_WISHLIST':
-            return {
-                ...state,
-                wishlist: action.payload
-            }
+
 
 //-------------------------------- CASE DEFAULT --------------------------------------
 

@@ -4,6 +4,8 @@ import { getInCart } from "../../action";
 import { useDispatch } from "react-redux";
 import ScrollCart from "../ScrollCart/ScrollCart";
 import { render } from "react-dom";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Carrito({set, open2}){
 
@@ -16,6 +18,7 @@ export default function Carrito({set, open2}){
   const [open, setOpen] = useState({open2});
   const User = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getInCart(User.id));
@@ -30,6 +33,26 @@ export default function Carrito({set, open2}){
     })
 
     return suma;
+  }
+  
+  const handleClick = (e) => {
+
+    e.preventDefault();
+
+    if(Object.entries(User).length === 0){
+      
+      return toast.error('Por favor, inicia sesión.');
+          
+    }
+    
+    if(Object.entries(User).length > 0 && Object.entries(allProductsInCart.productcarts).length === 0){
+      toast.error('El carrito está vacío.');
+    }
+    
+    else{
+      return navigate('/payment');
+    }
+    
   }
 
   const renderBannerStock = () => {
@@ -69,7 +92,6 @@ export default function Carrito({set, open2}){
         (Object.entries(User).length === 0) ? (!window.localStorage.getItem("productos-carrito")) ? (renderBannerStock()) : (<ScrollCart cart={carrito} />)
   
         : 
-          
        
         (Object.entries(allProductsInCart).length === 0) ? (renderBannerStock()) :(Object.entries(allProductsInCart.productcarts).length === 0) ? (renderBannerStock()) :
         (<ScrollCart cart={allProductsInCart.productcarts}/>)
@@ -78,17 +100,18 @@ export default function Carrito({set, open2}){
       </div>
 
         <div className="space-y-1 mr-3 mt-10 mb-3 text-right text-3xl">
-		      <p>Total amount: <span className="text-3xl font-semibold">
-            {Object?.entries(User).length === 0 ? "$" + SUMA() : "$" + allProductsInCart.total}
-          </span></p>
+		      Total: <span className="text-3xl font-semibold">
+            {Object?.entries(User).length === 0 ? "$" + SUMA() : !(allProductsInCart.total) ? "$0" : "$" + (allProductsInCart.total)}
+                 </span>
 	      </div>
 
 	    <div className="flex justify-end space-x-4">
-		
-		    <button type="button" className="px-2 mr-3 py-2 border rounded-md dark:bg-indigo-400 dark:text-gray-900 dark:border-indigo-400">
+		    <button type="button" className="px-2 mr-3 py-2 border rounded-md bg-indigo-400 text-gray-900 border-indigo-400" onClick={(e) => handleClick(e)}>
 			    <a className="sr-only sm:not-sr-only">Comprar</a>
 		    </button>
 	    </div>
+
+      <Toaster />
   </div>
   )
 }
