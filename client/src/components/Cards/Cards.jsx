@@ -3,14 +3,15 @@ import { postInCart, postWishlist } from "../../action";
 import { useState } from "react";
 import ModalCart from "../ModalCart/ModalCart";
 import images from '../icons/images.js';
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
+import { Link } from 'react-router-dom';
 
 export default function Cards({id, name, stock, amount, price, description, img, type, brand, calification}){
 
 	const dispatch = useDispatch();
 	const User = useSelector((state) => state.user);
-	const navigate = useNavigate();
-
+/* 	const navigate = useNavigate();
+ */
 	const [openModal, setOpenModal] = useState(false);
 
 	function handleChange(e) {
@@ -28,10 +29,10 @@ export default function Cards({id, name, stock, amount, price, description, img,
 	};
     
 	
-	const handleClick = (e) => {
+/* 	const handleClick = (e) => {
 		e.preventDefault();
 		navigate(`/cards/${id}`);
-	}
+	} */
 
     return(
 		<div class="max-w-2xl mx-auto mt-2">
@@ -42,9 +43,9 @@ export default function Cards({id, name, stock, amount, price, description, img,
 		<ModalCart open={openModal} onClose={() => setOpenModal(!open)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
 		type={type} brand={brand} />
 
-		<a href="#" onClick={handleClick}>
+		<Link to={`/cards/${id}`}>
 			<img class="rounded-t-lg p-8 h-[300px] bg-cover" src={img} alt="product image" />
-        </a>
+        </Link>
 			<div class="px-5 pb-5">
 				<a href="#">
                     <h3 class="text-orange-300 font-semibold text-xl tracking-tight">{brand}</h3>

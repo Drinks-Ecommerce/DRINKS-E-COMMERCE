@@ -21,7 +21,7 @@ export default function Login(){
         gapi.load("client:auth2", start)
     },[])*/
     //validations
-    const { register, handleSubmit , formState: { errors } } = useForm();
+    const { register, handleSubmit , formState: { errors } } = useForm({ mode: "onTouched" });
     console.log("register",register)
     console.log("errors",errors)
     
