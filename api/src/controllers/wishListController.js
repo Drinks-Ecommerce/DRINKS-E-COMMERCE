@@ -36,7 +36,7 @@ const wishlistByUserId = async (userId) => {
         }
     })
 
-    const result = await userDB.map(el => {
+    const result = await userDB.map(e => {
         return {
             id: e.dataValues.id,
             user: e.dataValues.userId,
