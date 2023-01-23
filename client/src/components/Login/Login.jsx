@@ -8,6 +8,7 @@ import { gapi } from "gapi-script";
 import  GoogleLogin from "react-google-login"
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
+import { useAuthContext } from '../AuthContext/AuthContext';
 
 export default function Login(){
 
@@ -22,11 +23,10 @@ export default function Login(){
         gapi.load("client:auth2", start)
     },[])
     //validations
-    const { register, handleSubmit , formState: { errors } } = useForm();
+    const { register, handleSubmit , formState: { errors } } = useForm({ mode: "onTouched" });
     console.log("register",register)
     console.log("errors",errors)
     
-   
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function Login(){
         setInput({
             ...input,
             [e.target.name] : e.target.value
-          })
+        })
     }
 
     const handleChange2 = (e) => {
@@ -55,8 +55,13 @@ export default function Login(){
         setInput({
             ...input,
             [e.target.name] : e.target.value
-        })
+        })
     }
+
+    const {login} = useAuthContext();
+
+
+
 
     const handleSubmit2 = (e) => {
         e.preventDefault();
@@ -65,7 +70,8 @@ export default function Login(){
             alert("Contraseña invalida, consulte los requerimientos minimos");
         }else{
             dispatch(LoginUser(input));
-            navigate('/')
+            navigate('/');
+            login();
         }
     }
 
@@ -93,12 +99,12 @@ export default function Login(){
             
 
 
-	        <form onFocus={handleSubmit(onSubmit)}  action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+	        <form  className="space-y-12 ng-untouched ng-pristine ng-valid">
 
 		        <div className="space-y-4">
 
 			        <div>
-				        <label for="email" className="block mb-2 text-sm">Correo electrónico</label>
+				        <label onSubmit={(handleSubmit(onSubmit))}  for="email" className="block mb-2 text-sm">Correo electrónico</label>
 				        <input type="email" name="email" id="email" placeholder="quieropasarelpf@example.com" 
                         {
                             ...register("email", {
@@ -129,7 +135,7 @@ export default function Login(){
                                 ...register("password", {
                                     minLength: {
                                         value: 5,
-                                        message: "La contraseña tiene que tener al menos 5 caracteres"
+                                        message: "Minimo 5 caracteres"
                                     },
                                     required: {
                                             value: true

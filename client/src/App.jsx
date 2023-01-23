@@ -11,10 +11,10 @@ import PanelAdmin from './components/PanelAdmin/PanelAdmin'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
  import User from './components/User/User'
- import { PrivateRoute } from './components/PrivateRoute/PrivateRoute'
- 
+ import { AuthContextProvider } from './components/AuthContext/AuthContext.jsx'
  import Payment from './components/Payment/Payment.jsx'
-
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import PublicRoute from './components/PublicRoute/PublicRoute'
 import './App.css'
 
 
@@ -23,30 +23,24 @@ function App(){
 
   return (
     <div className="App">
-      <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path='/cards'
-        element={
-          <PrivateRoute>
-            <Cards/>
-          </PrivateRoute>
-        }/>
-        <Route exact path="/createProducts" element={<ProductCreate/>}/>
-        <Route exact path='cards/:id' element={<Detail/>}/>
-        <Route exact path='/:id' element={<Products/>} />
-        <Route 
-        exact path='/paneladmin'
-        element={
-          <PrivateRoute>
-            <PanelAdmin/>
-          </PrivateRoute>
-        }
-        />
-        <Route exact path='/login' element={<Login/>} />
-        <Route exact path='/register' element={<Register/>} />
-        <Route exact path='/payment' element={<Payment />} />
-        <Route exact path='/user' element={<User/>} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path='/' element={<PublicRoute />}>
+              <Route exact path="/" element={<Home/>}/>
+              <Route exact path='/cards' element={<Cards/>}/>
+              <Route exact path='cards/:id' element={<Detail/>}/>
+              <Route exact path='/:id' element={<Products/>} />
+              <Route exact path='/login' element={<Login/>} />
+              <Route exact path='/register' element={<Register/>} />
+          </Route>
+          <Route path='/private' element={<PrivateRoute />}>
+              <Route exact path="/private/createProducts" element={<ProductCreate/>}/>
+              <Route exact path='/private/paneladmin' element={<PanelAdmin/>}/>
+              <Route exact path='/private/payment' element={<Payment />} />
+              <Route exact path='/private/user' element={<User/>} />
+          </Route>
+        </Routes>
+      </AuthContextProvider>
     </div>
   )
 }

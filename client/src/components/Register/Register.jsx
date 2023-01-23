@@ -12,7 +12,7 @@ export default function Registrar(){
     
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { register, handleSubmit ,formState: { errors } } = useForm();
+    const { register, handleSubmit ,formState: { errors } } = useForm({ mode: "onTouched" });
     
 
     const [input, setInput] = useState({
@@ -62,8 +62,7 @@ export default function Registrar(){
 	            <div className="mb-4 text-center">
 		            <h1 className="my-3 text-4xl font-bold underline">Registrarse</h1>
 	            </div>
-
-	            <form  onSubmit={ handleSubmit(onSubmit) } className="space-y-5 ng-untouched ng-pristine ng-valid">
+	            <form onSubmit={(handleSubmit(onSubmit))} className="space-y-5 ng-untouched ng-pristine ng-valid">
 
                     <div className='flex flex-row justify-between mx-8'>
 
@@ -80,9 +79,9 @@ export default function Registrar(){
                                 minLength: 3})}
                              onChange={ (e) => handleChange(e) }
                              />
+                    { errors.name?.type === 'required' && <h1>Este campo es obligatorio</h1> }
+                    { errors.name?.type === 'minLength' && <h1>Debe tener al menos 3 caracteres</h1> }
 				    </div>
-                    { errors.name?.type === 'required' && <p>Este campo es obligatorio</p> }
-                    { errors.name?.type === 'minLength' && <p>Debe tener al menos 3 caracteres</p> }
                     <div className="space-y-1 mb-4">
 					    <label className="block mb-1 text-sm ml-1">Apellido</label>
 				        <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
@@ -97,10 +96,10 @@ export default function Registrar(){
                          }
                          onChange={ (e) => handleChange(e) }
                          />
-				    </div>
                     { errors.last_name?.type === 'required' && <p>Este campo es obligatorio</p> }
                     { errors.last_name?.type === 'minLength' && <p>Debe tener al menos 3 caracteres</p> }
 
+				    </div>
                     <div className="space-y-1 mb-2">
 					    <label className="block mb-1 text-sm ml-1">Nombre de usuario</label>
 				        <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
@@ -108,13 +107,15 @@ export default function Registrar(){
                          {...register("username", {
                              required: true,
                             value: input.username,
-                            maxLength: 30                            
+                            maxLength: 30,
+                            minLength: 5                            
                          })}
                          onChange={ (e) => handleChange(e) }
                          />
-				    </div>
                     { errors.username?.type === 'required' && <p>Este campo es obligatorio</p> }
                     { errors.username?.type === 'maxLength' && <p>Debe tener maximo 30 caracteres</p> }
+                    { errors.username?.type === 'minLength' && <p>Debe tener minimo 5 caracteres</p> }
+				    </div>
                 </div>
 
                 <div className='flex flex-col'>
@@ -132,10 +133,9 @@ export default function Registrar(){
                             }
                                 onChange={ (e) => handleChange(e) }
                             />
-			        </div>
                     { errors.email?.type === 'required' && <p>Este campo es obligatorio</p> }
                     { errors.email?.type === 'pattern' && <p>Debe tener formato de Email.</p> }
-
+			        </div>
                     <div className="space-y-1">
 					    <label className="block mb-1 text-sm ml-1">Contraseña</label>
 				        <input type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
@@ -149,9 +149,9 @@ export default function Registrar(){
                             }
                             onChange={ (e) => handleChange(e) }
                          />
-				    </div>
                         { errors.password?.type === 'required' && <p>Este campo es obligatorio</p> }
                         { errors.password?.type === 'minLength' && <p>Minimo se requieren 5 caracteres.</p> }		
+				    </div>
                     </div>
                     </div>
 
