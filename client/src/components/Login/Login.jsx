@@ -5,13 +5,13 @@ import { LoginUser } from '../../action';
 import {useNavigate, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { gapi } from "gapi-script";
-import  GoogleLogin from "react-google-login"
+//import  GoogleLogin from "react-google-login"
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
 
 export default function Login(){
 
-    const clientId = "838255599044-amk6qitfmq71m21oov5lnkla3ioclpr9.apps.googleusercontent.com"
+    /*const clientId = "838255599044-amk6qitfmq71m21oov5lnkla3ioclpr9.apps.googleusercontent.com"
 
     useEffect(()=>{
         const start = () =>{
@@ -20,7 +20,7 @@ export default function Login(){
             })
         }
         gapi.load("client:auth2", start)
-    },[])
+    },[])*/
     //validations
     const { register, handleSubmit , formState: { errors } } = useForm();
     console.log("register",register)
@@ -144,14 +144,14 @@ export default function Login(){
                             }
 		        </div>
 
-                <div >
+                {/*<div >
                     <GoogleLogin
                         clientId={clientId}
                         onSuccess= {onSuccess}
                         onFailure= {onFailure}
                         cookiePolicy={"single_host_policy"}
                     />
-                </div>
+                </div>*/}
                 <div>
                     <div className={user? "profile": "hiden"}>
                         <img src={user.imageUrl} alt=""/>
