@@ -10,6 +10,7 @@ import images from '../icons/images.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'//////hoy 12.26
 import { faStar } from '@fortawesome/free-solid-svg-icons'//////hoy 12.26
+import { Link } from "react-router-dom";/////hoy 23/1 17:2
 
 
 
@@ -20,18 +21,50 @@ export default function Detail() {
 	const details = useSelector(state => state.details);
 
 	const user = useSelector(state => state.user);///////////////////////hoy 12.26
+	
+	
+	
 
 	const isAuthenticated = useSelector(state => state.isAuthenticated);
 
 
 	 const [rating, setRating] = useState(0);///hoy 12.26
     const [comment, setComment] = useState('');///hoy 12.26
-	////////////////////////
+	const [inputValue, setInputValue] = useState('');//23/1/ => 18:45
+	
+
+	/* *********************** 23/1/23******************************************************************/
+	const updateInputValue = () => {
+		for(let [key, value] of Object.entries(user)) { //recorro el user para sacra el id
+		  if(key === 'data'){//paso a entrar al valor
+			for(let [subKey, subValue] of Object.entries(value)){
+			  if(subKey === 'userfound'){//paso a recorrer su valor de userfound
+				for(let [subsubKey, subsubValue] of Object.entries(subValue)){
+				  if(subsubKey === 'id'){
+					/* console.log(subsubValue); //imprime 1 */
+					setInputValue(subsubValue);//guardo el id en es estado setinpuntvalue
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+	/* *************************************************************************************** */
+
+
 
 	useEffect(() => {
 		dispatch(getDetail(id));
 	},[dispatch]);
 
+	useEffect(() => {
+		updateInputValue();
+	  }, []);
+
+	
+	
+	
 		const handleClick = (selectedRating) => {//////hoy 12.26
 			setRating(selectedRating);
 	 	};
@@ -39,22 +72,20 @@ export default function Detail() {
 
 	
 	  	const handleCommentChange = (event) => {//hoy 12.26
-			/* setComment(event.target.value); */
-			setComment({
-				...comment,
-				[event.target.name] : event.target.value
-			  })
+			
+			setComment(event.target.value);
+			
 	  	};
 
 
 	
 	  	const handleSubmit = (event) => {//hoy 12.26
-			event.preventDefault();
+			
 		
     		/* const reviewData = { rating: rating, comment: comment }; */
+    		event.preventDefault();
     		dispatch(postReviews(rating, comment));
-		
-	  };
+	 		 };
 
 	
 
@@ -211,7 +242,19 @@ export default function Detail() {
               onClick={() => handleClick(star)}
             />
           ))}
+		  
         </div>
+
+
+		<div>
+   				 <input
+      				type="number"
+      				value={rating}
+      				onChange={handleCommentChange}
+      				name="rating"
+    			/>
+	
+ 		 </div>
 
 		<br></br>
 		<br></br>
@@ -230,8 +273,22 @@ export default function Detail() {
 		<br></br>
 		<br></br>
 
-		<div>
-  				 { Object.values(user).map(e => { 
+		<div>    
+		
+			{/* **************************************************************************** */}
+			<input 
+        		className="bg-gray-50 border border-gray-300"
+        		type="text"
+        		value={inputValue}//
+        		onChange={handleCommentChange}
+      />
+				
+			{/* **************************************************************************** */}
+
+
+
+
+  				{/*  { Object.values(user).map(e => { 
 					
     			return <input className="bg-gray-50 border border-gray-300"
       					type="text"
@@ -239,18 +296,19 @@ export default function Detail() {
       					onChange={handleCommentChange}
     					>
     					</input>
- 						 })}
+ 						 })} */}
 		</div>
 
 		<br></br>
 		<br></br>
-
+					<div>
         				<textarea
+						type="text"
           				placeholder="Escribe aquí tu comentario"
           				value={comment}
           				onChange={handleCommentChange}
         				/>
-    
+					</div>
 
   		<br></br>
 		<br></br>
@@ -266,7 +324,13 @@ export default function Detail() {
     </div>
 
       ) : (
-        <div>Por favor inicia sesión para dejar una review</div>
+
+        <div>
+			<Link to="/login">
+                <h1>Por favor inicia sesión para dejar una review</h1>  
+            </Link>
+			
+		</div>
       )}
     </div>
 
@@ -284,7 +348,9 @@ export default function Detail() {
 }
 
 
-		
+
+
+ 						 
 	
 	
 	

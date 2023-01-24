@@ -85,7 +85,7 @@ function handleClick(){
 function handledeleteUser(e){
      
   dispatch(deleteUser(e))
-  dispatch(getUsers());
+   dispatch(getUsers()); 
 
 }
 

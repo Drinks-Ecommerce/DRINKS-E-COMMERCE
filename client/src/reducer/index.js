@@ -10,7 +10,7 @@ const initialState = {
     userr:[],
     wishlist: [],
     urlPayment:"",
-    isAuthenticated: true,
+    isAuthenticated: false,
     reviews:[],
 
 
