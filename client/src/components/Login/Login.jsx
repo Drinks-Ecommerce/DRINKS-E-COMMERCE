@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { gapi } from "gapi-script";
 import Encabezado from '../Encabezado/Encabezado';
 import Footer from '../Footer/Footer';
-import { useAuthContext } from '../AuthContext/AuthContext';
+
 
 export default function Login(){
 
@@ -17,7 +17,7 @@ export default function Login(){
         const start = () =>{
             gapi.auth2.init({
                 clientId: clientId,
-            })
+              })
         }
         gapi.load("client:auth2", start)
     },[])*/
@@ -57,9 +57,6 @@ export default function Login(){
         })
     }
 
-    const {login} = useAuthContext();
-
-
 
 
     const handleSubmit2 = (e) => {
@@ -70,7 +67,6 @@ export default function Login(){
         }else{
             dispatch(LoginUser(input));
             navigate('/');
-            login();
         }
     }
 
