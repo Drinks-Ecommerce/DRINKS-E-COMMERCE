@@ -8,8 +8,11 @@ import { Link } from 'react-router-dom';
 export default function Payment() {
 const dispatch = useDispatch();
 const url = useSelector((state)=>state.urlPayment)
+const User = useSelector((state) => state.user);
+const [errors, setErrors] = useState({})
 
-const { register, handleSubmit, formState: { errors } } = useForm();
+console.log(User)
+
 
 const [input, setInput] = useState({
 	emailUser:'',
@@ -23,14 +26,60 @@ const [input, setInput] = useState({
 	shippingMethod:''
 });
 
+
+
 function handleChange(e) {
 	setInput({
 		...input,
 		[e.target.name]: e.target.value
-	});
+	}),
+	setErrors(validate({
+		...input,
+		[e.target.name] : e.target.value
+	}))
 };
 
-const onSubmit = (e) => {
+
+function validate(input) {
+	let errors = {}
+	if(input.emailUser===""){
+		errors.emailUser= "Obligatory field Email"
+	}
+	if(input.emailUser !== User.email){
+		errors.emailUser= "Email Inconrrecto"
+	}
+	if(input.phone === " " ){
+		errors.phone= "Obligatory field Number Phone"
+	}
+	if(input.phone.length < 9){
+		errors.phone= "Obligatory nine digits "
+	}
+	if(input.postalCode === ""){
+		errors.postalCode = "required Postal Code"
+	}
+	if(input.city === ""){
+		errors.city= "required City"
+	}
+	if(input.province === ""){
+		errors.province= "required Province"
+	}
+	if(input.address === ""){
+		errors.address= "required address"
+	}
+	if(input.numberAddress === ""){
+		errors.numberAddress= "required number address"
+	}
+	if(input.paymentMethod === ""){
+		errors.paymentMethod= "required payment Method"
+	}
+	if(input.shippingMethod === ""){
+		errors.shippingMethod= "required shipping Method"
+	}
+	return errors
+}
+
+
+const HandleSubmit = (e) => {
 	console.log(e);
 	e.preventDefault();
 	dispatch(payment(input));
@@ -51,104 +100,92 @@ const onSubmit = (e) => {
 		<div>
 			<Encabezado />
 			<div>
-				<form onSubmit={onSubmit}>
+				<form onSubmit={HandleSubmit}>
 					<h1>Personal information</h1>
+
 					<div>
-						<label>email</label>
-						<input type='text' {...register('emailUser', {
-							required: true,
-							value: input.emailUser 
-						})} maxlength='50' onChange={e => handleChange(e)} />
-						{errors.emailUser?.type === 'required' && <p>This field is required</p>}
+						<label>Email: </label>
+						<input  type="text" value={input.emailUser} name= "emailUser" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.emailUser && (<p className='error'>{errors.emailUser}</p>)}</span>
+						
 					</div>
 
 					<div>
-						<label>Phone</label>
-						<input type='text' {...register('phone', {
-							required: true,
-							value: input.phone
-						})} maxlength='15' onChange={e => handleChange(e)} />
-						{errors.phone?.type === 'required' && <p>This field is required</p>}
+						<label>Phone: </label>
+						<input  type="text" value={input.phone} name= "phone" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.phone && (<p className='error'>{errors.phone}</p>)}</span>
 					</div>
 						
 					<h1>Method of delivery</h1>
 
 					<div>
 						<label>Postal code</label>
-						<input type='text' {...register('postalCode', {
-							required: true,
-							value: input.postalCode
-						})} maxlength='6' onChange={e => handleChange(e)} />
-						{errors.postalcode?.type === 'required' && <p>This field is required</p>}
+						<input  type="text" value={input.postalCode} name= "postalCode" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.postalCode && (<p className='error'>{errors.postalCode}</p>)}</span>
 					</div>
 
 					<div>
 						<label>City</label>
-						<input type='text' {...register('city', {
-							required: true,
-							value: input.city
-						})} maxlength='100' onChange={e => handleChange(e)} />
-						{errors.city?.type === 'required' && <p>This field is required</p>}
+						<input  type="text" value={input.city} name= "city" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.city && (<p className='error'>{errors.city}</p>)}</span>
 					</div>
 
 					<div>
 						<label>province</label>
-						<input type='text' {...register('province', {
-							required: true,
-							value: input.province
-						})} maxlength='100' onChange={e => handleChange(e)} />
-						{errors.province?.type === 'required' && <p>This field is required</p>}
+						<input  type="text" value={input.province} name= "province" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span >{errors.province && (<p className='error'>{errors.province}</p>)}</span>
 					</div>
 
 					<div>
 						<label>Address</label>
-						<input type='text' {...register('address', {
-							required: true,
-							value: input.address
-						})} maxlength='100' onChange={e => handleChange(e)} />
-						{errors.address?.type === 'required' && <p>This field is required</p>}
+						<input  type="text" value={input.address} name= "address" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.address && (<p className='error'>{errors.address}</p>)}</span>
 					</div>
 
 					<div>
-						<label>Number</label>
-						<input type='text' {...register('numberAddress', {
-							required: true,
-							value: input.numberAddress
-						})} maxlength='6' onChange={e => handleChange(e)} />
-						{errors.numberAddress?.type === 'required' && <p>This field is required</p>}
+						<label>Number Address</label>
+						<input  type="text" value={input.numberAddress} name= "numberAddress" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.numberAddress && (<p className='error'>{errors.numberAddress}</p>)}</span>
 					</div>
 
 
 					<h1>Payment method</h1>
 					
 					<div>
-						<label>Method</label>
-						<input type='text' {...register('paymentMethod', {
-							required: true,
-							value: input.paymentMethod
-						})} maxlength='20' onChange={e => handleChange(e)} />
-						{errors.paymentMethod?.type === 'required' && <p>This field is required</p>}
+						<label>Method Payment</label>
+						<input  type="text" value={input.paymentMethod} name= "paymentMethod" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.paymentMethod && (<p className='error'>{errors.paymentMethod}</p>)}</span>
 					</div>
 
 					<div>
-						<label>Method</label>
-						<input type='text' {...register('shippingMethod', {
-							required: true,
-							value: input.shippingMethod
-						})} maxlength='20' onChange={e => handleChange(e)} />
-						{errors.shippingMethod?.type === 'required' && <p>This field is required</p>}
+						<label>Shipping Method</label>
+						<input  type="text" value={input.shippingMethod} name= "shippingMethod" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+						<span>{errors.shippingMethod && (<p className='error'>{errors.shippingMethod}</p>)}</span>
 					</div>
 
-					<button className='bg-purple-300'>Pay now</button>
+					<button type='submit' disabled={errors.emailUser || errors.phone || errors.postalCode ||
+					 errors.city  || errors.province || errors.address || errors.numberAddress || errors.paymentMethod || errors.shippingMethod
+					 || errors.emailUser === ''? true : false }> Pay Now
+					 </button>
+					 
 				</form>	
 				{
-					url?.data?(<div>
+					url.data?(<div>
 						<a href={url.data} target="_blank">
 							<button>
 								mercado pago
 							</button>
 						</a>
-						</div>) : <button disabled={true}>terminar</button>
+						</div>) : null
 					}
 			</div>
 		</div>
