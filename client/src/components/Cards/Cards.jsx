@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postInCart } from "../../action";
+import { getDetail, postInCart } from "../../action";
 import { useState } from "react";
 import ModalCart from "../ModalCart/ModalCart";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Cards({id, name, stock, amount, price, description, img, type, brand, calification}){
 
@@ -15,8 +16,11 @@ export default function Cards({id, name, stock, amount, price, description, img,
 	const handleClick = (e) => {
 		e.preventDefault();
 		navigate(`/cards/${id}`);
+		
 	}
-
+	useEffect(() => {
+		dispatch(getDetail(id));///NO TOCAR RELACIONADO CON DATAILS 
+	},[])
 
 	
     return(

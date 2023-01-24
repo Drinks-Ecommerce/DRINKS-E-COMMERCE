@@ -22,47 +22,37 @@ export default function Detail() {
 
 	const user = useSelector(state => state.user);///////////////////////hoy 12.26
 	
-	
-	
+	 
+	  const userId = user.data.userFound.id //recordar para que funcione tiene
+	  //que haber algo en el estado del user login si no no renderiza 
+	  //y se rompe
+	  /* console.log(userId)   */
+
 
 	const isAuthenticated = useSelector(state => state.isAuthenticated);
 
 
+  
+	  const ids = details[0].id; //ojo hay que validar si esta vacio x 
+	console.log(ids) 	 	//que si no rompe   
+	
+	 
 	 const [rating, setRating] = useState(0);///hoy 12.26
     const [comment, setComment] = useState('');///hoy 12.26
-	const [inputValue, setInputValue] = useState('');//23/1/ => 18:45
-	
 
-	/* *********************** 23/1/23******************************************************************/
-	const updateInputValue = () => {
-		for(let [key, value] of Object.entries(user)) { //recorro el user para sacra el id
-		  if(key === 'data'){//paso a entrar al valor
-			for(let [subKey, subValue] of Object.entries(value)){
-			  if(subKey === 'userfound'){//paso a recorrer su valor de userfound
-				for(let [subsubKey, subsubValue] of Object.entries(subValue)){
-				  if(subsubKey === 'id'){
-					/* console.log(subsubValue); //imprime 1 */
-					setInputValue(subsubValue);//guardo el id en es estado setinpuntvalue
-				  }
-				}
-			  }
-			}
-		  }
-		}
-	  }
+	
+	 
 	/* *************************************************************************************** */
 
-
+	
 
 	useEffect(() => {
 		dispatch(getDetail(id));
-	},[dispatch]);
-
-	useEffect(() => {
-		updateInputValue();
-	  }, []);
+	},[]);//saque el dispacht del []
 
 	
+
+	 
 	
 	
 		const handleClick = (selectedRating) => {//////hoy 12.26
@@ -77,15 +67,15 @@ export default function Detail() {
 			
 	  	};
 
-
+		
 	
 	  	const handleSubmit = (event) => {//hoy 12.26
 			
 		
     		/* const reviewData = { rating: rating, comment: comment }; */
     		event.preventDefault();
-    		dispatch(postReviews(rating, comment));
-	 		 };
+    	 	 dispatch(postReviews()); 
+	 		 }; 
 
 	
 
@@ -260,47 +250,37 @@ export default function Detail() {
 		<br></br>
 
         <div>
-  				{ details.map(e => {
-    				return <input className="bg-gray-50 border border-gray-300"
+  		  
+    				   <input className="bg-gray-50 border border-gray-300"
      						type="text"
-      						value={e.id}
+      						value={ids}
       						onChange={handleCommentChange}
     						>
-    						</input>
-  							})}
+    						</input>     
+			 
 		</div>
 
 		<br></br>
 		<br></br>
 
 		<div>    
-		
-			{/* **************************************************************************** */}
-			<input 
-        		className="bg-gray-50 border border-gray-300"
-        		type="text"
-        		value={inputValue}//
-        		onChange={handleCommentChange}
-      />
 				
-			{/* **************************************************************************** */}
+			   <input 
+        		className="bg-gray-50 border border-gray-300"
+        		type="number"
+        		value={userId}//
+        		onChange={handleCommentChange}
+     			 />  
 
-
-
-
-  				{/*  { Object.values(user).map(e => { 
-					
-    			return <input className="bg-gray-50 border border-gray-300"
-      					type="text"
-      					value={e.id}
-      					onChange={handleCommentChange}
-    					>
-    					</input>
- 						 })} */}
 		</div>
 
+
+
+		
 		<br></br>
 		<br></br>
+
+
 					<div>
         				<textarea
 						type="text"
@@ -347,9 +327,9 @@ export default function Detail() {
 	)
 }
 
+/* ******************para mañana****************** */
 
-
-
+/* queda para mañana hacer la logica del submit tal cual productcreate */
  						 
 	
 	

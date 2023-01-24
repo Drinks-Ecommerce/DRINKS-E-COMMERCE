@@ -21,7 +21,8 @@ export default function Products(){
 
     useEffect(() =>{
         dispatch(getProducts());
-        dispatch(filterByTypes(id))
+        dispatch(filterByTypes(id));
+        
 
             setTimeout(() => {
                 dispatch(getAllBrands())
