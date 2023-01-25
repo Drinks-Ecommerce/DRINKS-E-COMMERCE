@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { payment } from '../../action/index.js';
 import Encabezado from '../Encabezado/Encabezado.jsx';
 import { Link } from 'react-router-dom';
+import style from './Payment.module.css' 
 
 export default function Payment() {
 const dispatch = useDispatch();
@@ -97,97 +98,134 @@ const HandleSubmit = (e) => {
 	});
 };
 	return(
-		<div>
-			<Encabezado />
-			<div>
-				<form onSubmit={HandleSubmit}>
-					<h1>Personal information</h1>
+		<div className={style.container}>
+			<section class="p-6 dark:bg-gray-800 dark:text-gray-50">
+		<form novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Personal Inormation</p>
+				<p class="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
-					<div>
-						<label>Email: </label>
-						<input  type="text" value={input.emailUser} name= "emailUser" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.emailUser && (<p className='error'>{errors.emailUser}</p>)}</span>
-						
-					</div>
 
-					<div>
-						<label>Phone: </label>
-						<input  type="text" value={input.phone} name= "phone" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.phone && (<p className='error'>{errors.phone}</p>)}</span>
-					</div>
-						
-					<h1>Method of delivery</h1>
+				
+				<div class="col-span-full sm:col-span-3">
+					<label for="firstname" className={style.text_sm}>Email</label>
+					<input id="firstname" type="text" value={input.emailUser} name= "emailUser" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
+					 	class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+					/>
+					<span>{errors.emailUser && (<p className='error'>{errors.emailUser}</p>)}</span>
+				</div>
 
-					<div>
-						<label>Postal code</label>
-						<input  type="text" value={input.postalCode} name= "postalCode" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.postalCode && (<p className='error'>{errors.postalCode}</p>)}</span>
-					</div>
 
-					<div>
-						<label>City</label>
-						<input  type="text" value={input.city} name= "city" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.city && (<p className='error'>{errors.city}</p>)}</span>
-					</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="lastname"className={style.text_sm} >Phone</label>
+					<input id="lastname" type="text" value={input.phone} name= "phone" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"}
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+					/>
+					<span>{errors.phone && (<p className='error'>{errors.phone}</p>)}</span>
+				</div>
 
-					<div>
-						<label>province</label>
-						<input  type="text" value={input.province} name= "province" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span >{errors.province && (<p className='error'>{errors.province}</p>)}</span>
-					</div>
 
-					<div>
-						<label>Address</label>
-						<input  type="text" value={input.address} name= "address" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
+				<div class="col-span-full sm:col-span-3">
+					<label for="email"className={style.text_sm} >Number Address</label>
+					<input id="email" placeholder="Number Address" 
+					 	type="text" value={input.numberAddress} name= "numberAddress" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"}
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+					/>
+					<span>{errors.numberAddress && (<p className='error'>{errors.numberAddress}</p>)}</span>
+				</div>
+				
+				<div class="col-span-full">
+					<label for="address" className={style.text_sm}>Address</label>
+					<input id="address" type="text" placeholder="" 
+						value={input.address} name= "address" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
 						<span>{errors.address && (<p className='error'>{errors.address}</p>)}</span>
-					</div>
-
-					<div>
-						<label>Number Address</label>
-						<input  type="text" value={input.numberAddress} name= "numberAddress" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.numberAddress && (<p className='error'>{errors.numberAddress}</p>)}</span>
-					</div>
+				</div>
 
 
-					<h1>Payment method</h1>
-					
-					<div>
-						<label>Method Payment</label>
-						<input  type="text" value={input.paymentMethod} name= "paymentMethod" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.paymentMethod && (<p className='error'>{errors.paymentMethod}</p>)}</span>
-					</div>
+				<div class="col-span-full sm:col-span-2">
+					<label for="city" className={style.text_sm}>City</label>
+					<input id="city" type="text" placeholder="" 
+					 value={input.city} name= "city" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+					<span>{errors.city && (<p className='error'>{errors.city}</p>)}</span>
+				</div>
 
-					<div>
-						<label>Shipping Method</label>
-						<input  type="text" value={input.shippingMethod} name= "shippingMethod" 
-						onChange={(e)=>handleChange(e)} autoComplete={"off"} />
-						<span>{errors.shippingMethod && (<p className='error'>{errors.shippingMethod}</p>)}</span>
-					</div>
 
-					<button type='submit' disabled={errors.emailUser || errors.phone || errors.postalCode ||
+
+				<div class="col-span-full sm:col-span-2">
+					<label for="state" className={style.text_sm}> Province / Province</label>
+					<input id="state" type="text" placeholder="" 
+						 value={input.province} name= "province" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"}
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						/>
+						<span >{errors.province && (<p className='error'>{errors.province}</p>)}</span>
+				</div>
+
+
+				<div class="col-span-full sm:col-span-2">
+					<label for="zip" className={style.text_sm}>ZIP / Postal</label>
+					<input id="zip" type="text" placeholder="" 
+						 value={input.postalCode} name= "postalCode" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+					<span>{errors.postalCode && (<p className='error'>{errors.postalCode}</p>)}</span>
+				</div>
+			</div>
+
+		</fieldset>
+
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Profile</p>
+				<p class="text-xs">Adipisci fuga autem eum!</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+
+				<div class="col-span-full sm:col-span-3">
+					<label for="username" className={style.text_sm}>Payment Method</label>
+					<input id="username" type="text" placeholder="Username" 
+						value={input.paymentMethod} name= "paymentMethod" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						/>
+					<span>{errors.paymentMethod && (<p className='error'>{errors.paymentMethod}</p>)}</span>
+				</div>
+
+
+				<div class="col-span-full sm:col-span-3">
+					<label for="website" className={style.text_sm}>Shipping Method</label>
+					<input id="website" type="text" placeholder="shippingMethod" 
+					 value={input.shippingMethod} name= "shippingMethod" 
+						onChange={(e)=>handleChange(e)} autoComplete={"off"}
+						
+					class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+					<span>{errors.shippingMethod && (<p className='error'>{errors.shippingMethod}</p>)}</span>
+				</div>
+				
+			</div>
+		</fieldset>
+
+		<button type='submit' disabled={errors.emailUser || errors.phone || errors.postalCode ||
 					 errors.city  || errors.province || errors.address || errors.numberAddress || errors.paymentMethod || errors.shippingMethod
 					 || errors.emailUser === ''? true : false }> Pay Now
 					 </button>
-					 
-				</form>	
-				{
-					url.data?(<div>
-						<a href={url.data} target="_blank">
-							<button>
-								mercado pago
-							</button>
-						</a>
-						</div>) : null
-					}
-			</div>
-		</div>
-		)
-};
+		</form>
+		</section> 
+			
+	</div>
+
+)}
+
+
+
+
