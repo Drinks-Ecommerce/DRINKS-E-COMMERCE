@@ -100,7 +100,7 @@ const HandleSubmit = (e) => {
 	return(
 		<div className={style.container}>
 			<section class="p-6 dark:bg-gray-800 dark:text-gray-50">
-		<form novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+		<form  onSubmit={HandleSubmit}   novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid" >
 		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
 			<div class="space-y-2 col-span-full lg:col-span-1">
 				<p class="font-medium">Personal Inormation</p>
