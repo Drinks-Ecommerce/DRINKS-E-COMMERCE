@@ -1,18 +1,66 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux';
-import { DeleteProduct } from '../../action';
+import { DeleteProduct, UpdateProduct, getInCart} from '../../action';
+import toast, { Toaster } from 'react-hot-toast';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ScrollCart({cart}){
 
     const dispatch = useDispatch();
     const User = useSelector((state) => state.user);
-    
+
+	const renderToast = (data) => {
+		
+		if(data === "Product has been removed"){
+			return toast.success(data, {
+				duration: 600,
+				position: 'top-left',
+				style: {
+					border: '1px solid #007132',
+					padding: '10px',
+					color: '#007132',
+					fontSize: "20px"
+				},
+		})}
+	}
+
     const handleClick = (id) => {
-       dispatch(DeleteProduct(id, User.id))
-    }
-    
+
+		if(Object.entries(User).length === 0){
+
+			let carrito = window.localStorage.getItem("productos-carrito");
+			let list = JSON.parse(carrito);
+
+			const result = list.filter(word => word.id != id);
+			
+			if(result.length === 0){
+				window.localStorage.removeItem("productos-carrito");
+				console.log("vacio")
+			}
+
+			window.localStorage.setItem("productos-carrito", JSON.stringify(result));
+		}
+		else{
+			dispatch(DeleteProduct(id, User.id));
+		}
+	}
+
+	const handlePlus = (id, amount) => {
+
+
+		const obj = {
+			productCartId: id,
+			amount: amount,
+		}
+
+		dispatch(UpdateProduct(obj, User.id));
+	}
+
     return(
+
+		<div>
 
         <ul className="flex flex-col divide-y-2 divide-gray-500">
             
@@ -32,7 +80,13 @@ export default function ScrollCart({cart}){
 						                <div className="space-y-1">
 							                <h3 className="text-sm font-semibold leading-snug sm:pr-8">{e.name}</h3>
 											<p className='text-sm text-gray-500'>{e.brand}</p>
-							                <p className="text-sm text-gray-300">Cantidad: {e.quantity}</p>
+							                	<p className="text-sm text-gray-300">Cantidad: {e.quantity}</p>
+												<div className='inline-flex space-y-0 px-3 border border-sky-500'>
+													<button className='text-xl text-gray-400 mr-4' onClick={() => handlePlus(e.id, '+') }>+</button>											
+													<button className='text-xl text-gray-400' onClick={() => handlePlus(e.id, '-')}>-</button>
+												</div>
+												
+											
 						                </div>
 						                <div className="text-right">
 							                 <p className="text-lg font-semibold pr-2">${e.totalValue}</p>
@@ -68,6 +122,10 @@ export default function ScrollCart({cart}){
                     )
                 })
             }
+				
+				
                 </ul>
+				<Toaster/>
+			</div>
     )
 }

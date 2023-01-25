@@ -36,7 +36,7 @@ const wishlistByUserId = async (userId) => {
             attributes: ["id", "name", "img", "price", "brand"]
         }
     })
-    
+
     const result = await userDB.map(e => {
         return {
             id: e.dataValues.id,

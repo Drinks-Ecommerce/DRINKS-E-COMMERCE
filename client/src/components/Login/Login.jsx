@@ -21,7 +21,7 @@ export default function Login(){
         gapi.load("client:auth2", start)
     },[])*/
     //validations
-    const { register, handleSubmit , formState: { errors } } = useForm();
+    const { register, handleSubmit , formState: { errors } } = useForm({ mode: "onTouched" });
     console.log("register",register)
     console.log("errors",errors)
     
@@ -87,7 +87,7 @@ export default function Login(){
              <div className="mx-auto mt-4 mb-4 flex flex-col max-w-lg w-96 p-6 rounded-md sm:p-6 bg-gray-900 text-gray-100">
 
 	        <div className="mb-4 text-center">
-		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
+		        <h1 className="my-3 text-4xl font-bold">Iniciar Sesión</h1>
 	        </div>
             
 
@@ -162,13 +162,17 @@ export default function Login(){
 				        <button type="button" className="w-full px-2 py-2 font-semibold rounded-md bg-teal-400 text-gray-900" 
                         onClick={(e) => handleSubmit2(e)}>Iniciar</button>
 			        </div>
-                    <p className="px-2 mr-1 text-sm text-center text-gray-400">¿No tienes una cuenta todavía?
+                    
+		        </div>
+	        </form>
+
+            <div>
+            <p className="px-2 mr-1 text-sm text-center text-gray-400">¿No tienes una cuenta todavía?
                         <Link to='/register'>
 				            <a rel="noopener noreferrer" href="#" className="hover:underline text-indigo-400"> Registrarse</a>.
                         </Link>
 			        </p>
-		        </div>
-	        </form>
+            </div>
 
         </div>
             <div className='mt-auto'>

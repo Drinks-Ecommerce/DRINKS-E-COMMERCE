@@ -40,6 +40,7 @@ export default function Wishlist() {
 									price={e.price}
 									img={e.img}
 									brand={e.brand}
+									productId={e.productId}
 								 />)
 						}
 					</div>

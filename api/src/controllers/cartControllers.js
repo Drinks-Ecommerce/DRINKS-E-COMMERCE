@@ -37,9 +37,9 @@ const addProductCart = async(req, res) => {
         if(findProduct){
             return res.send('Product already exists in the cart')
         }else {
-            let totalValue = quantity * product.price;
+            let totalValue = product.price;
             await Productcart.create({
-                quantity,
+                quantity:1,
                 totalValue,
                 cartId: cart.id,
                 productId: product.id,
@@ -79,15 +79,37 @@ const deleteProductCart = async (req, res) => {
 
 const updateProductCart = async(req,res) => {
     try {
-        const { productCartId, price, amount } = req.body;
+        const { productCartId, amount } = req.body;
         let productCart = await Productcart.findOne({
             where: { id : productCartId }
         });
-        let totalValue = productCart.totalValue + price * amount;
-        let quantity = productCart.quantity + amount;
-        await productCart.update({ quantity, totalValue });
 
-        const cart = await Cart.findOne({ where: { id: productCart.id }});
+        let product = await Products.findOne({
+            where:{id: productCart.productId}
+        })
+
+        let totalValue;
+        let quantity;
+
+        if(amount === "+"){
+            if(product.stock > 1){
+                totalValue = productCart.totalValue + parseInt(productCart.priceProduct);
+                quantity = productCart.quantity + 1;
+            }else{
+                return res.send({msg:"stock insuficiente"})
+            }
+            
+        }else if(amount === "-"){
+            if(productCart.quantity > 1){
+                totalValue = productCart.totalValue - parseInt(productCart.priceProduct);
+                quantity = productCart.quantity - 1;
+            }else{
+                return res.send({msg:"cantidad minima 1"})
+            }
+        }
+        
+        await productCart.update({ quantity, totalValue });
+        const cart = await Cart.findOne({ where: { id: productCart.cartId }});
         updateTotalValue(cart);
         res.send('updated')
     } catch (err) {

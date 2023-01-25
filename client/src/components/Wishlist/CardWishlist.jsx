@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ModalCart from '../ModalCart/ModalCart';
-import { deleteWishlist, getWishlist } from '../../action/index.js';
+import { deleteWishlist, getWishlist, postInCart } from '../../action/index.js';
 
 
-export default function CardWishlist({id, name, stock, amount, price, description, img, type, brand, calification}) {
+export default function CardWishlist({id, name, stock, amount, price, description, img, type, brand, calification,productId}) {
 	const dispatch = useDispatch();
 	const User = useSelector(state => state.user);
-	const [openModal, setOpenModal] = useState(false);
 
 	function handleClick(e) {
 		e.preventDefault();
 		dispatch(deleteWishlist(id)).then((response) => dispatch(getWishlist(User.id)));
 	};
 
+	function handleChange(e) {
+		e.preventDefault();
+		const obj = {
+            productId: productId,
+            userId: User.id,
+            };
+         console.log(obj, 'estooo')   
+        dispatch(postInCart(obj));
+        alert('Product added successfully');
+            
+	};
+
 	return(
-		<div class="max-w-2xl mx-auto mt-2">
-			<div className=" bg-white flex flex-col justify-between shadow-md rounded-lg max-w-sm h-[500px] border-gray-700">
-				<ModalCart open={openModal} onClose={() => setOpenModal(!open)} idProduct={id} idUser={User.id} name={name} amount={amount} price={price} img={img}
-				type={type} brand={brand} />
+		<div class="mx-auto mt-2">
+			<div className="bg-white flex flex-col justify-between shadow-md rounded-lg w-[250px] h-[500px] border-gray-700">
 				<button onClick={(e) => handleClick(e)} >X</button>
 				<Link to={`/cards/${id}`}>
 					<img class="rounded-t-lg p-8 h-[300px] bg-cover" src={img} alt="product image" />
@@ -29,7 +37,7 @@ export default function CardWishlist({id, name, stock, amount, price, descriptio
                     	<h3 class="text-orange-300 font-semibold text-xl tracking-tight">{brand}</h3>
 						<h3 class="text-gray-900 font-semibold text-xl tracking-tight">{name}</h3>
 					</a>
-					<div class="flex items-center mt-2.5 mb-5">
+{/*					<div class="flex items-center mt-2.5 mb-5">
 						<svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -61,10 +69,10 @@ export default function CardWishlist({id, name, stock, amount, price, descriptio
 							</path>
 						</svg>
 						<span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{calification}</span>
-					</div>
+					</div>*/}
 					<div class="flex items-center justify-between">
 						<span class="text-3xl font-bold text-gray-900">${price}</span>
-						<button onClick={() => setOpenModal(true)} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar</button>
+						<button onClick={(e) => handleChange(e)} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar</button>
 					</div>
 				</div>
 			</div>
