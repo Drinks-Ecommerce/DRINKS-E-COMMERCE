@@ -18,7 +18,7 @@ import './App.css'
 
 
 function App(){
-  const User = useSelector((state) => state.User)
+  const user = useSelector((state) => state.user)
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -26,9 +26,10 @@ function App(){
       dispatch(FillUser())
     }
   },[dispatch])
+  console.log("ROLES",user.roles) 
   
-  console.log("",User)
-  console.log(Object.entries)
+  console.log("USER",user)
+  
   return (
     <div className="App">
         <Routes>
@@ -40,16 +41,10 @@ function App(){
               <Route exact path='/register' element={<Register/>} />
               <Route exact path='/wishlist' element={<Wishlist />} />
               <Route exact path='/profile' element={<Profile />} />
-            {/* {             
-              Object.entries(User.length > 0) &&  User [roles === "admin"] ( */}
-                <Route>
-                <Route exact path="/createProducts" element={<ProductCreate/>}/>
-                <Route exact path='/paneladmin' element={<PanelAdmin/>}/>
-                <Route exact path='/payment' element={<Payment />} />
-                <Route exact path='/user' element={<User/>} />
-              </Route>
-            //   )
-            // 
+              <Route exact path="/createProducts" element={<ProductCreate/>}/>
+              <Route exact path='/paneladmin' element={<PanelAdmin />}/>
+              <Route exact path='/payment' element={<Payment />} />
+              <Route exact path='/user' element={<User/>} />
         </Routes>
     </div>
   )
