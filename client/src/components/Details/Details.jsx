@@ -19,11 +19,11 @@ export default function Detail() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const details = useSelector(state => state.details);
-
+	console.log(details,'productos')
 	const user = useSelector(state => state.user);///////////////////////hoy 12.26
 	
 	 
-	  const userId = user.data.userFound.id //recordar para que funcione tiene
+	    const userId = user.data.userFound.id   //recordar para que funcione tiene
 	  //que haber algo en el estado del user login si no no renderiza 
 	  //y se rompe
 	  /* console.log(userId)   */
@@ -33,12 +33,23 @@ export default function Detail() {
 
 
   
-	  const ids = details[0].id; //ojo hay que validar si esta vacio x 
-	console.log(ids) 	 	//que si no rompe   
+	   const ids = details[0].id;   //ojo hay que validar si esta vacio x 
+	/* console.log(ids)  */	 	//que si no rompe   
 	
 	 
 	 const [rating, setRating] = useState(0);///hoy 12.26
-    const [comment, setComment] = useState('');///hoy 12.26
+   /*  const [comment, setComment] = useState('');///hoy 12.26 */
+
+   
+
+    const [input, setInput] = useState({
+
+	 userId:'',
+	productId:'',
+	calification:'',
+	comment:'' 
+
+   });///hoy 12.26 
 
 	
 	 
@@ -61,20 +72,69 @@ export default function Detail() {
 
 
 	
-	  	const handleCommentChange = (event) => {//hoy 12.26
+	  	/*  const handleCommentChange = (event) => {//hoy 12.26
 			
 			setComment(event.target.value);
 			
-	  	};
+	  	}; 
+ */
+		/* ************************************handles***************** */
+		/* const handleuserdetail = () => {
+			setInput({
+			  ...input, 
+			    productId: details[0].id  
+			
+			});
+		  }; */
+		 
+
+		  /* const handleuserid = () => {
+			setInput({
+			  ...input,
+			  userId: user.data.userFound.id 
+			
+			});
+			
+		  }; */
+		
+		 
+
+		  const handlecalification = (e) => {
+			setInput({
+			  ...input,
+			   /* calification: rating  */
+			    [e.target.name]: e.target.value,  
+			});
+		  };
+		  
+
+
+		 /*  const handlecomentario = (e) => {
+			setInput({
+			  ...input,
+			   comment: e.target.value 
+			  
+			});
+		  }; */
+	
+
+
+		/* ***************************************************************** */
 
 		
 	
-	  	const handleSubmit = (event) => {//hoy 12.26
+	  	const handleSubmit = (e) => {//hoy 12.26
 			
 		
     		/* const reviewData = { rating: rating, comment: comment }; */
-    		event.preventDefault();
-    	 	 dispatch(postReviews()); 
+    		e.preventDefault();
+    	 	 dispatch(postReviews(input)); 
+			  setInput({
+				userId:'',
+				productId:'',
+				calification:'',
+				comment:''
+			 }) 
 	 		 }; 
 
 	
@@ -223,7 +283,7 @@ export default function Detail() {
 <div>
       {isAuthenticated ? (
         <div>
-           <form onSubmit={handleSubmit}>
+           <form onSubmit={(e)=>handleSubmit(e)}>
         <div>
           {[1, 2, 3, 4, 5].map((star) => (
            <FontAwesomeIcon icon={faStar} 
@@ -239,9 +299,10 @@ export default function Detail() {
 		<div>
    				 <input
       				type="number"
+					  name="calification"
       				value={rating}
-      				onChange={handleCommentChange}
-      				name="rating"
+      				onChange={(e)=>handlecalification(e)}
+      				
     			/>
 	
  		 </div>
@@ -252,9 +313,10 @@ export default function Detail() {
         <div>
   		  
     				   <input className="bg-gray-50 border border-gray-300"
-     						type="text"
+     						type="number"
+							 name="productId"
       						value={ids}
-      						onChange={handleCommentChange}
+      					 	onChange={(e)=>handlecalification(e)} 
     						>
     						</input>     
 			 
@@ -268,8 +330,9 @@ export default function Detail() {
 			   <input 
         		className="bg-gray-50 border border-gray-300"
         		type="number"
+				name="userId"
         		value={userId}//
-        		onChange={handleCommentChange}
+        		 onChange={(e)=>handlecalification(e)} 
      			 />  
 
 		</div>
@@ -285,8 +348,9 @@ export default function Detail() {
         				<textarea
 						type="text"
           				placeholder="Escribe aquí tu comentario"
-          				value={comment}
-          				onChange={handleCommentChange}
+						  name="comment"
+          				value={input.comment}
+          				onChange={(e)=>handlecalification(e)}
         				/>
 					</div>
 
