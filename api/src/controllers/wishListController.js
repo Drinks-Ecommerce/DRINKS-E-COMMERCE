@@ -16,6 +16,7 @@ const wishlist = async () => {
         return {
             id: el.dataValues.id,
             user:el.dataValues.userId,
+            productId: el.products.map((e) => e.dataValues.id),
             name: el.products.map((e) => e.dataValues.name),
             img: el.products.map((e) => e.dataValues.img),
             price: el.products.map((e) => e.dataValues.price),
@@ -40,6 +41,7 @@ const wishlistByUserId = async (userId) => {
         return {
             id: e.dataValues.id,
             user: e.dataValues.userId,
+            productId: e.products.map((e) => e.dataValues.id),
             name: e.products.map((e) => e.dataValues.name),
             img: e.products.map((e) => e.dataValues.img),
             price: e.products.map((e) => e.dataValues.price),
@@ -47,7 +49,7 @@ const wishlistByUserId = async (userId) => {
         }
     })
 
-    return result
+    return result 
 }
 
 module.exports = { wishlist, wishlistByUserId };

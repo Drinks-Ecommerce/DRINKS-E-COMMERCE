@@ -42,13 +42,13 @@ export default function Products(){
 
     return (
 
-        <div className='flex flex-col h-screen w-screem bg-gray-300'>
+        <div className='flex flex-col  w-screem bg-gray-300'>
 
         <div className="conte_encabezado">
                 <Encabezado />
         </div>   
 
-        <div className="flex flex-row mx-4">
+        <div className="flex flex-row mx-5">
 
             <div className="flex w-1/4 bg-gray-200 my-5  justify-center">
                 <div className="filtros flex flex-col bg-black text-white  h-8 w-3/4 mx-auto mt-8 px-3">
