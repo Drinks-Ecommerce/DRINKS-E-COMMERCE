@@ -398,3 +398,12 @@ export function postWishlist(payload) {
         })
     };
 };
+
+export function deleteWishlist(id) {
+    return async function(dispatch) {
+        const json = await axios.delete(`http://localhost:3000/wishlist/delete/${id}`);
+        return dispatch({
+            type: 'DELETE_WISHLIST',
+        });
+    };
+};

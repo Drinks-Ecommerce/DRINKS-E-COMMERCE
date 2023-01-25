@@ -158,6 +158,11 @@ function rootReducer(state = initialState, action){
             return {
                 ...state
             }
+
+        case 'DELETE_WISHLIST':
+            return {
+                ...state
+            }
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :
