@@ -129,7 +129,6 @@ export default function Registrar(){
 
 
 
-				    </div>
                     <div className="space-y-1 mb-2">
 					    <label className="block mb-1 text-sm ml-1">Nombre de usuario</label>
 				        <input type="text" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
@@ -155,12 +154,12 @@ export default function Registrar(){
                 
                     <div className="space-y-1">
 					    <label className="block mb-1 text-sm ml-1">Contraseña</label>
-				        <input type="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
+				        <input type="password" placeholder="***" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900
                          text-gray-100" value={ input.password} name="password" onChange={ (e) => handleChange(e) }
                          />
-                        { errors.password?.type === 'required' && <p>Este campo es obligatorio</p> }
-                        { errors.password?.type === 'minLength' && <p>Minimo se requieren 5 caracteres.</p> }		
+                          <span>{errors.password && (<p className='error'>{errors.password}</p>)}</span>
 				    </div>
+
                     </div>
                     </div>
 
