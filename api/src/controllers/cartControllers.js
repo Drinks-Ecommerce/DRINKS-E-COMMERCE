@@ -83,6 +83,7 @@ const updateProductCart = async(req,res) => {
         let productCart = await Productcart.findOne({
             where: { id : productCartId }
         });
+
         let product = await Products.findOne({
             where:{id: productCart.productId}
         })
@@ -108,7 +109,7 @@ const updateProductCart = async(req,res) => {
         }
         
         await productCart.update({ quantity, totalValue });
-        const cart = await Cart.findOne({ where: { id: productCart.id }});
+        const cart = await Cart.findOne({ where: { id: productCart.cartId }});
         updateTotalValue(cart);
         res.send('updated')
     } catch (err) {
