@@ -98,7 +98,7 @@ export default function Registrar(){
 
             <div className="mx-auto mt-4 mb-4 flex flex-col max-w-3xl w-4/5 p-6 rounded-md sm:p-6 bg-gray-900 text-gray-100 ">
 	            <div className="mb-4 text-center">
-		            <h1 className="my-3 text-4xl font-bold underline">Registrarse</h1>
+		            <h1 className="my-3 text-4xl font-bold">Registrarse</h1>
 	            </div>
 
 	            <form  onSubmit={ onSubmit } className="space-y-5 ng-untouched ng-pristine ng-valid">

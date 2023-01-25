@@ -5,6 +5,7 @@ import { payment } from '../../action/index.js';
 import Encabezado from '../Encabezado/Encabezado.jsx';
 import { Link } from 'react-router-dom';
 import style from './Payment.module.css' 
+import Footer from '../Footer/Footer.jsx';
 
 export default function Payment() {
 const dispatch = useDispatch();
@@ -99,13 +100,18 @@ const HandleSubmit = (e) => {
 };
 	return(
 		<div className={style.container}>
-			<section class="p-6 dark:bg-gray-800 dark:text-gray-50">
+
+			<div className="conte_encabezado">
+                <Encabezado />
+            </div>      
+
+            {/* CONTENEDOR PARA EL CARRUCEL SUPERIOR. */}         
+              
+           
+			<section class="p-6 bg-gray-400 text-gray-50">
 		<form  onSubmit={HandleSubmit}   novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid" >
 		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			<div class="space-y-2 col-span-full lg:col-span-1">
-				<p class="font-medium">Personal Inormation</p>
-				<p class="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
-			</div>
+			
 			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
 
@@ -114,7 +120,7 @@ const HandleSubmit = (e) => {
 					<label for="firstname" className={style.text_sm}>Email</label>
 					<input id="firstname" type="text" value={input.emailUser} name= "emailUser" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
-					 	class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+					 	class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
 					/>
 					<span>{errors.emailUser && (<p className='error'>{errors.emailUser}</p>)}</span>
 				</div>
@@ -124,7 +130,7 @@ const HandleSubmit = (e) => {
 					<label for="lastname"className={style.text_sm} >Phone</label>
 					<input id="lastname" type="text" value={input.phone} name= "phone" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"}
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"
 					/>
 					<span>{errors.phone && (<p className='error'>{errors.phone}</p>)}</span>
 				</div>
@@ -135,7 +141,7 @@ const HandleSubmit = (e) => {
 					<input id="email" placeholder="Number Address" 
 					 	type="text" value={input.numberAddress} name= "numberAddress" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"}
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"
 					/>
 					<span>{errors.numberAddress && (<p className='error'>{errors.numberAddress}</p>)}</span>
 				</div>
@@ -145,7 +151,7 @@ const HandleSubmit = (e) => {
 					<input id="address" type="text" placeholder="" 
 						value={input.address} name= "address" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"/>
 						<span>{errors.address && (<p className='error'>{errors.address}</p>)}</span>
 				</div>
 
@@ -155,7 +161,7 @@ const HandleSubmit = (e) => {
 					<input id="city" type="text" placeholder="" 
 					 value={input.city} name= "city" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"/>
 					<span>{errors.city && (<p className='error'>{errors.city}</p>)}</span>
 				</div>
 
@@ -166,7 +172,7 @@ const HandleSubmit = (e) => {
 					<input id="state" type="text" placeholder="" 
 						 value={input.province} name= "province" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"}
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"
 						/>
 						<span >{errors.province && (<p className='error'>{errors.province}</p>)}</span>
 				</div>
@@ -177,7 +183,7 @@ const HandleSubmit = (e) => {
 					<input id="zip" type="text" placeholder="" 
 						 value={input.postalCode} name= "postalCode" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"/>
 					<span>{errors.postalCode && (<p className='error'>{errors.postalCode}</p>)}</span>
 				</div>
 			</div>
@@ -185,10 +191,7 @@ const HandleSubmit = (e) => {
 		</fieldset>
 
 		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			<div class="space-y-2 col-span-full lg:col-span-1">
-				<p class="font-medium">Profile</p>
-				<p class="text-xs">Adipisci fuga autem eum!</p>
-			</div>
+			
 			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
 				<div class="col-span-full sm:col-span-3">
@@ -196,7 +199,7 @@ const HandleSubmit = (e) => {
 					<input id="username" type="text" placeholder="Username" 
 						value={input.paymentMethod} name= "paymentMethod" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"} 
-						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
+						class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"
 						/>
 					<span>{errors.paymentMethod && (<p className='error'>{errors.paymentMethod}</p>)}</span>
 				</div>
@@ -208,7 +211,7 @@ const HandleSubmit = (e) => {
 					 value={input.shippingMethod} name= "shippingMethod" 
 						onChange={(e)=>handleChange(e)} autoComplete={"off"}
 						
-					class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"/>
+					class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-gray-900"/>
 					<span>{errors.shippingMethod && (<p className='error'>{errors.shippingMethod}</p>)}</span>
 				</div>
 				
@@ -229,12 +232,15 @@ const HandleSubmit = (e) => {
 						</a>
 						</div>) : null
 					}
-		</section> 
+		</section>           
+            
+
+            {/* CONTENIDO PARA EL PIE DE PAGINA */}
+
+            <div className="container-footer mt-auto">
+                <Footer />
+            </div>
 			
 	</div>
 
 )}
-
-
-
-

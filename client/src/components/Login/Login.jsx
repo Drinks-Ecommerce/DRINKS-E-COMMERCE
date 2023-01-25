@@ -87,7 +87,7 @@ export default function Login(){
              <div className="mx-auto mt-4 mb-4 flex flex-col max-w-lg w-96 p-6 rounded-md sm:p-6 bg-gray-900 text-gray-100">
 
 	        <div className="mb-4 text-center">
-		        <h1 className="my-3 text-4xl font-bold underline">Iniciar Sesión</h1>
+		        <h1 className="my-3 text-4xl font-bold">Iniciar Sesión</h1>
 	        </div>
             
 
