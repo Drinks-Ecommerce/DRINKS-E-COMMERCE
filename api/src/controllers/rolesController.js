@@ -1,4 +1,4 @@
-const { Role } = require("../db")
+ const { Role } = require("../db")
 
 const allRoles = () => {
     try {
@@ -13,9 +13,7 @@ const allRoles = () => {
                     where: { name: e }
                 })
             })
-
             return roles;
-
         }
         else {
             return rolesDb;
@@ -27,5 +25,4 @@ const allRoles = () => {
 }
 
 allRoles();
-
-module.exports = { allRoles }
+module.exports = { allRoles } 

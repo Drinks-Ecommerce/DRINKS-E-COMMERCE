@@ -2,10 +2,7 @@ import React from "react";
 import { getProducts, creatProducts } from "../../action";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom"
-
-import './ProductCreate.css'
-
+import { Link } from "react-router-dom";
 
 
  const validate = (input) => {
@@ -59,7 +56,7 @@ import './ProductCreate.css'
         errors.description = 'La descripcion es muy larga. (Max = 800 caracteres)';
       };
 
-//       return errors
+       return errors
       
 
  }
@@ -105,7 +102,7 @@ export default function ProductCreate(){
     }))
   }
 
-  function handleSubmit(event){
+  const handleSubmit= async (event)=>{
     event.preventDefault()
     if(input.name === '' || input.stock === '' || input.img === '' || input.brand === '' || input.alcohol === '' || input.description === '' || input.calification === '' || input.discount === '' || input.origin === '') alert("Falta completar el formulario")
     dispatch(creatProducts(input));
@@ -124,6 +121,10 @@ export default function ProductCreate(){
        img: "", //
        types: ""
      })
+
+    
+  
+
   }
 ////className="form_container"
   return (
@@ -137,9 +138,9 @@ export default function ProductCreate(){
 
           <h1>CREAR UN PRODUCTO</h1>
               
-              <Link to="/">
+              <Link to="/paneladmin">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
-                  Home
+                  Panel Admin
                 </button>
               </Link>
 
@@ -329,11 +330,11 @@ export default function ProductCreate(){
         <div>
             <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">IMAGEN</label>
             <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required
-            type="url"
+            type="text"
             value={input.img}
             name="img"
             onChange={(event) => handleChange(event)}
-            > 
+            >
             </input>
             <span className="form_line"></span>
             {

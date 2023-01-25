@@ -1,0 +1,13 @@
+.container{
+    height: 100%;
+    width: auto;
+    background-color: rgb(16, 21, 49);
+
+}
+
+.text_sm{
+    font-size: 23px;
+    color: aliceblue;
+
+}
+
