@@ -162,13 +162,17 @@ export default function Login(){
 				        <button type="button" className="w-full px-2 py-2 font-semibold rounded-md bg-teal-400 text-gray-900" 
                         onClick={(e) => handleSubmit2(e)}>Iniciar</button>
 			        </div>
-                    <p className="px-2 mr-1 text-sm text-center text-gray-400">¿No tienes una cuenta todavía?
+                    
+		        </div>
+	        </form>
+
+            <div>
+            <p className="px-2 mr-1 text-sm text-center text-gray-400">¿No tienes una cuenta todavía?
                         <Link to='/register'>
 				            <a rel="noopener noreferrer" href="#" className="hover:underline text-indigo-400"> Registrarse</a>.
                         </Link>
 			        </p>
-		        </div>
-	        </form>
+            </div>
 
         </div>
             <div className='mt-auto'>
