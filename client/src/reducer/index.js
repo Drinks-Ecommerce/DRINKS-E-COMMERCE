@@ -154,6 +154,11 @@ function rootReducer(state = initialState, action){
                 ...state,
                 wishlist: action.payload
             }
+
+        case 'DELETE_WISHLIST':
+            return {
+                ...state
+            }
 //----------------------------------- CASE TYPES -----------------------------------
 
         case 'GET_TYPES' :

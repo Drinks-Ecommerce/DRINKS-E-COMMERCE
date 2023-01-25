@@ -1,17 +1,9 @@
-
-
-
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { getUsers, deleteUser, updateUser, getUsersById } from "../../action/index";
 import { Link, useParams } from "react-router-dom";
 import SearchBaruser from '../SearchBaruser/SearchBaruser';
-
-
-
-
-
 
 
 export default function User() {
