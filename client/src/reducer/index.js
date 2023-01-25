@@ -149,14 +149,10 @@ function rootReducer(state = initialState, action){
             }
 
         case 'GET_WISHLIST':
+
             return {
                 ...state,
                 wishlist: action.payload
-            }
-
-        case 'POST_WISHLIST':
-            return {
-                ...state
             }
 //----------------------------------- CASE TYPES -----------------------------------
 

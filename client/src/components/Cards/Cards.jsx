@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postInCart, postWishlist } from "../../action";
+import { postInCart, postWishlist, getWishlist } from "../../action";
 import { useState } from "react";
 import images from '../icons/images.js';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,7 @@ export default function Cards({id, name, stock, amount, price, description, img,
 
 	const dispatch = useDispatch();
 	const User = useSelector((state) => state.user);
+	const favorites = useSelector((state) => state.wishlist);
 
 	const renderToast = (data) => {
 
@@ -36,8 +37,6 @@ export default function Cards({id, name, stock, amount, price, description, img,
 				}
 			})
 		}
-
-
 	}
 
 	function handleChange(e) {
@@ -58,7 +57,19 @@ export default function Cards({id, name, stock, amount, price, description, img,
 				userId: User.id,
 				productId: id
 			}
-			dispatch(postWishlist(obj));
+
+			console.log("FAVORITES:", favorites);
+			console.log("NAME:", name)
+
+			for(let i=0; i<favorites.length; i++){
+				console.log("1")
+				if(name == favorites[i].name){
+					console.log("repetido");
+					return toast.error("REPETIDO, BRO");
+				}
+			}
+
+			dispatch(postWishlist(obj, User.id));
 			return toast.success("Product added successfully", {
 				duration: 600,
 				position: 'top-left',

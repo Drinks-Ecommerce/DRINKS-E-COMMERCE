@@ -389,12 +389,9 @@ export function getWishlist(id) {
     };
 };
 
-export function postWishlist(payload) {
+export function postWishlist(obj, id) {
     return async function(dispatch) {
-        const json = await axios.post("http://localhost:3000/wishlist", payload);
-        return dispatch({
-            type: 'POST_WISHLIST',
-            payload: json
-        })
+        return axios.post("http://localhost:3000/wishlist", obj)
+        .then((resp) => dispatch(getWishlist(id)))
     };
 };
