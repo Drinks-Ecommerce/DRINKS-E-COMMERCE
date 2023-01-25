@@ -34,11 +34,6 @@ export default function Encabezado(){
         <div className="flex">
           <img src={images.img4} className="w-25  h-25" alt="" />
         </div>
-        <div>
-          <Link to={'/wishlist'}>
-            <img src={images.img21} className='h-10 w-10' />
-          </Link>
-        </div>
 
         <div className="flex items-center md:space-x-4">
           <SearchBar />
@@ -51,7 +46,7 @@ export default function Encabezado(){
 
 			{
 				open === false ? (
-					<img src={images.img9} className="hidden md:block w-10 h-10 cursor-pointer mr-1" alt="img" onClick={() => setOpen(!open)} />
+					<img src={images.img9} className="hidden md:block w-9 h-9 cursor-pointer mr-1" alt="img" onClick={() => setOpen(!open)} />
 				) :
         <Carrito set={setOpen} open2={!open}  />
 			}
@@ -69,11 +64,16 @@ export default function Encabezado(){
           {Object.entries(User).length === 0 ? (
             <Link to="/login">
               <div>
-                <img src={images.img20} className="w-10 h-10 cursor-pointer" />
+                <img src={images.img20} className="w-9 h-9 cursor-pointer" />
               </div>
             </Link>
           ) : (
-            <div className="flex row gap-5">
+            <div className="flex row gap-x-4">
+              <div>
+          <Link to={'/wishlist'}>
+            <img src={images.img21} className='h-9 w-9 cursor-pointer' />
+          </Link>
+        </div>
               <div class="flex justify-center">
                 <div>
                   <div class="dropdown relative">
@@ -106,18 +106,15 @@ export default function Encabezado(){
                       aria-labelledby="dropdownMenuButton2"
                     >
                       <Link to={`/profile`}>
-                        <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Perfil</h6>
+                        <h6 class="text-gray-400 font-normal text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700">Perfil</h6>
                       </Link>
-                      <span class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300">
-                        (???)
-                      </span>
-
+                      
                       <li>
                         <hr class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25" />
                       </li>
                       <li>
                         <a
-                          class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+                          class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
                           onClick={(e) => DeleteUSER()}>
                           Cerrar sesión
                         </a>

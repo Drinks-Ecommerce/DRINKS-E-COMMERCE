@@ -122,10 +122,10 @@ export function getByOrigin(payload){
     }
 }
 
-// --------------------------- ACTIONS PRODUCTS ------------------------------------
+// --------------------------- ACTIONS CART ------------------------------------
 
 export function postInCart(payload){
-    return  function(dispatch){
+    return function(dispatch){
        return axios.post("http://localhost:3000/cart/addProduct", payload);
 }}
 
@@ -149,11 +149,20 @@ export function getInCart(id){
 }
 
 export function DeleteProduct(idProduct, idUser){
-    return function(dispatch){
+    return async function(dispatch){
         return axios.delete(`http://localhost:3000/cart/delete/?productCardId=${idProduct}`)
         .then((resp) => {
             dispatch(getInCart(idUser));
        })
+    }
+}
+
+export function UpdateProduct(payload, idUser ){
+    return async function(dispatch){
+        return axios.put(`http://localhost:3000/cart`, payload)
+        .then((resp) => {
+            dispatch(getInCart(idUser))
+        })
     }
 }
 
@@ -165,6 +174,7 @@ export function getTypes(){
         return dispatch({
             type: 'GET_TYPES',
             payload: json.data
+
         });
     };
 };

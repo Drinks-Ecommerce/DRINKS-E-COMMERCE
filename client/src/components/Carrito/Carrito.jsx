@@ -22,14 +22,14 @@ export default function Carrito({set, open2}){
 
   useEffect(() => {
     dispatch(getInCart(User.id));
-  }, []);
+  }, [dispatch]);
 
   const SUMA = () => {
 
     let suma = 0;
 
     carrito?.map(e => {
-      suma = suma + e.totalValue;
+      suma = suma + Number(e.totalValue);
     })
 
     return suma;
@@ -40,13 +40,21 @@ export default function Carrito({set, open2}){
     e.preventDefault();
 
     if(Object.entries(User).length === 0){
+      return toast.error('Por favor, inicia sesión.', {
+        duration: 600,
+				position: 'top-left',
+				style: {
+					border: '1px solid #FF0000',
+					padding: '10px',
+					color: '#FF0000',
+					fontSize: "20px"
+				},
+      });
       
-      return toast.error('Por favor, inicia sesión.');
-          
     }
     
     if(Object.entries(User).length > 0 && Object.entries(allProductsInCart.productcarts).length === 0){
-      toast.error('El carrito está vacío.');
+      return toast.error('El carrito está vacío.');
     }
     
     else{
@@ -73,7 +81,7 @@ export default function Carrito({set, open2}){
 
   return (
 
-    <div className={`${open ? "w-1/4" : "w-0"} fixed right-0  h-screen top-0 text-3xl bg-gray-900 shadow-md z-40`}>
+    <div className={`${open ? "w-1/3" : "w-0"} fixed right-0  h-screen top-0 text-3xl bg-gray-900 shadow-md z-40`}>
       
       <button className="ml-2 mt-3" onClick={() => set(!open)}>
        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
