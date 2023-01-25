@@ -220,6 +220,15 @@ const HandleSubmit = (e) => {
 					 || errors.emailUser === ''? true : false }> Pay Now
 					 </button>
 		</form>
+		{
+					url?.data?(<div>
+						<a href={url.data} target="_blank">
+							<button>
+								mercado pago
+							</button>
+						</a>
+						</div>) : null
+					}
 		</section> 
 			
 	</div>
