@@ -5,7 +5,6 @@ import { payment } from '../../action/index.js';
 import Encabezado from '../Encabezado/Encabezado.jsx';
 import { Link } from 'react-router-dom';
 import style from './Payment.module.css' 
-import Footer from '../Footer/Footer.jsx';
 
 export default function Payment() {
 const dispatch = useDispatch();
@@ -100,18 +99,13 @@ const HandleSubmit = (e) => {
 };
 	return(
 		<div className={style.container}>
-
-			<div className="conte_encabezado">
-                <Encabezado />
-            </div>      
-
-            {/* CONTENEDOR PARA EL CARRUCEL SUPERIOR. */}         
-              
-            
-			<section class="p-6 bg-gray-800">
-		<form novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+			<section class="p-6 dark:bg-gray-800 dark:text-gray-50">
+		<form  onSubmit={HandleSubmit}   novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid" >
 		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Personal Inormation</p>
+				<p class="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
+			</div>
 			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
 
@@ -191,7 +185,10 @@ const HandleSubmit = (e) => {
 		</fieldset>
 
 		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Profile</p>
+				<p class="text-xs">Adipisci fuga autem eum!</p>
+			</div>
 			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
 				<div class="col-span-full sm:col-span-3">
@@ -233,19 +230,7 @@ const HandleSubmit = (e) => {
 						</div>) : null
 					}
 		</section> 
-
-		          
-
-            {/* CONTENIDO PARA EL PIE DE PAGINA */}
-
-            <div className="container-footer mt-auto">
-                <Footer />
-            </div>
 			
 	</div>
 
 )}
-
-
-
-
