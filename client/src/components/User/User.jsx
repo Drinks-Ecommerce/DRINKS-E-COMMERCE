@@ -1,3 +1,6 @@
+
+
+
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
@@ -6,11 +9,20 @@ import { Link, useParams } from "react-router-dom";
 import SearchBaruser from '../SearchBaruser/SearchBaruser';
 
 
+
+
+
+
+
 export default function User() {
 
   const dispatch = useDispatch()
   const { id } = useParams();
   const alluser = useSelector((state) => state.userr) 
+  const alluserId = useSelector((state) => state.userrr)
+  console.log(alluserId)
+  
+  
  
 
 
@@ -25,16 +37,27 @@ export default function User() {
     username: "",
     email: "",
     img: "",  
-    
-
+    is_banned: "",
+    last_name: "",
      
 })
 
+console.log(idState)
+
 //cuando se renderiza el componente disparo la accion para que actualice el state
 useEffect(() =>{
-   dispatch(getUsers()) 
- 
-}, [])
+   dispatch(getUsersById(id))
+   dispatch(getUsers())    
+}, [id])
+
+useEffect(() =>{
+  setInput({
+    name: alluserId?.map(e => e.name).toString(),
+    username: alluserId?.map(e => e.username).toString(),
+    email: alluserId?.map(e => e.email).toString(),
+    is_banned: alluserId?.map(e => e.is_banned).toString(),
+  })
+},[alluserId])
 
 
 function handleClick(){
@@ -62,22 +85,22 @@ function handleClick(){
     img: alluser.img,
     
   }); */
+//     dispatch(getUsersById(e)).then(data => {// para asignar los valores de los inputs debes hacerlo dentro del callback de getUsersById
+//     setInput({
+//     name: data.name,
+//     username: data.username,
+//     email: data.email,
+//     is_banned: data.is_banned,
+//   });
+// });
+ }; 
 
-  dispatch(getUsersById(e)).then(data => {// para asignar los valores de los inputs debes hacerlo dentro del callback de getUsersById
-    setInput({
-    name: data.name,
-    username: data.username,
-    email: data.email,
-    img: data.img,
-  });
-});
-}; 
 
-
-function handledeleteUser(e){
-     
-  dispatch(deleteUser(e))
-  dispatch(getUsers());
+ async function handledeleteUser(e){
+   if(window.confirm("¿Esta segur?")){   
+  await dispatch(deleteUser(e))
+  await dispatch(getUsers());
+  }
 
 }
 
@@ -123,23 +146,21 @@ let handleSubmit = async (e) => {
 
   return (
     
-    <div>
+  
       <div>
      {
       !updateState && (
         
         <div class="container grid grid-cols-1   my-16 mx-16  items-center justify-center">
-          <div><button className="px-6 py-2.5 bg-purple-600 text-white" onClick={()=>{handleClick()}}>ALLUSER</button></div>
+          <div> <Link to="/paneladmin"><button className="px-6 py-2.5 bg-gray-800 text-white">PANEL ADMIN</button></Link></div>
           <div class="items-center justify-center text-center"><SearchBaruser/></div>
-          <div class="buscador grid-area-buscador"><h1 class="items-center justify-center text-center">buscador</h1></div>
-          <div class="usuarios grid-area-usuarios"><h1 class="items-center justify-center text-center  my-8">Usuario</h1></div>
           <div class="datos-usuarios grid grid-cols-6 grid-area-datos-usuarios my-8  items-center justify-center text-center">
-          <div class="nombre grid-area-nombre">Name</div>
-          <div class="apellido grid-area-apellido">Username</div>
-          <div class="email grid-area-email">Email</div>
-          <div class="editar grid-area-editar">Eleminar</div>
-          <div class="eliminar grid-area-eliminar">Editar</div>
-          <div class="image grid-area-image">Image</div>
+          <div class="nombre grid-area-nombre text-3xl">Name</div>
+          <div class="apellido grid-area-apellido text-3xl">Username</div>
+          <div class="email grid-area-email text-3xl">Email</div>
+          <div class="editar grid-area-editar text-3xl">Eleminar</div>
+          <div class="eliminar grid-area-eliminar text-3xl">Editar</div>
+          <div class="image grid-area-image text-3xl">Image</div>
   </div>
 
             <div>
@@ -148,15 +169,18 @@ let handleSubmit = async (e) => {
              {
                 alluser?.map(e => {
                     return (
+ 
+                        <div className="text-black grid-cols-6 grid my-8  items-center justify-center text-center border-2 border-black rounded-3xl bg-gray-500">
+                           <h2 className="text-white text-2xl border-2 border-green rounded-3xl">{e.name}</h2> 
+                            <h2 className="bg-gray-500 text-white text-2xl">{e.username}</h2> 
+                            <h2 className="bg-gray-500 text-white text-2xl">{e.email}</h2>
 
-                        <div class="text-black grid-cols-6 grid my-8  items-center justify-center text-center">
-                           <h2>{e.name}</h2> 
-                            <h2>{e.username}</h2> 
-                            <h2>{e.email}</h2> 
-                            <button onClick={() => handledeleteUser(e.id)}>delete</button>
-                             <button onClick={()=>handleOpenUpdateForm(e.id)}>editar</button>
+                            <button onClick={() => handledeleteUser(e.id)} className="text-white text-2xl hover:text-black">delete</button>
+                             <Link to={`/users/id/${e.id}`}>
+                             <button className=" text-white text-2xl rounded-3xl hover:text-black">editar</button>
+                             </Link>
                              {/* aqui agregue al openupdate el e.id */}
-                            <img class="my-8  items-center justify-center " src={e.img} alt=''width='30px' height='40px'/>
+                            <img class="my-8  items-center justify-center w-[150px]" src={e.img} alt='' />
             
             
             
@@ -169,125 +193,13 @@ let handleSubmit = async (e) => {
 
 
             </div>
-
- 
-                  <Link to="/paneladmin">
-                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
-                           Panel Admin
-                      </button>
-                  </Link>
       </div>
 
 
-      )} {/* TERMINO EL updateState  */}
+      )} 
 
 
 
-      </div>
-
-
-      {updateState && (
-
-          <div>
-
-
-              <form  onSubmit={(e)=>handleSubmit(e)}>
-
-
-                  <div class="grid gap-5 mb- md:grid-cols-2 ">{/* grid gap-x-8 gap-y-4    */    }
-
- 
-        
-                    <Link to="/paneladmin">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">
-                            Panel Admin
-                        </button>
-                    </Link>
-
-
-
-      <div>
-          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">NAME</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required
-          type="text"
-          value={input.name}
-          name="name"
-          onChange={(e)=>handleInputChange(e)}
-          
-          > 
-          </input>
-      
-      </div>
-
-
-
-
-      <div>
-          <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">USERNAME</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required
-          type="text"
-          value={input.username}
-          name="username"
-          onChange={(e)=>handleInputChange(e)}
-          
-           > 
-          </input>
-      
-      </div>
-
-
-
-
-      <div>
-          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">EMAIL</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="email" noValidate
-          type="text"
-          value={input.email}
-          name="email"
-          onChange={(e)=>handleInputChange(e)}
-          
-          > 
-          </input>
-      
-      </div>
-      
-
-
-
-      <div>
-          <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">IMAGEN</label>
-          <input   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-3/5 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="img" required
-            type="text"
-           value={input.img}
-          name="img"
-          onChange={(e)=> handleInputChange(e)}
-      > 
-      </input>
-     
       </div> 
 
-
-
-
- 
-
-
-      <button  type="submit">
-        actualizar
-      </button>
-
-      
-
-    </div>
-
-</form>
-
-</div>
-
-      )}
-
-
-
-      </div>
-  )
-}
+)}

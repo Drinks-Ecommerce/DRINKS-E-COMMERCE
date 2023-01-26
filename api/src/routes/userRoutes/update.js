@@ -14,9 +14,9 @@ router.put("/:id", async(req,res)=>{
             { where:{ id } }
             )
 
-            let getroles = await Role.findAll({
-            where:{name:roles}
-            })
+            // let getroles = await Role.findAll({
+            // where:{name:roles}
+            // })
 
         
             const user = await Role.findOne({
