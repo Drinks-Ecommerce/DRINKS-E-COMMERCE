@@ -10,6 +10,7 @@ const initialState = {
     userr:[],
     wishlist: [],
     urlPayment:"",
+    isAuthenticated: false,
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
@@ -305,6 +306,7 @@ function rootReducer(state = initialState, action){
                 console.log("state LOGIN_USER");
                 return {
                     ...state,
+                    isAuthenticated: true,
                     user: action.payload.data.userFound
         }
 
@@ -323,6 +325,21 @@ function rootReducer(state = initialState, action){
                 urlPayment:action.payload
             }
 
+
+            case "LOGOUT_USER":
+                return {
+                  ...state,
+                  isAuthenticated: false,
+                  user: {}
+                };
+
+                case 'POST_REVIEWS':
+                    return {
+                        ...state,
+                        reviews: action.payload
+        
+        
+                    }
 
 
 //-------------------------------- CASE DEFAULT --------------------------------------
