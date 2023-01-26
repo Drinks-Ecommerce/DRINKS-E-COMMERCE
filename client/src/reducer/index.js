@@ -10,6 +10,7 @@ const initialState = {
     userr:[],
     wishlist: [],
     urlPayment:"",
+    isAuthenticated: false,
 
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
@@ -126,15 +127,6 @@ function rootReducer(state = initialState, action){
 
         }
 
-<<<<<<< HEAD
-        /* case 'UPDATE_PRODUCT':
-            return {
-                ...state,
-                product: action.payload
-            }
- */
-        // case 'GET_ROL':
-=======
         case 'GET_BY_ORIGIN':
 
             const origenes = [];
@@ -185,7 +177,6 @@ function rootReducer(state = initialState, action){
         //     }
 
         // case 'DELETE_TYPE':
->>>>>>> 4076feb0073608eeae6cbe1b4912300f76b091b7
         //     return {
         //         ...state,
         //         type: action.payload
@@ -319,6 +310,7 @@ function rootReducer(state = initialState, action){
                 console.log("state LOGIN_USER");
                 return {
                     ...state,
+                    isAuthenticated: true,
                     user: action.payload.data.userFound
         }
 
@@ -337,6 +329,21 @@ function rootReducer(state = initialState, action){
                 urlPayment:action.payload
             }
 
+
+            case "LOGOUT_USER":
+                return {
+                  ...state,
+                  isAuthenticated: false,
+                  user: {}
+                };
+
+                case 'POST_REVIEWS':
+                    return {
+                        ...state,
+                        reviews: action.payload
+        
+        
+                    }
 
 
 //-------------------------------- CASE DEFAULT --------------------------------------

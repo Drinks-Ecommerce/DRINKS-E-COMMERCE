@@ -191,7 +191,7 @@ export function getTypes(){
 //     };
 // };
 
-<<<<<<< HEAD
+
  /* export function updateProduct(id) { 
     return async function(dispatch) {
         const json = await axios.update(`http://localhost:3000/products/${id}`);
@@ -201,7 +201,7 @@ export function getTypes(){
         });
     };
 }; */
-=======
+
 // export function updateProduct(id) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/types", payload);
@@ -211,7 +211,7 @@ export function getTypes(){
 //         });
 //     };
 // };
->>>>>>> 4076feb0073608eeae6cbe1b4912300f76b091b7
+
 
 // export function deleteType(id) {
 //     return async function(dispatch) {
@@ -416,6 +416,26 @@ export function deleteWishlist(id) {
         const json = await axios.delete(`http://localhost:3000/wishlist/delete/${id}`);
         return dispatch({
             type: 'DELETE_WISHLIST',
+        });
+    };
+};
+
+export function postReviews(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/review/addReview",payload);
+        return dispatch({
+            type: 'POST_REVIEWS',
+            payload: json.data
+        });
+    };
+};
+
+export function getReviews() {
+    return async function(dispatch) {
+        const json = await axios("http://localhost:3000/review");
+        return dispatch({
+            type: 'GET_REVIEWS',
+            payload: json.data
         });
     };
 };
