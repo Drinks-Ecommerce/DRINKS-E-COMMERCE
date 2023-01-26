@@ -11,7 +11,7 @@ const initialState = {
     wishlist: [],
     urlPayment:"",
     isAuthenticated: false,
-
+    reviews:[],
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
     allProductsCart: {},
