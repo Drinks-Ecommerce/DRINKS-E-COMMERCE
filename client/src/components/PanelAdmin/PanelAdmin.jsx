@@ -1,119 +1,136 @@
 import React from "react";
 import Footer from "../Footer/Footer.jsx";
 import ProductCreate from "../ProductCreate/ProductCreate";
-
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+import { DeleteUser } from "../../action";
+import images from "../icons/images";
+import swal from 'sweetalert';
 
 
 
 export default function Home(){
 
+const dispatch = useDispatch()
+const User = useSelector((state) => state.user)
+const navigate = useNavigate()
 
+
+  const DeleteUSER = () => {
+
+    console.log("sesion cerrada")
+    dispatch(DeleteUser());
+    navigate('/')
+    
+  };
 
     return(
-        <body class="bg-black-alt font-sans leading-normal tracking-normal">
-        <div class="bg-black-alt font-sans leading-normal tracking-normal">
-            
-             <nav id="header" class="bg-gray-900 fixed w-full z-10 top-0 shadow">
-             
-                <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
+        <div className=" flex sm:flex-row  mt-16 p-5 my-0 justify-around  rounded-3xl border-2 border-greey">
+         <h1 class="text-6xl font-bold text-black">Panel Admin</h1>
+         <Link to="/vinos" ><button class=" mr-8 h-12 rounded-md border border-transparent bg-gray-800 py-2 px-4 text-sm font-medium text-white shadow-sm hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Home</button></Link>
+      <div
+        class="mt-16 flex justify-between py-6 px-4 bg-white/30 rounded-lg shadow-lg shadow-black-500/40 hover:shadow-x1 hover:shadow-black-500/40"
+      >
+      
+        <div class="flex items-center space-x-4 px-12 rounded-3xl border-2 hover:border-black">
 
-                <div class="w-1/2 pl-2 md:pl-0">
-				    <a class="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold"  href="#"> 
-					    <i class=" text-blue-400 pr-3"></i> VINARY
-				    </a>
-                </div>
-
-                <div class="w-1/2 pr-0">
-				<div class="flex relative inline-block float-right">
-				
-				  <div class="relative text-sm text-gray-100">
-					  <button id="userButton" class="flex items-center focus:outline-none mr-3">
-						<img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of User"/> <span class="hidden md:inline-block text-gray-100">USUARIO</span>
-						<svg class="pl-2 h-2 fill-current text-gray-100" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129"><g><path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/></g></svg>
-					  </button>
-					  <div id="userMenu" class="bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 ">{/* invisible */}
-						  <ul class="list-reset">
-							<li><a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">MI CUENTA</a></li>
-							<li><a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Notifications</a></li>
-							<li><hr class="border-t mx-2 border-gray-400"/></li>
-							<li><a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Cerrar Sesion</a></li>
-						  </ul>
-					  </div>
-				  </div>
-
-                  <div class="block lg:hidden pr-4">
-					<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-100 hover:border-teal-500 appearance-none focus:outline-none">
-						<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-					</button>
-				</div>
-                </div>
-                </div>
-                  
-
-
-
-                <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 z-20" id="nav-content">
-                    <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                        <li class="mr-6 my-2 md:my-0">
-                            <a href="/" class="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
-                                <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
-                            </a>
-                        </li>
-
-                        <li class="mr-6 my-2 md:my-0">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-pink-400">
-                                <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Productos</span>
-                            </a>
-                        </li>
-
-                        <li class="mr-6 my-2 md:my-0">
-                            <a href="/createProducts" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-purple-400">
-                                <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Agregar Productos</span>
-                            </a>
-                        </li>
-
-                        <li class="mr-6 my-2 md:my-0">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-green-400">
-                                <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Productos mas Vendidos</span>
-                            </a>
-                        </li>
-
-                        <li class="mr-6 my-2 md:my-0">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400">
-                                <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Reviews</span>
-                            </a>
-                        </li>
-
-						<li class="mr-6 my-2 md:my-0">
-                            <a href="/user" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900  hover:border-red-400">
-                                <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Usuarios</span>
-                            </a>
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-
-
-
-                </div>
-            </nav>
-           
-
-
-         
-
+          <div class="flex flex-col my-16 space-y-1">
+          <Link to="/user">
+            <span class=" text-3xl font-bold text-blue"
+              >Usuarios 
+            </span>
+          </Link>  
+          </div>
         </div>
-		
-{/* 
-        <div className="container-footer">
-                <Footer />
-            </div>
-         */}
+      </div>
+      <div
+        class="mt-16 flex justify-between py-6 px-4 bg-white/30 rounded-lg shadow-lg shadow-black-500/40 hover:shadow-xl hover:shadow-black-500/40"
+      >
+        <div class="flex items-center space-x-4 px-12 rounded-3xl border-2 hover:border-black " >
+          <div class="flex flex-col my-16 space-y-1">
+          <Link to="/productsadmin">
+            <span class=" text-3xl font-bold"
+              >Productos Admin
+            </span>
+         </Link>   
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-16 flex justify-between py-6 px-4 bg-white/30 rounded-lg shadow-lg shadow-black-500/40 hover:shadow-xl hover:shadow-black-500/40"
+      >
+        <div class="flex items-center space-x-4 px-12 rounded-3xl border-2 hover:border-black">
+          <div class="flex flex-col my-16 space-y-1">
+          <Link to="/createProducts">
+            <span class=" text-3xl font-bold "
+              >Crear Productos
+            </span>
+          </Link>  
+          </div>
+        </div>
+      </div>
 
-        
-        </body>
-    )
+      {Object.entries(User).length === 0 ? (
+            <Link to="/login">
+              <div>
+                <img src={images.img20} className="w-10 h-10 cursor-pointer" />
+              </div>
+            </Link>
+          ) : (
+            <div className="flex row gap-5">
+              <div class="flex justify-center">
+                <div>
+                  <div class="dropdown relative">
+                    <button
+                      class="dropdown-toggle  px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                      type="button"
+                      id="dropdownMenuButton2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {User.username}
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="caret-down"
+                        class="w-2 ml-2"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        ></path>
+                      </svg>
+                    </button>
+                    <ul
+                      class="dropdown-menu min-w-max absolute hidden text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none bg-gray-800"
+                      aria-labelledby="dropdownMenuButton2"
+                    >
+                      <Link to={`/profile`}>
+                        <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Perfil</h6>
+                      </Link> 
+                                            
+                      <li>
+                        <hr class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25" />
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+                          onClick={(e) => DeleteUSER(e)}>
+                          Cerrar sesión
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+    </div>
+
+  )      
 }
