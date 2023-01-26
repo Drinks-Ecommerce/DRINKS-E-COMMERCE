@@ -10,6 +10,7 @@ export default function Cards({id, name, stock, amount, price, description, img,
 
 	const dispatch = useDispatch();
 	const User = useSelector((state) => state.user);
+	
 
 	const renderToast = (data) => {
 
