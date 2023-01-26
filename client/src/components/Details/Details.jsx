@@ -301,7 +301,7 @@ export default function Detail() {
 
         <div>
 			<Link to="/login">
-                <h1>Por favor inicia sesión para dejar una review</h1>  
+                <h1 class="bg-gray-300 text-black p-4 text-xl font-bold">Por favor inicia sesión para dejar una review</h1>  
             </Link>
 			
 		</div>

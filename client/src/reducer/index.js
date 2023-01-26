@@ -33,6 +33,7 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload,
                 copyallproducts : action.payload
+               
         }   
 
         case 'CREATE_PRODUCTS':
@@ -216,6 +217,7 @@ function rootReducer(state = initialState, action){
             
                 return {
                     ...state,
+                    isAuthenticated: false,
                     user: {}
             }
 
@@ -326,12 +328,12 @@ function rootReducer(state = initialState, action){
             }
 
 
-            case "LOGOUT_USER":
+            /* case "LOGOUT_USER":
                 return {
                   ...state,
                   isAuthenticated: false,
                   user: {}
-                };
+                }; */
 
                 case 'POST_REVIEWS':
                     return {
