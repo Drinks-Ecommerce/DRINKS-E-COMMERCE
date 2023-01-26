@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postInCart, postWishlist } from "../../action";
+import { postInCart, postWishlist, getWishlist } from "../../action";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import images from '../icons/images.js';
@@ -10,7 +10,7 @@ export default function Cards({id, name, stock, amount, price, description, img,
 
 	const dispatch = useDispatch();
 	const User = useSelector((state) => state.user);
-	
+	const favorites = useSelector((state) => state.wishlist);
 
 	const renderToast = (data) => {
 
@@ -38,8 +38,6 @@ export default function Cards({id, name, stock, amount, price, description, img,
 				}
 			})
 		}
-
-
 	}
 
 	function handleChange(e) {
@@ -60,14 +58,34 @@ export default function Cards({id, name, stock, amount, price, description, img,
 				userId: User.id,
 				productId: id
 			}
-			dispatch(postWishlist(obj));
+
+			console.log("FAVORITES:", favorites);
+			console.log("NAME:", name)
+
+			for(let i=0; i<favorites.length; i++){
+				console.log("1")
+				if(name == favorites[i].name){
+					return toast.error("The product is already in the wish list", {
+						duration: 600,
+						position: 'top-left',
+						style: {
+							border: '1px solid #d72e22',
+							padding: '10px',
+							color: '#d72e22',
+							fontSize: '20px'
+						}
+					});
+				}
+			}
+
+			dispatch(postWishlist(obj, User.id));
 			return toast.success("Product added successfully", {
 				duration: 600,
 				position: 'top-left',
 				style: {
-					border: '1px solid #d72e22',
+					border: '1px solid #007132',
 					padding: '10px',
-					color: '#d72e22',
+					color: '#007132',
 					fontSize: "20px"
 				}
 			})
