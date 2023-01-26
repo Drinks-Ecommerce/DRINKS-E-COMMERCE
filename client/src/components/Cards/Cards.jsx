@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { postInCart, postWishlist, getWishlist } from "../../action";
-import { postInCart, postWishlist } from "../../action";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import images from '../icons/images.js';
@@ -66,8 +65,16 @@ export default function Cards({id, name, stock, amount, price, description, img,
 			for(let i=0; i<favorites.length; i++){
 				console.log("1")
 				if(name == favorites[i].name){
-					console.log("repetido");
-					return toast.error("REPETIDO, BRO");
+					return toast.error("The product is already in the wish list", {
+						duration: 600,
+						position: 'top-left',
+						style: {
+							border: '1px solid #d72e22',
+							padding: '10px',
+							color: '#d72e22',
+							fontSize: '20px'
+						}
+					});
 				}
 			}
 
@@ -76,9 +83,9 @@ export default function Cards({id, name, stock, amount, price, description, img,
 				duration: 600,
 				position: 'top-left',
 				style: {
-					border: '1px solid #d72e22',
+					border: '1px solid #007132',
 					padding: '10px',
-					color: '#d72e22',
+					color: '#007132',
 					fontSize: "20px"
 				}
 			})

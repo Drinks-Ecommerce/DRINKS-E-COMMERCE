@@ -379,15 +379,15 @@ export function getAllOrigins() {
         }
     }
     
-export function getWishlist(id) {
-    return async function(dispatch) {
-        const json = await axios.get(`http://localhost:3000/wishlist?userId=${id}`);
+    export function getWishlist(id) {
+        return async function(dispatch) {
+            const json = await axios.get(`http://localhost:3000/wishlist?userId=${id}`);
         return dispatch({
             type: 'GET_WISHLIST',
             payload: json.data
         });
     };
-};
+    };
 
 export function postWishlist(obj, id) {
     return async function(dispatch) {
