@@ -18,7 +18,8 @@ router.get('/:id', async(req,res) => {
                             model: Products,
                         },
                     }
-                ]
+                ],
+            order: [[Productcart, "createdAt", "DESC"]],
             });
             res.send(cart)
     } catch (err) {
