@@ -4,18 +4,23 @@ import { getProducts, FillUser, getTypes } from "../../action/index";
 import Footer from "../Footer/Footer.jsx";
 import Encabezado from "../Encabezado/Encabezado";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
+import swal from 'sweetalert';
 
 import Caroucel from "../Caroucel/Caroucel.jsx";
 import images from "../icons/images";
 export default function Home(){
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [permissions, setPermissions] = useState(window.localStorage.getItem("permissions"));
 
     const User = useSelector((state) => state.user);
-
+     
+     const filter = Object.entries(User).flat()
+     
+       
     useEffect(() =>{
         dispatch(getTypes());
         dispatch(getProducts());
@@ -38,6 +43,7 @@ export default function Home(){
                         <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={handleOK}>
                         Aceptar Términos</button>
                     </div>
+                  
                 </div>
             </div>
         </div> 
@@ -76,7 +82,8 @@ export default function Home(){
             <div className="container-footer mt-auto">
                 <Footer />
             </div>
-        
+            
+            
         </div>
     )
 }

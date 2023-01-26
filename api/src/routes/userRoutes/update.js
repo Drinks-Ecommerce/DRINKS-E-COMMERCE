@@ -14,16 +14,16 @@ router.put("/:id", async(req,res)=>{
             { where:{ id } }
             )
 
-            let getroles = await Role.findAll({
-            where:{name:roles}
-            })
+            // let getroles = await Role.findAll({
+            // where:{name:roles}
+            // })
 
         
             const user = await Role.findOne({
                 where:{id}
             })
 
-            res.send({msg:"user update exit"},user)
+            res.status(200).send({msg:"user update exit"})
     } catch (error){
         console.log(error)
         return res.status(400).json({ msg: error.msg })

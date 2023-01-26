@@ -8,7 +8,7 @@ import images from "../icons/images";
 import Carrito from "../Carrito/Carrito";
 import "../SearchBar/SearchBar.jsx";
 import { useNavigate } from "react-router-dom";
-
+import swal from 'sweetalert';
 export default function Encabezado(){
 
   const [open, setOpen] = useState(false); // Lógica para el carrito.
@@ -26,7 +26,8 @@ export default function Encabezado(){
     navigate('/')
     
   };
-		
+
+
 
   return (
     <header className="bg-gray-200 text-gray-100">
@@ -108,10 +109,10 @@ export default function Encabezado(){
                       <Link to={`/profile`}>
                         <h6 class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Perfil</h6>
                       </Link>
-                      <span class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300">
-                        (???)
-                      </span>
-
+                      {
+                        Object.entries(User.length > 0) && User.roles[0].name === "admin" ? <Link to="/paneladmin">  <span class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Panel admin</span> </Link> : <span></span>
+  
+                      }     
                       <li>
                         <hr class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25" />
                       </li>

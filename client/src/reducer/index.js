@@ -14,7 +14,7 @@ const initialState = {
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
     allProductsCart: {},
-    
+    userrr: [],
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
     msg: '',
@@ -90,15 +90,15 @@ function rootReducer(state = initialState, action){
 
 
 
-        // case 'DELETE_PRODUCT':
-        //  return {
-        //      ...state
-        //  }
+        case 'DELETE_PRODUCT':
+         return {
+             ...state
+         }
 
-        // case 'UPDATE_PRODUCT':
-        //  return {
-        //      ...state
-        //  }
+        case 'UPDATE_PRODUCT':
+         return {
+             ...state
+         }
 
         case 'GET_DETAIL':
             return {
@@ -226,7 +226,7 @@ function rootReducer(state = initialState, action){
         case 'GET_USER_ID':
         return {
             ...state,
-            userr: action.payload
+            userrr: action.payload
         }
 
         case 'DELETE_USER':
@@ -236,14 +236,17 @@ function rootReducer(state = initialState, action){
 
         case 'UPDATE_USER':
             return {
-                ...state
+                ...state,
             }
 
         case 'SIGN_UP':
             return {
                 ...state
             }
-
+        case "LOGIN_ADMIN":
+            return{
+                ...state
+            }
 
 
 //------------------------------ CASE FILTERS ------------------------------------

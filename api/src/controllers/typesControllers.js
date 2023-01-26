@@ -25,4 +25,3 @@ allTypes();
 
 
 module.exports = { allTypes }
-

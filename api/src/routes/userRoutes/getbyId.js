@@ -11,7 +11,7 @@ router.get("/:id", async(req,res)=>{
         
         const user = await all.filter(e=> e.id == id)
         if(user.length){
-            res.status(200).send(await user)
+            res.status(200).send(user)
         }else{
             res.status(404).send("id incorrecto")
         }

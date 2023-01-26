@@ -36,6 +36,21 @@ export function LoginUser(payload){
     }
 }
 
+export function UserAdmin(payload){
+  return async function(dispatch){
+     try{
+        let json = await axios.post("http://localhost:3000/users/add", payload);
+        return dispatch({
+            type: "LOGIN_ADMIN",
+            payload: json
+        })
+     } catch(error){
+        console.log(error)
+     }
+  }
+}
+
+
 export function RegisterUser(payload){
     return async function(dispacth){
         await axios.post("http://localhost:3000/signUp", payload);
@@ -43,25 +58,25 @@ export function RegisterUser(payload){
 }
 
 
-// export function deleteProduct(id) {
-//     return async function(dispacth) {
-//         const json = await axios.delete(`http://localhost:3000/products/${id}`);
-//         return dispatch({
-//             type: 'DELETE_PRODUCT',
-//             payload: json.data
-//         });
-//     };
-// };
+export function deleteProduct(id) {
+    return async function(dispacth) {
+        const json = await axios.delete(`http://localhost:3000/products/${id}`);
+        return dispatch({
+            type: 'DELETE_PRODUCT',
+            payload: json.data
+        });
+    };
+};
 
-// export function updateProduct(id, payload) {
-//     return async function(dispatch) {
-//         const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
-//         return dispatch({
-//             type: 'UPDATE_PRODUCT',
-//             payload: json.data
-//         });
-//     };
-// };
+export function updateProduct(id, payload) {
+    return async function(dispatch) {
+        const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
+        return dispatch({
+            type: 'UPDATE_PRODUCT',
+            payload: json.data
+        });
+    };
+};
 
 export function getDetail(id) {
     return async function(dispatch) {
