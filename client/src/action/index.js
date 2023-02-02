@@ -43,25 +43,25 @@ export function RegisterUser(payload){
 }
 
 
-// export function deleteProduct(id) {
-//     return async function(dispacth) {
-//         const json = await axios.delete(`http://localhost:3000/products/${id}`);
-//         return dispatch({
-//             type: 'DELETE_PRODUCT',
-//             payload: json.data
-//         });
-//     };
-// };
+export function deleteProduct(id) {
+    return async function(dispacth) {
+        const json = await axios.delete(`http://localhost:3000/products/${id}`);
+        return dispatch({
+            type: 'DELETE_PRODUCT',
+            payload: json.data
+        });
+    };
+};
 
-// export function updateProduct(id, payload) {
-//     return async function(dispatch) {
-//         const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
-//         return dispatch({
-//             type: 'UPDATE_PRODUCT',
-//             payload: json.data
-//         });
-//     };
-// };
+export function updateProduct(id, payload) {
+    return async function(dispatch) {
+        const json = await axios.put(`http://localhost:3000/products/${id}`, payload);
+        return dispatch({
+            type: 'UPDATE_PRODUCT',
+            payload: json.data
+        });
+    };
+};
 
 export function getDetail(id) {
     return async function(dispatch) {
@@ -191,6 +191,17 @@ export function getTypes(){
 //     };
 // };
 
+
+ /* export function updateProduct(id) { 
+    return async function(dispatch) {
+        const json = await axios.update(`http://localhost:3000/products/${id}`);
+        return dispatch({
+            type: 'UPDATE_PRODUCT',
+            payload: json.data
+        });
+    };
+}; */
+
 // export function updateProduct(id) {
 //     return async function(dispatch) {
 //         const json = await axios.post("http://localhost:3000/types", payload);
@@ -200,6 +211,7 @@ export function getTypes(){
 //         });
 //     };
 // };
+
 
 // export function deleteType(id) {
 //     return async function(dispatch) {
@@ -379,23 +391,20 @@ export function getAllOrigins() {
         }
     }
     
-export function getWishlist(id) {
-    return async function(dispatch) {
-        const json = await axios.get(`http://localhost:3000/wishlist?userId=${id}`);
+    export function getWishlist(id) {
+        return async function(dispatch) {
+            const json = await axios.get(`http://localhost:3000/wishlist?userId=${id}`);
         return dispatch({
             type: 'GET_WISHLIST',
             payload: json.data
         });
     };
-};
+    };
 
-export function postWishlist(payload) {
+export function postWishlist(obj, id) {
     return async function(dispatch) {
-        const json = await axios.post("http://localhost:3000/wishlist", payload);
-        return dispatch({
-            type: 'POST_WISHLIST',
-            payload: json
-        })
+        return axios.post("http://localhost:3000/wishlist", obj)
+        .then((resp) => dispatch(getWishlist(id)))
     };
 };
 
@@ -404,6 +413,26 @@ export function deleteWishlist(id) {
         const json = await axios.delete(`http://localhost:3000/wishlist/delete/${id}`);
         return dispatch({
             type: 'DELETE_WISHLIST',
+        });
+    };
+};
+
+export function postReviews(payload) {
+    return async function(dispatch) {
+        const json = await axios.post("http://localhost:3000/review/addReview",payload);
+        return dispatch({
+            type: 'POST_REVIEWS',
+            payload: json.data
+        });
+    };
+};
+
+export function getReviews() {
+    return async function(dispatch) {
+        const json = await axios("http://localhost:3000/review");
+        return dispatch({
+            type: 'GET_REVIEWS',
+            payload: json.data
         });
     };
 };

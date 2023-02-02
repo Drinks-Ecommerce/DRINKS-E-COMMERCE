@@ -1,21 +1,108 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetail } from '../../action/index.js';
+import { getDetail, postReviews } from '../../action/index.js';
 
 import Encabezado from '../Encabezado/Encabezado.jsx';
 import Footer from '../Footer/Footer.jsx';
 import images from '../icons/images.js';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
+
+
 
 export default function Detail() {
 
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const details = useSelector(state => state.details);
+	
+	const user = useSelector(state => state.user);
+	
+	const isAuthenticated = useSelector(state => state.isAuthenticated);
 
+			let ids;
+			if(details.length) {
+    		ids = details[0].id;
+				}
+  
+	/* 
+			let userIdS;
+			if(user && user.data && user.data.userFound) {
+			userIdS = user.data.userFound.id;
+				} */
+
+			 	/* let userIdS;
+			if(user.length) {  
+			userIdS = user.id;
+				  }   */
+ 
+		console.log(user.id)
+	
+
+	  		const [rating, setRating] = useState(0);
+  
+  
+
+   
+			const handleClick = (selectedRating) => {
+			setRating(selectedRating);
+	 		};
+
+
+    		const [input, setInput] = useState({
+
+				userId:user.id, 
+				productId:ids,
+				calification:rating,
+				comment:'' 
+
+   			});
+
+	 console.log(input) 
+	 
+	
 	useEffect(() => {
 		dispatch(getDetail(id));
-	},[dispatch]);
+	},[]);
+
+
+		/* ************************************handles***************** */
+		
+
+		  const handlecoment = (e) => {
+			
+			setInput({
+			  ...input,
+			  calification: rating,  
+			  [e.target.name]: e.target.value, 
+			    
+			});
+		  };
+		  
+
+		/* ***************************************************************** */
+
+		
+	
+	  	const handleSubmit = (e) => {//hoy 12.26
+			
+    		e.preventDefault();
+			console.log(input)
+		
+    	 	 dispatch(postReviews(input)); 
+			  setInput({
+				userId:'',
+				productId:'',
+				calification:'',
+				comment:''
+			 }) 
+	 		 }; 
+
+	
 
 	return(
 
@@ -156,11 +243,81 @@ export default function Detail() {
       			</div>
     		</div>
 
+			
+
+<div>
+      {isAuthenticated ? (
+		
+        <div>
+           <form onSubmit={(e)=>handleSubmit(e)}>
+        <div>
+		
+          {[1, 2, 3, 4, 5].map((star) => (
+           <FontAwesomeIcon icon={faStar} 
+              key={star}
+              color={star <= rating ? '#ffc107' : '#e4e5e9'} //#ffc107=>AMARILLO #e4e5e9=>GRIS
+              onClick={() => handleClick(star)}
+            />
+          ))}
+		  
+        </div>
+
+
+		<br></br>
+		<br></br>
+
+       
+
+		<br></br>
+		<br></br>
+
+
+
+					<div>
+        				<textarea class="w-1/2  border border-solid border-gray-400 border border-solid border-gray-400 rounded p-2 text-base font-sans " 
+						type="text"
+          				placeholder="Escribe aquí tu comentario"
+						  name="comment"
+          				value={input.comment}
+          				onChange={(e)=>handlecoment(e)}
+        				/>
+					</div>
+
+  		<br></br>
+		<br></br>
+
+		<button class="px-4 py-2 bg-purple-300 hover:bg-purple-400 border   mb-3 rounded p-2 text-base font-sans mr-2"
+		 type="submit">
+       		 ENVIAR
+       	</button>
+
+
+      	</form>
+
+
+    </div>
+
+      ) : (
+
+        <div>
+			<Link to="/login">
+                <h1 class="bg-gray-300 text-black p-4 text-xl font-bold">Por favor inicia sesión para dejar una review</h1>  
+            </Link>
+			
+		</div>
+      )}
+    </div>
+
+
   		</div>
+		  
   
-	</div>				
+	</div>		
+
+		
 
 	<Footer />
 	</div>
 	)
 }
+

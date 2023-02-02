@@ -108,6 +108,10 @@ export default function Encabezado(){
                       <Link to={`/profile`}>
                         <h6 class="text-gray-400 font-normal text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700">Perfil</h6>
                       </Link>
+                      {
+                        Object.entries(User.length > 0) && User.roles[0].name === "admin" ? <Link to="/paneladmin">  <span class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent">Panel admin</span> </Link> : <span></span>
+  
+                      }   
                       
                       <li>
                         <hr class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25" />

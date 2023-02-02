@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { getProduct, getProducts } = require("../../controllers/productsController");
+const { encrypt } = require("../authRouter/helpers/handleBcrypt");
 const { User, Role} = require("../../db");
 const router = Router();
 const { encrypt } = require("../authRouter/helpers/handleBcrypt")

@@ -10,11 +10,12 @@ const initialState = {
     userr:[],
     wishlist: [],
     urlPayment:"",
-
+    isAuthenticated: false,
+    reviews:[],
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
     user: {},
     allProductsCart: {},
-    
+    userrr: [],
     // product: [], ruta echa para que se la use en el componente del admin para que pueda borrar y modificar el producto.
 
     msg: '',
@@ -32,6 +33,7 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allproducts: action.payload,
                 copyallproducts : action.payload
+               
         }   
 
         case 'CREATE_PRODUCTS':
@@ -90,15 +92,15 @@ function rootReducer(state = initialState, action){
 
 
 
-        // case 'DELETE_PRODUCT':
-        //  return {
-        //      ...state
-        //  }
+        case 'DELETE_PRODUCT':
+         return {
+             ...state
+         }
 
-        // case 'UPDATE_PRODUCT':
-        //  return {
-        //      ...state
-        //  }
+        case 'UPDATE_PRODUCT':
+         return {
+             ...state
+         }
 
         case 'GET_DETAIL':
             return {
@@ -149,14 +151,10 @@ function rootReducer(state = initialState, action){
             }
 
         case 'GET_WISHLIST':
+
             return {
                 ...state,
                 wishlist: action.payload
-            }
-
-        case 'POST_WISHLIST':
-            return {
-                ...state
             }
 
         case 'DELETE_WISHLIST':
@@ -219,6 +217,7 @@ function rootReducer(state = initialState, action){
             
                 return {
                     ...state,
+                    isAuthenticated: false,
                     user: {}
             }
 
@@ -231,7 +230,7 @@ function rootReducer(state = initialState, action){
         case 'GET_USER_ID':
         return {
             ...state,
-            userr: action.payload
+            userrr: action.payload
         }
 
         case 'DELETE_USER':
@@ -310,6 +309,7 @@ function rootReducer(state = initialState, action){
                 console.log({...state})
                 return {
                     ...state,
+                    isAuthenticated: true,
                     user: action.payload.data.userFound
         }
 
@@ -328,6 +328,21 @@ function rootReducer(state = initialState, action){
                 urlPayment:action.payload
             }
 
+
+            /* case "LOGOUT_USER":
+                return {
+                  ...state,
+                  isAuthenticated: false,
+                  user: {}
+                }; */
+
+                case 'POST_REVIEWS':
+                    return {
+                        ...state,
+                        reviews: action.payload
+        
+        
+                    }
 
 
 //-------------------------------- CASE DEFAULT --------------------------------------
